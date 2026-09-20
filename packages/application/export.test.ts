@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
-import { createAnalysisExport } from './export';
-import { parseChord } from '../domain/chord';
+import { createAnalysisExport, createTimelineExport } from './export';
+import { parseChord, fromHarte } from '../domain/chord';
 import type { SavedTrack } from '../domain/types';
 
 function savedTrack(name = 'After hours.wav'): SavedTrack {
@@ -52,6 +52,27 @@ function savedTrack(name = 'After hours.wav'): SavedTrack {
     ],
   };
 }
+
+it('exports corrected harmony as Harte lab intervals without discarding inversions', () => {
+  const record = savedTrack();
+  const result = createTimelineExport(record);
+  expect(result.filename).toBe('After hours.wav.lab');
+  expect(result.mediaType).toBe('text/plain');
+  const [start, end, symbol] = result.contents.trim().split('\t');
+  expect(Number(start)).toBe(0);
+  expect(Number(end)).toBe(4);
+  expect(fromHarte(symbol)).toEqual(record.analysis.segments[0].chord);
+  expect(result.contents.endsWith('\n')).toBe(true);
+});
+
+it('retains unknown and no-chord intervals and precise timestamps in timeline export', () => {
+  const record = savedTrack();
+  record.analysis.segments = [
+    { ...record.analysis.segments[0], start: 0.123456789, end: 1, chord: { kind: 'unknown' } },
+    { ...record.analysis.segments[0], id: 'next', start: 1, end: 4, chord: { kind: 'none' } },
+  ];
+  expect(createTimelineExport(record).contents).toBe('0.123456789\t1\tX\n1\t4\tN\n');
+});
 
 it('exports the full structured record, provenance and corrections as readable JSON', () => {
   const record = savedTrack();

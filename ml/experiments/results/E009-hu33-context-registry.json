@@ -1,0 +1,67 @@
+{
+  "schema": "harmonia-hu33-context-study-1",
+  "preflight": {
+    "started_utc": "2026-09-20T11:05:30.237262+00:00",
+    "protocol_sha256": "017867155d6f7a8cd11473220d66456879fa9e1e0ae7a40c58361d554e97b199",
+    "config_sha256": "afc9ae2816035fe26ef297be0be77575abb32970789a8dd76eda11c981befc91",
+    "available_ram_bytes": 15712808960,
+    "minimum_available_ram_bytes": 8589934592,
+    "source_sha256": {
+      "harmonia_ml\\__init__.py": "4327f27d8d6f57846e7930fe81e65db4b1b7502031ecfa01f44a849565fb9a83",
+      "harmonia_ml\\data\\__init__.py": "95976dade01a173724dd80bad4f92cd4bb379f62d03b48599d59d068d0c74c38",
+      "harmonia_ml\\data\\guitarset.py": "a66da6697ae5a05470918bc52efec7e8c2de780e3e57c62ea5320622d4cb78e3",
+      "harmonia_ml\\data\\labels.py": "00f121b6b6b00b96ae308c8615c69a088917064370e4822110771427c76e641a",
+      "harmonia_ml\\data\\prepare.py": "239314756fb296ef1402d25b0a6704d6d064675fdbc30580b457ffde8439132f",
+      "harmonia_ml\\data\\prepare_winterreise.py": "ebf36a5b39a633c20e87dc2b9d39148b9583dacb783b0c86c65ac0600f008c37",
+      "harmonia_ml\\data\\splits.py": "3d462f56ce0943332a6bf1233dff25bf58ba36b577a27cf4a5a10b331a25166e",
+      "harmonia_ml\\data\\winterreise.py": "227e88fb1771d5af49244ebf6ef21243235174688ecee06b7719446893cc881e",
+      "harmonia_ml\\evaluation\\__init__.py": "1ed9154aacef26e9e3ccdde032fccd20c09fa7742b75d97e79edb67ddab221a6",
+      "harmonia_ml\\evaluation\\boundaries.py": "12666ff471fa019dcced282161bf8a05fc0a078615762bfbfa03e2a4dd559ae2",
+      "harmonia_ml\\evaluation\\calibration.py": "0e623ab955f80182674c1627b99887d6766e6081c0b9057fb4ce389ca8edbca8",
+      "harmonia_ml\\evaluation\\freeze.py": "5f2f57591c24387234ddb2ea3e89af236f287dccb09d86e7dd1569e5cbdee7d8",
+      "harmonia_ml\\evaluation\\pretrained.py": "67deece644861a65c16c6d6fffbf8eb3b8ab8f8bf408d28b6012eec94bec6691",
+      "harmonia_ml\\evaluation\\registry.py": "a1f921f40913a522b51f033b6d026f035b71f312e97a0d7223fed804af2385a9",
+      "harmonia_ml\\evaluation\\report.py": "7541d1fb9224d7969d9427eec6eb258e69836cb6afb90876cec9e2fa633ef35c",
+      "harmonia_ml\\evaluation\\temperature.py": "ce270bdd40a6c4fd89f28b305c5038d801b297b310a662f1b6d4776f4375b624",
+      "harmonia_ml\\export\\__init__.py": "ca8eb64e969b770529be0d474d31d92cbd397bc660ff33321f6eb4b395c1fbd9",
+      "harmonia_ml\\export\\benchmark.py": "85b51fc0c74cae3b170963a8c1c625d3cc79c93921b7e52d4a81c43b4b89974c",
+      "harmonia_ml\\export\\lv_chordia.py": "c5c66f2184e9a5abda2bf050a75060075739c47b826c434703f5b5ecd3f6afb3",
+      "harmonia_ml\\export\\onnx.py": "6fbe5935be5c92edd8871845d8f123ebb19a13119853c3adef8fcbcdf49dd945",
+      "harmonia_ml\\features\\__init__.py": "8896d65084cd290c94cf4ebfdad37f1f3d502fa8a03a3437fd939ebb48e5cb26",
+      "harmonia_ml\\features\\extract.py": "9d8521f535bd45fd193a23e332468655bf2a805dc40ee838504d14d4f4c30bd4",
+      "harmonia_ml\\models\\__init__.py": "44bf4315ced15356b2b32be582bd44676d9f8925230cf0c3f1421f515838806e",
+      "harmonia_ml\\models\\dsp.py": "bb3a67214d28ad0e8008d8361fd0f2a3e262cbe15326bb548cd1bb6c4f3166a7",
+      "harmonia_ml\\models\\structured.py": "6a36a02d654111f9f0ef86574c2f6f9151dde01314fda4ba5ca9206da0a95974",
+      "harmonia_ml\\training\\__init__.py": "6f9c7508290fcc999fd852e3dd2720f18270dbd8b805a8b88e6d7fef1c1642a4",
+      "harmonia_ml\\training\\dataset.py": "06c426a130f818bb300ea444d29f6a2d35d847bef15cb89058b6984a6ffe13ec",
+      "harmonia_ml\\training\\runner.py": "0365991d9392f148bf0e6d252edc504d72225c3f52e205fb47ad726195d9ea14"
+    }
+  },
+  "protocol_snapshot": "experiments\\results\\E009-hu33-context-tcn\\protocol.md",
+  "protocol_sha256": "017867155d6f7a8cd11473220d66456879fa9e1e0ae7a40c58361d554e97b199",
+  "candidate": "E009-hu33-context-tcn",
+  "baseline": "E007-hu33-tcn",
+  "changed_scientific_parameter": {
+    "blocks": [
+      3,
+      6
+    ]
+  },
+  "confound": "Receptive field and parameter count both increase",
+  "checkpoint_sha256": "d32c9b249cc8a2c6d4bc682851a8f21cd97901f9e85f895c05f9d8603518e299",
+  "checkpoint_epoch_zero_based": 28,
+  "validation_report_sha256": "891fe30d8de70c6f92ec924d09f812135d3a8f1a3d0cb6971d654ad8821e36da",
+  "primary_score": 0.33026880200414893,
+  "baseline_primary_score": 0.3101950384153646,
+  "status": "Research leader; no production promotion or locked-test evaluation",
+  "test_evaluated": false,
+  "resources": {
+    "minimum_available_ram_bytes": 13267644416,
+    "maximum_sampled_process_tree_rss_bytes": 3109376000,
+    "sample_interval_seconds": 0.5,
+    "exit_code": 0,
+    "finished_utc": "2026-09-20T11:06:23.991119+00:00"
+  },
+  "training_seconds": 50.05002710002009,
+  "peak_torch_allocated_vram_bytes": 44507648
+}

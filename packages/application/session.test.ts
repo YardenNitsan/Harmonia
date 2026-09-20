@@ -40,6 +40,7 @@ function fixture(save: (record: SavedTrack) => Promise<void> = async () => {}) {
     position: 0,
     duration: 2,
     available: true,
+    volume: 1,
     playing: false,
     load: () => {},
     release: () => {},

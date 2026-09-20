@@ -1,0 +1,17 @@
+{
+  "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+  "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+  "startedAt": "2026-09-20T10:58:03.874Z",
+  "passed": true,
+  "checks": [
+    "hidden startup, isolated data, loopback-only debugging",
+    "packaged asset decoding, real worker DSP analysis, native IPC SQLite save",
+    "real media clock playback/seek, correction and favorite persisted in SQLite",
+    "packaged experimental E004 ONNX/WASM inference passes native CSP and preserves a second profile in SQLite",
+    "native process restart restores SQLite analysis, correction, favorite and detached-audio state"
+  ],
+  "pageErrors": [],
+  "cleanup": "owned native/WebView2 processes stopped, debug ports closed, synthetic temporary data removed",
+  "finishedAt": "2026-09-20T10:58:09.957Z",
+  "processLog": ""
+}

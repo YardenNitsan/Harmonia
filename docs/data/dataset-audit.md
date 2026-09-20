@@ -6,6 +6,12 @@ Unknown means not established from the inspected sources. Unknown counts must be
 
 ## Acquisition decision
 
+Continuation: the separately documented [public expansion audit](public-expansion-audit.md)
+approved only Winterreise HU33 publisher-declared PDM audio with CC BY 3.0 annotations,
+excluding restricted SC06 and composition01. Existing acquisition and preparation
+were verified in [the HU33 report](hu33-preparation-report.md); its jurisdiction and
+corpus-coverage caveats remain. E007–E009 use this subset's train/validation only.
+
 | Dataset                  | Default product training/evaluation                 | Main reason                                                                           |
 | ------------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | GuitarSet 1.1.0          | Approved with attribution                           | Real audio and annotations published CC BY 4.0                                        |

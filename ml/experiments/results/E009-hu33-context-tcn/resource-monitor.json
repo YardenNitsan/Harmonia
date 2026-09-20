@@ -1,0 +1,7 @@
+{
+  "minimum_available_ram_bytes": 13267644416,
+  "maximum_sampled_process_tree_rss_bytes": 3109376000,
+  "sample_interval_seconds": 0.5,
+  "exit_code": 0,
+  "finished_utc": "2026-09-20T11:06:23.991119+00:00"
+}

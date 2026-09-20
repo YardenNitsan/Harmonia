@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import type { SavedTrack } from '../../../packages/domain/types';
-import { createAnalysisExport } from '../../../packages/application/export';
+import { createAnalysisExport, createTimelineExport } from '../../../packages/application/export';
 import { downloadAnalysisExport } from '../../../packages/providers/browser-export';
 import { controller } from './composition';
 import { AppFooter, AppHeader, type AppTab } from './components/AppHeader';
@@ -73,6 +73,9 @@ export function App() {
               saveState={state.saveState}
               onFavorite={() => void controller.favorite()}
               onExport={exportAnalysis}
+              onExportTimeline={() => {
+                if (state.current) downloadAnalysisExport(createTimelineExport(state.current));
+              }}
               onLibrary={() => setTab('library')}
             />
             <PlaybackStage

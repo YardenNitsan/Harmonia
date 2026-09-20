@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { findSegmentIndex, transposeAnalysis } from '../../../../packages/domain/timeline';
 import type { Chord, SavedTrack } from '../../../../packages/domain/types';
+import type { ChordDisplayMode } from '../../../../packages/domain/notation';
 import type { SessionController } from '../../../../packages/application/session';
 import { ChordEditor } from './ChordEditor';
 import { ChordInspector } from './ChordInspector';
@@ -19,6 +20,8 @@ export function PlaybackStage({
 }) {
   const { time, playing, seek } = usePlaybackClock(controller.player);
   const [transpose, setTranspose] = useState(0),
+    [volume, setVolume] = useState(controller.player.volume),
+    [notation, setNotation] = useState<ChordDisplayMode>('advanced'),
     [editingId, setEditingId] = useState<string | null>(null),
     [loopId, setLoopId] = useState<string | null>(null),
     [loop, setLoop] = useState(false),
@@ -61,6 +64,7 @@ export function PlaybackStage({
   const changeVolume = useCallback(
     (value: number) => {
       controller.player.setVolume(value);
+      setVolume(controller.player.volume);
     },
     [controller],
   );
@@ -82,6 +86,7 @@ export function PlaybackStage({
           analysis={analysis}
           index={index}
           transpose={transpose}
+          notation={notation}
           playing={playing}
           beatIndex={beatIndex}
           onSeek={seek}
@@ -102,14 +107,27 @@ export function PlaybackStage({
         hasSegment={Boolean(segment)}
         loop={loop}
         speed={speed}
+        volume={volume}
         onSeek={seek}
         onTogglePlayback={togglePlayback}
         onToggleLoop={toggleLoop}
         onSpeedChange={changeSpeed}
         onVolumeChange={changeVolume}
       />
-      <Timeline analysis={analysis} time={time} index={index} onSeek={seek} />
-      <PracticeControls transpose={transpose} onChange={setTranspose} />
+      <Timeline analysis={analysis} time={time} index={index} onSeek={seek} notation={notation} />
+      <PracticeControls
+        transpose={transpose}
+        onChange={setTranspose}
+        mode={notation}
+        onModeChange={setNotation}
+        hasKey={analysis.key !== null}
+      />
+      {(notation === 'roman' || notation === 'nashville') && (
+        <p className="notice">
+          Degrees use the major scale relative to the displayed tonic, including in minor keys.
+          Local key changes are not inferred.
+        </p>
+      )}
       {!controller.player.available && (
         <p className="notice">
           Saved analysis loaded. Reopen its audio file to listen; your corrections are preserved.

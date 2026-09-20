@@ -25,6 +25,16 @@ Playwright added a ~380ms harness-side renderer upload stall; the file-path vers
 avoids that distortion. Remaining observed ~88ms long tasks are still reported. This
 developer-machine simulation is not actual weak-PC or full startup/animation certification.
 
+The continuation measures fast DSP and one-thread experimental CPU/WASM separately
+through analysis, playback, rapid seeks, repeated resize, saved-analysis reopening
+and cached audio reimport. JSON evidence is split into
+`browser-performance-fast.json` and `browser-performance-accurate.json`.
+It includes long tasks and maximum gaps rather than reporting only medians.
+The keyboard campaign covers 800px/2x DPI/reduced motion, native controls versus
+global shortcuts, named editor dialog, initial focus, focus containment, Escape
+and focus restoration. Notation and Harte timeline export are exercised against
+the original canonical chords even while the display is transposed.
+
 Screenshots/metrics live in `docs/review-evidence/`. Acoustic fixtures are numerical and
 interaction evidence, not a real-song benchmark. Frozen real-audio ML reports are in
 `ml/experiments/results/`; do not rerun test-guided model selection. Browser/native

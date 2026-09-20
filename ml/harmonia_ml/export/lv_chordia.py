@@ -13,6 +13,7 @@ import hashlib
 import json
 import time
 from collections import Counter
+from copy import deepcopy
 from importlib.metadata import distribution, version
 from pathlib import Path
 
@@ -69,6 +70,27 @@ class RawCQTModel(nn.Module):
         return self.network(cqt[:, :, 18:270].contiguous())
 
 
+class ExportInstanceNorm(nn.Module):
+    """Centered spatial normalization with explicit float64 accumulation.
+
+    ORT's float32 InstanceNormalization reductions drift on long sequences.
+    Keep the installed float32 PyTorch network as the independent reference;
+    only the export copy uses this more accurate, mathematically equivalent form.
+    """
+
+    def __init__(self, source: nn.InstanceNorm2d) -> None:
+        super().__init__()
+        if source.affine or source.track_running_stats:
+            raise ValueError("LV-Chordia export requires non-affine input-stat normalization")
+        self.eps = source.eps
+
+    def forward(self, values: torch.Tensor) -> torch.Tensor:
+        precise = values.to(torch.float64)
+        centered = precise - precise.mean(dim=(2, 3), keepdim=True)
+        variance = (centered * centered).mean(dim=(2, 3), keepdim=True)
+        return (centered / torch.sqrt(variance + self.eps)).to(values.dtype)
+
+
 def export_network(index: int, path: Path) -> tuple[RawCQTModel, ort.InferenceSession, dict]:
     if index not in range(5):
         raise ValueError("LV-Chordia has network indices 0..4")
@@ -95,6 +117,10 @@ def export_network(index: int, path: Path) -> tuple[RawCQTModel, ort.InferenceSe
     network.use_gpu = False
     network.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True)["net"])
     model = RawCQTModel(network).cpu().eval()
+    export_model = deepcopy(model)
+    for name, layer in export_model.network.audio_feature_block.named_children():
+        if isinstance(layer, nn.InstanceNorm2d):
+            setattr(export_model.network.audio_feature_block, name, ExportInstanceNorm(layer))
     path.parent.mkdir(parents=True, exist_ok=True)
     license_entry = next(item for item in package.files or [] if str(item).endswith("/LICENSE"))
     (path.parent / "LV-Chordia-LICENSE.txt").write_bytes(
@@ -103,7 +129,7 @@ def export_network(index: int, path: Path) -> tuple[RawCQTModel, ort.InferenceSe
     started = time.perf_counter()
     with torch.inference_mode():
         torch.onnx.export(
-            model,
+            export_model,
             torch.from_numpy(cqt_fixture(17)),
             str(path),
             input_names=["cqt"],
@@ -129,6 +155,8 @@ def export_network(index: int, path: Path) -> tuple[RawCQTModel, ort.InferenceSe
         "operators": dict(sorted(Counter(node.op_type for node in graph.graph.node).items())),
         "export_check_and_session_creation_seconds": time.perf_counter() - started,
         "providers": session.get_providers(),
+        "normalization_precision": "float64 centered spatial mean/variance; float32 layer output",
+        "reference_precision": "unchanged installed PyTorch float32 network",
     }
     return model, session, metadata
 
@@ -187,6 +215,50 @@ def compare_network(
     }
 
 
+def average_probabilities(networks: list[list[np.ndarray]]) -> list[np.ndarray]:
+    """Match the installed ensemble: mean of five per-network softmax outputs."""
+    if len(networks) != 5:
+        raise ValueError("The audited ensemble requires exactly five networks")
+    return [np.mean([network[index] for network in networks], axis=0) for index in range(6)]
+
+
+def compare_ensemble(
+    references: list[list[np.ndarray]], predictions: list[list[np.ndarray]], frames: int
+) -> dict:
+    from lv_chordia.extractors.xhmm_ismir import XHMMDecoder
+    from lv_chordia.mir import DataEntry
+
+    expected = average_probabilities(references)
+    actual = average_probabilities(predictions)
+    errors, disagreements = {}, {}
+    for name, reference, result in zip(HEADS, expected, actual, strict=True):
+        np.testing.assert_allclose(result, reference, atol=PROBABILITY_ATOL, rtol=LOGIT_RTOL)
+        errors[name] = float(np.max(np.abs(result - reference)))
+        disagreements[name] = int((result.argmax(-1) != reference.argmax(-1)).sum())
+    package = distribution("lv-chordia")
+    dictionary = Path(package.locate_file("lv_chordia/data/submission_chord_list.txt"))
+    decoder = XHMMDecoder(template_file=str(dictionary))
+    entry = DataEntry()
+    entry.prop.set("sr", 22050)
+    entry.prop.set("hop_length", 512)
+    reference_segments = decoder.decode_to_chordlab(entry, expected, False)
+    started = time.perf_counter()
+    actual_segments = decoder.decode_to_chordlab(entry, actual, False)
+    decoding_seconds = time.perf_counter() - started
+    if actual_segments != reference_segments:
+        raise AssertionError("Export changed installed submission-HMM segments")
+    return {
+        "frames": frames,
+        "allclose": True,
+        "max_absolute_probability_error": errors,
+        "argmax_disagreements": disagreements,
+        "hmm_segments_equal": True,
+        "hmm_segments": actual_segments,
+        "hmm_decode_seconds": decoding_seconds,
+        "dictionary_sha256": hashlib.sha256(dictionary.read_bytes()).hexdigest(),
+    }
+
+
 def export_study(output: Path, all_networks: bool, lengths: list[int]) -> dict:
     for frames in lengths:
         if not 1 <= frames <= MAX_RESEARCH_FRAMES:
@@ -195,28 +267,105 @@ def export_study(output: Path, all_networks: bool, lengths: list[int]) -> dict:
         raise ValueError("At least one full-sequence fixture is required")
     report = {
         "status": "numerical_export_research_only",
+        "acceptance": "incomplete",
         "purpose": "Procedural CQT-shaped parity, not accuracy or an end-to-end benchmark",
-        "versions": {name: version(name) for name in ("lv-chordia", "torch", "onnx", "onnxruntime", "numpy", "librosa")},
+        "versions": {
+            name: version(name)
+            for name in ("lv-chordia", "torch", "onnx", "onnxruntime", "numpy", "librosa")
+        },
         "device": "CPU only",
         "threads": {"pytorch": 2, "onnx_intra_op": 2, "onnx_inter_op": 1},
-        "input": {"name": "cqt", "shape": [1, "frames", 288], "dtype": "float32", "embedded_crop": "18:270"},
+        "input": {
+            "name": "cqt",
+            "shape": [1, "frames", 288],
+            "dtype": "float32",
+            "embedded_crop": "18:270",
+        },
         "outputs": dict(zip(HEADS, HEAD_SIZES, strict=True)),
-        "tolerances": {"logit_atol": LOGIT_ATOL, "rtol": LOGIT_RTOL, "probability_atol": PROBABILITY_ATOL},
+        "tolerances": {
+            "logit_atol": LOGIT_ATOL,
+            "rtol": LOGIT_RTOL,
+            "probability_atol": PROBABILITY_ATOL,
+        },
         "fixture": "numpy default_rng(7319+frames), lognormal(-2,0.8), linear envelope 0.2..1.2",
-        "sequence_policy": "Entire supplied sequence; instance normalization and bidirectional LSTM prohibit arbitrary chunks",
+        "sequence_policy": (
+            "Entire supplied sequence; instance normalization and bidirectional LSTM "
+            "prohibit arbitrary chunks"
+        ),
+        "exporter_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "preprocessing_contract": {
+            "status": (
+                "External installed CQTV2 retained; "
+                "no waveform preprocessing exported or benchmarked"
+            ),
+            "sample_rate": 22050,
+            "hop_length": 512,
+            "transform": "librosa hybrid_cqt magnitude, tuning=None",
+            "bins_per_octave": 36,
+            "bins": 288,
+            "fmin": "F#0",
+        },
+        "ensemble_contract": (
+            "Mean of five per-head float32 softmax distributions, then unchanged installed "
+            "submission XHMMDecoder; no beats/layer decoding"
+        ),
         "networks": [],
     }
+    references: dict[int, list[list[np.ndarray]]] = {frames: [] for frames in lengths}
+    predictions: dict[int, list[list[np.ndarray]]] = {frames: [] for frames in lengths}
     for index in range(5 if all_networks else 1):
         # Network 0 must pass every requested length before any later export begins.
         model, session, metadata = export_network(index, output / f"s{index}.onnx")
         metadata["parity"] = []
-        for frames in lengths:
-            metadata["parity"].append(compare_network(model, session, cqt_fixture(frames)))
-            print(f"network {index}, {frames} full-sequence frames: parity passed", flush=True)
         report["networks"].append(metadata)
+        for frames in lengths:
+            try:
+                metadata["parity"].append(compare_network(model, session, cqt_fixture(frames)))
+            except (AssertionError, ValueError, MemoryError) as error:
+                report["acceptance"] = "failed"
+                report["failure"] = {"network": index, "frames": frames, "message": str(error)}
+                (output / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+                raise
+            if all_networks:
+                values = cqt_fixture(frames)
+                with torch.inference_mode():
+                    references[frames].append(
+                        list(model.network.inference(torch.from_numpy(values[0])))
+                    )
+                predictions[frames].append(
+                    [
+                        torch.softmax(torch.from_numpy(logits), dim=-1).numpy()
+                        for logits in session.run(list(HEADS), {"cqt": values})
+                    ]
+                )
+            print(f"network {index}, {frames} full-sequence frames: parity passed", flush=True)
         (output / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
         del model, session
         gc.collect()
+    if all_networks:
+        report["ensemble"] = []
+        for length_index, frames in enumerate(lengths):
+            try:
+                result = compare_ensemble(references[frames], predictions[frames], frames)
+            except AssertionError as error:
+                report["acceptance"] = "failed"
+                report["failure"] = {"ensemble_frames": frames, "message": str(error)}
+                (output / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+                raise
+            result["sum_network_median_inference_seconds"] = {
+                runtime: sum(
+                    network["parity"][length_index]["median_inference_seconds"][runtime]
+                    for network in report["networks"]
+                )
+                for runtime in ("pytorch_cpu", "onnx_cpu")
+            }
+            result["timing_scope"] = (
+                "Sum of individually warmed network medians; excludes CQT, decoding, "
+                "session initialization, and ensemble averaging"
+            )
+            report["ensemble"].append(result)
+    report["acceptance"] = "passed_for_reported_fixtures_only"
+    (output / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     return report
 
 

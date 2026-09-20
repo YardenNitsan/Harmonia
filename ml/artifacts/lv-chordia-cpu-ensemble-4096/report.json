@@ -1,0 +1,1694 @@
+{
+  "status": "numerical_export_research_only",
+  "acceptance": "passed_for_reported_fixtures_only",
+  "purpose": "Procedural CQT-shaped parity, not accuracy or an end-to-end benchmark",
+  "versions": {
+    "lv-chordia": "1.1.0",
+    "torch": "2.11.0+cu128",
+    "onnx": "1.23.0",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.3",
+    "librosa": "1.0.0"
+  },
+  "device": "CPU only",
+  "threads": {
+    "pytorch": 2,
+    "onnx_intra_op": 2,
+    "onnx_inter_op": 1
+  },
+  "input": {
+    "name": "cqt",
+    "shape": [
+      1,
+      "frames",
+      288
+    ],
+    "dtype": "float32",
+    "embedded_crop": "18:270"
+  },
+  "outputs": {
+    "triad": 73,
+    "bass": 13,
+    "seventh": 4,
+    "ninth": 4,
+    "eleventh": 3,
+    "thirteenth": 3
+  },
+  "tolerances": {
+    "logit_atol": 5e-05,
+    "rtol": 0.0005,
+    "probability_atol": 1e-05
+  },
+  "fixture": "numpy default_rng(7319+frames), lognormal(-2,0.8), linear envelope 0.2..1.2",
+  "sequence_policy": "Entire supplied sequence; instance normalization and bidirectional LSTM prohibit arbitrary chunks",
+  "exporter_sha256": "c5c66f2184e9a5abda2bf050a75060075739c47b826c434703f5b5ecd3f6afb3",
+  "preprocessing_contract": {
+    "status": "External installed CQTV2 retained; no waveform preprocessing exported or benchmarked",
+    "sample_rate": 22050,
+    "hop_length": 512,
+    "transform": "librosa hybrid_cqt magnitude, tuning=None",
+    "bins_per_octave": 36,
+    "bins": 288,
+    "fmin": "F#0"
+  },
+  "ensemble_contract": "Mean of five per-head float32 softmax distributions, then unchanged installed submission XHMMDecoder; no beats/layer decoding",
+  "networks": [
+    {
+      "index": 0,
+      "checkpoint_name": "norm4b",
+      "checkpoint_sha256": "921b42d5d1cf9ce1c0c0e45a74d409b8066e0acec46058ef74e24ee0fb540761",
+      "checkpoint_bytes": 5746183,
+      "onnx_sha256": "27ab16d46d5017c80803871778f4012a27512ef92d8de0861c0aa0cea7a963de",
+      "onnx_bytes": 1899267,
+      "operators": {
+        "Add": 11,
+        "Cast": 20,
+        "Concat": 4,
+        "Constant": 53,
+        "ConstantOfShape": 1,
+        "Conv": 10,
+        "Div": 10,
+        "Gather": 2,
+        "LSTM": 1,
+        "MatMul": 1,
+        "MaxPool": 3,
+        "Mul": 11,
+        "ReduceMean": 20,
+        "Reshape": 4,
+        "Selu": 10,
+        "Shape": 2,
+        "Slice": 7,
+        "Sqrt": 10,
+        "Sub": 10,
+        "Transpose": 4,
+        "Unsqueeze": 6
+      },
+      "export_check_and_session_creation_seconds": 0.22104849998140708,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "normalization_precision": "float64 centered spatial mean/variance; float32 layer output",
+      "reference_precision": "unchanged installed PyTorch float32 network",
+      "parity": [
+        {
+          "frames": 1,
+          "hop_span_seconds": 0.023219954648526078,
+          "fixture_sha256": "0cfb41c0326bd35a8229b5631557941740f74855934fd93381a6b53b7e9ed67a",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 7.62939453125e-06,
+            "bass": 5.7220458984375e-06,
+            "seventh": 8.106231689453125e-06,
+            "ninth": 4.5299530029296875e-06,
+            "eleventh": 3.2186508178710938e-06,
+            "thirteenth": 1.9073486328125e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 3.2782554626464844e-07,
+            "bass": 1.0281801223754883e-06,
+            "seventh": 1.1920928955078125e-07,
+            "ninth": 8.046627044677734e-07,
+            "eleventh": 1.1324882507324219e-06,
+            "thirteenth": 5.364418029785156e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0008105000015348196,
+            "onnx_cpu": 0.0002948000037577003
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.034905322331724165,
+            "onnx_cpu": 0.012695976724330649
+          },
+          "process_rss_bytes": 622489600,
+          "process_lifetime_peak_rss_bytes": 633139200,
+          "available_ram_bytes_after": 16671797248
+        },
+        {
+          "frames": 17,
+          "hop_span_seconds": 0.3947392290249433,
+          "fixture_sha256": "d11d0657c4a41851edf451f6465847ed6ba80bc0c56e6a04fcb77a82969ad39c",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 6.9141387939453125e-06,
+            "bass": 4.0531158447265625e-06,
+            "seventh": 5.7220458984375e-06,
+            "ninth": 5.4836273193359375e-06,
+            "eleventh": 2.6226043701171875e-06,
+            "thirteenth": 3.337860107421875e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 9.685754776000977e-07,
+            "bass": 1.3113021850585938e-06,
+            "seventh": 4.172325134277344e-07,
+            "ninth": 4.172325134277344e-07,
+            "eleventh": 2.980232238769531e-07,
+            "thirteenth": 2.384185791015625e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0028748000040650368,
+            "onnx_cpu": 0.0021308000141289085
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.007282782638974502,
+            "onnx_cpu": 0.0053979940615283125
+          },
+          "process_rss_bytes": 626491392,
+          "process_lifetime_peak_rss_bytes": 633139200,
+          "available_ram_bytes_after": 16668950528
+        },
+        {
+          "frames": 128,
+          "hop_span_seconds": 2.972154195011338,
+          "fixture_sha256": "d55a2cf96d13ae28e51e59869242d1a5833570f5c916a61eda459a30f09e9448",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 1.52587890625e-05,
+            "bass": 1.800060272216797e-05,
+            "seventh": 8.58306884765625e-06,
+            "ninth": 8.106231689453125e-06,
+            "eleventh": 7.152557373046875e-06,
+            "thirteenth": 7.62939453125e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.4901161193847656e-06,
+            "bass": 1.0728836059570312e-06,
+            "seventh": 9.238719940185547e-07,
+            "ninth": 7.748603820800781e-07,
+            "eleventh": 4.172325134277344e-07,
+            "thirteenth": 4.76837158203125e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.01407369997468777,
+            "onnx_cpu": 0.012871299986727536
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.004735185004300924,
+            "onnx_cpu": 0.004330629954640841
+          },
+          "process_rss_bytes": 657223680,
+          "process_lifetime_peak_rss_bytes": 657223680,
+          "available_ram_bytes_after": 16633397248
+        },
+        {
+          "frames": 1024,
+          "hop_span_seconds": 23.777233560090703,
+          "fixture_sha256": "4d8ef6b602df72705526c6ab1e3e2e57bcda7e79a993a02715258c0d0e661442",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 2.4199485778808594e-05,
+            "bass": 1.8417835235595703e-05,
+            "seventh": 2.372264862060547e-05,
+            "ninth": 2.6732683181762695e-05,
+            "eleventh": 1.3828277587890625e-05,
+            "thirteenth": 1.7881393432617188e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 3.4570693969726562e-06,
+            "bass": 2.473592758178711e-06,
+            "seventh": 2.3245811462402344e-06,
+            "ninth": 3.7550926208496094e-06,
+            "eleventh": 1.2516975402832031e-06,
+            "thirteenth": 1.9669532775878906e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.11342519999016076,
+            "onnx_cpu": 0.15218299999833107
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.004770327872816171,
+            "onnx_cpu": 0.006400366115499878
+          },
+          "process_rss_bytes": 905445376,
+          "process_lifetime_peak_rss_bytes": 905445376,
+          "available_ram_bytes_after": 16441466880
+        },
+        {
+          "frames": 2048,
+          "hop_span_seconds": 47.55446712018141,
+          "fixture_sha256": "594804fe05d26010727955b04c57c9ccc2103a29b79d83c2666c9a46b1522d31",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 3.045797348022461e-05,
+            "bass": 1.659989356994629e-05,
+            "seventh": 2.8133392333984375e-05,
+            "ninth": 2.0742416381835938e-05,
+            "eleventh": 1.6927719116210938e-05,
+            "thirteenth": 2.47955322265625e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 4.678964614868164e-06,
+            "bass": 4.172325134277344e-06,
+            "seventh": 3.4570693969726562e-06,
+            "ninth": 3.606081008911133e-06,
+            "eleventh": 4.351139068603516e-06,
+            "thirteenth": 5.245208740234375e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.24698039999930188,
+            "onnx_cpu": 0.32358200001181103
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005193631954178435,
+            "onnx_cpu": 0.006804450130711015
+          },
+          "process_rss_bytes": 1236946944,
+          "process_lifetime_peak_rss_bytes": 1293737984,
+          "available_ram_bytes_after": 16175898624
+        },
+        {
+          "frames": 4096,
+          "hop_span_seconds": 95.10893424036281,
+          "fixture_sha256": "38d987f1532efd9c4700a7660023c3f9c43cade9f2e086a6f85db6a250e1ef76",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 6.127357482910156e-05,
+            "bass": 3.0472874641418457e-05,
+            "seventh": 8.487701416015625e-05,
+            "ninth": 4.649162292480469e-05,
+            "eleventh": 2.8133392333984375e-05,
+            "thirteenth": 2.9802322387695312e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 3.516674041748047e-06,
+            "bass": 4.4405460357666016e-06,
+            "seventh": 3.159046173095703e-06,
+            "ninth": 3.635883331298828e-06,
+            "eleventh": 4.26173210144043e-06,
+            "thirteenth": 7.033348083496094e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.49304999999003485,
+            "onnx_cpu": 0.6729711999942083
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.0051840555666829435,
+            "onnx_cpu": 0.007075793723999163
+          },
+          "process_rss_bytes": 1977237504,
+          "process_lifetime_peak_rss_bytes": 1991954432,
+          "available_ram_bytes_after": 15567302656
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "checkpoint_name": "norm4b",
+      "checkpoint_sha256": "bcb75859e0efa256696cf5da396b320093317b9b1d9560c304f46c25fe1f8b17",
+      "checkpoint_bytes": 5746175,
+      "onnx_sha256": "83f232831fcd6c6453a04d5cfc851cc30d6ac30f5fc5842b996a7e4d88e973e9",
+      "onnx_bytes": 1899267,
+      "operators": {
+        "Add": 11,
+        "Cast": 20,
+        "Concat": 4,
+        "Constant": 53,
+        "ConstantOfShape": 1,
+        "Conv": 10,
+        "Div": 10,
+        "Gather": 2,
+        "LSTM": 1,
+        "MatMul": 1,
+        "MaxPool": 3,
+        "Mul": 11,
+        "ReduceMean": 20,
+        "Reshape": 4,
+        "Selu": 10,
+        "Shape": 2,
+        "Slice": 7,
+        "Sqrt": 10,
+        "Sub": 10,
+        "Transpose": 4,
+        "Unsqueeze": 6
+      },
+      "export_check_and_session_creation_seconds": 0.14551840000785887,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "normalization_precision": "float64 centered spatial mean/variance; float32 layer output",
+      "reference_precision": "unchanged installed PyTorch float32 network",
+      "parity": [
+        {
+          "frames": 1,
+          "hop_span_seconds": 0.023219954648526078,
+          "fixture_sha256": "0cfb41c0326bd35a8229b5631557941740f74855934fd93381a6b53b7e9ed67a",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 1.4960765838623047e-05,
+            "bass": 1.1116266250610352e-05,
+            "seventh": 6.020069122314453e-06,
+            "ninth": 5.245208740234375e-06,
+            "eleventh": 9.5367431640625e-06,
+            "thirteenth": 5.751848220825195e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.9371509552001953e-07,
+            "bass": 4.731118679046631e-07,
+            "seventh": 1.0132789611816406e-06,
+            "ninth": 9.015202522277832e-07,
+            "eleventh": 1.9669532775878906e-06,
+            "thirteenth": 1.3709068298339844e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0008166999905370176,
+            "onnx_cpu": 0.00031620002118870616
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.035172333576838355,
+            "onnx_cpu": 0.013617598568771427
+          },
+          "process_rss_bytes": 1065267200,
+          "process_lifetime_peak_rss_bytes": 1991954432,
+          "available_ram_bytes_after": 16443498496
+        },
+        {
+          "frames": 17,
+          "hop_span_seconds": 0.3947392290249433,
+          "fixture_sha256": "d11d0657c4a41851edf451f6465847ed6ba80bc0c56e6a04fcb77a82969ad39c",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 9.059906005859375e-06,
+            "bass": 6.318092346191406e-06,
+            "seventh": 3.337860107421875e-06,
+            "ninth": 3.337860107421875e-06,
+            "eleventh": 5.245208740234375e-06,
+            "thirteenth": 6.67572021484375e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.2665987014770508e-06,
+            "bass": 1.5497207641601562e-06,
+            "seventh": 1.4901161193847656e-06,
+            "ninth": 4.76837158203125e-07,
+            "eleventh": 1.1920928955078125e-07,
+            "thirteenth": 1.1920928955078125e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0031922000052873045,
+            "onnx_cpu": 0.0025873999984469265
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.008086857779938542,
+            "onnx_cpu": 0.006554707027315571
+          },
+          "process_rss_bytes": 1062993920,
+          "process_lifetime_peak_rss_bytes": 1991954432,
+          "available_ram_bytes_after": 16443879424
+        },
+        {
+          "frames": 128,
+          "hop_span_seconds": 2.972154195011338,
+          "fixture_sha256": "d55a2cf96d13ae28e51e59869242d1a5833570f5c916a61eda459a30f09e9448",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 2.765655517578125e-05,
+            "bass": 1.0728836059570312e-05,
+            "seventh": 1.5497207641601562e-05,
+            "ninth": 1.1682510375976562e-05,
+            "eleventh": 1.4066696166992188e-05,
+            "thirteenth": 8.791685104370117e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.9669532775878906e-06,
+            "bass": 1.7285346984863281e-06,
+            "seventh": 1.6838312149047852e-06,
+            "ninth": 1.8477439880371094e-06,
+            "eleventh": 1.7583370208740234e-06,
+            "thirteenth": 2.1457672119140625e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.014321399998152629,
+            "onnx_cpu": 0.015000499988673255
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.00481852523741555,
+            "onnx_cpu": 0.005047012706760334
+          },
+          "process_rss_bytes": 1089368064,
+          "process_lifetime_peak_rss_bytes": 1991954432,
+          "available_ram_bytes_after": 16402055168
+        },
+        {
+          "frames": 1024,
+          "hop_span_seconds": 23.777233560090703,
+          "fixture_sha256": "4d8ef6b602df72705526c6ab1e3e2e57bcda7e79a993a02715258c0d0e661442",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 3.147125244140625e-05,
+            "bass": 2.3245811462402344e-05,
+            "seventh": 1.52587890625e-05,
+            "ninth": 1.9073486328125e-05,
+            "eleventh": 1.3589859008789062e-05,
+            "thirteenth": 1.52587890625e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 2.9653310775756836e-06,
+            "bass": 4.827976226806641e-06,
+            "seventh": 2.9206275939941406e-06,
+            "ninth": 3.3974647521972656e-06,
+            "eleventh": 3.3974647521972656e-06,
+            "thirteenth": 2.8908252716064453e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.13782100001117215,
+            "onnx_cpu": 0.16469430000870489
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005796342945568744,
+            "onnx_cpu": 0.00692655432737721
+          },
+          "process_rss_bytes": 1310830592,
+          "process_lifetime_peak_rss_bytes": 1991954432,
+          "available_ram_bytes_after": 15863148544
+        },
+        {
+          "frames": 2048,
+          "hop_span_seconds": 47.55446712018141,
+          "fixture_sha256": "594804fe05d26010727955b04c57c9ccc2103a29b79d83c2666c9a46b1522d31",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 0.00014209747314453125,
+            "bass": 0.00010001659393310547,
+            "seventh": 8.082389831542969e-05,
+            "ninth": 3.719329833984375e-05,
+            "eleventh": 4.863739013671875e-05,
+            "thirteenth": 3.4332275390625e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.7091631889343262e-05,
+            "bass": 1.9937753677368164e-05,
+            "seventh": 5.781650543212891e-06,
+            "ninth": 5.781650543212891e-06,
+            "eleventh": 5.21540641784668e-06,
+            "thirteenth": 4.708766937255859e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.26652740000281483,
+            "onnx_cpu": 0.33852289998321794
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005604676408826892,
+            "onnx_cpu": 0.007118635124807315
+          },
+          "process_rss_bytes": 1512394752,
+          "process_lifetime_peak_rss_bytes": 1991954432,
+          "available_ram_bytes_after": 15262683136
+        },
+        {
+          "frames": 4096,
+          "hop_span_seconds": 95.10893424036281,
+          "fixture_sha256": "38d987f1532efd9c4700a7660023c3f9c43cade9f2e086a6f85db6a250e1ef76",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 7.56978988647461e-05,
+            "bass": 3.6716461181640625e-05,
+            "seventh": 3.7670135498046875e-05,
+            "ninth": 3.0994415283203125e-05,
+            "eleventh": 1.7881393432617188e-05,
+            "thirteenth": 2.193450927734375e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 3.248453140258789e-06,
+            "bass": 3.6656856536865234e-06,
+            "seventh": 5.900859832763672e-06,
+            "ninth": 5.4836273193359375e-06,
+            "eleventh": 5.0067901611328125e-06,
+            "thirteenth": 4.172325134277344e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.5277674999961164,
+            "onnx_cpu": 0.6962483999959659
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005549084365327056,
+            "onnx_cpu": 0.007320536241488956
+          },
+          "process_rss_bytes": 1983336448,
+          "process_lifetime_peak_rss_bytes": 2012958720,
+          "available_ram_bytes_after": 14951018496
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "checkpoint_name": "norm4b",
+      "checkpoint_sha256": "acddf85c3fff29954c4877021177d72e2cba9f729ce80c1010f054c477bf3f61",
+      "checkpoint_bytes": 5746179,
+      "onnx_sha256": "78370ba121f232126b3d416d8e3e5bfdd5a9df5094600fe6ccad17c3acff5e96",
+      "onnx_bytes": 1899267,
+      "operators": {
+        "Add": 11,
+        "Cast": 20,
+        "Concat": 4,
+        "Constant": 53,
+        "ConstantOfShape": 1,
+        "Conv": 10,
+        "Div": 10,
+        "Gather": 2,
+        "LSTM": 1,
+        "MatMul": 1,
+        "MaxPool": 3,
+        "Mul": 11,
+        "ReduceMean": 20,
+        "Reshape": 4,
+        "Selu": 10,
+        "Shape": 2,
+        "Slice": 7,
+        "Sqrt": 10,
+        "Sub": 10,
+        "Transpose": 4,
+        "Unsqueeze": 6
+      },
+      "export_check_and_session_creation_seconds": 0.14987339999061078,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "normalization_precision": "float64 centered spatial mean/variance; float32 layer output",
+      "reference_precision": "unchanged installed PyTorch float32 network",
+      "parity": [
+        {
+          "frames": 1,
+          "hop_span_seconds": 0.023219954648526078,
+          "fixture_sha256": "0cfb41c0326bd35a8229b5631557941740f74855934fd93381a6b53b7e9ed67a",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 4.5299530029296875e-06,
+            "bass": 4.649162292480469e-06,
+            "seventh": 3.5762786865234375e-07,
+            "ninth": 1.7881393432617188e-06,
+            "eleventh": 1.1920928955078125e-06,
+            "thirteenth": 4.172325134277344e-07
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.4156103134155273e-07,
+            "bass": 5.513429641723633e-07,
+            "seventh": 1.1920928955078125e-07,
+            "ninth": 9.685754776000977e-08,
+            "eleventh": 5.960464477539063e-08,
+            "thirteenth": 5.960464477539063e-08
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0008834000036586076,
+            "onnx_cpu": 0.00028349997592158616
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.03804486343881308,
+            "onnx_cpu": 0.012209325134904248
+          },
+          "process_rss_bytes": 1076514816,
+          "process_lifetime_peak_rss_bytes": 2012958720,
+          "available_ram_bytes_after": 15871242240
+        },
+        {
+          "frames": 17,
+          "hop_span_seconds": 0.3947392290249433,
+          "fixture_sha256": "d11d0657c4a41851edf451f6465847ed6ba80bc0c56e6a04fcb77a82969ad39c",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 5.245208740234375e-06,
+            "bass": 3.0994415283203125e-06,
+            "seventh": 4.76837158203125e-06,
+            "ninth": 3.814697265625e-06,
+            "eleventh": 3.814697265625e-06,
+            "thirteenth": 2.384185791015625e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 4.172325134277344e-07,
+            "bass": 4.172325134277344e-07,
+            "seventh": 4.172325134277344e-07,
+            "ninth": 1.1920928955078125e-07,
+            "eleventh": 1.1920928955078125e-07,
+            "thirteenth": 1.1920928955078125e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.002736800001002848,
+            "onnx_cpu": 0.002188899990869686
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.006933184745187592,
+            "onnx_cpu": 0.005545179779259717
+          },
+          "process_rss_bytes": 1074233344,
+          "process_lifetime_peak_rss_bytes": 2012958720,
+          "available_ram_bytes_after": 15873728512
+        },
+        {
+          "frames": 128,
+          "hop_span_seconds": 2.972154195011338,
+          "fixture_sha256": "d55a2cf96d13ae28e51e59869242d1a5833570f5c916a61eda459a30f09e9448",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 7.62939453125e-06,
+            "bass": 4.291534423828125e-06,
+            "seventh": 4.291534423828125e-06,
+            "ninth": 5.7220458984375e-06,
+            "eleventh": 5.7220458984375e-06,
+            "thirteenth": 3.814697265625e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 6.556510925292969e-07,
+            "bass": 5.364418029785156e-07,
+            "seventh": 5.364418029785156e-07,
+            "ninth": 1.1920928955078125e-07,
+            "eleventh": 1.1920928955078125e-07,
+            "thirteenth": 1.4156103134155273e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.014585800003260374,
+            "onnx_cpu": 0.013499099994078279
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.004907484284544239,
+            "onnx_cpu": 0.004541857221518342
+          },
+          "process_rss_bytes": 1100091392,
+          "process_lifetime_peak_rss_bytes": 2012958720,
+          "available_ram_bytes_after": 15860916224
+        },
+        {
+          "frames": 1024,
+          "hop_span_seconds": 23.777233560090703,
+          "fixture_sha256": "4d8ef6b602df72705526c6ab1e3e2e57bcda7e79a993a02715258c0d0e661442",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 1.0967254638671875e-05,
+            "bass": 6.67572021484375e-06,
+            "seventh": 6.318092346191406e-06,
+            "ninth": 7.3909759521484375e-06,
+            "eleventh": 1.0013580322265625e-05,
+            "thirteenth": 8.58306884765625e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 5.960464477539062e-07,
+            "bass": 4.76837158203125e-07,
+            "seventh": 1.5795230865478516e-06,
+            "ninth": 7.450580596923828e-07,
+            "eleventh": 2.384185791015625e-07,
+            "thirteenth": 8.344650268554688e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.12688799999887124,
+            "onnx_cpu": 0.1525930999778211
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005336533355665418,
+            "onnx_cpu": 0.006417613705655967
+          },
+          "process_rss_bytes": 1312440320,
+          "process_lifetime_peak_rss_bytes": 2012958720,
+          "available_ram_bytes_after": 15666593792
+        },
+        {
+          "frames": 2048,
+          "hop_span_seconds": 47.55446712018141,
+          "fixture_sha256": "594804fe05d26010727955b04c57c9ccc2103a29b79d83c2666c9a46b1522d31",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 2.09808349609375e-05,
+            "bass": 6.67572021484375e-06,
+            "seventh": 1.4781951904296875e-05,
+            "ninth": 1.3828277587890625e-05,
+            "eleventh": 1.7642974853515625e-05,
+            "thirteenth": 1.430511474609375e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 5.960464477539062e-07,
+            "bass": 4.76837158203125e-07,
+            "seventh": 3.3974647521972656e-06,
+            "ninth": 5.960464477539062e-07,
+            "eleventh": 1.1920928955078125e-07,
+            "thirteenth": 1.043081283569336e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.2568459000030998,
+            "onnx_cpu": 0.32640929997432977
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005401088805263854,
+            "onnx_cpu": 0.006863904060777637
+          },
+          "process_rss_bytes": 1542737920,
+          "process_lifetime_peak_rss_bytes": 2012958720,
+          "available_ram_bytes_after": 15643070464
+        },
+        {
+          "frames": 4096,
+          "hop_span_seconds": 95.10893424036281,
+          "fixture_sha256": "38d987f1532efd9c4700a7660023c3f9c43cade9f2e086a6f85db6a250e1ef76",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 1.2874603271484375e-05,
+            "bass": 7.033348083496094e-06,
+            "seventh": 8.106231689453125e-06,
+            "ninth": 9.775161743164062e-06,
+            "eleventh": 7.152557373046875e-06,
+            "thirteenth": 1.0013580322265625e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 4.172325134277344e-07,
+            "bass": 3.5762786865234375e-07,
+            "seventh": 7.897615432739258e-07,
+            "ninth": 6.258487701416016e-07,
+            "eleventh": 1.1920928955078125e-07,
+            "thirteenth": 1.3709068298339844e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.4969214999873657,
+            "onnx_cpu": 0.6924745999858715
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005224761521683413,
+            "onnx_cpu": 0.007280857529491647
+          },
+          "process_rss_bytes": 2013466624,
+          "process_lifetime_peak_rss_bytes": 2013990912,
+          "available_ram_bytes_after": 15247060992
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "checkpoint_name": "norm4b",
+      "checkpoint_sha256": "65d81a3ab73435aaaade586981b4cabdf57b8953d76052703e6968c32ef8421c",
+      "checkpoint_bytes": 5746175,
+      "onnx_sha256": "6c63a96c320a0863989dca6eb651039b0f8caaa51dd9473a7e8373b6276a2fce",
+      "onnx_bytes": 1899267,
+      "operators": {
+        "Add": 11,
+        "Cast": 20,
+        "Concat": 4,
+        "Constant": 53,
+        "ConstantOfShape": 1,
+        "Conv": 10,
+        "Div": 10,
+        "Gather": 2,
+        "LSTM": 1,
+        "MatMul": 1,
+        "MaxPool": 3,
+        "Mul": 11,
+        "ReduceMean": 20,
+        "Reshape": 4,
+        "Selu": 10,
+        "Shape": 2,
+        "Slice": 7,
+        "Sqrt": 10,
+        "Sub": 10,
+        "Transpose": 4,
+        "Unsqueeze": 6
+      },
+      "export_check_and_session_creation_seconds": 0.13481220000539906,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "normalization_precision": "float64 centered spatial mean/variance; float32 layer output",
+      "reference_precision": "unchanged installed PyTorch float32 network",
+      "parity": [
+        {
+          "frames": 1,
+          "hop_span_seconds": 0.023219954648526078,
+          "fixture_sha256": "0cfb41c0326bd35a8229b5631557941740f74855934fd93381a6b53b7e9ed67a",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 4.76837158203125e-06,
+            "bass": 4.172325134277344e-06,
+            "seventh": 2.7120113372802734e-06,
+            "ninth": 3.0994415283203125e-06,
+            "eleventh": 2.86102294921875e-06,
+            "thirteenth": 1.1920928955078125e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 2.4586915969848633e-07,
+            "bass": 3.8743019104003906e-07,
+            "seventh": 7.450580596923828e-07,
+            "ninth": 4.3213367462158203e-07,
+            "eleventh": 2.086162567138672e-07,
+            "thirteenth": 3.5762786865234375e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0009035000111907721,
+            "onnx_cpu": 0.00030869999318383634
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.038910498528821336,
+            "onnx_cpu": 0.013294599315827327
+          },
+          "process_rss_bytes": 1084542976,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 16178753536
+        },
+        {
+          "frames": 17,
+          "hop_span_seconds": 0.3947392290249433,
+          "fixture_sha256": "d11d0657c4a41851edf451f6465847ed6ba80bc0c56e6a04fcb77a82969ad39c",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 8.106231689453125e-06,
+            "bass": 6.67572021484375e-06,
+            "seventh": 4.76837158203125e-06,
+            "ninth": 5.245208740234375e-06,
+            "eleventh": 2.86102294921875e-06,
+            "thirteenth": 4.76837158203125e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 9.834766387939453e-07,
+            "bass": 1.8775463104248047e-06,
+            "seventh": 2.980232238769531e-07,
+            "ninth": 2.384185791015625e-07,
+            "eleventh": 1.5366822481155396e-08,
+            "thirteenth": 2.384185791015625e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0027774999907705933,
+            "onnx_cpu": 0.0019391000096220523
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.007036290762464566,
+            "onnx_cpu": 0.004912356986691895
+          },
+          "process_rss_bytes": 1082818560,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 16180625408
+        },
+        {
+          "frames": 128,
+          "hop_span_seconds": 2.972154195011338,
+          "fixture_sha256": "d55a2cf96d13ae28e51e59869242d1a5833570f5c916a61eda459a30f09e9448",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 1.6689300537109375e-05,
+            "bass": 1.3470649719238281e-05,
+            "seventh": 1.430511474609375e-05,
+            "ninth": 6.67572021484375e-06,
+            "eleventh": 5.245208740234375e-06,
+            "thirteenth": 4.0531158447265625e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 2.086162567138672e-06,
+            "bass": 1.7881393432617188e-06,
+            "seventh": 1.0132789611816406e-06,
+            "ninth": 8.344650268554688e-07,
+            "eleventh": 3.5762786865234375e-07,
+            "thirteenth": 3.5762786865234375e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.013862200023140758,
+            "onnx_cpu": 0.014507399988360703
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.004664024513401088,
+            "onnx_cpu": 0.004881106105703026
+          },
+          "process_rss_bytes": 1107972096,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 16162168832
+        },
+        {
+          "frames": 1024,
+          "hop_span_seconds": 23.777233560090703,
+          "fixture_sha256": "4d8ef6b602df72705526c6ab1e3e2e57bcda7e79a993a02715258c0d0e661442",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 3.0517578125e-05,
+            "bass": 1.621246337890625e-05,
+            "seventh": 2.1457672119140625e-05,
+            "ninth": 2.2709369659423828e-05,
+            "eleventh": 1.5020370483398438e-05,
+            "thirteenth": 2.0742416381835938e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 2.2798776626586914e-06,
+            "bass": 3.039836883544922e-06,
+            "seventh": 4.351139068603516e-06,
+            "ninth": 4.559755325317383e-06,
+            "eleventh": 1.8775463104248047e-06,
+            "thirteenth": 2.3245811462402344e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.11932669999077916,
+            "onnx_cpu": 0.15306139999302104
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005018527478783952,
+            "onnx_cpu": 0.006437309016887882
+          },
+          "process_rss_bytes": 1311408128,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 15967227904
+        },
+        {
+          "frames": 2048,
+          "hop_span_seconds": 47.55446712018141,
+          "fixture_sha256": "594804fe05d26010727955b04c57c9ccc2103a29b79d83c2666c9a46b1522d31",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 4.792213439941406e-05,
+            "bass": 2.491474151611328e-05,
+            "seventh": 2.3365020751953125e-05,
+            "ninth": 2.4080276489257812e-05,
+            "eleventh": 1.6927719116210938e-05,
+            "thirteenth": 1.71661376953125e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 4.708766937255859e-06,
+            "bass": 4.678964614868164e-06,
+            "seventh": 3.7848949432373047e-06,
+            "ninth": 4.380941390991211e-06,
+            "eleventh": 2.086162567138672e-06,
+            "thirteenth": 2.294778823852539e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.25136949997977354,
+            "onnx_cpu": 0.3302788000146393
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.00528592822509194,
+            "onnx_cpu": 0.0069452739146450004
+          },
+          "process_rss_bytes": 1532497920,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 15756099584
+        },
+        {
+          "frames": 4096,
+          "hop_span_seconds": 95.10893424036281,
+          "fixture_sha256": "38d987f1532efd9c4700a7660023c3f9c43cade9f2e086a6f85db6a250e1ef76",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 5.1975250244140625e-05,
+            "bass": 1.9073486328125e-05,
+            "seventh": 3.364682197570801e-05,
+            "ninth": 3.647804260253906e-05,
+            "eleventh": 1.7762184143066406e-05,
+            "thirteenth": 1.990795135498047e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 5.0067901611328125e-06,
+            "bass": 5.3942203521728516e-06,
+            "seventh": 5.036592483520508e-06,
+            "ninth": 9.5367431640625e-06,
+            "eleventh": 2.8014183044433594e-06,
+            "thirteenth": 4.351139068603516e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.5006607999966945,
+            "onnx_cpu": 0.6803311000112444
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.0052640774917254995,
+            "onnx_cpu": 0.00715317762148282
+          },
+          "process_rss_bytes": 2013335552,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 15304478720
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "checkpoint_name": "norm4b",
+      "checkpoint_sha256": "5ff6b0ec85640e17a09a9b3de68c93fdd45adc24488e8fa9be5715c28d561122",
+      "checkpoint_bytes": 5746227,
+      "onnx_sha256": "4fab874d85eda1ebc4b334a431a86f10023b3abb7c648cc681b569e5e299ab7d",
+      "onnx_bytes": 1899267,
+      "operators": {
+        "Add": 11,
+        "Cast": 20,
+        "Concat": 4,
+        "Constant": 53,
+        "ConstantOfShape": 1,
+        "Conv": 10,
+        "Div": 10,
+        "Gather": 2,
+        "LSTM": 1,
+        "MatMul": 1,
+        "MaxPool": 3,
+        "Mul": 11,
+        "ReduceMean": 20,
+        "Reshape": 4,
+        "Selu": 10,
+        "Shape": 2,
+        "Slice": 7,
+        "Sqrt": 10,
+        "Sub": 10,
+        "Transpose": 4,
+        "Unsqueeze": 6
+      },
+      "export_check_and_session_creation_seconds": 0.15575540001736954,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "normalization_precision": "float64 centered spatial mean/variance; float32 layer output",
+      "reference_precision": "unchanged installed PyTorch float32 network",
+      "parity": [
+        {
+          "frames": 1,
+          "hop_span_seconds": 0.023219954648526078,
+          "fixture_sha256": "0cfb41c0326bd35a8229b5631557941740f74855934fd93381a6b53b7e9ed67a",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 7.867813110351562e-06,
+            "bass": 3.7550926208496094e-06,
+            "seventh": 7.927417755126953e-06,
+            "ninth": 4.827976226806641e-06,
+            "eleventh": 3.6545097827911377e-06,
+            "thirteenth": 1.7583370208740234e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.7136335372924805e-07,
+            "bass": 6.258487701416016e-07,
+            "seventh": 9.5367431640625e-07,
+            "ninth": 1.3709068298339844e-06,
+            "eleventh": 1.1622905731201172e-06,
+            "thirteenth": 5.066394805908203e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0007932999869808555,
+            "onnx_cpu": 0.00028310000197961926
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.03416457951743723,
+            "onnx_cpu": 0.012192099694630087
+          },
+          "process_rss_bytes": 1090609152,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 16226574336
+        },
+        {
+          "frames": 17,
+          "hop_span_seconds": 0.3947392290249433,
+          "fixture_sha256": "d11d0657c4a41851edf451f6465847ed6ba80bc0c56e6a04fcb77a82969ad39c",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 7.53253698348999e-06,
+            "bass": 4.291534423828125e-06,
+            "seventh": 6.198883056640625e-06,
+            "ninth": 2.86102294921875e-06,
+            "eleventh": 2.384185791015625e-06,
+            "thirteenth": 2.86102294921875e-06
+          },
+          "max_absolute_probability_error": {
+            "triad": 7.152557373046875e-07,
+            "bass": 6.258487701416016e-07,
+            "seventh": 3.5762786865234375e-07,
+            "ninth": 1.7881393432617188e-07,
+            "eleventh": 1.1920928955078125e-07,
+            "thirteenth": 1.4901161193847656e-07
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.0028065999795217067,
+            "onnx_cpu": 0.0019592000171542168
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.0071100102881955,
+            "onnx_cpu": 0.004963276697868851
+          },
+          "process_rss_bytes": 1088430080,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 16228630528
+        },
+        {
+          "frames": 128,
+          "hop_span_seconds": 2.972154195011338,
+          "fixture_sha256": "d55a2cf96d13ae28e51e59869242d1a5833570f5c916a61eda459a30f09e9448",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 2.5033950805664062e-05,
+            "bass": 1.1324882507324219e-05,
+            "seventh": 1.1682510375976562e-05,
+            "ninth": 8.821487426757812e-06,
+            "eleventh": 8.58306884765625e-06,
+            "thirteenth": 1.049041748046875e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.817941665649414e-06,
+            "bass": 1.4603137969970703e-06,
+            "seventh": 2.682209014892578e-06,
+            "ninth": 1.3709068298339844e-06,
+            "eleventh": 5.364418029785156e-07,
+            "thirteenth": 1.8477439880371094e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.015373000002000481,
+            "onnx_cpu": 0.014314300002297387
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.00517234268255784,
+            "onnx_cpu": 0.0048161363990884
+          },
+          "process_rss_bytes": 1115328512,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 16218669056
+        },
+        {
+          "frames": 1024,
+          "hop_span_seconds": 23.777233560090703,
+          "fixture_sha256": "4d8ef6b602df72705526c6ab1e3e2e57bcda7e79a993a02715258c0d0e661442",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 3.9577484130859375e-05,
+            "bass": 3.695487976074219e-05,
+            "seventh": 3.6716461181640625e-05,
+            "ninth": 1.430511474609375e-05,
+            "eleventh": 1.811981201171875e-05,
+            "thirteenth": 2.4318695068359375e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 8.64267349243164e-06,
+            "bass": 8.702278137207031e-06,
+            "seventh": 2.771615982055664e-06,
+            "ninth": 2.294778823852539e-06,
+            "eleventh": 2.1457672119140625e-06,
+            "thirteenth": 1.6093254089355469e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.12371869999333285,
+            "onnx_cpu": 0.15002430000458844
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005203241986947993,
+            "onnx_cpu": 0.00630957758922801
+          },
+          "process_rss_bytes": 1316532224,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 16013484032
+        },
+        {
+          "frames": 2048,
+          "hop_span_seconds": 47.55446712018141,
+          "fixture_sha256": "594804fe05d26010727955b04c57c9ccc2103a29b79d83c2666c9a46b1522d31",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 3.8623809814453125e-05,
+            "bass": 2.09808349609375e-05,
+            "seventh": 2.956390380859375e-05,
+            "ninth": 2.002716064453125e-05,
+            "eleventh": 1.6689300537109375e-05,
+            "thirteenth": 2.0503997802734375e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 2.652406692504883e-06,
+            "bass": 3.2782554626464844e-06,
+            "seventh": 4.0531158447265625e-06,
+            "ninth": 3.427267074584961e-06,
+            "eleventh": 3.874301910400391e-06,
+            "thirteenth": 4.351139068603516e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.2518401999841444,
+            "onnx_cpu": 0.33238549999077804
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.0052958263489250035,
+            "onnx_cpu": 0.00698957469443956
+          },
+          "process_rss_bytes": 1487233024,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 15852130304
+        },
+        {
+          "frames": 4096,
+          "hop_span_seconds": 95.10893424036281,
+          "fixture_sha256": "38d987f1532efd9c4700a7660023c3f9c43cade9f2e086a6f85db6a250e1ef76",
+          "allclose": true,
+          "max_absolute_logit_error": {
+            "triad": 8.487701416015625e-05,
+            "bass": 5.173683166503906e-05,
+            "seventh": 6.771087646484375e-05,
+            "ninth": 3.8623809814453125e-05,
+            "eleventh": 6.103515625e-05,
+            "thirteenth": 3.5762786865234375e-05
+          },
+          "max_absolute_probability_error": {
+            "triad": 1.0877847671508789e-05,
+            "bass": 9.834766387939453e-06,
+            "seventh": 1.150369644165039e-05,
+            "ninth": 7.62939453125e-06,
+            "eleventh": 3.814697265625e-06,
+            "thirteenth": 9.059906005859375e-06
+          },
+          "argmax_disagreements": {
+            "triad": 0,
+            "bass": 0,
+            "seventh": 0,
+            "ninth": 0,
+            "eleventh": 0,
+            "thirteenth": 0
+          },
+          "median_inference_seconds": {
+            "pytorch_cpu": 0.49734909998369403,
+            "onnx_cpu": 0.7079273000126705
+          },
+          "inference_real_time_factor": {
+            "pytorch_cpu": 0.005229257418937899,
+            "onnx_cpu": 0.007443331225051586
+          },
+          "process_rss_bytes": 2009714688,
+          "process_lifetime_peak_rss_bytes": 2027417600,
+          "available_ram_bytes_after": 14031171584
+        }
+      ]
+    }
+  ],
+  "ensemble": [
+    {
+      "frames": 1,
+      "allclose": true,
+      "max_absolute_probability_error": {
+        "triad": 5.4016709327697754e-08,
+        "bass": 2.2351741790771484e-07,
+        "seventh": 2.384185791015625e-07,
+        "ninth": 6.556510925292969e-07,
+        "eleventh": 7.152557373046875e-07,
+        "thirteenth": 3.5762786865234375e-07
+      },
+      "argmax_disagreements": {
+        "triad": 0,
+        "bass": 0,
+        "seventh": 0,
+        "ninth": 0,
+        "eleventh": 0,
+        "thirteenth": 0
+      },
+      "hmm_segments_equal": true,
+      "hmm_segments": [
+        [
+          0.0,
+          0.023219954648526078,
+          "N"
+        ]
+      ],
+      "hmm_decode_seconds": 0.00024900000425986946,
+      "dictionary_sha256": "ac68a26e87242fc58c946d476028d4e8c8d12c9e707ced7020a4d7e31c794d7b",
+      "sum_network_median_inference_seconds": {
+        "pytorch_cpu": 0.004207399993902072,
+        "onnx_cpu": 0.0014862999960314482
+      },
+      "timing_scope": "Sum of individually warmed network medians; excludes CQT, decoding, session initialization, and ensemble averaging"
+    },
+    {
+      "frames": 17,
+      "allclose": true,
+      "max_absolute_probability_error": {
+        "triad": 4.470348358154297e-07,
+        "bass": 5.066394805908203e-07,
+        "seventh": 4.172325134277344e-07,
+        "ninth": 1.1920928955078125e-07,
+        "eleventh": 1.1920928955078125e-07,
+        "thirteenth": 1.1920928955078125e-07
+      },
+      "argmax_disagreements": {
+        "triad": 0,
+        "bass": 0,
+        "seventh": 0,
+        "ninth": 0,
+        "eleventh": 0,
+        "thirteenth": 0
+      },
+      "hmm_segments_equal": true,
+      "hmm_segments": [
+        [
+          0.0,
+          0.3947392290249433,
+          "N"
+        ]
+      ],
+      "hmm_decode_seconds": 0.0003927999932784587,
+      "dictionary_sha256": "ac68a26e87242fc58c946d476028d4e8c8d12c9e707ced7020a4d7e31c794d7b",
+      "sum_network_median_inference_seconds": {
+        "pytorch_cpu": 0.01438789998064749,
+        "onnx_cpu": 0.01080540003022179
+      },
+      "timing_scope": "Sum of individually warmed network medians; excludes CQT, decoding, session initialization, and ensemble averaging"
+    },
+    {
+      "frames": 128,
+      "allclose": true,
+      "max_absolute_probability_error": {
+        "triad": 4.76837158203125e-07,
+        "bass": 6.109476089477539e-07,
+        "seventh": 5.960464477539062e-07,
+        "ninth": 4.172325134277344e-07,
+        "eleventh": 4.172325134277344e-07,
+        "thirteenth": 5.960464477539062e-07
+      },
+      "argmax_disagreements": {
+        "triad": 0,
+        "bass": 0,
+        "seventh": 0,
+        "ninth": 0,
+        "eleventh": 0,
+        "thirteenth": 0
+      },
+      "hmm_segments_equal": true,
+      "hmm_segments": [
+        [
+          0.0,
+          2.972154195011338,
+          "N"
+        ]
+      ],
+      "hmm_decode_seconds": 0.0013399999879766256,
+      "dictionary_sha256": "ac68a26e87242fc58c946d476028d4e8c8d12c9e707ced7020a4d7e31c794d7b",
+      "sum_network_median_inference_seconds": {
+        "pytorch_cpu": 0.07221610000124201,
+        "onnx_cpu": 0.07019259996013716
+      },
+      "timing_scope": "Sum of individually warmed network medians; excludes CQT, decoding, session initialization, and ensemble averaging"
+    },
+    {
+      "frames": 1024,
+      "allclose": true,
+      "max_absolute_probability_error": {
+        "triad": 1.6093254089355469e-06,
+        "bass": 1.7881393432617188e-06,
+        "seventh": 8.642673492431641e-07,
+        "ninth": 1.0728836059570312e-06,
+        "eleventh": 7.152557373046875e-07,
+        "thirteenth": 7.748603820800781e-07
+      },
+      "argmax_disagreements": {
+        "triad": 0,
+        "bass": 0,
+        "seventh": 0,
+        "ninth": 0,
+        "eleventh": 0,
+        "thirteenth": 0
+      },
+      "hmm_segments_equal": true,
+      "hmm_segments": [
+        [
+          0.0,
+          23.777233560090703,
+          "N"
+        ]
+      ],
+      "hmm_decode_seconds": 0.014954300015233457,
+      "dictionary_sha256": "ac68a26e87242fc58c946d476028d4e8c8d12c9e707ced7020a4d7e31c794d7b",
+      "sum_network_median_inference_seconds": {
+        "pytorch_cpu": 0.6211795999843162,
+        "onnx_cpu": 0.7725560999824665
+      },
+      "timing_scope": "Sum of individually warmed network medians; excludes CQT, decoding, session initialization, and ensemble averaging"
+    },
+    {
+      "frames": 2048,
+      "allclose": true,
+      "max_absolute_probability_error": {
+        "triad": 3.4123659133911133e-06,
+        "bass": 3.993511199951172e-06,
+        "seventh": 1.2516975402832031e-06,
+        "ninth": 1.1324882507324219e-06,
+        "eleventh": 1.0728836059570312e-06,
+        "thirteenth": 1.1920928955078125e-06
+      },
+      "argmax_disagreements": {
+        "triad": 0,
+        "bass": 0,
+        "seventh": 0,
+        "ninth": 0,
+        "eleventh": 0,
+        "thirteenth": 0
+      },
+      "hmm_segments_equal": true,
+      "hmm_segments": [
+        [
+          0.0,
+          47.55446712018141,
+          "N"
+        ]
+      ],
+      "hmm_decode_seconds": 0.03258350002579391,
+      "dictionary_sha256": "ac68a26e87242fc58c946d476028d4e8c8d12c9e707ced7020a4d7e31c794d7b",
+      "sum_network_median_inference_seconds": {
+        "pytorch_cpu": 1.2735633999691345,
+        "onnx_cpu": 1.651178499974776
+      },
+      "timing_scope": "Sum of individually warmed network medians; excludes CQT, decoding, session initialization, and ensemble averaging"
+    },
+    {
+      "frames": 4096,
+      "allclose": true,
+      "max_absolute_probability_error": {
+        "triad": 2.2649765014648438e-06,
+        "bass": 2.086162567138672e-06,
+        "seventh": 2.294778823852539e-06,
+        "ninth": 1.9222497940063477e-06,
+        "eleventh": 9.685754776000977e-07,
+        "thirteenth": 1.773238182067871e-06
+      },
+      "argmax_disagreements": {
+        "triad": 0,
+        "bass": 0,
+        "seventh": 0,
+        "ninth": 0,
+        "eleventh": 0,
+        "thirteenth": 0
+      },
+      "hmm_segments_equal": true,
+      "hmm_segments": [
+        [
+          0.0,
+          95.10893424036281,
+          "N"
+        ]
+      ],
+      "hmm_decode_seconds": 0.07317099999636412,
+      "dictionary_sha256": "ac68a26e87242fc58c946d476028d4e8c8d12c9e707ced7020a4d7e31c794d7b",
+      "sum_network_median_inference_seconds": {
+        "pytorch_cpu": 2.5157488999539055,
+        "onnx_cpu": 3.4499525999999605
+      },
+      "timing_scope": "Sum of individually warmed network medians; excludes CQT, decoding, session initialization, and ensemble averaging"
+    }
+  ]
+}

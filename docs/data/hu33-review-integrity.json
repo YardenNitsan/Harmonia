@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "verified_source_bindings": 23,
+  "acquisition_sha256": "fda58b522aa6bfde75b0ff393c42da74e0c66c4bcf902dea49f75bfdcd51561b",
+  "finding": "Source-swap guard strengthened after experiments; existing sources already match identity and original hashes",
+  "corpus_reprepared": false,
+  "training_repeated": false,
+  "test_evaluated": false
+}

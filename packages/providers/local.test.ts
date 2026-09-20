@@ -113,3 +113,62 @@ it('disposing the session unsubscribes from subsequent provider errors', async (
   expect(controller.snapshot().error).toBeNull();
   provider.release();
 });
+
+it('preserves the selected volume and speed when replacing a local source', () => {
+  const provider = new LocalFileProvider();
+  provider.load(new Blob(['first']));
+  provider.setVolume(0.25);
+  provider.setSpeed(0.75);
+  provider.load(new Blob(['second']));
+  expect(provider.audio.volume).toBe(0.25);
+  expect(provider.audio.playbackRate).toBe(0.75);
+  provider.release();
+});
+
+it('does not expose the previous media duration after release', () => {
+  const provider = new LocalFileProvider();
+  provider.load(new Blob(['audio']));
+  expect(provider.duration).toBe(4);
+  provider.release();
+  expect(provider.duration).toBe(0);
+});
+
+it.each([NaN, Infinity, -Infinity])('rejects non-finite playback controls: %s', (value) => {
+  const provider = new LocalFileProvider();
+  expect(() => provider.setSpeed(value)).toThrow();
+  expect(provider.audio.playbackRate).toBe(1);
+  expect(() => provider.setVolume(value)).toThrow();
+  expect(provider.audio.volume).toBe(1);
+});
+
+it.each([
+  { start: -1, end: 2 },
+  { start: 2, end: 2 },
+  { start: 3, end: 2 },
+  { start: NaN, end: 2 },
+  { start: 0, end: Infinity },
+])('rejects invalid loop ranges before media events can seek: %j', (range) => {
+  const provider = new LocalFileProvider();
+  provider.load(new Blob(['audio']));
+  expect(() => provider.setLoop(range)).toThrow();
+  provider.audio.currentTime = 3;
+  provider.audio.dispatchEvent(new Event('timeupdate'));
+  expect(provider.position).toBe(3);
+  provider.release();
+});
+
+it('copies a valid loop so caller mutations cannot corrupt playback', () => {
+  const provider = new LocalFileProvider();
+  provider.load(new Blob(['audio']));
+  const range = { start: 1, end: 3 };
+  provider.setLoop(range);
+  range.start = -10;
+  provider.audio.currentTime = 3;
+  provider.audio.dispatchEvent(new Event('timeupdate'));
+  expect(provider.position).toBe(1);
+  provider.setLoop(null);
+  provider.audio.currentTime = 3;
+  provider.audio.dispatchEvent(new Event('timeupdate'));
+  expect(provider.position).toBe(3);
+  provider.release();
+});

@@ -18,6 +18,11 @@ export class LocalFileProvider implements LocalPlayback {
   }
   private objectUrl: string | null = null;
   private preview = 0;
+  private speed = 1;
+  private preferredVolume = 1;
+  get volume() {
+    return this.preferredVolume;
+  }
   private loop: { start: number; end: number } | null = null;
   constructor() {
     this.audio.preload = 'metadata';
@@ -34,6 +39,9 @@ export class LocalFileProvider implements LocalPlayback {
       generation = this.sourceGeneration;
     this.media = audio;
     audio.preload = 'metadata';
+    audio.defaultPlaybackRate = this.speed;
+    audio.playbackRate = this.speed;
+    audio.volume = this.volume;
     const current = () =>
       generation === this.sourceGeneration && audio === this.media && this.available;
     const report = (error: Error) => {
@@ -92,7 +100,7 @@ export class LocalFileProvider implements LocalPlayback {
     return this.available ? this.audio.currentTime : this.preview;
   }
   get duration() {
-    return Number.isFinite(this.audio.duration) ? this.audio.duration : 0;
+    return this.available && Number.isFinite(this.audio.duration) ? this.audio.duration : 0;
   }
   get playing() {
     return this.available && !this.audio.paused;
@@ -112,13 +120,25 @@ export class LocalFileProvider implements LocalPlayback {
       this.audio.currentTime = this.duration ? Math.min(this.duration, this.preview) : this.preview;
   }
   setSpeed(rate: number) {
-    if (rate < 0.5 || rate > 1.5) throw new Error('Playback speed must be between 0.5 and 1.5');
+    if (!Number.isFinite(rate) || rate < 0.5 || rate > 1.5)
+      throw new Error('Playback speed must be between 0.5 and 1.5');
     this.audio.playbackRate = rate;
+    this.speed = rate;
   }
   setVolume(volume: number) {
+    if (!Number.isFinite(volume)) throw new Error('Playback volume must be a finite number.');
     this.audio.volume = Math.max(0, Math.min(1, volume));
+    this.preferredVolume = this.audio.volume;
   }
   setLoop(range: { start: number; end: number } | null) {
-    this.loop = range;
+    if (
+      range &&
+      (!Number.isFinite(range.start) ||
+        !Number.isFinite(range.end) ||
+        range.start < 0 ||
+        range.end <= range.start)
+    )
+      throw new Error('Loop bounds must be finite, nonnegative and end after the start.');
+    this.loop = range ? { ...range } : null;
   }
 }

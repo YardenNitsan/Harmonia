@@ -168,9 +168,12 @@ low-end hardware campaign is certified here. The integrating engineer must appen
 the final engineering command results, current build identity and measured browser
 performance below; pending figures must not be inferred from Python inference.
 
-## Verification and security checkpoint
+## Earlier verification and security checkpoint
 
-The ML suite last completed with 24 passing tests, clean Ruff lint/format, passing
+This section records the earlier checkpoint. Current continuation counts and build
+evidence appear in **Public corpus continuation** below.
+
+At that checkpoint the ML suite completed with 24 passing tests, clean Ruff lint/format, passing
 dependency consistency, dynamic ONNX parity and matching frozen hashes. Two
 upstream legacy ONNX-export deprecation warnings remain. Domain/application/audio
 regressions, headless browser flows and native persistence tests exist. Earlier
@@ -186,8 +189,9 @@ research remains in progress and is not a promoted production model.
 The packaged native executable passed a hidden WebView2 smoke covering actual DSP
 and E004 inference, native SQLite, playback/seek, edits/favorites and restart. All
 owned processes/debug ports/test data were cleaned. NSIS packaging succeeded;
-a fresh no-cache native rebuild is underway after final presentation refactors.
-See `review-evidence/native-smoke.json`; installer hashes will be updated after it.
+a fresh no-cache native rebuild was then pending after presentation refactors.
+See `review-evidence/native-smoke.json` for this earlier artifact; the continuation
+below records the completed rebuild and its replacement artifact identities.
 
 A 30-second synthetic file imported in approximately 435 ms under 4x CDP CPU throttle
 on the development PC, with p95 frame interval 13.9 ms, max 118 ms and an 89 ms long
@@ -217,9 +221,9 @@ The researched APIs do not grant a raw-audio analysis path for these providers.
 No DRM bypass, stream ripping or hidden protected-audio capture is an alternative.
 See [provider capabilities](provider-capabilities.md).
 
-A Windows per-user NSIS packaging path exists, and an earlier installer build
-succeeded. The final integrated installer identity, clean-machine installation,
-startup/main-flow smoke test, upgrade/uninstall behavior and signing remain
+A Windows per-user NSIS installer has been rebuilt with recorded source/artifact
+hashes and passing hidden startup/main-flow/restart smoke checks on this machine.
+Clean-machine installation, upgrade/uninstall behavior and signing remain
 unverified at this checkpoint. No code-signing identity, clean Windows machine,
 non-Windows release validation or low-end hardware results are established.
 The WebView2 download bootstrapper may require network access during installation.
@@ -244,11 +248,44 @@ visible while that work proceeds.
 
 ## Public corpus continuation (not model promotion)
 
-The user has no private corpus and requested public datasets only. A two-recording
-Winterreise HU33 pilot was acquired only after inspecting embedded PDM notices;
-restricted SC06 audio was excluded. The pilot includes 148.79 seconds of historical
-voice/piano, 116 annotated segments and one preserved source-label disagreement.
-Unannotated gaps remain unknown. The next composition split is fixed before new
-training, with songs19–24 locked and GuitarSet's already-evaluated test untouched.
-See [public expansion audit](data/public-expansion-audit.md). Full preparation and
-pretrained ONNX feasibility are ongoing; neither is a new accuracy claim.
+The audited HU33 acquisition contains 23 recordings and 48 verified files; this
+continuation reused them without downloading again. Strict masked preparation
+has 78,350 valid training and 23,250 validation frames. Unknown spans are excluded,
+not encoded as no-chord; raw-source hashes and train-only normalization are tested.
+Compositions 19–24 remain test-locked and GuitarSet's test remains untouched.
+
+E007/E008 measured unweighted versus class-weighted losses; E009 changed only
+three to six temporal blocks. E009 leads the bounded validation study with root
+59.02%, reduced structural exact 19.81%, and boundary F1 0.2372 at 50 ms, but minor
+recall is 0.34% and inversion exactness 1.75%. No model was promoted. See
+[preparation](data/hu33-preparation-report.md),
+[experiments](data/hu33-experiment-results.md), and [evaluation](evaluation.md).
+
+LV-Chordia first-network procedural parity passes through 8,192 frames after
+explicit float64 normalization reductions; its five-network average and original
+HMM pass through 4,096. Real-recording parity retains a failure on the second
+preselected validation track, so production integration remains blocked. The
+first real track preserves 15 decoded segments. An independent 128-frame local
+browser/WASM probe passes under native CSP. No CQT port, full runtime parity or
+real-song quality gain is inferred from that probe. ADR 003 records the decision.
+
+The current app adds full/simplified/Roman/Nashville display modes and original
+corrected-chord Harte timeline export. The named editor dialog now focuses the
+symbol field, contains Tab navigation and restores focus on exit. Local playback
+preserves volume across imports and rejects invalid controls. Remote connections
+remain unimplemented; the provider matrix distinguishes that work from actual
+account/registration prerequisites, including key-free public YouTube embeds.
+
+Current verification: 575 TypeScript tests, 73 Python tests, 14 Rust tests,
+TypeScript/lint/format and Rust fmt/clippy checks, 21 production-browser flows,
+and the rebuilt NSIS/native hidden-smoke campaign. Python's legacy export/tracing
+warnings remain visible. The real-recording LV research acceptance probe exits
+nonzero as documented; a green unit suite does not override that failure.
+CPU-throttle evidence now covers fast and experimental profiles through import,
+playback, seeking, resize and cache; it is not actual weak-PC hardware evidence.
+
+Artifact identities and source hashes are in
+`docs/review-evidence/release-continuation.json`; hidden startup/main flow/restart
+passed in `native-smoke-continuation.json`, with owned processes and temporary data
+cleaned. The unsigned installer has not passed clean-machine installation. The
+visible desktop application was not launched, and final acceptance remains open.

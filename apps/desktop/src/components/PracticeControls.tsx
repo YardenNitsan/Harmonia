@@ -1,12 +1,19 @@
 import { memo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Dispatch, SetStateAction } from 'react';
+import type { ChordDisplayMode } from '../../../../packages/domain/notation';
 export const PracticeControls = memo(function PracticeControls({
   transpose,
   onChange,
+  mode,
+  onModeChange,
+  hasKey,
 }: {
   transpose: number;
   onChange: Dispatch<SetStateAction<number>>;
+  mode: ChordDisplayMode;
+  onModeChange: (mode: ChordDisplayMode) => void;
+  hasKey: boolean;
 }) {
   return (
     <div className="practice-row">
@@ -14,6 +21,27 @@ export const PracticeControls = memo(function PracticeControls({
         <span className="eyebrow">MAKE IT YOURS</span>
         <p>Slow it down. Find the shape. Play it your way.</p>
       </div>
+      <label className="notation-picker">
+        Chord notation
+        <select
+          value={mode}
+          onChange={(event) => onModeChange(event.target.value as ChordDisplayMode)}
+        >
+          <option value="advanced">Full chords</option>
+          <option value="simple">Simplified chords</option>
+          <option value="roman" disabled={!hasKey}>
+            Roman numerals
+          </option>
+          <option value="nashville" disabled={!hasKey}>
+            Nashville numbers
+          </option>
+        </select>
+        <small>
+          {hasKey
+            ? 'Degrees follow the displayed key; slash bass uses numbers.'
+            : 'A key estimate is needed for numbers.'}
+        </small>
+      </label>
       <div className="transpose">
         <span>
           Display transpose <small>notation only</small>

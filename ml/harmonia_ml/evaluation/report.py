@@ -110,6 +110,7 @@ def evaluate(
     player_correct: dict[str, list[int]] = defaultdict(lambda: [0, 0])
     style_correct: dict[str, list[int]] = defaultdict(lambda: [0, 0])
     runtime = 0.0
+    total_frames = 0
     tracks = [record for record in manifest["records"] if record["split"] == split]
     if track_ids is not None:
         tracks = [record for record in tracks if record["track_id"] in track_ids]
@@ -119,6 +120,7 @@ def evaluate(
         with np.load(manifest_path.parent / record["prepared_file"]) as data:
             features = data["features"].astype(np.float32)
             times = data["times"]
+            total_frames += len(times)
             mask = data["mask"] if "mask" in data else np.ones(len(times), dtype=bool)
             if mask.shape != times.shape or mask.dtype != np.bool_ or not mask.any():
                 raise ValueError("Evaluation requires a nonempty frame-aligned validity mask")
@@ -176,12 +178,12 @@ def evaluate(
             reference_boundaries = data["boundary_times"]
             if "mask" in data:
                 # A boundary beside an unknown interval has no reliable reference.
-                def valid_boundary(values):
-                    index = np.clip(np.searchsorted(times, values), 1, len(times) - 1)
-                    return values[mask[index] & mask[index - 1]]
+                def valid_boundary(values, frame_times, validity):
+                    index = np.clip(np.searchsorted(frame_times, values), 1, len(frame_times) - 1)
+                    return values[validity[index] & validity[index - 1]]
 
-                reference_boundaries = valid_boundary(reference_boundaries)
-                estimated_boundaries = valid_boundary(estimated_boundaries)
+                reference_boundaries = valid_boundary(reference_boundaries, times, mask)
+                estimated_boundaries = valid_boundary(estimated_boundaries, times, mask)
             for tolerance in (0.02, 0.05, 0.1):
                 result = boundary_metrics(
                     reference_boundaries,
@@ -233,6 +235,7 @@ def evaluate(
         "split": split,
         "tracks": len(tracks),
         "frames": len(reference["root"]),
+        "annotation_frame_coverage": len(reference["root"]) / total_frames,
         "duration_hours": sum(float(record["duration_seconds"]) for record in tracks) / 3600,
         "component_metrics": head_metrics,
         "majmin_weighted_recall": float(

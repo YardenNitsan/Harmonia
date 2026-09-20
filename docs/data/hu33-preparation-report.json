@@ -1,0 +1,217 @@
+{
+  "schema": "harmonia-hu33-preparation-report-1",
+  "date": "2026-09-20",
+  "purpose": "Data preparation and distributions only; no model training, inference or held-out evaluation",
+  "git_revision_before_changes": "34e34f3ab8038417d6b7e619f3812633080d76cd",
+  "acquisition": {
+    "manifest_sha256": "fda58b522aa6bfde75b0ff393c42da74e0c66c4bcf902dea49f75bfdcd51561b",
+    "tracks": 23,
+    "files_verified": 48,
+    "http_range_bytes": 118086126,
+    "compressed_selected_bytes": 117826237,
+    "archive_bytes": 517380038,
+    "etag": null,
+    "whole_archive_md5_verified": false,
+    "reused_existing_acquisition": true,
+    "new_download_bytes_this_continuation": 0
+  },
+  "prepared_manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "target_version": "winterreise-strict-masked-v1",
+  "feature_config": {
+    "sample_rate": 22050,
+    "n_fft": 2048,
+    "hop_length": 512,
+    "version": "chroma-bass-v1"
+  },
+  "code_sha256": {
+    "harmonia_ml/data/winterreise.py": "227e88fb1771d5af49244ebf6ef21243235174688ecee06b7719446893cc881e",
+    "harmonia_ml/data/prepare_winterreise.py": "ebf36a5b39a633c20e87dc2b9d39148b9583dacb783b0c86c65ac0600f008c37",
+    "harmonia_ml/data/labels.py": "00f121b6b6b00b96ae308c8615c69a088917064370e4822110771427c76e641a",
+    "harmonia_ml/features/extract.py": "9d8521f535bd45fd193a23e332468655bf2a805dc40ee838504d14d4f4c30bd4"
+  },
+  "split_policy": {
+    "composition_disjoint": true,
+    "train": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "validation": [14, 15, 16, 17, 18],
+    "test": [19, 20, 21, 22, 23, 24]
+  },
+  "split_summary": {
+    "train": {
+      "tracks": 12,
+      "duration_seconds": 2123.4416326530613
+    },
+    "validation": {
+      "tracks": 5,
+      "duration_seconds": 691.3509297052154
+    },
+    "test": {
+      "tracks": 6,
+      "duration_seconds": 991.7707029478457
+    }
+  },
+  "mask_policy": "Unannotated/conflicting/unparseable/unrepresentable labels masked; 0.1s around unknown edges excluded; explicit N only is no-chord. Strict explicit triad degrees with optional seventh/unmodified 6/9/11/13; altered extensions, omissions and unsupported pitch sets excluded.",
+  "feature_normalization": {
+    "fit_split": "train",
+    "valid_frames_only": true,
+    "fit_frame_count": 78350,
+    "mean": [
+      0.11149715710362394, 0.060268646814357, 0.11270397005202136, 0.055586576338883566,
+      0.09846625185746939, 0.09401225029821933, 0.06862412420703524, 0.07481801640182904,
+      0.05625614591746995, 0.1218526251179635, 0.06761018292426269, 0.07830405291829594,
+      0.16805191703742203, 0.06668871887924177, 0.16146358292000684, 0.03446565667382028,
+      0.08105144095719655, 0.08075583944309636, 0.035338292200377285, 0.059173832031496724,
+      0.04410798209472056, 0.1405953176730017, 0.0707789286985802, 0.05752849130383739,
+      0.5429623915866358, 0.19182935418234218
+    ],
+    "std": [
+      0.07066606849904858, 0.04019879989447969, 0.07778266742768704, 0.039148093960441915,
+      0.06564863588905015, 0.052245451135578325, 0.05329211342279863, 0.0585727486114624,
+      0.043619020399562426, 0.08800705724627673, 0.05000020097217527, 0.0658831685225698,
+      0.106968790167654, 0.05536641630285503, 0.12819532045204318, 0.04248633275876381,
+      0.07657995610026451, 0.05345904186164127, 0.03766234013540854, 0.04871966040320006,
+      0.04620043851923475, 0.10233600726953689, 0.054404297081375515, 0.061620430252942254,
+      0.338556344602844, 0.06296903264214798
+    ]
+  },
+  "train_validation_distribution": {
+    "train": {
+      "root": {
+        "7": 9483,
+        "2": 12939,
+        "9": 10848,
+        "10": 1984,
+        "4": 10187,
+        "5": 6982,
+        "6": 3026,
+        "0": 9193,
+        "3": 1048,
+        "8": 1469,
+        "1": 1651,
+        "11": 9540
+      },
+      "triad": {
+        "2": 28585,
+        "1": 45131,
+        "3": 4473,
+        "4": 161
+      },
+      "seventh": {
+        "0": 56432,
+        "1": 19178,
+        "2": 145,
+        "3": 2595
+      },
+      "bass": {
+        "7": 8713,
+        "2": 10494,
+        "1": 763,
+        "0": 10338,
+        "10": 3771,
+        "9": 10114,
+        "5": 6389,
+        "3": 1085,
+        "11": 10848,
+        "4": 8984,
+        "8": 3348,
+        "6": 3503
+      },
+      "extensions": {
+        "6": 0,
+        "9": 162,
+        "11": 0,
+        "13": 0
+      },
+      "coverage": {
+        "frames": 91413,
+        "valid_frames": 78350,
+        "excluded_frames": 13063
+      },
+      "excluded_annotation_rows": {
+        "unrepresentable": 101,
+        "source_conflict_or_parse_error": 3
+      }
+    },
+    "validation": {
+      "root": {
+        "11": 4504,
+        "6": 2433,
+        "8": 465,
+        "3": 107,
+        "1": 1537,
+        "2": 6510,
+        "7": 1939,
+        "0": 258,
+        "5": 482,
+        "4": 2154,
+        "9": 2156,
+        "10": 705
+      },
+      "triad": {
+        "2": 6456,
+        "1": 13916,
+        "3": 2321,
+        "4": 478,
+        "6": 79
+      },
+      "seventh": {
+        "0": 17329,
+        "1": 5221,
+        "3": 700
+      },
+      "bass": {
+        "11": 4155,
+        "10": 1160,
+        "1": 1089,
+        "6": 2901,
+        "7": 2547,
+        "5": 587,
+        "4": 1463,
+        "2": 4722,
+        "0": 187,
+        "3": 536,
+        "9": 3329,
+        "8": 574
+      },
+      "extensions": {
+        "6": 13,
+        "9": 0,
+        "11": 0,
+        "13": 0
+      },
+      "coverage": {
+        "frames": 29759,
+        "valid_frames": 23250,
+        "excluded_frames": 6509
+      },
+      "excluded_annotation_rows": {
+        "unrepresentable": 48,
+        "source_conflict_or_parse_error": 2
+      }
+    }
+  },
+  "train_validation_inversion_frames": {
+    "train": 21878,
+    "validation": 8180
+  },
+  "test_distribution": "withheld",
+  "test_evaluated": false,
+  "model_trained": false,
+  "resources": {
+    "workers": 1,
+    "gpu_used": false,
+    "max_observed_rss_bytes": 140066816,
+    "seconds": 6.878074200008996,
+    "environment_thread_limits": {
+      "OMP_NUM_THREADS": 2,
+      "OPENBLAS_NUM_THREADS": 2,
+      "MKL_NUM_THREADS": 2
+    },
+    "rss_measurement": "Observed process RSS after each track; not continuous peak or total-machine allocation"
+  },
+  "verification": {
+    "raw_files_sha256_verified": 48,
+    "prepared_files_sha256_verified": 23,
+    "train_only_normalization_recomputed": true,
+    "prepared_lock_verified": true
+  }
+}

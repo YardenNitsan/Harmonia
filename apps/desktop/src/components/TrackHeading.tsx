@@ -8,12 +8,14 @@ export function TrackHeading({
   saveState,
   onFavorite,
   onExport,
+  onExportTimeline,
   onLibrary,
 }: {
   record: SavedTrack;
   saveState: SessionState['saveState'];
   onFavorite: () => void;
   onExport: () => void;
+  onExportTimeline: () => void;
   onLibrary: () => void;
 }) {
   return (
@@ -54,6 +56,13 @@ export function TrackHeading({
         </button>
         <button className="secondary" onClick={onExport}>
           <ArrowDownToLine size={14} /> Export
+        </button>
+        <button
+          className="secondary"
+          onClick={onExportTimeline}
+          title="Original corrected chords and timestamps as a Harte .lab file"
+        >
+          Export timeline
         </button>
         <button className="text-button" onClick={onLibrary}>
           All sessions <ArrowUpRight size={14} />

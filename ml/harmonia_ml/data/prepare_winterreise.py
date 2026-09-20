@@ -15,7 +15,7 @@ import soundfile as sf
 
 from harmonia_ml.data.labels import targets_at_times
 from harmonia_ml.data.prepare import file_sha256
-from harmonia_ml.data.winterreise import composition_split
+from harmonia_ml.data.winterreise import composition_split, parse_annotations
 from harmonia_ml.features.extract import FeatureConfig, extract_features
 
 
@@ -28,8 +28,13 @@ def representable(label: str) -> bool:
         return False
     degrees = set(match.group(1).split(","))
     qualities = (
-        {"3", "5"}, {"b3", "5"}, {"b3", "b5"}, {"3", "#5"},
-        {"2", "5"}, {"4", "5"}, {"5"},
+        {"3", "5"},
+        {"b3", "5"},
+        {"b3", "b5"},
+        {"3", "#5"},
+        {"2", "5"},
+        {"4", "5"},
+        {"5"},
     )
     sevenths = degrees & {"7", "b7", "bb7"}
     extras = sevenths | (degrees & {"6", "9", "11", "13"})
@@ -59,11 +64,11 @@ def masked_targets(rows: list[dict], times: np.ndarray) -> tuple[dict, np.ndarra
         if not eligible[index]:
             continue
         left_known = (
-            index > 0 and eligible[index - 1]
-            and abs(rows[index - 1]["end"] - row["start"]) < 1e-8
+            index > 0 and eligible[index - 1] and abs(rows[index - 1]["end"] - row["start"]) < 1e-8
         )
         right_known = (
-            index + 1 < len(rows) and eligible[index + 1]
+            index + 1 < len(rows)
+            and eligible[index + 1]
             and abs(row["end"] - rows[index + 1]["start"]) < 1e-8
         )
         if left_known:
@@ -89,57 +94,99 @@ def prepare_dataset(source_dir: Path, output_dir: Path) -> dict:
     if acquired["split"] != composition_split():
         raise ValueError("Acquisition split differs from the predeclared composition split")
     hashes = {record["path"]: record["sha256"] for record in acquired["files"]}
+    validated, compositions, audio_hashes = [], set(), set()
+    # Validate every identity and source before creating any output. A correct
+    # split table alone cannot prevent duplicated or relabeled tracks leaking.
+    for track in acquired["tracks"]:
+        match = re.fullmatch(r"Schubert_D911-(\d{2})", track["composition"])
+        if match is None or not 2 <= int(match.group(1)) <= 24:
+            raise ValueError("Composition is outside the approved HU33 corpus")
+        if track["id"] != track["composition"] + "_HU33":
+            raise ValueError("Track identity differs from its HU33 composition")
+        if (
+            track["audio_path"] != f"01_RawData/audio_wav/{track['id']}.wav"
+            or track["annotation_path"] != f"02_Annotations/ann_audio_chord/{track['id']}.csv"
+        ):
+            raise ValueError("HU33 source identity does not match its composition")
+        song = int(match.group(1))
+        split = next(key for key, values in composition_split().items() if song in values)
+        if track["split"] != split:
+            raise ValueError("Track split changed")
+        if track["composition"] in compositions:
+            raise ValueError("Duplicate composition in acquisition")
+        compositions.add(track["composition"])
+        for key in ("audio_path", "annotation_path"):
+            path = (source_dir / track[key]).resolve()
+            if not path.is_relative_to(source_dir.resolve()):
+                raise ValueError("Source path escaped acquisition directory")
+            if file_sha256(path) != hashes[track[key]]:
+                raise ValueError("Acquired source hash changed")
+        audio_hash = hashes[track["audio_path"]]
+        if audio_hash in audio_hashes:
+            raise ValueError("Duplicate audio content across compositions")
+        audio_hashes.add(audio_hash)
+        audio_path = source_dir / track["audio_path"]
+        info = sf.info(audio_path)
+        if info.samplerate != 22050 or info.channels != 1 or info.format != "WAV":
+            raise ValueError("Expected native 22050-Hz mono WAV")
+        # Raw, hashed CSV is authoritative; never trust cached parsed labels.
+        rows = parse_annotations(
+            (source_dir / track["annotation_path"]).read_text(encoding="utf-8-sig"),
+            duration=info.duration,
+        )
+        validated.append((track, audio_path, rows))
+    if not any(track["split"] == "train" for track, _, _ in validated):
+        raise ValueError("No training compositions in acquisition")
     config, records = FeatureConfig(), []
     sums, squares, count = np.zeros(26), np.zeros(26), 0
     distribution = defaultdict(lambda: defaultdict(Counter))
     peak_rss = 0
     output_dir.mkdir(parents=True, exist_ok=False)
-    for track in acquired["tracks"]:
-        audio_path = source_dir / track["audio_path"]
-        annotation_path = source_dir / track["annotation_path"]
-        if not audio_path.resolve().is_relative_to(source_dir.resolve()):
-            raise ValueError("Source path escaped acquisition directory")
-        if not annotation_path.resolve().is_relative_to(source_dir.resolve()):
-            raise ValueError("Annotation path escaped acquisition directory")
-        for relative, path in ((track["audio_path"], audio_path),
-                               (track["annotation_path"], annotation_path)):
-            if file_sha256(path) != hashes[relative]:
-                raise ValueError("Acquired source hash changed")
-        song = int(track["composition"].rsplit("-", 1)[1])
-        split = next(key for key, values in composition_split().items() if song in values)
-        if track["split"] != split:
-            raise ValueError("Track split changed")
+    for track, audio_path, rows in validated:
+        split = track["split"]
         audio, sample_rate = sf.read(audio_path, dtype="float32")
         frames = extract_features(audio, sample_rate, config)
-        targets, boundaries, excluded = masked_targets(track["annotations"], frames.times)
+        targets, boundaries, excluded = masked_targets(rows, frames.times)
         mask = targets["mask"]
         prepared_path = output_dir / (track["id"] + ".npz")
         np.savez_compressed(
-            prepared_path, features=frames.values, times=frames.times,
-            boundary_times=boundaries, **targets,
+            prepared_path,
+            features=frames.values,
+            times=frames.times,
+            boundary_times=boundaries,
+            **targets,
         )
         if split == "train":
             values = frames.values[mask].astype(np.float64)
             sums += values.sum(axis=0)
-            squares += (values ** 2).sum(axis=0)
+            squares += (values**2).sum(axis=0)
             count += len(values)
         if split != "test":
             for head in ("root", "triad", "seventh", "bass"):
                 distribution[split][head].update(map(int, targets[head][mask]))
-            distribution[split]["extensions"].update({
-                str(degree): int(targets["extensions"][mask, index].sum())
-                for index, degree in enumerate((6, 9, 11, 13))
-            })
-            distribution[split]["coverage"].update({
-                "frames": len(mask), "valid_frames": int(mask.sum()),
-                "excluded_frames": int((~mask).sum()),
-            })
+            distribution[split]["extensions"].update(
+                {
+                    str(degree): int(targets["extensions"][mask, index].sum())
+                    for index, degree in enumerate((6, 9, 11, 13))
+                }
+            )
+            distribution[split]["coverage"].update(
+                {
+                    "frames": len(mask),
+                    "valid_frames": int(mask.sum()),
+                    "excluded_frames": int((~mask).sum()),
+                }
+            )
             distribution[split]["excluded_annotation_rows"].update(excluded)
         record = {
-            "track_id": track["id"], "composition_id": track["composition"],
-            "performer_id": "HU33", "style": "classical-voice-piano",
-            "split": split, "duration_seconds": len(audio) / sample_rate,
-            "prepared_file": prepared_path.name, "prepared_sha256": file_sha256(prepared_path),
+            "track_id": track["id"],
+            "composition_id": track["composition"],
+            "performer_id": "HU33",
+            "style": "classical-voice-piano",
+            "split": split,
+            "duration_seconds": len(audio) / sample_rate,
+            "prepared_file": prepared_path.name,
+            "prepared_sha256": file_sha256(prepared_path),
             "audio_sha256": hashes[track["audio_path"]],
             "annotation_sha256": hashes[track["annotation_path"]],
         }
@@ -151,16 +198,26 @@ def prepare_dataset(source_dir: Path, output_dir: Path) -> dict:
     if not count:
         raise ValueError("No valid training frames for normalization")
     mean = sums / count
-    std = np.sqrt(np.maximum(squares / count - mean ** 2, 1e-8))
+    std = np.sqrt(np.maximum(squares / count - mean**2, 1e-8))
     manifest = {
         "schema_version": 2,
-        "source": {"dataset": "Winterreise HU33", "version": "2.1",
-                   "audio_rights": acquired["audio_rights"],
-                   "annotation_license": acquired["annotation_license"],
-                   "acquisition_manifest_sha256": file_sha256(acquisition_path)},
-        "feature_config": config.to_dict(), "feature_names": list(frames.names),
-        "feature_normalization": {"fit_split": "train", "valid_frames_only": True,
-                                  "mean": mean.tolist(), "std": std.tolist()},
+        "target_version": "winterreise-strict-masked-v1",
+        "source": {
+            "dataset": "Winterreise HU33",
+            "version": "2.1",
+            "audio_rights": acquired["audio_rights"],
+            "annotation_license": acquired["annotation_license"],
+            "acquisition_manifest_sha256": file_sha256(acquisition_path),
+        },
+        "feature_config": config.to_dict(),
+        "feature_names": list(frames.names),
+        "feature_normalization": {
+            "fit_split": "train",
+            "valid_frames_only": True,
+            "fit_frame_count": count,
+            "mean": mean.tolist(),
+            "std": std.tolist(),
+        },
         "split_policy": {"composition_disjoint": True, **composition_split()},
         "mask_policy": (
             "Unannotated/conflicting/unparseable/unrepresentable labels masked; "
@@ -171,15 +228,27 @@ def prepare_dataset(source_dir: Path, output_dir: Path) -> dict:
         "train_validation_distribution": distribution,
         "test_distribution": "withheld; no test evaluation or selection performed",
         "records": records,
-        "resources": {"workers": 1, "gpu_used": False, "max_observed_rss_bytes": peak_rss,
-                      "seconds": time.perf_counter() - started},
+        "resources": {
+            "workers": 1,
+            "gpu_used": False,
+            "max_observed_rss_bytes": peak_rss,
+            "seconds": time.perf_counter() - started,
+        },
     }
     manifest_path = output_dir / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    (output_dir / "manifest.lock.json").write_text(json.dumps({
-        "manifest_sha256": file_sha256(manifest_path), "test_split_locked": True,
-        "test_evaluated": False,
-    }, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "manifest.lock.json").write_text(
+        json.dumps(
+            {
+                "manifest_sha256": file_sha256(manifest_path),
+                "test_split_locked": True,
+                "test_evaluated": False,
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     return manifest
 
 

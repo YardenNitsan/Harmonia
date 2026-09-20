@@ -1,0 +1,382 @@
+{
+  "status": "Engineering checkpoint only; not final release approval",
+  "base_revision": "34e34f3ab8038417d6b7e619f3812633080d76cd",
+  "source_files": [
+    {
+      "path": "apps/desktop/index.html",
+      "sha256": "a541110fbd3f2b0d2af8ad7d14c80b5289363575c88a6ec8429aea4addc6b155"
+    },
+    {
+      "path": "apps/desktop/src-tauri/.gitignore",
+      "sha256": "ac7dc9811de9fa29fcffd677d0fb222d1f008651ea2cea64fd0b3d758bb5e7a2"
+    },
+    {
+      "path": "apps/desktop/src-tauri/Cargo.lock",
+      "sha256": "4a062563c1235aef109573bd7fc5ddbbb9e83fadaf024cbd2bdae172233a2e74"
+    },
+    {
+      "path": "apps/desktop/src-tauri/Cargo.toml",
+      "sha256": "025b6dd76aefe408ef25f00de5436359939c8d77e24772ebe408970fb36d0008"
+    },
+    {
+      "path": "apps/desktop/src-tauri/build.rs",
+      "sha256": "47453cc8088b16cae24d26b54c05bb539a95df587eb4e483f0a82c29eeb37385"
+    },
+    {
+      "path": "apps/desktop/src-tauri/capabilities/desktop.json",
+      "sha256": "4ce1f8738f0f0892dc1ad880f2b548603cd5a2e0345d7bacf9b7e578a450b60e"
+    },
+    {
+      "path": "apps/desktop/src-tauri/icons/.gitignore",
+      "sha256": "fe3cfa54b67eb3f9a8b9b309c03db5cb0ac7ea710190aec3910e557f9e090f23"
+    },
+    {
+      "path": "apps/desktop/src-tauri/icons/icon.ico.b64",
+      "sha256": "4521947d9eb447a0bc22e0f1ff471c9d8a4fd72c0d4747e75f155df80ac12ab8"
+    },
+    {
+      "path": "apps/desktop/src-tauri/icons/icon.png.b64",
+      "sha256": "2dc24008aa97de250ec069446d018e918ba6570d6ed7fe7f2d0ea67830cb0085"
+    },
+    {
+      "path": "apps/desktop/src-tauri/migrations/0001_saved_tracks.sql",
+      "sha256": "79167c5e3ca35efb5ce2eca7f1eb063d51a91f4ee0b4bc2186d4f92d54987991"
+    },
+    {
+      "path": "apps/desktop/src-tauri/migrations/0002_analysis_identity.sql",
+      "sha256": "5da8eabb7a4cd47db2409272edfc980b8102dda5fecd3792e3a45c39d9e8f995"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/database.rs",
+      "sha256": "a9781d26ffe6e93564a724e637d0a83d0fd89a428a57606b31280e3caf52a914"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "sha256": "7ebba16e7b0adc339fbf1c9937f96afc340e4ff19375ae9bdc3ac83aae637a4e"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/main.rs",
+      "sha256": "831d6fd5c4d3696a71bd1eb356056d8031404b9cbb64d73247f1b56c79a32253"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/validation.rs",
+      "sha256": "097e252f918dec88ed1a902790190db04ee187d93e901621217776fbb6a6bcbe"
+    },
+    {
+      "path": "apps/desktop/src-tauri/tauri.conf.json",
+      "sha256": "534a44afff627d92a22cab69b087c18389c26957a80f6c0503839a2298b1910a"
+    },
+    {
+      "path": "apps/desktop/src-tauri/tests/database.rs",
+      "sha256": "0c559e8d92172df94d5589cf88e18d85981d767328d5743f521f2ec5bf7cca9d"
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "8a8a00aefa57f73e9e97921b3c0df35d89be0f08590fce12465751dfd9954e38"
+    },
+    {
+      "path": "apps/desktop/src/components/AnalysisProfilePicker.tsx",
+      "sha256": "cec12c1834a9f77e86f766262006c63ccffe10351b0fb5985369349de7ba9b54"
+    },
+    {
+      "path": "apps/desktop/src/components/AppHeader.tsx",
+      "sha256": "98ef4f52b75b9025ab489964c9f5807f9241ed741cbfea6a78bad13fe269bda9"
+    },
+    {
+      "path": "apps/desktop/src/components/ChordEditor.tsx",
+      "sha256": "88bee167157888d4fe687d64058d2ec6ddb86bc6b7188459ebc7de33aecd380a"
+    },
+    {
+      "path": "apps/desktop/src/components/ChordInspector.tsx",
+      "sha256": "7c9efae3524eede307bffa8ee2b87504ae3a2c873c90f42a6fa40db9c772a5f2"
+    },
+    {
+      "path": "apps/desktop/src/components/HarmonyStage.tsx",
+      "sha256": "cdd0b7c9ad1b83bb3f6605163fe57bd8d6c20ad20c360ac94a6d463c20d34b6a"
+    },
+    {
+      "path": "apps/desktop/src/components/Instrument.tsx",
+      "sha256": "01088a69a499988cc3de8deac14743764c13b1a0f655641ed701cdf9f9f5862c"
+    },
+    {
+      "path": "apps/desktop/src/components/LibraryView.tsx",
+      "sha256": "c96e20661fff08e1756d07bb18970a8efd465189661c1ed6d17533945e25053d"
+    },
+    {
+      "path": "apps/desktop/src/components/PlaybackStage.tsx",
+      "sha256": "b8977a87e9a2633057cab636b392731dc995d831f8b130b2b556fafb5082027d"
+    },
+    {
+      "path": "apps/desktop/src/components/PracticeControls.tsx",
+      "sha256": "f0f1b11993c0ad66823f3e1c3059691ef80d455cf78be62ffb3c8f8691f3603c"
+    },
+    {
+      "path": "apps/desktop/src/components/SessionStatus.tsx",
+      "sha256": "cc70a4026146b077e007cd1fd6cc8f22b3c57b0b3c3005ef4a8b269a4ca6e380"
+    },
+    {
+      "path": "apps/desktop/src/components/Timeline.tsx",
+      "sha256": "a580ace42cbcde154c5420d42a1167a21db12f524d609680c5fc0570ba581293"
+    },
+    {
+      "path": "apps/desktop/src/components/TrackHeading.tsx",
+      "sha256": "7cfc3c3b6f5ead58ef5c3e48f3a9524470e9d2e598affcad8ce520d652a4c563"
+    },
+    {
+      "path": "apps/desktop/src/components/Transport.tsx",
+      "sha256": "0fe5728449fde5c14671a4e19ec175809b6022bc87c99aa01e06f714374a776b"
+    },
+    {
+      "path": "apps/desktop/src/components/WelcomeView.tsx",
+      "sha256": "4c2821b277d046914ecd3f17dac0121a86576af769bfaec8710b850cd09b3eb1"
+    },
+    {
+      "path": "apps/desktop/src/components/usePlaybackClock.ts",
+      "sha256": "fc2d847d0b62405e484db2845f72d6adad0b73f697a62a4ad366b2e8dc49e72d"
+    },
+    {
+      "path": "apps/desktop/src/components/usePlaybackShortcuts.ts",
+      "sha256": "e43e042f22b66abee713c76bb1a49abed74b96f04bb004198ff1f8697ac27819"
+    },
+    {
+      "path": "apps/desktop/src/composition.ts",
+      "sha256": "79802d9a1f84b4dbf20a407cb84a011528ec8b94642565416cb21c0a581c1d1f"
+    },
+    {
+      "path": "apps/desktop/src/main.tsx",
+      "sha256": "891e72a5aa23985d7eae626c6d917b32c58866a62f9863bf21898d6dcf93653f"
+    },
+    {
+      "path": "apps/desktop/src/styles/app.css",
+      "sha256": "fff55956cf1d168854e4b60bd81ebfb174e831cf68b698d9c5e6aee7417b1b6b"
+    },
+    {
+      "path": "apps/desktop/src/styles/tokens.css",
+      "sha256": "6f5d84a8a0f85204ee3207c59f41fe07d9c11feff15216098eea2ae1fa0c8457"
+    },
+    {
+      "path": "apps/desktop/vite.config.ts",
+      "sha256": "f0377e2313763c3ff6f6cf202c2842e08f6e48e19c55d7a3da933a59db6dc08a"
+    },
+    {
+      "path": "ml/artifacts/structured-chord-v1/ATTRIBUTION.txt",
+      "sha256": "16fe6798ec2c5cf510eb19b3ceedb7584970c5fc94edc1d4fc3bde6e8259ef77"
+    },
+    {
+      "path": "ml/artifacts/structured-chord-v1/manifest.json",
+      "sha256": "7c25ef87dabf096fee76089903ab0495bbf0732c0f116163b6db556b0f271b3c"
+    },
+    {
+      "path": "ml/artifacts/structured-chord-v1/model.onnx",
+      "sha256": "26913443b06adb66c384130ae38fac26f4b9aaeeaed933fe1261c1058171ca79"
+    },
+    {
+      "path": "ml/artifacts/structured-chord-v1/parity-fixture.json",
+      "sha256": "2c8bdad623fee54018e4c77f659a99e098b2352700ca5a9d27e0884333327812"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "92eac5a1aa7d29b2ab36d15b45267d1161ebe0cc0703ceaa82fc412ac177134b"
+    },
+    {
+      "path": "package.json",
+      "sha256": "2617069abeccc1b7bd4fc670aa2a1372bdfb4833af2a3a1229fb82e52f2ff250"
+    },
+    {
+      "path": "packages/application/contracts.ts",
+      "sha256": "423785f96afa6215a598d92dd57b640bfb862492252d9736daa0b0f64da333e0"
+    },
+    {
+      "path": "packages/application/export.test.ts",
+      "sha256": "307cbd818db9868dd19fae78399ef60ab9409399b24063c32984ca80a863f007"
+    },
+    {
+      "path": "packages/application/export.ts",
+      "sha256": "fd4ae0c19d60992590bd2ea1109f6113b183a9cc011b59e925c0a7525048bc1e"
+    },
+    {
+      "path": "packages/application/session.test.ts",
+      "sha256": "146fd24ada41ec7c1c4b59ce63a6a54e2641e71b354ef0f7dd6adb8d32ee6822"
+    },
+    {
+      "path": "packages/application/session.ts",
+      "sha256": "22ffec2cb846b4418aae90f593520b9534ee7c8926c037a65c9a6449e4691cc8"
+    },
+    {
+      "path": "packages/application/tasks.test.ts",
+      "sha256": "7bd815dcd74f9d28e838fde1c2d4033df378087a5cf37f2c2d25179240c4faeb"
+    },
+    {
+      "path": "packages/application/tasks.ts",
+      "sha256": "cd72b2453ae08becaaf99cf6ac6f240f104362e6845d25bb019b74917b91cde8"
+    },
+    {
+      "path": "packages/audio/browser-analysis.ts",
+      "sha256": "e72432b35bcfbaca220980317c80c8e009e4478c98a6e6ef985ce49df63dee38"
+    },
+    {
+      "path": "packages/audio/demo-worker.ts",
+      "sha256": "9ffc0937de9902312770cbd4ff7849856d079c59928a7c7ac50ad977d6110dc0"
+    },
+    {
+      "path": "packages/audio/features.test.ts",
+      "sha256": "4ae619586e018132cd4f48461fa477c0bc324c8280cbb902d50a9b543c17d44f"
+    },
+    {
+      "path": "packages/audio/features.ts",
+      "sha256": "d618b0e5e53666e0fd62c809dcf584d06f3e606eaa06ca6ff48392c5626a1328"
+    },
+    {
+      "path": "packages/audio/fft.ts",
+      "sha256": "466a76577fbad68d253af595bbc73e56d497c260bf5259b66bacf6d676261efe"
+    },
+    {
+      "path": "packages/audio/import-worker.ts",
+      "sha256": "7c10b3a40c2b412070bb2099799286abe94a1e198f789815b494193086625b75"
+    },
+    {
+      "path": "packages/audio/model-decoder.test.ts",
+      "sha256": "5d6bb90a8cacd8688c23c58ef82e4cfd1a1b766795588bf5de1fc74eb8d9cd52"
+    },
+    {
+      "path": "packages/audio/model-decoder.ts",
+      "sha256": "7f327215ffccd3eaaef2891247dd931953b69928b6a53f69985dad8e98076f72"
+    },
+    {
+      "path": "packages/audio/model-features.test.ts",
+      "sha256": "dd913f25fe95117a7498961b5df72cf747ce11cc5bf2ff1ec75bd6a561947c6e"
+    },
+    {
+      "path": "packages/audio/model-features.ts",
+      "sha256": "884252f1d3dca6dae64c75868da7450a59e8246ae31361d35e2198c7a3ef52a8"
+    },
+    {
+      "path": "packages/audio/model-runtime.ts",
+      "sha256": "7aae6d36bf2daa900fd628d0b32f7baa528af45b8b893b90a3085a06d15b2018"
+    },
+    {
+      "path": "packages/audio/pipeline.test.ts",
+      "sha256": "57e076a265bfa1c440dc3efc824baaf4220ab7ca049b366676e531f896a5e37a"
+    },
+    {
+      "path": "packages/audio/pipeline.ts",
+      "sha256": "5195127a6fb80e5c2bb443534544f195b0ad08e5930b91503edf35652f3e75b9"
+    },
+    {
+      "path": "packages/audio/preflight.test.ts",
+      "sha256": "6ec86b3b4239471c122e74be72a3581d2fbe61f99cb8149ac66f602bd14d9fd5"
+    },
+    {
+      "path": "packages/audio/preflight.ts",
+      "sha256": "95f9db48de67e49593caad213ed95b48cadc0a7da9bf7740a766f44e3b9dc8ae"
+    },
+    {
+      "path": "packages/audio/recognizer.ts",
+      "sha256": "d961740cc1041ef762eb169bc6003ee4de682d279582e90ba650a1b23265a191"
+    },
+    {
+      "path": "packages/audio/rhythm.ts",
+      "sha256": "a6fe92a9d0869247a848ae992ea65c8df0ae4c92e140d0df12e90ad9d6c69ac8"
+    },
+    {
+      "path": "packages/audio/versions.ts",
+      "sha256": "0b2629132698c0076e60093dd0b9267427ccf6dc75ced5312f09ca58f2b147bc"
+    },
+    {
+      "path": "packages/audio/worker.ts",
+      "sha256": "b7d7412936daae9cfe5c0811f49c9f82cde49546ffa7a6de8a8130a299e85507"
+    },
+    {
+      "path": "packages/domain/chord.test.ts",
+      "sha256": "a82b1ede3806b2c45032f31219072b0e641c5b8f697b7a2d894ba9b5865de739"
+    },
+    {
+      "path": "packages/domain/chord.ts",
+      "sha256": "ecaa8c861dc4566341add7b30e57e666a31a16b438cedb344f607a4c701dd887"
+    },
+    {
+      "path": "packages/domain/notation.test.ts",
+      "sha256": "0fb20392356af392497293025c9fb1c30d23ac928e2176f61b3415fb6eafc47d"
+    },
+    {
+      "path": "packages/domain/notation.ts",
+      "sha256": "ee16db486688b113c56507b081155b45004d0ee49b7fd09f9580e034ec06b146"
+    },
+    {
+      "path": "packages/domain/timeline.test.ts",
+      "sha256": "34f5df66736548cf8aed06b518cad09b0ae97935d9de05af6b45c3742c8cc848"
+    },
+    {
+      "path": "packages/domain/timeline.ts",
+      "sha256": "a1f4c5e66adf32cd4217ae059d544f8c0132fbd8cda658707da685ea3cbdf04f"
+    },
+    {
+      "path": "packages/domain/types.ts",
+      "sha256": "179e3b3d78cfded005001289eee6d8f70e9d3e43f8aac0e5a4953708c87b93b2"
+    },
+    {
+      "path": "packages/persistence/native-probe.d.mts",
+      "sha256": "ec40717f1024ccae4bd61ffae126ec28aec2a4a5f5f4c25061c04d6c475a83a5"
+    },
+    {
+      "path": "packages/persistence/native-probe.mjs",
+      "sha256": "acc1b04720042e31f06032f1fc4c5153040843700035af8b10caa44da5ba4fc2"
+    },
+    {
+      "path": "packages/persistence/native-probe.test.ts",
+      "sha256": "884797b90e9e29ca235615982655034275a0e71e413e051e04760d416fd43756"
+    },
+    {
+      "path": "packages/persistence/repository.test.ts",
+      "sha256": "e6fa02a80cfe1fb1b14b7c73e8d0964e5b8d445bee6ee4e00d18c4ca90246e95"
+    },
+    {
+      "path": "packages/persistence/repository.ts",
+      "sha256": "715f620177d71c119e1eba7021dd6cc415287ecb18b181ad07ac77e70aa17464"
+    },
+    {
+      "path": "packages/providers/browser-export.ts",
+      "sha256": "5c05b5992f5c12d79c559427577752f1327869ebf60eaf3af9d0aa5609e1d54d"
+    },
+    {
+      "path": "packages/providers/local.test.ts",
+      "sha256": "ed288f9cb24e77d1cb9f865c65bff058665bcf39905d1ed750631f38b172dfb7"
+    },
+    {
+      "path": "packages/providers/local.ts",
+      "sha256": "00f04304993e96bc9399c7f0130a5bafa37f64cc777d69fab55c7ec22da48e2f"
+    },
+    {
+      "path": "scripts/lv-runtime-probe.mjs",
+      "sha256": "0582b8d63c3fb9f50b1a0ed2a4c013ee4578c01196679e47494029ddf87e438c"
+    },
+    {
+      "path": "scripts/native-smoke.mjs",
+      "sha256": "4ba047c4f815b865369f5dcfd272f7bc0e97b33ecf94e5ab375d4acf9ffc4f56"
+    },
+    {
+      "path": "scripts/prepare-runtime.mjs",
+      "sha256": "8486d90c8b6a825e563f88c75b47fbc0a28ef431c3b5dd69a78611fa0e21aef1"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "13fe8134809fb6695d4ae03ebf5e40a0ee2b7099540fbc4b3c39204891f77bf9"
+    }
+  ],
+  "source_manifest_sha256": "a8d5d80c1f46bb3a9e4c18dfbe7cb191d9137c1baf4e1649b7a8552b1493f253",
+  "artifacts": [
+    {
+      "path": "apps/desktop/src-tauri/target/continuation-clean/release/harmonia.exe",
+      "bytes": 7203840,
+      "sha256": "27b2479f9355dc3ed1f02569790dfea3127643dd68ced59a11e612cd36aa7704"
+    },
+    {
+      "path": "apps/desktop/src-tauri/target/continuation-clean/release/bundle/nsis/Harmonia_0.1.0_x64-setup.exe",
+      "bytes": 4685256,
+      "sha256": "15378fc120833bf0dc123033d8c6257d0f943fe743d0e35ec868d1e248d57594"
+    }
+  ],
+  "validation": "native-smoke-continuation.json",
+  "installer_installed_on_clean_machine": false,
+  "visible_gui_launched": false
+}

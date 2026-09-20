@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { formatChord, parseChord } from '../../../../packages/domain/chord';
 import type { ChordSegment } from '../../../../packages/domain/types';
@@ -19,8 +19,17 @@ export function ChordEditor({
   const [end, setEnd] = useState(String(segment.end));
   const [error, setError] = useState('');
   const ref = useRef<HTMLDialogElement>(null);
+  const symbolInput = useRef<HTMLInputElement>(null);
+  const titleId = useId();
   useEffect(() => {
-    ref.current?.showModal();
+    const dialog = ref.current;
+    const previousFocus = document.activeElement;
+    dialog?.showModal();
+    symbolInput.current?.focus();
+    return () => {
+      dialog?.close();
+      if (previousFocus instanceof HTMLElement && previousFocus.isConnected) previousFocus.focus();
+    };
   }, []);
   async function save(event: React.FormEvent) {
     event.preventDefault();
@@ -36,7 +45,27 @@ export function ChordEditor({
     }
   }
   return (
-    <dialog ref={ref} className="editor" onCancel={onClose}>
+    <dialog
+      ref={ref}
+      className="editor"
+      aria-labelledby={titleId}
+      onCancel={onClose}
+      onKeyDown={(event) => {
+        if (event.key !== 'Tab') return;
+        const controls = event.currentTarget.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), input:not([disabled])',
+        );
+        const first = controls[0],
+          last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }}
+    >
       <form onSubmit={save}>
         <div className="section-heading">
           <span className="eyebrow">YOUR MUSICAL JUDGMENT</span>
@@ -44,12 +73,12 @@ export function ChordEditor({
             <X size={18} />
           </button>
         </div>
-        <h2>Refine this moment.</h2>
+        <h2 id={titleId}>Refine this moment.</h2>
         <p>Corrections stay in your local library.</p>
         <label>
           Chord symbol
           <input
-            autoFocus
+            ref={symbolInput}
             value={symbol}
             onChange={(event) => setSymbol(event.target.value)}
             placeholder="G13(b9)/B"

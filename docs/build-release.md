@@ -122,6 +122,12 @@ not establish installer behavior on a clean machine, signing, or other platforms
 
 ## Release checklist
 
+The continuation rebuilt into a fresh native target directory and then rebuilt
+the integrated notation/provider changes there. Current unsigned artifact hashes
+and sizes are in `docs/review-evidence/release-continuation.json`; its native
+smoke report is `native-smoke-continuation.json`. This is a verified engineering
+checkpoint with explicit unresolved model/release gates, not a final distribution.
+
 1. Run the complete TypeScript, Rust, E2E, acoustic, and ML validation recorded in
    `docs/implementation-plan.md`.
 2. Confirm the installer is built from a clean worktree and record its SHA-256 digest

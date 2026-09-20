@@ -8,6 +8,7 @@ interface TransportProps {
   hasSegment: boolean;
   loop: boolean;
   speed: number;
+  volume: number;
   onSeek: (seconds: number) => void;
   onTogglePlayback: () => void;
   onToggleLoop: () => void;
@@ -22,6 +23,7 @@ export function Transport({
   hasSegment,
   loop,
   speed,
+  volume,
   onSeek,
   onTogglePlayback,
   onToggleLoop,
@@ -87,7 +89,7 @@ export function Transport({
             min="0"
             max="1"
             step="0.01"
-            defaultValue="1"
+            value={volume}
             onChange={(event) => {
               onVolumeChange(Number(event.target.value));
             }}

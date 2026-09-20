@@ -1,0 +1,168 @@
+{
+  "experiment_id": "E008-hu33-weighted-tcn",
+  "status": "completed",
+  "git_revision": "34e34f3ab8038417d6b7e619f3812633080d76cd",
+  "source_sha256": {
+    "harmonia_ml\\__init__.py": "4327f27d8d6f57846e7930fe81e65db4b1b7502031ecfa01f44a849565fb9a83",
+    "harmonia_ml\\data\\__init__.py": "95976dade01a173724dd80bad4f92cd4bb379f62d03b48599d59d068d0c74c38",
+    "harmonia_ml\\data\\guitarset.py": "a66da6697ae5a05470918bc52efec7e8c2de780e3e57c62ea5320622d4cb78e3",
+    "harmonia_ml\\data\\labels.py": "00f121b6b6b00b96ae308c8615c69a088917064370e4822110771427c76e641a",
+    "harmonia_ml\\data\\prepare.py": "239314756fb296ef1402d25b0a6704d6d064675fdbc30580b457ffde8439132f",
+    "harmonia_ml\\data\\prepare_winterreise.py": "ebf36a5b39a633c20e87dc2b9d39148b9583dacb783b0c86c65ac0600f008c37",
+    "harmonia_ml\\data\\splits.py": "3d462f56ce0943332a6bf1233dff25bf58ba36b577a27cf4a5a10b331a25166e",
+    "harmonia_ml\\data\\winterreise.py": "227e88fb1771d5af49244ebf6ef21243235174688ecee06b7719446893cc881e",
+    "harmonia_ml\\evaluation\\__init__.py": "1ed9154aacef26e9e3ccdde032fccd20c09fa7742b75d97e79edb67ddab221a6",
+    "harmonia_ml\\evaluation\\boundaries.py": "12666ff471fa019dcced282161bf8a05fc0a078615762bfbfa03e2a4dd559ae2",
+    "harmonia_ml\\evaluation\\calibration.py": "0e623ab955f80182674c1627b99887d6766e6081c0b9057fb4ce389ca8edbca8",
+    "harmonia_ml\\evaluation\\freeze.py": "5f2f57591c24387234ddb2ea3e89af236f287dccb09d86e7dd1569e5cbdee7d8",
+    "harmonia_ml\\evaluation\\pretrained.py": "67deece644861a65c16c6d6fffbf8eb3b8ab8f8bf408d28b6012eec94bec6691",
+    "harmonia_ml\\evaluation\\registry.py": "a1f921f40913a522b51f033b6d026f035b71f312e97a0d7223fed804af2385a9",
+    "harmonia_ml\\evaluation\\report.py": "7541d1fb9224d7969d9427eec6eb258e69836cb6afb90876cec9e2fa633ef35c",
+    "harmonia_ml\\evaluation\\temperature.py": "ce270bdd40a6c4fd89f28b305c5038d801b297b310a662f1b6d4776f4375b624",
+    "harmonia_ml\\export\\__init__.py": "ca8eb64e969b770529be0d474d31d92cbd397bc660ff33321f6eb4b395c1fbd9",
+    "harmonia_ml\\export\\benchmark.py": "85b51fc0c74cae3b170963a8c1c625d3cc79c93921b7e52d4a81c43b4b89974c",
+    "harmonia_ml\\export\\lv_chordia.py": "c5c66f2184e9a5abda2bf050a75060075739c47b826c434703f5b5ecd3f6afb3",
+    "harmonia_ml\\export\\onnx.py": "6fbe5935be5c92edd8871845d8f123ebb19a13119853c3adef8fcbcdf49dd945",
+    "harmonia_ml\\features\\__init__.py": "8896d65084cd290c94cf4ebfdad37f1f3d502fa8a03a3437fd939ebb48e5cb26",
+    "harmonia_ml\\features\\extract.py": "9d8521f535bd45fd193a23e332468655bf2a805dc40ee838504d14d4f4c30bd4",
+    "harmonia_ml\\models\\__init__.py": "44bf4315ced15356b2b32be582bd44676d9f8925230cf0c3f1421f515838806e",
+    "harmonia_ml\\models\\dsp.py": "bb3a67214d28ad0e8008d8361fd0f2a3e262cbe15326bb548cd1bb6c4f3166a7",
+    "harmonia_ml\\models\\structured.py": "6a36a02d654111f9f0ef86574c2f6f9151dde01314fda4ba5ca9206da0a95974",
+    "harmonia_ml\\training\\__init__.py": "6f9c7508290fcc999fd852e3dd2720f18270dbd8b805a8b88e6d7fef1c1642a4",
+    "harmonia_ml\\training\\dataset.py": "06c426a130f818bb300ea444d29f6a2d35d847bef15cb89058b6984a6ffe13ec",
+    "harmonia_ml\\training\\runner.py": "0365991d9392f148bf0e6d252edc504d72225c3f52e205fb47ad726195d9ea14"
+  },
+  "config_sha256": "031b1e540522658885408102adf527ff993ef4b296c9bce54a2ee6aef5cf470b",
+  "config_path": "experiments\\E008-hu33-weighted-tcn.json",
+  "manifest": "data\\prepared\\winterreise-hu33-v1\\manifest.json",
+  "dataset_manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "torch_version": "2.11.0+cu128",
+  "python": "3.13.12",
+  "elapsed_seconds": 24.873974599991925,
+  "peak_vram_bytes": 37267456,
+  "final_process_rss_bytes": 2076831744,
+  "best_validation_score": 0.5307427173671336,
+  "best_checkpoint": "checkpoints\\E008-hu33-weighted-tcn\\best.pt",
+  "epochs_completed": 13,
+  "history": [
+    {
+      "loss": 5.568905353546143,
+      "root_accuracy": 0.3010896152990883,
+      "triad_accuracy": 0.49688681343117636,
+      "seventh_accuracy": 0.6465421392039137,
+      "bass_accuracy": 0.2771847898599066,
+      "train_loss": 6.193889617919922,
+      "epoch": 0
+    },
+    {
+      "loss": 5.004751205444336,
+      "root_accuracy": 0.40893929286190794,
+      "triad_accuracy": 0.5068934845452524,
+      "seventh_accuracy": 0.699466310873916,
+      "bass_accuracy": 0.37636201912386036,
+      "train_loss": 5.20751831928889,
+      "epoch": 1
+    },
+    {
+      "loss": 4.8147478103637695,
+      "root_accuracy": 0.42406048476762287,
+      "triad_accuracy": 0.5537024683122082,
+      "seventh_accuracy": 0.695130086724483,
+      "bass_accuracy": 0.3796975761618857,
+      "train_loss": 4.830868601799011,
+      "epoch": 2
+    },
+    {
+      "loss": 4.82646369934082,
+      "root_accuracy": 0.42873026462085834,
+      "triad_accuracy": 0.538025350233489,
+      "seventh_accuracy": 0.7054703135423616,
+      "bass_accuracy": 0.3877029130531465,
+      "train_loss": 4.619609971841176,
+      "epoch": 3
+    },
+    {
+      "loss": 4.7023539543151855,
+      "root_accuracy": 0.42839670891705584,
+      "triad_accuracy": 0.53157660662664,
+      "seventh_accuracy": 0.7034689793195463,
+      "bass_accuracy": 0.3994885479208361,
+      "train_loss": 4.391342322031657,
+      "epoch": 4
+    },
+    {
+      "loss": 4.722883701324463,
+      "root_accuracy": 0.44040471425394706,
+      "triad_accuracy": 0.46041805648209916,
+      "seventh_accuracy": 0.7024683122081388,
+      "bass_accuracy": 0.3901489882143651,
+      "train_loss": 4.467826426029205,
+      "epoch": 5
+    },
+    {
+      "loss": 4.750588417053223,
+      "root_accuracy": 0.45608183233266625,
+      "triad_accuracy": 0.5117856348676896,
+      "seventh_accuracy": 0.7045808316655549,
+      "bass_accuracy": 0.4132755170113409,
+      "train_loss": 4.36859260002772,
+      "epoch": 6
+    },
+    {
+      "loss": 4.649847984313965,
+      "root_accuracy": 0.46675561485434736,
+      "triad_accuracy": 0.5239048254391817,
+      "seventh_accuracy": 0.7141427618412275,
+      "bass_accuracy": 0.4181676673337781,
+      "train_loss": 4.335387627283732,
+      "epoch": 7
+    },
+    {
+      "loss": 4.633134365081787,
+      "root_accuracy": 0.4597509450744941,
+      "triad_accuracy": 0.4797642873026462,
+      "seventh_accuracy": 0.700911718923727,
+      "bass_accuracy": 0.40671558816989106,
+      "train_loss": 4.304539759953816,
+      "epoch": 8
+    },
+    {
+      "loss": 4.664491653442383,
+      "root_accuracy": 0.463420057816322,
+      "triad_accuracy": 0.38970424727596176,
+      "seventh_accuracy": 0.7042472759617523,
+      "bass_accuracy": 0.4101623304425172,
+      "train_loss": 4.150372276703517,
+      "epoch": 9
+    },
+    {
+      "loss": 4.658134460449219,
+      "root_accuracy": 0.4615299088281076,
+      "triad_accuracy": 0.4896597731821214,
+      "seventh_accuracy": 0.7008005336891261,
+      "bass_accuracy": 0.40204580831665554,
+      "train_loss": 4.194893628358841,
+      "epoch": 10
+    },
+    {
+      "loss": 4.605550765991211,
+      "root_accuracy": 0.46086279742050257,
+      "triad_accuracy": 0.4854347342672893,
+      "seventh_accuracy": 0.70658216588837,
+      "bass_accuracy": 0.40671558816989106,
+      "train_loss": 4.1213354369004565,
+      "epoch": 11
+    },
+    {
+      "loss": 4.620905876159668,
+      "root_accuracy": 0.45741605514787637,
+      "triad_accuracy": 0.4578607960862797,
+      "seventh_accuracy": 0.7072492772959751,
+      "bass_accuracy": 0.4142761841227485,
+      "train_loss": 4.223536521196365,
+      "epoch": 12
+    }
+  ]
+}

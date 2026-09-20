@@ -1,5 +1,15 @@
 import { test, expect, wavFile, importWav, exportedRecord } from './fixtures';
 
+test('volume display and audible setting survive replacing the current track', async ({ page }) => {
+  await page.goto('/');
+  await importWav(page);
+  await page.getByLabel('Volume', { exact: true }).fill('0.25');
+  await importWav(page, wavFile('second-volume.wav', 6, 2));
+  await expect(page.getByLabel('Volume', { exact: true })).toHaveValue('0.25');
+  await page.getByRole('button', { name: 'Play', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Pause', exact: true })).toBeVisible();
+});
+
 test('valid compressed multichannel audio is rejected before full PCM decoding', async ({
   page,
 }) => {

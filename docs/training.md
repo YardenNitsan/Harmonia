@@ -8,8 +8,8 @@ the PyTorch cu128 index before applying that lock. GPU training used Torch
 
 ## Data and splits
 
-Audit: `docs/data/dataset-audit.md`. Only the approved GuitarSet microphone
-audio and annotations were acquired. The prepared manifest records archive
+Audit: `docs/data/dataset-audit.md`. The initial experiments used approved GuitarSet
+microphone audio and annotations. The prepared manifest records archive
 and per-file hashes, exact durations, label counts, transformations, feature
 settings and train-only normalization. There are 360 tracks, 3.0468 hours
 and 4,320 annotated segments. Family 1 is training, family 2 validation and
@@ -25,6 +25,29 @@ did not solve the shortage of representative training harmony. Synthetic
 audio is used only for numerical and regression fixtures.
 
 ## Experiments
+
+The public-data continuation additionally prepared the audited 23-recording
+Winterreise HU33 subset, excluding composition 01 and restricted SC06 recordings.
+Its strict masked-target version, raw-source validation, fixed composition splits,
+and train-only normalization are in [the preparation report](data/hu33-preparation-report.md).
+E007 unweighted, E008 weighted and E009 longer-context experiments used only its
+train/validation splits. Protocol snapshots predate each run; separate registries
+retain artifact/source/config hashes and memory-monitor reports. Results and
+limitations are in [the experiment report](data/hu33-experiment-results.md).
+The HU33 test remains closed. None replaces E004 in the application.
+
+Reproduce preparation only into a new output directory, from `ml/`:
+
+```powershell
+.venv/Scripts/python.exe -m harmonia_ml.data.prepare_winterreise --source data/downloads/winterreise-hu33-v2.1 --output data/prepared/winterreise-hu33-v1
+```
+
+The existing output is immutable; the command intentionally refuses to overwrite
+it. Do not retrain over completed E007–E009 checkpoint directories. LV export
+research commands and remaining parity failures are recorded in
+`ml/experiments/results/LV-Chordia-export-cpu.md`. The real-recording deployment
+probe runs as `python experiments/lv_real_audio_parity.py` with `PYTHONPATH=.` and
+is currently expected to exit nonzero on its retained tolerance failure.
 
 Configs live in `ml/experiments/`; validation, calibration, runtime and
 held-out reports live in `ml/experiments/results/`. Raw audio, prepared

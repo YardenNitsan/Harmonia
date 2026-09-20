@@ -26,6 +26,7 @@ export interface MusicProvider {
   readonly duration: number;
 }
 export interface LocalPlayback extends MusicProvider {
+  readonly volume: number;
   readonly available: boolean;
   readonly playing: boolean;
   load(file: Blob): void;

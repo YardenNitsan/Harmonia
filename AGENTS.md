@@ -76,6 +76,20 @@ datasets. Do not assume permissions from annotation licenses or a hosting site's
 blanket metadata; inspect embedded audio rights. E004's test is already evaluated:
 never reuse it for model selection or tune against its reported failures.
 
+HU33 acquisition/preparation and E007–E009 runs now exist; reuse their immutable
+manifests/checkpoints, not a new download or overwrite. See
+`docs/data/hu33-experiment-results.md`. Its test remains closed. E009 is a research
+leader with inadequate minority-chord performance, not the product model.
+LV-Chordia export passes procedural fixtures but fails a retained real-audio
+numerical check; see ADR 003. Do not promote it, loosen tolerances or silently
+chunk full-sequence normalization/recurrent inference.
+
+The fresh native target for this continuation is
+`apps/desktop/src-tauri/target/continuation-clean`; pass its release executable to
+`node scripts/native-smoke.mjs --exe <path> --report <path>` after rebuilding.
+`npm.cmd run test:e2e:production` includes keyboard/high-DPI/reduced-motion flows
+and two CPU-throttled profile campaigns. These are not actual low-end-PC results.
+
 ML commands require the audited prepared corpus. Do not run locked-test evaluation
 until model selection is frozen. Keep this table aligned with actual scripts.
 

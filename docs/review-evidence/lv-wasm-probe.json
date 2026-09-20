@@ -1,0 +1,47 @@
+{
+  "startedAt": "2026-09-20T11:02:07.132Z",
+  "purpose": "Procedural first-network browser CPU/WASM parity; no audio, CQT extraction, ensemble or quality evidence",
+  "modelSha256": "27ab16d46d5017c80803871778f4012a27512ef92d8de0861c0aa0cea7a963de",
+  "fixtureSha256": "312e67a72fb76f485554b83800d4c4bc61950760f82768924eac669a4c3d88fa",
+  "environment": "Headless installed Chrome, one WASM thread, desktop CSP, module worker",
+  "pageErrors": [],
+  "result": {
+    "passed": true,
+    "frames": 128,
+    "initializationMs": 203.69999998807907,
+    "inferenceMs": 94.19999998807907,
+    "heads": {
+      "triad": {
+        "shape": [128, 73],
+        "maxAbsoluteError": 0.000015735626220703125,
+        "violations": 0
+      },
+      "bass": {
+        "shape": [128, 13],
+        "maxAbsoluteError": 0.000015303492546081543,
+        "violations": 0
+      },
+      "seventh": {
+        "shape": [128, 4],
+        "maxAbsoluteError": 0.000011801719665527344,
+        "violations": 0
+      },
+      "ninth": {
+        "shape": [128, 4],
+        "maxAbsoluteError": 0.000009059906005859375,
+        "violations": 0
+      },
+      "eleventh": {
+        "shape": [128, 3],
+        "maxAbsoluteError": 0.00000762939453125,
+        "violations": 0
+      },
+      "thirteenth": {
+        "shape": [128, 3],
+        "maxAbsoluteError": 0.000007152557373046875,
+        "violations": 0
+      }
+    }
+  },
+  "passed": true
+}

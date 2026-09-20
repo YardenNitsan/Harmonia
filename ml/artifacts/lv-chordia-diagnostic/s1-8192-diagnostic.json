@@ -1,0 +1,50 @@
+{
+  "network": 1,
+  "frames": 8192,
+  "heads": {
+    "triad": {
+      "max_abs_logit_error": 0.00010466575622558594,
+      "logit_violations": 2,
+      "max_abs_probability_error": 1.1086463928222656e-05,
+      "probability_allclose": true,
+      "argmax_disagreements": 0
+    },
+    "bass": {
+      "max_abs_logit_error": 9.012222290039062e-05,
+      "logit_violations": 0,
+      "max_abs_probability_error": 1.6510486602783203e-05,
+      "probability_allclose": true,
+      "argmax_disagreements": 0
+    },
+    "seventh": {
+      "max_abs_logit_error": 6.723403930664062e-05,
+      "logit_violations": 0,
+      "max_abs_probability_error": 5.602836608886719e-06,
+      "probability_allclose": true,
+      "argmax_disagreements": 0
+    },
+    "ninth": {
+      "max_abs_logit_error": 7.2479248046875e-05,
+      "logit_violations": 0,
+      "max_abs_probability_error": 4.500150680541992e-06,
+      "probability_allclose": true,
+      "argmax_disagreements": 0
+    },
+    "eleventh": {
+      "max_abs_logit_error": 3.886222839355469e-05,
+      "logit_violations": 0,
+      "max_abs_probability_error": 5.304813385009766e-06,
+      "probability_allclose": true,
+      "argmax_disagreements": 0
+    },
+    "thirteenth": {
+      "max_abs_logit_error": 3.600120544433594e-05,
+      "logit_violations": 0,
+      "max_abs_probability_error": 4.410743713378906e-06,
+      "probability_allclose": true,
+      "argmax_disagreements": 0
+    }
+  },
+  "same_features_lstm_fc_max_abs_error": 6.198883056640625e-06,
+  "same_features_lstm_fc_violations": 0
+}

@@ -1,0 +1,9 @@
+{
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "report_sha256": "7f23e4e837054de80c80fca867bd0197254eaed653c5fd4fbe0a58cd4fec80ed",
+  "checkpoint_sha256": "0878f465f7b8fd0218d121d1bd7e5bff5d00729a6edcad3da21fafceb88c618f",
+  "evaluator_sha256": "7541d1fb9224d7969d9427eec6eb258e69836cb6afb90876cec9e2fa633ef35c",
+  "minimum_available_ram_bytes": 14859804672,
+  "primary_score": 0.2904216393969912,
+  "test_evaluated": false
+}

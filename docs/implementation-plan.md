@@ -110,17 +110,75 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 
 - [x] Audit public expansion candidates and inspect embedded licenses before downloading audio.
 - [x] Acquire and validate HU33 pilot02+18; preserve raw annotations, gaps and conflicts.
-- [ ] Acquire HU33-only remainder excluding01 within audited byte/path limits; retain fixed composition split.
-- [ ] Prepare explicit valid-label masks; train-only normalization; tests preventing unknown→N and split leakage.
-- [ ] Report train/validation class distribution before choosing the next controlled training experiment.
-- [ ] Export first LV-Chordia network and investigate full-sequence CPU numerical parity; do not relax tests without an evidence-backed numerical decision.
-- [ ] Only after first-network acceptance, export/benchmark remaining ensemble and retain probability averaging/HMM/preprocessing contract.
+- [x] Acquire HU33-only remainder excluding01 within audited byte/path limits; retain fixed composition split.
+- [x] Prepare explicit valid-label masks; train-only normalization; tests preventing unknown→N and split leakage.
+- [x] Report train/validation class distribution before choosing the next controlled training experiment.
+- [x] Export first LV-Chordia network and investigate full-sequence CPU numerical parity; original tolerances retained, procedural acceptance and real-audio failure recorded in ADR 003.
+- [x] After first-network procedural acceptance, export/benchmark remaining ensemble with probability averaging/HMM/preprocessing contract; all-five acceptance is limited to procedural sequences through 4096 frames.
 - [ ] No model promotion or new locked-test evaluation until the new selection protocol is documented and frozen.
-- [ ] Finish fresh no-cache native build, rerun hidden smoke, update artifact identities, and commit the verified checkpoint locally.
+- [x] Run predeclared HU33 E007/E008 and adaptive E009 context comparison; retain full-validation reports, hashes and resource measurements without opening test.
+- [ ] Resolve LV-Chordia real-recording logit parity (second E006 validation recording, network0,1531frames) and network1/8192 before production acceptance; no arbitrary chunking or tolerance relaxation.
+- [ ] Port/verify CQT, tuning/resampling and original ensemble/HMM production preprocessing, then measure complete CPU pipeline resources and real-song quality.
+- [x] Finish fresh no-cache native build, rerun hidden smoke, update artifact identities, and save the verified checkpoint locally.
 
-Current ownership: parent integrates app/docs/releases; ml_continue owns HU33
-preparation/masking; review owns LV-Chordia export research. Desktop GUI must remain
+Current ownership: parent reclaimed all remaining work after delegated workers stopped;
+HU33 preparation, E007–E009 training/evaluation and export research artifacts are saved.
+Do not redispatch completed experiments or repeat acquisition. Desktop GUI must remain
 closed throughout. Existing E004 artifacts/test results are immutable.
+
+Continuation evidence: 575 TS tests; 73 Python tests; 14 Rust tests; TypeScript/lint,
+Python Ruff/dependency consistency and Rust fmt/clippy. Production browser21/21 includes
+new notation/Harte export, named dialog focus/Tab/Escape restoration, keyboard/high-DPI/
+reduced-motion and fast/experimental CPU-throttle campaigns. Actual weak hardware is
+still unavailable. The fresh-target baseline native build and final incremental
+integration build both passed; final hidden smoke passed and cleaned resources.
+Source/executable/installer hashes: `docs/review-evidence/release-continuation.json`.
+This does not verify signed or clean-machine installation.
+
+Post-implementation review found and closed source-pair swapping in HU33 validation,
+volume slider state after replacing a track, and timeline export visibility at
+800px. Three source-swap regressions and a production volume flow were added;
+all 23 original source identities/hashes still match, so existing preparation and
+experiments were retained. Independent re-review found no remaining code blocker
+in these fixes. Scientific parity/quality and final release gates remain open.
+
+Research result: E009 improves HU33 root to59.02% and reduced exact to19.81%, but
+minor recall0.34% and inversion exact1.75% remain inadequate. It is research-only.
+LV procedural tests pass; the retained real-audio research probe deliberately remains
+a failing acceptance check (28/111763 triad logits on second validation recording).
+No legitimate failure was disabled and no model/test freeze was repurposed.
+
+Ruling: retain mixed-precision LV normalization only as measured export research;
+passing short procedural/browser fixtures does not authorize production integration.
+Ruling: preserve original predeclared protocol snapshots under experiment results;
+human-facing protocol documentation may be formatted after runs without changing those
+hash-bound snapshots. Next work starts with the unresolved real-audio numerical and
+preprocessing contracts, followed by broader data/target representation, advanced
+segmentation, remaining product/provider features and physical release gates.
+
+2026-09-20 resumed checkpoint `34e34f3` on existing `feat/harmonia`, clean at start.
+No completed phase was restarted. The existing 23-track/48-file HU33 acquisition
+was verified and reused without another download. Strict masked preparation completed;
+see `docs/data/hu33-preparation-report.md`: 78,350 valid training and 23,250 validation
+frames. Test remains locked. Added source identity/hash/path/duplicate regressions;
+raw CSV rather than cached parsed labels is authoritative. Fixed the unfinished
+evaluation coverage regression; four evaluator tests pass. E007/E008 research protocol
+and controlled experiments are in progress; no model promotion is authorized by these
+preparation results.
+
+Ruling: continue in the existing product branch and use the existing implementation
+ledger — preserves the requested continuation and ignored datasets/checkpoints.
+Ruling: practice display modes are projections of canonical chords, never corrections.
+Roman/Nashville degrees use major-reference numbering relative to the displayed tonic;
+slash bass remains numeric to avoid implying secondary-dominant analysis. Unknown-key
+number modes are unavailable. Original full chord remains editable/exportable.
+
+Fresh checkpoint baseline: 551 TS tests, lint and typecheck; 16 production-browser
+flows. A new Cargo target directory `apps/desktop/src-tauri/target/continuation-clean`
+built the native binary and NSIS installer without reusing compiled native artifacts
+(3m11s). Hidden native smoke passed and cleaned up; evidence
+`docs/review-evidence/native-smoke-continuation-baseline.json`. This baseline predates
+the new notation/provider changes and is not the final release artifact.
 
 2026-09-20: Work began from a workspace without a root repository. Existing
 GuitarScaleViewer has a modified Cargo.toml; left intact. Node 24.11.1, npm 11.6.2,

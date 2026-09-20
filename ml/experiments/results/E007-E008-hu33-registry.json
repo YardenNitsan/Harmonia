@@ -1,0 +1,115 @@
+{
+  "schema": "harmonia-hu33-experiment-registry-1",
+  "recorded_utc": "2026-09-20T11:03:52.219017+00:00",
+  "protocol": "..\\docs\\data\\hu33-selection-protocol.md",
+  "protocol_sha256_before_runs": "6a706117922ac7628be62ac5afcb4b7561220fd9b5d99304e9bc3751cb05febd",
+  "manifest": "data\\prepared\\winterreise-hu33-v1\\manifest.json",
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "target_version": "winterreise-strict-masked-v1",
+  "seed": 20260920,
+  "precision": {
+    "training": "CUDA bfloat16 autocast with float32 model parameters",
+    "validation": "float32"
+  },
+  "device": "NVIDIA GeForce RTX 5070",
+  "limits": {
+    "cuda_allocator_fraction": 0.45,
+    "cpu_threads": 2,
+    "workers": 1,
+    "minimum_available_ram_bytes": 8589934592
+  },
+  "candidates": [
+    {
+      "id": "E007-hu33-tcn",
+      "config": "experiments/E007-hu33-tcn.json",
+      "config_sha256": "58698957acd44bcb3d175e93a62de1508767e0c5e06753078a53ce72fdff6788",
+      "checkpoint": "checkpoints\\E007-hu33-tcn\\best.pt",
+      "checkpoint_sha256": "d2811a50b65f7cc59bae9767c57602bce46ab3025329ba538515384c4e6da858",
+      "checkpoint_epoch_zero_based": 7,
+      "epochs_completed": 13,
+      "internal_crop_score": 0.5391372025794974,
+      "full_validation_report": "experiments\\results\\E007-hu33-tcn\\validation.json",
+      "full_validation_report_sha256": "cf5d4c10f980b4018917825ee9766f3f5e5aba0ee65a8bbeace6a3ec25a16f1b",
+      "primary_score": 0.3101950384153646,
+      "root_accuracy": 0.5358279569892473,
+      "triad_macro_recall": 0.20000447008480338,
+      "structural_exact_accuracy": 0.194752688172043,
+      "training_result": "experiments\\results\\E007-hu33-tcn\\training-result.json",
+      "training_seconds": 27.190275300003123,
+      "peak_torch_allocated_vram_bytes": 37266432,
+      "resources": {
+        "minimum_available_ram_bytes": 10852614144,
+        "maximum_sampled_process_tree_rss_bytes": 3132551168,
+        "sample_interval_seconds": 0.5,
+        "exit_code": 0,
+        "finished_utc": "2026-09-20T11:01:18.746774+00:00"
+      }
+    },
+    {
+      "id": "E008-hu33-weighted-tcn",
+      "config": "experiments/E008-hu33-weighted-tcn.json",
+      "config_sha256": "031b1e540522658885408102adf527ff993ef4b296c9bce54a2ee6aef5cf470b",
+      "checkpoint": "checkpoints\\E008-hu33-weighted-tcn\\best.pt",
+      "checkpoint_sha256": "0878f465f7b8fd0218d121d1bd7e5bff5d00729a6edcad3da21fafceb88c618f",
+      "checkpoint_epoch_zero_based": 7,
+      "epochs_completed": 13,
+      "internal_crop_score": 0.5307427173671336,
+      "full_validation_report": "experiments\\results\\E008-hu33-weighted-tcn\\validation.json",
+      "full_validation_report_sha256": "7f23e4e837054de80c80fca867bd0197254eaed653c5fd4fbe0a58cd4fec80ed",
+      "primary_score": 0.2904216393969912,
+      "root_accuracy": 0.5285591397849463,
+      "triad_macro_recall": 0.19483481066409195,
+      "structural_exact_accuracy": 0.14787096774193548,
+      "training_result": "experiments\\results\\E008-hu33-weighted-tcn\\training-result.json",
+      "training_seconds": 24.873974599991925,
+      "peak_torch_allocated_vram_bytes": 37267456,
+      "resources": {
+        "minimum_available_ram_bytes": 12042305536,
+        "maximum_sampled_process_tree_rss_bytes": 3108208640,
+        "sample_interval_seconds": 0.5,
+        "exit_code": 0,
+        "finished_utc": "2026-09-20T11:01:47.604450+00:00"
+      }
+    }
+  ],
+  "E008_relative_quality_class_weights": {
+    "triad": [
+      8.0,
+      1.0,
+      1.2565170526504517,
+      3.1764206886291504,
+      8.0,
+      8.0,
+      8.0,
+      8.0
+    ],
+    "seventh": [
+      1.0,
+      1.7153828144073486,
+      8.0,
+      4.663307189941406
+    ]
+  },
+  "dsp": {
+    "report": "experiments\\results\\E007-hu33-tcn\\dsp-validation.json",
+    "report_sha256": "45a9e74602fcfcafd5616b1d20c72638a5747d768202693028191dd588964f9c",
+    "primary_score": 0.2686078210325649
+  },
+  "research_selection": {
+    "candidate": "E007-hu33-tcn",
+    "rule": "Equal mean full-validation triad macro recall, root accuracy and reduced structural exact accuracy",
+    "score_gap": 0.019773399018373383,
+    "tie_break_required": false,
+    "promotion": false,
+    "test_permission": false,
+    "reason": "Higher predefined score, but severe quality collapse and missing classes prevent promotion or opening test."
+  },
+  "test_evaluated": false,
+  "validation_frames": 23250,
+  "annotation_frame_coverage": 0.7812762525622501,
+  "critical_training_source_hashes_stable": true,
+  "requirements_lock_sha256": "909aea40a289215ae404671b888457c3805498e79e8bd3bd828549810c41e076",
+  "additional_candidate_run": false,
+  "E009_decision": "Not run; crop length alone does not extend the three-block TCN receptive field. No third candidate predeclared.",
+  "protocol_snapshot": "experiments\\results\\E007-E008-hu33-protocol.md"
+}

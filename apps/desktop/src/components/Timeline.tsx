@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Minus, Plus } from 'lucide-react';
 import { formatChord } from '../../../../packages/domain/chord';
+import { displayChord, type ChordDisplayMode } from '../../../../packages/domain/notation';
 import type { Analysis } from '../../../../packages/domain/types';
 
 export function timeLabel(time: number) {
@@ -13,11 +14,13 @@ export function Timeline({
   time,
   index,
   onSeek,
+  notation,
 }: {
   analysis: Analysis;
   time: number;
   index: number;
   onSeek: (seconds: number) => void;
+  notation: ChordDisplayMode;
 }) {
   const [zoom, setZoom] = useState(1);
   const waveform = useMemo(
@@ -29,8 +32,11 @@ export function Timeline({
   );
 
   const chordLabels = useMemo(
-    () => analysis.segments.map((segment) => formatChord(segment.chord)),
-    [analysis.segments],
+    () =>
+      analysis.segments.map((segment) =>
+        displayChord(segment.chord, notation, analysis.key?.root ?? null),
+      ),
+    [analysis.segments, analysis.key, notation],
   );
   const timeRuler = useMemo(
     () => (
@@ -77,7 +83,7 @@ export function Timeline({
               onSeek(segment.start);
             }}
             aria-label={`Seek to ${chordLabels[i]} at ${Number(segment.start.toFixed(3))} seconds`}
-            title={`${chordLabels[i]} · ${segment.start.toFixed(2)}–${segment.end.toFixed(2)}s`}
+            title={`${formatChord(segment.chord)} · ${segment.start.toFixed(2)}–${segment.end.toFixed(2)}s`}
           >
             <span>{chordLabels[i]}</span>
             <small>{(segment.end - segment.start).toFixed(1)}s</small>

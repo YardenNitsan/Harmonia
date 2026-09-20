@@ -41,6 +41,10 @@ ledger belongs in [final report](final-report.md); numerical ML evidence is in
 - LV-Chordia performs better on a small fixed validation subset, but its CQT,
   five-model ensemble and HMM are not integrated into the app. Training-corpus
   overlap was not exhaustively established. It is not the bundled ONNX artifact.
+  Export research now passes procedural fixtures, but a real validation recording
+  exceeds the unchanged logit tolerance. The complete production port remains gated.
+  HU33 E007–E009 add measured context/class-weighting comparisons; E009 still has
+  only 0.34% minor recall and does not replace the product recognizer.
 - Family-disjoint GuitarSet splits retain performers across splits and have severe
   quality imbalance. There is no broad performer-/artist-disjoint commercial-song
   benchmark, multiple-seed significance analysis or comprehensive learning curve.
@@ -56,7 +60,9 @@ ledger belongs in [final report](final-report.md); numerical ML evidence is in
   must reselect the file after reopening a saved analysis to resume listening.
 - Display transposition does not pitch-shift audio. Guitar/piano pitch displays
   are not a complete ergonomic voicing/fingering or score-generation engine.
-- JSON export is implemented; other master-spec export, musician and advanced
+- JSON and Harte .lab timeline exports are implemented, along with full/simplified,
+  Roman and Nashville display modes. Degrees use a major-reference tonic and do
+  not infer modulation or functional harmony. Other musician and advanced
   library workflows require an explicit feature audit before claiming completion.
 - The authored synthetic demo and procedural acoustic fixtures are interaction/
   numerical checks, not evidence of real-song accuracy.
@@ -89,10 +95,12 @@ ledger belongs in [final report](final-report.md); numerical ML evidence is in
   behavior, screen-reader accessibility, long-session stability or every keyboard
   flow. The full UI/performance/stress campaign remains open.
 - Existing Windows packaging is not signed or verified through clean-machine
-  install/main-flow/upgrade/uninstall tests. The final integrated artifact still
-  needs a recorded build hash and validation ledger. No non-Windows release or
+  install/main-flow/upgrade/uninstall tests. No non-Windows release or
   low-end hardware result is established. Installer WebView2 bootstrap may need
   network access, and placeholder branding assets need release review.
+  The continuation's rebuilt binary and installer now have source/artifact hashes
+  in `docs/review-evidence/release-continuation.json` and a passing hidden native
+  smoke report; these do not establish clean-machine install or release approval.
 - The complete acceptance gates must pass before the production GUI is presented
   as the finished application. A successful build or passing unit suite does not
   override this requirement.

@@ -1,11 +1,13 @@
 import { memo } from 'react';
 import { Edit3 } from 'lucide-react';
 import { formatChord, pitchName } from '../../../../packages/domain/chord';
+import { displayChord, type ChordDisplayMode } from '../../../../packages/domain/notation';
 import type { Analysis } from '../../../../packages/domain/types';
 interface HarmonyStageProps {
   analysis: Analysis;
   index: number;
   transpose: number;
+  notation: ChordDisplayMode;
   playing: boolean;
   beatIndex: number;
   onSeek: (seconds: number) => void;
@@ -15,6 +17,7 @@ export const HarmonyStage = memo(function HarmonyStage({
   analysis,
   index,
   transpose,
+  notation,
   playing,
   beatIndex,
   onSeek,
@@ -45,13 +48,19 @@ export const HarmonyStage = memo(function HarmonyStage({
             onClick={() => onSeek(analysis.segments[index - 1]?.start ?? 0)}
             disabled={index <= 0}
           >
-            {index > 0 ? formatChord(analysis.segments[index - 1].chord) : '—'}
+            {index > 0
+              ? displayChord(
+                  analysis.segments[index - 1].chord,
+                  notation,
+                  analysis.key?.root ?? null,
+                )
+              : '—'}
           </button>
         </div>
         <div className="current-chord">
           <span className="eyebrow">CURRENT CHORD</span>
           <h1 key={`${index}-${transpose}-${formatChord(chord)}`} data-testid="current-chord">
-            {formatChord(chord)}
+            {displayChord(chord, notation, analysis.key?.root ?? null)}
           </h1>
           <div className="chord-annotation">
             <span className="tiny-dot" />
@@ -66,7 +75,13 @@ export const HarmonyStage = memo(function HarmonyStage({
             onClick={() => onSeek(analysis.segments[index + 1]?.start ?? 0)}
             disabled={index < 0 || index === analysis.segments.length - 1}
           >
-            {analysis.segments[index + 1] ? formatChord(analysis.segments[index + 1].chord) : '—'}
+            {analysis.segments[index + 1]
+              ? displayChord(
+                  analysis.segments[index + 1].chord,
+                  notation,
+                  analysis.key?.root ?? null,
+                )
+              : '—'}
           </button>
         </div>
       </div>

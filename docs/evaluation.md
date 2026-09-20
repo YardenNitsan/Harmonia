@@ -1,5 +1,33 @@
 # Evaluation evidence
 
+## Public-data continuation
+
+HU33 preparation and E007–E009 validation are recorded in
+[the controlled experiment report](data/hu33-experiment-results.md). On five
+composition-disjoint validation recordings, the longer-context E009 research
+candidate achieved root 59.02%, reduced structural exact 19.81%, and boundary
+F1 0.2372 at 50 ms. Minor recall was only 0.34%; this is not release-quality
+recognition. These HU33 figures are not comparable to the GuitarSet percentages
+below. No new locked-test evaluation or production model promotion occurred.
+
+LV-Chordia CPU export now passes all five networks and the original HMM on
+procedural sequences through 4,096 frames. The first network passes procedural
+sequences through 8,192, but network 1 fails there. A real-audio parity probe of
+the existing E006 validation selection matched the first recording's 15 decoded
+segments, then failed network 0 on the second recording: 28 of 111,763 triad
+logits exceeded the unchanged tolerance, maximum violating error 0.00016919.
+The probe stopped and did not claim acceptance for the remaining ten tracks.
+See `ml/experiments/results/LV-Chordia-real-audio-parity.json` and the
+[CPU investigation](../ml/experiments/results/LV-Chordia-export-cpu.md).
+
+A separate headless browser probe runs the first exported network with local
+CPU/WASM, one thread and desktop CSP: 128 procedural frames pass all six head
+tolerances. Its roughly 204 ms initialization and 94 ms inference exclude CQT,
+audio decoding and ensemble/HMM work. This establishes operator compatibility,
+not production preprocessing, full-song parity or an app quality improvement.
+
+## Frozen GuitarSet evidence
+
 All percentages below concern prepared real GuitarSet microphone recordings.
 They do not measure commercial full mixes. Equal-hop frame accuracy weights
 time approximately, and excludes incomplete final FFT frames. The Python

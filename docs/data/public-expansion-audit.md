@@ -71,6 +71,14 @@ Preprocessing is magnitude hybrid CQT, 22,050 Hz, hop 512, 36 bins/octave, F#0 m
 
 ## Acquisition status
 
+The following pilot ledger is historical. The continuation verified the existing
+HU33-only full acquisition (23 recordings, excluding 01; 48 hashed source files,
+118,086,126 received range bytes) and prepared its fixed composition split.
+No SC06 files or new downloads were added by the continuation. Test features are
+prepared/hash-locked, but test metrics and distributions remain unopened.
+See [preparation evidence](hu33-preparation-report.md) and
+[E007–E009 validation experiments](hu33-experiment-results.md) for current status.
+
 Research phase inspected only metadata, central directory, README, notices and two annotation files. After the audit, the authorized two-recording pilot was acquired through the tested bounded range pipeline. Total received range bodies: **5,215,811 bytes**, including ZIP metadata. Every extracted member passed CRC32; SHA-256 values and unchanged source files are recorded under ignored `ml/data/downloads/winterreise-hu33-pilot-v2.1/`. The server supplied no ETag; provenance records `null`, not a claimed validator. Exact Content-Range/archive size and ZIP consistency were checked. Whole-archive MD5 remains unverified because the archive was not downloaded in full.
 
 | Measured pilot property                                  | HU33 02 (training)     | HU33 18 (validation)   |
