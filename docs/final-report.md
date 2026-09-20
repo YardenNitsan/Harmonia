@@ -1,5 +1,14 @@
 # Harmonia: incomplete engineering checkpoint
 
+Latest checkpoint (2026-09-21): **free-first acquired-audio player**. The actual
+YouTube typeahead → yt-dlp acquisition → full analysis → frozen timeline → local
+playback/cache path passes hidden Windows acceptance. Private Cobalt fallback is
+verified; optional SaveAPI has simulated coverage only. See
+[source, timing, executable and limits](acquisition-acceptance.md). Recognition
+quality and broad release gates remain open. No visible GUI or new ML experiments.
+The consumer checkpoint below is historical and its Commons-only restriction is
+superseded by ADR009.
+
 Latest checkpoint: **consumer Search & Analyze player**. Real YouTube typeahead
 uses native protected configuration; licensed Commons results can be fully
 prepared before automatic playback. The playback snapshot is fixed and cached.

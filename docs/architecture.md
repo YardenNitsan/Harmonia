@@ -1,5 +1,22 @@
 # Architecture
 
+## Exact acquired-audio playback (ADR009, current)
+
+YouTube provides native-configured search and exact video identity. The native
+`WholeSongAudioProvider` adapter acquires complete audio through local yt-dlp,
+self-hosted Cobalt, then optional SaveAPI. Status-aware retries, circuit health,
+bounded downloads, content hashing and owned-file cleanup remain outside recognition.
+The frontend receives opaque cache tokens and bounded binary reads, never keys or
+signed media URLs. Provider availability does not establish recording rights.
+
+The acquired bytes are validated and decoded once at 22.05 kHz. Full-song contextual
+analysis completes before the immutable timeline and local player are exposed.
+The player uses those same bytes; its time only indexes the frozen timeline.
+Audio caching avoids reacquisition, while analysis identity includes exact video,
+audio fingerprint, pipeline/model/profile. Decoder rejection can try the next
+provider; recognition or persistence failures cannot masquerade as acquisition errors.
+Earlier metadata-only/watch-only restrictions below describe the superseded prototype.
+
 ## Consumer search and playback snapshot
 
 `SongSearchController` debounces text changes, aborts superseded requests and

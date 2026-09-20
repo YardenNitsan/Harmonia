@@ -13,6 +13,11 @@ fn main() {
         "youtube_search",
         "search_cancel",
         "search_status",
+        "audio_acquire",
+        "audio_read",
+        "audio_cancel",
+        "audio_reject",
+        "audio_diagnostics",
     ];
     let output_directory = env::var_os("OUT_DIR").expect("Cargo did not set OUT_DIR");
     let icon_path = std::path::PathBuf::from(output_directory).join("harmonia.ico");

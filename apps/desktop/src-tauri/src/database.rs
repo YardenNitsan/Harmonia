@@ -269,6 +269,13 @@ struct SavedTrackMetadata {
 fn validate_record(record: &Value) -> Result<SavedTrackMetadata, DatabaseError> {
     if let Some(source) = record.get("source") {
         validate_source(source)?;
+        if source["audio"]["kind"] == "acquired"
+            && source["audio"]["fingerprint"] != record["analysis"]["fingerprint"]
+        {
+            return Err(DatabaseError::InvalidRecord(
+                "acquired audio fingerprint mismatch".into(),
+            ));
+        }
     }
     let envelope: SavedTrackEnvelope = serde_json::from_value(record.clone())
         .map_err(|error| DatabaseError::InvalidRecord(error.to_string()))?;
@@ -483,6 +490,53 @@ fn validate_source(source: &Value) -> Result<(), DatabaseError> {
     }
     let audio = source.get("audio").ok_or_else(invalid)?;
     let audio_object = audio.as_object().ok_or_else(invalid)?;
+    if audio["kind"] == "acquired" {
+        let fingerprint = source_text(audio, "fingerprint", 64)?;
+        if provider != "youtube"
+            || fingerprint.len() != 64
+            || !fingerprint
+                .bytes()
+                .all(|b| b.is_ascii_digit() || (b'a'..=b'f').contains(&b))
+            || source_text(audio, "url", 80)? != format!("sha256:{fingerprint}")
+            || !["yt-dlp", "cobalt", "saveapi"].contains(&source_text(audio, "provider", 16)?)
+            || !["mp3", "m4a", "aac", "opus", "webm", "ogg", "oga", "wav"].contains(&source_text(
+                audio,
+                "container",
+                8,
+            )?)
+            || ![
+                "audio/mpeg",
+                "audio/mp4",
+                "audio/aac",
+                "audio/opus",
+                "audio/webm",
+                "audio/ogg",
+                "audio/wav",
+                "audio/x-wav",
+                "video/webm",
+                "application/ogg",
+            ]
+            .contains(&source_text(audio, "mime", 32)?)
+            || !audio["size"]
+                .as_u64()
+                .is_some_and(|n| n > 0 && n <= 100 * 1024 * 1024)
+            || audio_object.keys().any(|key| {
+                ![
+                    "kind",
+                    "provider",
+                    "url",
+                    "fingerprint",
+                    "mime",
+                    "container",
+                    "size",
+                ]
+                .contains(&key.as_str())
+            })
+        {
+            return Err(invalid());
+        }
+        return Ok(());
+    }
     if audio_object
         .keys()
         .any(|key| !["url", "license", "licenseUrl", "attribution", "size"].contains(&key.as_str()))

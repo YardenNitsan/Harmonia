@@ -69,15 +69,17 @@ export class BrowserAudioAnalysisService implements AudioAnalysisService {
   protected decode(file: File, signal: AbortSignal): Promise<AudioBuffer> {
     const operation = this.decoding.then(async () => {
       if (signal.aborted) throw aborted();
-      const channels = inspectAudioChannels(
-        new Uint8Array(await file.slice(0, 1024 * 1024).arrayBuffer()),
-      );
+      if (file.size > 100 * 1024 * 1024) throw new Error('Choose an audio file under 100 MB.');
+      // MP4 moov/track metadata can follow mdat. Read the bounded encoded file once,
+      // structurally validate it, then reuse the same bytes for the single decode.
+      const encoded = await file.arrayBuffer();
+      const channels = inspectAudioChannels(new Uint8Array(encoded));
       validateDecodeBudget(channels, 1);
       validateDecodeBudget(channels, await inspectDuration(file, signal));
       if (signal.aborted) throw aborted();
       const context = new AudioContext({ sampleRate: 22050 });
       try {
-        const decoded = await context.decodeAudioData(await file.arrayBuffer());
+        const decoded = await context.decodeAudioData(encoded);
         if (signal.aborted) throw aborted();
         if (
           decoded.numberOfChannels !== channels ||
@@ -139,6 +141,7 @@ export class BrowserAudioAnalysisService implements AudioAnalysisService {
     message: unknown,
     transfer: Transferable[],
     progress?: (stage: string, value: number) => void,
+    result?: (message: unknown) => void,
   ): Promise<T> {
     return new Promise((resolve, reject) => {
       const cleanup = () => {
@@ -162,7 +165,10 @@ export class BrowserAudioAnalysisService implements AudioAnalysisService {
         }
         cleanup();
         if (data.kind === 'error') reject(new Error(data.message));
-        else resolve((data.kind === 'result' ? data.analysis : data) as T);
+        else {
+          result?.(data);
+          resolve((data.kind === 'result' ? data.analysis : data) as T);
+        }
       };
       worker.onerror = () => {
         cleanup();

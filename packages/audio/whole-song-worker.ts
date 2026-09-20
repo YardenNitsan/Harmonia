@@ -2,6 +2,7 @@ import type { AnalysisProfile } from '../domain/types';
 import { createFeatureCache } from '../persistence/feature-cache';
 import { dspFeatures } from './feature-cache';
 import { analyzeWholeSongFeatures } from './whole-pipeline';
+import type { WholePipelineTimings } from './whole-timings';
 
 const scope = self as unknown as {
   onmessage: (event: MessageEvent) => Promise<void>;
@@ -16,6 +17,7 @@ scope.onmessage = async (
   }>,
 ) => {
   try {
+    const started = performance.now();
     const { channels, sampleRate, fingerprint, profile } = event.data;
     if (
       !Array.isArray(channels) ||
@@ -40,8 +42,10 @@ scope.onmessage = async (
         if (!Number.isFinite(channel[i])) throw new Error('Invalid whole-song audio sample');
         mono[i] += channel[i] / channels.length;
       }
+    const normalizeMs = performance.now() - started;
     const progress = (stage: string, value: number) =>
       scope.postMessage({ kind: 'progress', stage, value });
+    const featureStarted = performance.now();
     const cache = await createFeatureCache();
     const features = await dspFeatures(
       mono,
@@ -54,8 +58,16 @@ scope.onmessage = async (
       cache,
       progress,
     );
-    const analysis = analyzeWholeSongFeatures(features, fingerprint, profile, progress);
-    scope.postMessage({ kind: 'result', analysis });
+    const featuresMs = performance.now() - featureStarted;
+    let stages: WholePipelineTimings | undefined;
+    const analysis = analyzeWholeSongFeatures(features, fingerprint, profile, progress, (value) => {
+      stages = value;
+    });
+    scope.postMessage({
+      kind: 'result',
+      analysis,
+      timings: { ...stages, normalizeMs, featuresMs, workerMs: performance.now() - started },
+    });
   } catch (error) {
     scope.postMessage({
       kind: 'error',

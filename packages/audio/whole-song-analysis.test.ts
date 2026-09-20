@@ -26,6 +26,7 @@ class DecodedService extends WholeSongAnalysisService {
     return {
       numberOfChannels: 1,
       sampleRate: 22050,
+      duration: 1,
       getChannelData: () => pcm,
     } as unknown as AudioBuffer;
   }
@@ -33,6 +34,19 @@ class DecodedService extends WholeSongAnalysisService {
 afterEach(() => {
   vi.unstubAllGlobals();
   WorkerHarness.latest = undefined;
+});
+
+it('rejects decodable wrong-duration acquired audio before starting recognition', async () => {
+  vi.stubGlobal('Worker', WorkerHarness);
+  const file = new File([], 'short.wav');
+  const service = new DecodedService();
+  service.expectDuration(file, 180);
+  await expect(
+    service.analyze(file, 'fixture', 'balanced', new AbortController().signal, () => {}),
+  ).rejects.toMatchObject({ code: 'INVALID_AUDIO_INPUT' });
+  expect(WorkerHarness.latest).toBeUndefined();
+  expect(() => service.expectDuration(file, NaN)).toThrow();
+  service.expectDuration(file, null);
 });
 
 it('uses whole-song identities for cache lookup rather than the experimental learned model', () => {
@@ -106,4 +120,70 @@ it('does not start a worker for already cancelled preparation', async () => {
     ),
   ).rejects.toMatchObject({ name: 'AbortError' });
   expect(WorkerHarness.latest).toBeUndefined();
+});
+
+it('marks invalid decoded input for acquisition failover without marking recognition failures', async () => {
+  class InvalidService extends WholeSongAnalysisService {
+    protected override async decode(): Promise<AudioBuffer> {
+      throw new Error('Corrupt media');
+    }
+  }
+  await expect(
+    new InvalidService().analyze(
+      new File([], 'bad.wav'),
+      'fixture',
+      'balanced',
+      new AbortController().signal,
+      () => {},
+    ),
+  ).rejects.toMatchObject({ code: 'INVALID_AUDIO_INPUT', message: 'Corrupt media' });
+  vi.stubGlobal('Worker', WorkerHarness);
+  const analysis = new DecodedService().analyze(
+    new File([], 'valid.wav'),
+    'fixture',
+    'balanced',
+    new AbortController().signal,
+    () => {},
+  );
+  const failed = expect(analysis).rejects.not.toHaveProperty('code');
+  await Promise.resolve();
+  WorkerHarness.latest!.onmessage!({
+    data: { kind: 'error', message: 'Recognition failed' },
+  } as MessageEvent);
+  await failed;
+});
+
+it('publishes immutable diagnostic timings and bounds browser performance entries', async () => {
+  vi.stubGlobal('Worker', WorkerHarness);
+  const service = new DecodedService();
+  const promise = service.analyze(
+    new File([], 'audio.wav'),
+    'fixture',
+    'balanced',
+    new AbortController().signal,
+    () => {},
+  );
+  await Promise.resolve();
+  const analysis = analyzeWholeSongFeatures(
+    extractFeatures(new Float32Array(22050), 22050),
+    'fixture',
+    'balanced',
+  );
+  const timings = {
+    normalizeMs: 1,
+    featuresMs: 2,
+    inferenceMs: 3,
+    temporalDecodingMs: 4,
+    timelineMs: 5,
+    rhythmKeyMs: 6,
+    boundaryMs: 7,
+    pipelineMs: 25,
+    workerMs: 28,
+  };
+  WorkerHarness.latest!.onmessage!({ data: { kind: 'result', analysis, timings } } as MessageEvent);
+  await promise;
+  expect(service.lastTimings).toMatchObject(timings);
+  expect(Object.isFrozen(service.lastTimings)).toBe(true);
+  expect(performance.getEntriesByName('harmonia.whole.analysis')).toHaveLength(1);
+  expect(performance.getEntriesByName('harmonia.whole.decode')).toHaveLength(1);
 });

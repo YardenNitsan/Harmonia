@@ -1,5 +1,8 @@
 /** Conservative header inspection before any full PCM allocation. Unknown containers fail closed. */
+import { inspectMp4Channels, inspectWebmChannels } from './container-channels';
 export function inspectAudioChannels(bytes: Uint8Array): number {
+  if (bytes.byteLength > 100 * 1024 * 1024)
+    throw new Error('Audio input exceeds the 100 MB limit.');
   const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
   const tag = (offset: number, size: number) =>
     String.fromCharCode(...bytes.subarray(offset, offset + size));
@@ -8,6 +11,8 @@ export function inspectAudioChannels(bytes: Uint8Array): number {
       'This audio file could not be decoded safely: its channel layout cannot be verified. Convert it to a mono or stereo WAV, FLAC, MP3 or Ogg file.',
     );
   };
+  if (tag(4, 4) === 'ftyp') return inspectMp4Channels(bytes);
+  if (bytes.length >= 4 && view.getUint32(0) === 0x1a45dfa3) return inspectWebmChannels(bytes);
   if (tag(0, 4) === 'RIFF' && tag(8, 4) === 'WAVE') {
     for (let offset = 12; offset + 8 <= bytes.length;) {
       const size = view.getUint32(offset + 4, true);

@@ -19,6 +19,38 @@ const recording: CatalogRecording = {
   },
 };
 afterEach(() => vi.useRealTimers());
+it('late rejected-audio cleanup cannot restart acquisition over a replacement song', async () => {
+  let release!: (provider: 'yt-dlp') => void;
+  const reject = vi.fn(
+    () =>
+      new Promise<'yt-dlp'>((resolve) => {
+        release = resolve;
+      }),
+  );
+  const acquire = vi.fn(async (_song: CatalogRecording, signal: AbortSignal) => {
+    signal.throwIfAborted();
+    return new File(['audio'], 'song.ogg');
+  });
+  const prepare = vi
+    .fn()
+    .mockRejectedValueOnce({ code: 'INVALID_AUDIO_INPUT' })
+    .mockResolvedValue(undefined);
+  const controller = new SongSearchController({
+    catalog: { search: vi.fn(), acquire, reject },
+    prepare,
+    cancelPreparation: vi.fn(),
+    beforePrepare: async () => {},
+  });
+  const pending = controller.select(recording);
+  await vi.waitFor(() => expect(reject).toHaveBeenCalledOnce());
+  await controller.select({ ...recording, id: 'replacement' });
+  expect(controller.snapshot().status).toBe('ready');
+  release('yt-dlp');
+  await pending;
+  expect(controller.snapshot().status).toBe('ready');
+  expect(controller.snapshot().selected?.id).toBe('replacement');
+  expect(acquire).toHaveBeenCalledTimes(2);
+});
 function fixture() {
   const acquire = vi.fn(async () => new File(['audio'], 'Song.ogg'));
   const analyze = vi.fn(async (_file: File) => {});

@@ -1,3 +1,4 @@
+pub mod acquisition;
 pub mod capture;
 pub mod database;
 pub mod search;
@@ -7,6 +8,58 @@ use database::{Database, LibraryReadResult};
 use serde_json::Value;
 use std::{path::PathBuf, sync::Arc};
 use tauri::Manager;
+
+#[tauri::command]
+async fn audio_acquire(
+    video_id: String,
+    request_id: String,
+    exclude_providers: Option<Vec<String>>,
+    state: tauri::State<'_, Arc<acquisition::AcquisitionService>>,
+) -> Result<acquisition::Audio, acquisition::AcquisitionError> {
+    state
+        .acquire(
+            &video_id,
+            &request_id,
+            exclude_providers.unwrap_or_default(),
+        )
+        .await
+}
+#[tauri::command]
+async fn audio_read(
+    cache_token: String,
+    offset: u64,
+    length: usize,
+    state: tauri::State<'_, Arc<acquisition::AcquisitionService>>,
+) -> Result<tauri::ipc::Response, acquisition::AcquisitionError> {
+    let service = Arc::clone(state.inner());
+    tauri::async_runtime::spawn_blocking(move || {
+        service
+            .read(&cache_token, offset, length)
+            .map(tauri::ipc::Response::new)
+    })
+    .await
+    .map_err(|_| acquisition::AcquisitionError {
+        code: "unavailable",
+        message: "Audio is unavailable.",
+    })?
+}
+#[tauri::command]
+fn audio_cancel(request_id: String, state: tauri::State<'_, Arc<acquisition::AcquisitionService>>) {
+    state.cancel(&request_id)
+}
+#[tauri::command]
+fn audio_reject(
+    cache_token: String,
+    state: tauri::State<'_, Arc<acquisition::AcquisitionService>>,
+) -> Result<(), acquisition::AcquisitionError> {
+    state.reject(&cache_token)
+}
+#[tauri::command]
+fn audio_diagnostics(
+    state: tauri::State<'_, Arc<acquisition::AcquisitionService>>,
+) -> Vec<acquisition::Diagnostic> {
+    state.diagnostics()
+}
 
 #[tauri::command]
 async fn youtube_search(
@@ -137,6 +190,14 @@ pub fn run() {
             app.manage(DatabaseState {
                 path: Arc::new(path.clone()),
             });
+            app.manage(Arc::new(
+                acquisition::AcquisitionService::new(
+                    path.parent()
+                        .ok_or("invalid database directory")?
+                        .join("acquired-audio"),
+                )
+                .map_err(|_| "audio cache initialization failed")?,
+            ));
             if let Some(options) = &validation {
                 for window in app.webview_windows().values() {
                     if window.is_visible()? {
@@ -174,7 +235,12 @@ pub fn run() {
             capture_stop,
             youtube_search,
             search_cancel,
-            search_status
+            search_status,
+            audio_acquire,
+            audio_read,
+            audio_cancel,
+            audio_reject,
+            audio_diagnostics
         ])
         .build(context)
         .expect("failed to build Harmonia")
@@ -185,6 +251,8 @@ pub fn run() {
             ) {
                 app.state::<Arc<capture::CaptureService>>().shutdown();
                 app.state::<Arc<search::SearchService>>().shutdown();
+                app.state::<Arc<acquisition::AcquisitionService>>()
+                    .shutdown();
             }
         });
 }

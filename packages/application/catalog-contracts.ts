@@ -6,7 +6,10 @@ export interface CatalogRecording {
   duration: number | null;
   thumbnail: string | null;
   pageUrl: string;
+  /** Capability supplied by the acquisition service, not by YouTube metadata. */
+  canPrepare?: boolean;
   audio: {
+    kind?: undefined;
     url: string;
     license: string;
     licenseUrl: string;

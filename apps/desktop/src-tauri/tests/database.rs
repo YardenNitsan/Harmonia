@@ -284,3 +284,20 @@ fn migrates_legacy_rows_without_losing_corrupt_or_duplicate_data() {
         3
     );
 }
+
+#[test]
+fn acquired_audio_provenance_roundtrip_checks_exact_fingerprint_without_fake_license() {
+    let directory = tempdir().unwrap();
+    let path = directory.path().join("acquired.db");
+    let hash = "a".repeat(64);
+    let mut record = saved_track("acquired", &hash, false);
+    record["source"] = json!({"provider":"youtube","id":"abcdefghijk","title":"Song","artist":"Artist","thumbnail":null,"pageUrl":"https://www.youtube.com/watch?v=abcdefghijk","audio":{"kind":"acquired","provider":"yt-dlp","url":format!("sha256:{hash}"),"fingerprint":hash,"mime":"audio/mp4","container":"m4a","size":1024}});
+    let db = Database::open(&path).unwrap();
+    db.save(&record).unwrap();
+    assert_eq!(db.list().unwrap().records, vec![record.clone()]);
+    record["source"]["audio"]["fingerprint"] = json!("b".repeat(64));
+    record["source"]["audio"]["url"] = json!(format!("sha256:{}", "b".repeat(64)));
+    assert!(db.save(&record).is_err());
+    record["source"]["audio"]["url"] = json!("file:///C:/private/file");
+    assert!(db.save(&record).is_err());
+}

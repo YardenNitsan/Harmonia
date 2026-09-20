@@ -41,7 +41,7 @@ export function SearchAnalyzeStage({
           event.target.value = '';
         }}
       />
-      {(state.error || analysis.error) && (
+      {(state.error || (state.status === 'ready' && analysis.error)) && (
         <div role="alert" className="error-banner">
           {state.error ?? analysis.error}
           {current && <span> Your song is ready. Press Play to try again.</span>}

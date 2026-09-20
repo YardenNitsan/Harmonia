@@ -20,6 +20,35 @@ export const licensedSource: SourceProvenance = {
 it('accepts bounded official Commons provenance and a legal source identity', () => {
   expect(validateSourceProvenance(licensedSource)).toEqual(licensedSource);
 });
+it('stores acquired YouTube identity without inventing a media license or saving signed URLs', () => {
+  const source = {
+    ...licensedSource,
+    provider: 'youtube',
+    id: 'abcdefghijk',
+    pageUrl: 'https://www.youtube.com/watch?v=abcdefghijk',
+    audio: {
+      kind: 'acquired',
+      provider: 'yt-dlp',
+      url: `sha256:${'a'.repeat(64)}`,
+      fingerprint: 'a'.repeat(64),
+      mime: 'audio/mp4',
+      container: 'm4a',
+      size: 1024,
+    },
+  };
+  expect(validateSourceProvenance(source)).toEqual(source);
+  for (const patch of [
+    { url: 'https://example.test/audio?token=secret' },
+    { fingerprint: 'wrong' },
+    { size: 0 },
+    { provider: 'unknown' },
+    { container: 'html' },
+    { license: 'fake CC license' },
+  ])
+    expect(() =>
+      validateSourceProvenance({ ...source, audio: { ...source.audio, ...patch } }),
+    ).toThrow();
+});
 it.each([
   { provider: 'arbitrary' },
   { id: '' },

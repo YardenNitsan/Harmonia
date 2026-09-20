@@ -74,11 +74,22 @@ export interface SourceProvenance {
   artist: string;
   thumbnail: string | null;
   pageUrl: string;
-  audio: {
-    url: string;
-    license: string;
-    licenseUrl: string;
-    attribution: string;
-    size: number;
-  };
+  audio: LicensedAudioSource | AcquiredAudioSource;
+}
+export interface LicensedAudioSource {
+  kind?: undefined;
+  url: string;
+  license: string;
+  licenseUrl: string;
+  attribution: string;
+  size: number;
+}
+export interface AcquiredAudioSource {
+  kind: 'acquired';
+  provider: 'yt-dlp' | 'cobalt' | 'saveapi';
+  url: string;
+  fingerprint: string;
+  mime: string;
+  container: string;
+  size: number;
 }

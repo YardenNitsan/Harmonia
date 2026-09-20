@@ -54,6 +54,7 @@ export interface SessionState {
   current: SavedTrack | null;
   library: SavedTrack[];
   error: string | null;
+  failureKind?: 'input';
   profile: AnalysisProfile;
   saveState: 'saved' | 'saving' | 'unsaved';
 }
@@ -161,6 +162,7 @@ export class SessionController {
       current: null,
       error: null,
       status: 'preparing',
+      failureKind: undefined,
       progress: 0,
       stage: 'Preparing local audio',
       saveState: 'saved',
@@ -230,6 +232,10 @@ export class SessionController {
       await this.initialize();
       if (!this.tasks.current(token)) return;
       const fingerprint = await this.dependencies.analyzer.fingerprint(file);
+      if (source?.audio.kind === 'acquired' && source.audio.fingerprint !== fingerprint)
+        throw Object.assign(new Error('Acquired audio checksum mismatch'), {
+          code: 'INVALID_AUDIO_INPUT',
+        });
       if (!this.tasks.current(token)) return;
       const compatible = (r: SavedTrack) =>
         r.track.fingerprint === fingerprint &&
@@ -310,6 +316,13 @@ export class SessionController {
       );
     } catch (error) {
       if (this.tasks.current(token) && !signal.aborted) {
+        if (
+          error &&
+          typeof error === 'object' &&
+          'code' in error &&
+          error.code === 'INVALID_AUDIO_INPUT'
+        )
+          this.update({ failureKind: 'input' });
         if (this.state.current) this.update({ error: this.message(error) });
         else this.fail(error);
       }

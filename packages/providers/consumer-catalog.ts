@@ -1,11 +1,27 @@
 import type { CatalogRecording, RecordingCatalogPort } from '../application/catalog-contracts';
+import type {
+  AudioAcquisitionProvider,
+  WholeSongAudio,
+  WholeSongAudioProvider,
+} from '../application/whole-song-audio';
+import type { SourceProvenance } from '../domain/types';
 
 /** One consumer search; discovery does not imply rights to analyze a video. */
 export class ConsumerCatalog {
+  private acquired = new WeakMap<File, WholeSongAudio>();
   constructor(
     private youtube: { search(query: string, signal: AbortSignal): Promise<CatalogRecording[]> },
     private permitted: RecordingCatalogPort,
+    private audio?: WholeSongAudioProvider,
   ) {}
+  canAcquire(recording: CatalogRecording) {
+    return Boolean(
+      recording.audio || (recording.provider === 'youtube' && this.audio?.available()),
+    );
+  }
+  private capabilities(results: CatalogRecording[]) {
+    return results.map((recording) => ({ ...recording, canPrepare: this.canAcquire(recording) }));
+  }
   async search(
     query: string,
     _provider: CatalogRecording['provider'],
@@ -22,8 +38,9 @@ export class ConsumerCatalog {
     try {
       const [videos, recordings] = await Promise.allSettled([
         this.youtube.search(query, signal).then((results) => {
-          if (!signal.aborted) onResults?.(results);
-          return results;
+          const prepared = this.audio ? this.capabilities(results) : results;
+          if (!signal.aborted) onResults?.(prepared);
+          return prepared;
         }),
         this.permitted.search(query, 'commons', supplemental.signal),
       ]);
@@ -41,7 +58,7 @@ export class ConsumerCatalog {
             ? 'YouTube search is unavailable on this computer. You can still choose an available recording below.'
             : recordings.status === 'rejected'
               ? 'Could not load recordings with chord analysis. Try searching again. YouTube results are watch-only.'
-              : !results.some((recording) => recording.audio) && results.length
+              : !results.some((recording) => this.canAcquire(recording)) && results.length
                 ? 'No recordings with chord analysis were found. YouTube results are watch-only.'
                 : null,
       };
@@ -50,11 +67,44 @@ export class ConsumerCatalog {
       signal.removeEventListener('abort', cancel);
     }
   }
-  acquire(
+  async acquire(
     recording: CatalogRecording,
     signal: AbortSignal,
     progress: (received: number, total: number | null) => void,
+    excludeProviders: AudioAcquisitionProvider[] = [],
   ) {
+    if (recording.provider === 'youtube' && this.audio) {
+      const acquired = await this.audio.acquire(recording, signal, progress, excludeProviders);
+      this.acquired.set(acquired.file, acquired);
+      return acquired.file;
+    }
     return this.permitted.acquire(recording, signal, progress);
+  }
+  async reject(file: File): Promise<AudioAcquisitionProvider | null> {
+    const audio = this.acquired.get(file);
+    if (!audio || !this.audio) return null;
+    await this.audio.reject(audio);
+    this.acquired.delete(file);
+    return audio.provider;
+  }
+  sourceFor(file: File, recording?: CatalogRecording | null): SourceProvenance | undefined {
+    if (!recording) return;
+    const { provider, id, title, artist, thumbnail, pageUrl } = recording;
+    const base = { provider, id, title, artist, thumbnail, pageUrl };
+    const acquired = this.acquired.get(file);
+    if (acquired)
+      return {
+        ...base,
+        audio: {
+          kind: 'acquired',
+          provider: acquired.provider,
+          url: `sha256:${acquired.fingerprint}`,
+          fingerprint: acquired.fingerprint,
+          mime: acquired.mime,
+          container: acquired.container,
+          size: acquired.byteLength,
+        },
+      };
+    return recording.audio ? { ...base, audio: recording.audio } : undefined;
   }
 }

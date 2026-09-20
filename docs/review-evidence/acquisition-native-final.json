@@ -1,0 +1,148 @@
+{
+  "status": "passed",
+  "checks": {
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "youtubeRequestsRemainNative": true,
+    "completeTimelineBeforeAutomaticPlayback": true,
+    "authoritativePlaybackPauseSeekAndClickableTimeline": true,
+    "noAnalysisReplacementDuringPlayback": true,
+    "reloadSqliteCacheWithoutRecognition": true,
+    "cachedAudioNotReacquired": true
+  },
+  "errors": [],
+  "audioRetainedAfterCleanup": false,
+  "probeSha256": "4c47e9774b1514bed63b54b353816424744d5decfb2ef73c1a4472f5024b2e43",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "8fba22b73e0a3f6d2973962aec49b92883c4eee767372382dc62a3b8d7d63447",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "typeaheadSeconds": 1.3682609999999997,
+  "preparationSeconds": 4.457565499999999,
+  "source": {
+    "artist": "Kevin MacLeod Archive",
+    "audio": {
+      "container": "webm",
+      "fingerprint": "056971394c2b0f783a84bf86e86d4aa716f5d1746c256ad5296ce8e6e365b2af",
+      "kind": "acquired",
+      "mime": "audio/webm",
+      "provider": "yt-dlp",
+      "size": 2168484,
+      "url": "sha256:056971394c2b0f783a84bf86e86d4aa716f5d1746c256ad5296ce8e6e365b2af"
+    },
+    "id": "LrM_Y39Gmhk",
+    "pageUrl": "https://www.youtube.com/watch?v=LrM_Y39Gmhk",
+    "provider": "youtube",
+    "thumbnail": "https://i.ytimg.com/vi/LrM_Y39Gmhk/mqdefault.jpg",
+    "title": "Kevin MacLeod: Monkeys Spinning Monkeys"
+  },
+  "timings": {
+    "inferenceMs": 309.2999998033047,
+    "temporalDecodingMs": 11.700000256299973,
+    "timelineMs": 88.19999992847443,
+    "rhythmKeyMs": 1.7000000178813934,
+    "boundaryMs": 2.4000000059604645,
+    "pipelineMs": 415.60000002384186,
+    "normalizeMs": 18.200000017881393,
+    "featuresMs": 633.6999999880791,
+    "workerMs": 1067.6000000238419,
+    "decodeMs": 353.5,
+    "analysisMs": 1437
+  },
+  "providers": [
+    {
+      "provider": "yt-dlp",
+      "configured": true,
+      "available": true,
+      "successRate": 1,
+      "failureRate": 0,
+      "averageAcquisitionMs": 2560,
+      "successes": 1,
+      "failures": 0,
+      "latencyMs": 2560,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": "webm"
+    },
+    {
+      "provider": "cobalt",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "saveapi",
+      "configured": false,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    }
+  ],
+  "analysis": {
+    "duration": 130.03174603174602,
+    "segments": 1385,
+    "pipeline": "harmonia-whole-song-v1",
+    "model": "dsp-whole-song-v1",
+    "fingerprint": "056971394c2b0f783a84bf86e86d4aa716f5d1746c256ad5296ce8e6e365b2af"
+  },
+  "workerSeconds": 1.083199999988079,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "Bm9/D",
+    "assertionLatencyMs": 38.871900000000096
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-CCzZ5_rX.js",
+      "started": 5470.600000023842,
+      "stages": [
+        "Extracting harmonic features",
+        "Decoding complete-song harmony",
+        "Building complete-song timeline",
+        "Complete-song analysis ready"
+      ],
+      "completed": 6553.800000011921,
+      "duration": 130.03174603174602,
+      "segments": 1385
+    }
+  ],
+  "cacheReopenSeconds": 1.17,
+  "cachedSelectionToPlayerSeconds": 0.31875450000000094,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

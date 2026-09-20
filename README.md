@@ -1,23 +1,23 @@
 # Harmonia
 
 A music player with whole-song chord analysis for Windows. **Recognition accuracy
-is not established.** Search & Analyze is primary: real YouTube typeahead alongside
-eligible openly licensed recordings, complete analysis before automatic playback,
+is not established.** Search & Analyze is primary: real YouTube typeahead, native
+free-first audio acquisition, complete analysis before automatic local playback,
 then play/pause/seek against a fixed timeline. Local files are secondary; Listen
 Live is preserved under More as experimental.
 
-Type **Greensleeves** in the main search field and choose the recording by
-**Julien Grandgagnage**. Harmonia checks its license, temporarily obtains that
-recording, prepares the full timeline locally and automatically opens the player.
+Search for a song and choose a result. Harmonia acquires the exact recording,
+prepares the full timeline locally and automatically opens the local player.
 Use the progress bar or click a chord to seek. Details & practice contains source
 credits, musical estimates, corrections and explicit re-analysis.
 
 YouTube search uses [native configuration](docs/youtube-configuration.md), with no
-API-key form. **YouTube results currently cannot be analyzed or played inside
-Harmonia:** official APIs do not provide whole-song analysis audio. Those results
-show a clean unavailable message and a normal watch link. Licensed catalog results
-are distinct recordings, never silently substituted for a YouTube performance.
-See [consumer acceptance](docs/consumer-player-acceptance.md) for measured evidence.
+API-key form. Audio comes from a separate [native provider chain](docs/acquisition-providers.md):
+local yt-dlp, private Cobalt, optional SaveAPI. Official YouTube APIs supply metadata,
+not analysis PCM. Availability depends on the recording and upstream providers;
+no protected-stream or authentication bypass is implemented. The player uses the
+exact analyzed bytes. See [acquisition acceptance](docs/acquisition-acceptance.md)
+for measured evidence and recognition limitations.
 
 ```powershell
 npm.cmd ci

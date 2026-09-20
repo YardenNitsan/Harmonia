@@ -1,7 +1,10 @@
 import type { CatalogRecording } from './catalog-contracts';
+import type { AudioAcquisitionProvider } from './whole-song-audio';
 
 type CatalogProvider = CatalogRecording['provider'];
 interface Catalog {
+  canAcquire?(recording: CatalogRecording): boolean;
+  reject?(file: File): Promise<AudioAcquisitionProvider | null>;
   search(
     query: string,
     provider: CatalogProvider,
@@ -12,6 +15,7 @@ interface Catalog {
     recording: CatalogRecording,
     signal: AbortSignal,
     progress: (received: number, total: number | null) => void,
+    excludeProviders?: AudioAcquisitionProvider[],
   ): Promise<File>;
 }
 export interface SongSearchState {
@@ -133,7 +137,7 @@ export class SongSearchController {
       elapsedSeconds: null,
       playbackNotice: null,
     });
-    if (!recording.audio) {
+    if (!recording.audio && !this.dependencies.catalog.canAcquire?.(recording)) {
       this.set({ status: 'input-required' });
       return;
     }
@@ -142,19 +146,45 @@ export class SongSearchController {
     try {
       await this.dependencies.beforePrepare();
       if (revision !== this.revision) return;
-      const file = await this.dependencies.catalog.acquire(
-        recording,
-        abort.signal,
-        (received, total) => {
-          if (revision === this.revision) this.set({ received, total });
-        },
-      );
-      if (revision !== this.revision) return;
-      this.set({ status: 'analyzing' });
-      await this.dependencies.prepare(file, recording, force);
-      await this.ready(revision, started, abort.signal);
+      const excluded: AudioAcquisitionProvider[] = [];
+      for (let attempt = 0; attempt < 3; attempt++) {
+        this.set({ status: 'downloading', received: 0, total: null });
+        const file = await this.dependencies.catalog.acquire(
+          recording,
+          abort.signal,
+          (received, total) => {
+            if (revision === this.revision) this.set({ received, total });
+          },
+          excluded,
+        );
+        if (revision !== this.revision) return;
+        this.set({ status: 'analyzing' });
+        try {
+          await this.dependencies.prepare(file, recording, force);
+        } catch (error) {
+          const invalidInput =
+            error &&
+            typeof error === 'object' &&
+            'code' in error &&
+            error.code === 'INVALID_AUDIO_INPUT';
+          if (!invalidInput || !this.dependencies.catalog.reject || revision !== this.revision)
+            throw error;
+          const rejected = await this.dependencies.catalog.reject(file);
+          if (revision !== this.revision || abort.signal.aborted) return;
+          if (!rejected || attempt === 2) throw error;
+          excluded.push(rejected);
+          continue;
+        }
+        await this.ready(revision, started, abort.signal);
+        return;
+      }
     } catch (error) {
-      this.fail(error, revision);
+      this.fail(
+        recording.provider === 'youtube'
+          ? new Error('This song could not be prepared right now. Try again later.')
+          : error,
+        revision,
+      );
     }
   }
   async local(file: File, force = false) {

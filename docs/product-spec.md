@@ -1,5 +1,12 @@
 # Harmonia product specification
 
+Latest correction: **YouTube typeahead → native free-first audio acquisition →
+complete whole-song analysis → fixed timeline → local playback of those exact
+bytes**. Follow `acquisition-plan.md` and ADR009. yt-dlp is primary; self-hosted
+Cobalt and optional configured SaveAPI are replaceable fallbacks. Native secrets,
+bounded caches/cancellation, no required paid converter, no recognition during
+playback and measured click-to-ready/cache latency are acceptance requirements.
+
 ## Current acceptance: consumer prepared player
 
 The latest correction requires a single prominent song/artist search field with

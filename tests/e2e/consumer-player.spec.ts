@@ -85,6 +85,8 @@ async function configuredSearchMock(page: import('@playwright/test').Page) {
           if (command === 'capture_sources') return [];
           if (command === 'search_status') return { configured: true };
           if (command === 'search_cancel') return;
+          if (command === 'audio_acquire') throw { code: 'unavailable', message: 'Unavailable' };
+          if (command === 'audio_cancel') return;
           if (command === 'youtube_search') {
             const query = args.query ?? '';
             calls.push(query);
@@ -123,7 +125,7 @@ test('configured API mock: debounce, stale response protection, arrows, Escape a
   await input.fill('new');
   await expect(page.getByRole('option')).toHaveCount(2);
   await expect(page.getByRole('option').first()).toContainText('new song 1');
-  await expect(page.getByRole('option').first()).toContainText('Watch only · no chord analysis');
+  await expect(page.getByRole('option').first()).toContainText('Analyze & play');
   await expect
     .poll(() => page.evaluate(() => Reflect.get(window, 'mockedSearchCompleted')))
     .toContain('old');
@@ -137,20 +139,15 @@ test('configured API mock: debounce, stale response protection, arrows, Escape a
   await expect(input).toHaveAttribute('aria-expanded', 'false');
   await input.press('ArrowUp');
   await input.press('Enter');
-  await expect(page.getByRole('heading', { name: 'new song 2' })).toBeVisible();
-  await expect(
-    page.getByText(
-      'YouTube videos are watch-only here. For chord playback, choose a result marked Analyze & play.',
-    ),
-  ).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Watch on YouTube' })).toHaveAttribute(
-    'href',
-    'https://www.youtube.com/watch?v=mockVideo01',
+  await expect(page.getByRole('alert')).toContainText(
+    'This song could not be prepared right now. Try again later.',
   );
   await expect(page.getByRole('region', { name: 'Song player' })).toHaveCount(0);
   await input.fill('clicked');
   await page.getByRole('option').filter({ hasText: 'clicked song 1' }).click();
-  await expect(page.getByRole('heading', { name: 'clicked song 1' })).toBeVisible();
+  await expect(page.getByRole('alert')).toContainText(
+    'This song could not be prepared right now. Try again later.',
+  );
 });
 
 test('blocked autoplay keeps the prepared song available for Play', async ({ page }) => {

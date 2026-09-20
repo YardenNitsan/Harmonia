@@ -274,7 +274,7 @@ export function ConsumerPlayer({
               void controller.editChord(id, chord).catch(() => undefined)
             }
           />
-          {source?.audio && (
+          {source?.audio && source.audio.kind !== 'acquired' && (
             <p className="song-attribution">
               Recording: {source.audio.attribution} ·{' '}
               <a href={source.pageUrl} target="_blank" rel="noreferrer">

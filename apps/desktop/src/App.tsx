@@ -68,7 +68,12 @@ export function App() {
       if (record.source) {
         wholeController.open(record);
         setTab('search');
-        await songSearch.select({ ...record.source, duration: record.analysis.duration });
+        await songSearch.select({
+          ...record.source,
+          audio: record.source.audio.kind === 'acquired' ? null : record.source.audio,
+          canPrepare: true,
+          duration: record.analysis.duration,
+        });
         return;
       }
       wholeController.open(record);

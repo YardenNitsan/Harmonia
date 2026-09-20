@@ -1,9 +1,13 @@
 import { expect, it } from 'vitest';
+import { decodeWholeSequence } from './whole-decoder';
+import { chordIdentity } from './recognizer';
+import type { ChordSegment } from '../domain/types';
 import { chordPitchClasses, formatChord, parseChord } from '../domain/chord';
 import { extractFeatures, type AudioFeatures, type FeatureFrame } from './features';
 import { analyzeFeatures } from './pipeline';
 import { TemplateRecognizer } from './recognizer';
 import { analyzeWholeSongFeatures } from './whole-pipeline';
+import type { WholePipelineTimings } from './whole-timings';
 
 function frame(label: string, time: number): FeatureFrame {
   const pitches = chordPitchClasses(parseChord(label));
@@ -20,6 +24,86 @@ function features(labels: string[]): AudioFeatures {
     waveform: [0.1],
   };
 }
+
+it('reports non-overlapping stage timings without changing the complete analysis', () => {
+  const input = features(['C', 'C', 'N', 'G', 'F']);
+  let timings: WholePipelineTimings | undefined;
+  const baseline = analyzeWholeSongFeatures(input, 'timing', 'balanced');
+  const measured = analyzeWholeSongFeatures(input, 'timing', 'balanced', undefined, (value) => {
+    timings = value;
+  });
+  expect({ ...measured, createdAt: '' }).toEqual({ ...baseline, createdAt: '' });
+  expect(timings).toBeDefined();
+  expect(Object.values(timings!).every((value) => Number.isFinite(value) && value >= 0)).toBe(true);
+  expect(
+    timings!.inferenceMs +
+      timings!.temporalDecodingMs +
+      timings!.timelineMs +
+      timings!.rhythmKeyMs +
+      timings!.boundaryMs,
+  ).toBeLessThanOrEqual(timings!.pipelineMs + 0.001);
+});
+
+it('exactly preserves legacy two-pass scores, bass, alternatives and merged boundaries', () => {
+  const input = features(
+    Array.from(
+      { length: 140 },
+      (_, i) => ['C', 'Cmaj7', 'Fm', 'N', 'G13', 'D7b9', 'Asus4'][Math.floor(i / 5) % 7],
+    ),
+  );
+  let seed = 27;
+  for (const f of input.frames) {
+    if (!f.rms) continue;
+    f.chroma = f.chroma.map((value) => {
+      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+      return Math.min(1, value + (seed / 2 ** 32) * 0.04);
+    });
+    f.bass[Math.floor(f.time * 10) % 12] = 0.9;
+  }
+  const recognizer = new TemplateRecognizer();
+  const decoded = decodeWholeSequence(
+    input.frames.length,
+    recognizer.templateCount + 1,
+    (i, emissions) => {
+      emissions.fill(-Infinity);
+      const choices = recognizer.scoreAll(input.frames[i]);
+      if (choices[0].chord.kind === 'none') emissions[recognizer.templateCount] = 1;
+      else
+        choices.forEach((choice, state) => {
+          emissions[state] = choice.score;
+        });
+    },
+  );
+  const segments: ChordSegment[] = [];
+  let previousKey: string | undefined;
+  decoded.states.forEach((state, i) => {
+    const choices = recognizer.scoreAll(input.frames[i]);
+    const chosen = choices[state === recognizer.templateCount ? 0 : state];
+    const key = chordIdentity(chosen.chord),
+      start = input.frames[i].time;
+    const end = input.frames[i + 1]?.time ?? input.duration;
+    const previous = segments.at(-1);
+    if (previous && previousKey === key) {
+      previous.score =
+        (previous.score * (previous.end - previous.start) + chosen.score * (end - start)) /
+        (end - previous.start);
+      previous.end = end;
+    } else
+      segments.push({
+        id: `whole-segment-${segments.length}`,
+        start,
+        end,
+        chord: chosen.chord,
+        score: chosen.score,
+        alternatives: choices
+          .filter((choice) => chordIdentity(choice.chord) !== key)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 3),
+      });
+    previousKey = key;
+  });
+  expect(analyzeWholeSongFeatures(input, 'parity', 'balanced').segments).toEqual(segments);
+});
 
 it('makes all acoustic templates available without changing the baseline top four', () => {
   const recognizer = new TemplateRecognizer();

@@ -4,6 +4,7 @@ import { TemplateRecognizer, chordIdentity } from './recognizer';
 import { estimateKey, estimateRhythm } from './rhythm';
 import { harmonicNovelty } from './segmentation';
 import { decodeWholeSequence } from './whole-decoder';
+import type { WholePipelineTimings } from './whole-timings';
 export const WHOLE_SONG_PIPELINE_VERSION = 'harmonia-whole-song-v1';
 export const WHOLE_SONG_MODEL_VERSION = 'dsp-whole-song-v1';
 /** Frozen engineering settings; no validation-based tuning or quality claim. */
@@ -13,7 +14,9 @@ export function analyzeWholeSongFeatures(
   fingerprint: string,
   profile: AnalysisProfile,
   progress?: (stage: string, value: number) => void,
+  reportTimings?: (timings: WholePipelineTimings) => void,
 ): Analysis {
+  const started = performance.now();
   if (
     !Number.isFinite(features.hopSeconds) ||
     features.hopSeconds <= 0 ||
@@ -22,29 +25,32 @@ export function analyzeWholeSongFeatures(
   )
     throw new Error('Invalid whole-song feature metadata');
   const novelty = harmonicNovelty(features);
+  const boundaryMs = performance.now() - started;
   const recognizer = new TemplateRecognizer();
   const noChord = recognizer.templateCount;
+  let inferenceMs = 0;
+  const decoderStarted = performance.now();
   const decoded = decodeWholeSequence(
     features.frames.length,
     noChord + 1,
     (index, emissions) => {
-      emissions.fill(-Infinity);
-      const choices = recognizer.scoreAll(features.frames[index]);
-      if (choices[0].chord.kind === 'none') emissions[noChord] = 1;
-      else
-        choices.forEach((choice, state) => {
-          emissions[state] = choice.score;
-        });
+      const scoringStarted = performance.now();
+      recognizer.writeWholeEmissions(features.frames[index], emissions);
+      inferenceMs += performance.now() - scoringStarted;
     },
     WHOLE_SONG_SETTINGS.changePenalty,
     (value) => progress?.('Decoding complete-song harmony', 0.65 + value * 0.25),
   );
+  const temporalDecodingMs = Math.max(0, performance.now() - decoderStarted - inferenceMs);
 
+  const timelineStarted = performance.now();
+  const emissionMs = inferenceMs;
   const segments: ChordSegment[] = [];
   let previousKey: string | undefined;
   for (let i = 0; i < decoded.states.length; i++) {
-    const choices = recognizer.scoreAll(features.frames[i]);
-    const chosen = decoded.states[i] === noChord ? choices[0] : choices[decoded.states[i]];
+    const scoringStarted = performance.now();
+    const chosen = recognizer.wholeChoice(features.frames[i], decoded.states[i]);
+    inferenceMs += performance.now() - scoringStarted;
     const key = chordIdentity(chosen.chord);
     const start = features.frames[i].time;
     const end = i + 1 < features.frames.length ? features.frames[i + 1].time : features.duration;
@@ -55,6 +61,9 @@ export function analyzeWholeSongFeatures(
         (end - previous.start);
       previous.end = end;
     } else {
+      const alternativesStarted = performance.now();
+      const choices = recognizer.scoreAll(features.frames[i]);
+      inferenceMs += performance.now() - alternativesStarted;
       segments.push({
         id: `whole-segment-${segments.length}`,
         start,
@@ -71,7 +80,11 @@ export function analyzeWholeSongFeatures(
     if (i % 128 === 0)
       progress?.('Building complete-song timeline', 0.9 + (i / decoded.states.length) * 0.09);
   }
+  const timelineMs = Math.max(0, performance.now() - timelineStarted - (inferenceMs - emissionMs));
+  const rhythmStarted = performance.now();
   const rhythm = estimateRhythm(features);
+  const key = estimateKey(features);
+  const rhythmKeyMs = performance.now() - rhythmStarted;
   const analysis: Analysis = {
     id: `${fingerprint}:${WHOLE_SONG_MODEL_VERSION}:${WHOLE_SONG_PIPELINE_VERSION}:${profile}`,
     fingerprint,
@@ -83,7 +96,7 @@ export function analyzeWholeSongFeatures(
     beats: rhythm.beats,
     tempo: rhythm.tempo,
     meter: null,
-    key: estimateKey(features),
+    key,
     waveform: features.waveform,
     boundaries: novelty.map((probability, i) => ({ time: features.frames[i].time, probability })),
     createdAt: new Date().toISOString(),
@@ -96,5 +109,13 @@ export function analyzeWholeSongFeatures(
     ],
   };
   progress?.('Complete-song analysis ready', 1);
+  reportTimings?.({
+    inferenceMs,
+    temporalDecodingMs,
+    timelineMs,
+    rhythmKeyMs,
+    boundaryMs,
+    pipelineMs: performance.now() - started,
+  });
   return analysis;
 }

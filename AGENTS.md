@@ -2,6 +2,13 @@
 
 ## Start and resume
 
+- Latest acquisition correction: follow `docs/acquisition-plan.md`. The user now
+  explicitly requests local yt-dlp first, self-hosted Cobalt second, optional
+  SaveAPI third. This supersedes the earlier metadata-only/no-extraction assumption
+  below. Keep acquisition separate from search and recognition; no DRM/login/bot
+  bypass, no public Cobalt dependency, no required paid service. Cache exact audio
+  and frozen analyses; measure full preparation latency. Preserve all ML work.
+
 - Latest correction: implement the consumer player flow in `docs/consumer-player-plan.md`:
   native-configured real YouTube typeahead, full analysis before automatic playback,
   fixed playback timeline, simple player UI and provider-aware cache. No primary
@@ -99,7 +106,15 @@ continuation-clean executable, real Windows capture and hidden isolated processe
 They do not launch the visible app, save captured PCM or run ML. Native evidence,
 the verified executable hash and current limits are in `docs/live-mvp.md`.
 
-Current primary check: `node scripts/consumer-native-probe.mjs <unused-report-path>`
+Current primary check: `node scripts/acquisition-native-probe.mjs <unused-report-path>`
+uses real native YouTube typeahead, yt-dlp acquisition, full-song worker and exact
+local-file playback/cache in a hidden isolated WebView. Optional further arguments
+are exact video ID and search query. See `docs/acquisition-acceptance.md` for current
+evidence, timing, executable and provider/recognition limits. Do not claim this is
+final model-quality or installer acceptance. Audio files are bounded native cache
+entries under ADR009; the older OPFS feature-only rule remains for derived features.
+
+Historical check: `node scripts/consumer-native-probe.mjs <unused-report-path>`
 uses real native-configured YouTube typeahead and an explicitly licensed Commons
 recording, whole-song worker, hidden native autoplay and SQLite cache. See
 `docs/consumer-player-acceptance.md` for source,

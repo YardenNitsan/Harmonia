@@ -106,6 +106,25 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 
 ## Execution ledger
 
+### Active continuation: free-first acquired-audio player
+
+Acquisition/player acceptance now passes; see `acquisition-acceptance.md` and its
+two actual hidden Windows reports. Local yt-dlp and private Cobalt acquired real
+audio; optional SaveAPI has simulated coverage only. The 130/263-second native
+runs became playable in 4.425/7.369 seconds, with full timelines before autoplay,
+instant late seeking and zero recognition/reacquisition on cached reopen. The
+263-second cache selection took 0.851 seconds. All 877 TS tests, 56 default Rust
+tests, 41 production E2Es, explicit real Cobalt fallback, static checks and optimized
+build pass. Recognition still oversegments and is not promoted. No visible GUI,
+new ML experiments or locked-test access. Stop acquisition work after checkpoint;
+the next requested phase is recognition quality. Earlier ledgers below are history.
+
+Resume `83fa9fc` under the user's latest acquisition/performance correction. Follow
+`docs/acquisition-plan.md`: yt-dlp → self-hosted Cobalt → optional SaveAPI through
+native providers, audio cache and existing whole-song worker/local player. Earlier
+watch-only UI is superseded, not a finished product. Current research/experiments
+and unrelated untracked work remain untouched. No visible GUI or paid account.
+
 ### Active continuation: consumer typeahead and prepared player
 
 User-reported follow-up: YouTube titles displayed literal `&#39;`, and every

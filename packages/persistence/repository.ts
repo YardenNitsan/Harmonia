@@ -8,6 +8,8 @@ export function validateSavedTrack(value: unknown): SavedTrack {
   const record = value as SavedTrack;
   validateAnalysis(record.analysis);
   const source = record.source === undefined ? undefined : validateSourceProvenance(record.source);
+  if (source?.audio.kind === 'acquired' && source.audio.fingerprint !== record.analysis.fingerprint)
+    throw new Error('Acquired audio fingerprint mismatch');
   if (
     !record.track ||
     typeof record.track.id !== 'string' ||

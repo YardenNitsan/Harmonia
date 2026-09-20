@@ -116,6 +116,8 @@ export function SongTypeahead({
               key={`${recording.provider}:${recording.id}`}
               id={`${id}-option-${index}`}
               role="option"
+              data-recording-id={recording.id}
+              data-provider={recording.provider}
               aria-selected={index === activeIndex}
               className={`consumer-suggestion ${index === activeIndex ? 'selected' : ''}`}
               onMouseDown={(event) => event.preventDefault()}
@@ -128,8 +130,12 @@ export function SongTypeahead({
                   {recording.artist}
                   {recording.provider === 'youtube' ? ' · YouTube' : ''}
                 </span>
-                <span className={`suggestion-availability ${recording.audio ? 'available' : ''}`}>
-                  {recording.audio ? 'Analyze & play' : 'Watch only · no chord analysis'}
+                <span
+                  className={`suggestion-availability ${recording.audio || recording.canPrepare ? 'available' : ''}`}
+                >
+                  {recording.audio || recording.canPrepare
+                    ? 'Analyze & play'
+                    : 'Watch only · no chord analysis'}
                 </span>
               </div>
               {recording.duration !== null && (

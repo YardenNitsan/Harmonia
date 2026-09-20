@@ -1,0 +1,148 @@
+{
+  "status": "passed",
+  "checks": {
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "youtubeRequestsRemainNative": true,
+    "completeTimelineBeforeAutomaticPlayback": true,
+    "authoritativePlaybackPauseSeekAndClickableTimeline": true,
+    "noAnalysisReplacementDuringPlayback": true,
+    "reloadSqliteCacheWithoutRecognition": true,
+    "cachedAudioNotReacquired": true
+  },
+  "errors": [],
+  "audioRetainedAfterCleanup": false,
+  "probeSha256": "4c47e9774b1514bed63b54b353816424744d5decfb2ef73c1a4472f5024b2e43",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "d0a6641da1ffb45447695f7eb8289ecd105d5b1bf94de0a8f1525b36d346f26b",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "typeaheadSeconds": 0.9147688999999998,
+  "preparationSeconds": 7.3687040999999995,
+  "source": {
+    "artist": "Blender Studio",
+    "audio": {
+      "container": "webm",
+      "fingerprint": "9944da1cc0c0ae3498e51dca71b06c2e06521df826cd09b03c548b16d7dd109f",
+      "kind": "acquired",
+      "mime": "audio/webm",
+      "provider": "yt-dlp",
+      "size": 4365234,
+      "url": "sha256:9944da1cc0c0ae3498e51dca71b06c2e06521df826cd09b03c548b16d7dd109f"
+    },
+    "id": "UXqq0ZvbOnk",
+    "pageUrl": "https://www.youtube.com/watch?v=UXqq0ZvbOnk",
+    "provider": "youtube",
+    "thumbnail": "https://i.ytimg.com/vi/UXqq0ZvbOnk/mqdefault.jpg",
+    "title": "CHARGE - Blender Open Movie"
+  },
+  "timings": {
+    "inferenceMs": 944.7000003457069,
+    "temporalDecodingMs": 18.900000274181366,
+    "timelineMs": 284.6999993920326,
+    "rhythmKeyMs": 2.4000000059604645,
+    "boundaryMs": 4.200000017881393,
+    "pipelineMs": 1257.0999999940395,
+    "normalizeMs": 31.099999994039536,
+    "featuresMs": 1261.9000000059605,
+    "workerMs": 2550.2999999821186,
+    "decodeMs": 628.2000000178814,
+    "analysisMs": 3208.800000011921
+  },
+  "providers": [
+    {
+      "provider": "yt-dlp",
+      "configured": true,
+      "available": true,
+      "successRate": 1,
+      "failureRate": 0,
+      "averageAcquisitionMs": 3116,
+      "successes": 1,
+      "failures": 0,
+      "latencyMs": 3116,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": "webm"
+    },
+    {
+      "provider": "cobalt",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "saveapi",
+      "configured": false,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    }
+  ],
+  "analysis": {
+    "duration": 262.710566893424,
+    "segments": 4422,
+    "pipeline": "harmonia-whole-song-v1",
+    "model": "dsp-whole-song-v1",
+    "fingerprint": "9944da1cc0c0ae3498e51dca71b06c2e06521df826cd09b03c548b16d7dd109f"
+  },
+  "workerSeconds": 2.5802000000178813,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "Abm7",
+    "assertionLatencyMs": 103.4323000000004
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-CCzZ5_rX.js",
+      "started": 5882.5999999940395,
+      "stages": [
+        "Extracting harmonic features",
+        "Decoding complete-song harmony",
+        "Building complete-song timeline",
+        "Complete-song analysis ready"
+      ],
+      "completed": 8462.800000011921,
+      "duration": 262.710566893424,
+      "segments": 4422
+    }
+  ],
+  "cacheReopenSeconds": 1.7475662999999986,
+  "cachedSelectionToPlayerSeconds": 0.8512481000000007,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

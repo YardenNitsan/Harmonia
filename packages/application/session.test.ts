@@ -54,6 +54,30 @@ it('isolates stable recording and exact audio URL identities despite matching by
   expect(run).toHaveBeenCalledTimes(3);
   expect(new Set(controller.snapshot().library.map((r) => r.analysis.id)).size).toBe(3);
 });
+it('acquired media checksum must match exact bytes before cached analysis or recognition', async () => {
+  const { controller, analyzer } = fixture();
+  const run = vi.spyOn(analyzer, 'analyze');
+  await controller.importFile(new File(['x'], 'song.m4a'), {
+    source: {
+      ...source,
+      provider: 'youtube',
+      id: 'abcdefghijk',
+      pageUrl: 'https://www.youtube.com/watch?v=abcdefghijk',
+      audio: {
+        kind: 'acquired',
+        provider: 'yt-dlp',
+        url: `sha256:${'a'.repeat(64)}`,
+        fingerprint: 'a'.repeat(64),
+        mime: 'audio/mp4',
+        container: 'm4a',
+        size: 1,
+      },
+    },
+  });
+  expect(run).not.toHaveBeenCalled();
+  expect(controller.snapshot().failureKind).toBe('input');
+  expect(controller.snapshot().current).toBeNull();
+});
 
 it('migrates a matching legacy local correction to source identity without replacing its record', async () => {
   const { controller, analyzer } = fixture();

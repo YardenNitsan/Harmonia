@@ -10,16 +10,18 @@ import { SongSearchController } from '../../../packages/application/song-search'
 import { RecordingCatalog } from '../../../packages/providers/catalog';
 import { NativeYouTubeSearch } from '../../../packages/providers/native-search';
 import { ConsumerCatalog } from '../../../packages/providers/consumer-catalog';
+import { NativeWholeSongAudioProvider } from '../../../packages/providers/native-audio';
 export const controller = new SessionController({
   player: new LocalFileProvider(),
   repository: createRepository(),
   analyzer: new BrowserAudioAnalysisService(),
 });
 const wholePlayer = new LocalFileProvider();
+const wholeAnalyzer = new WholeSongAnalysisService();
 export const wholeController = new SessionController({
   player: wholePlayer,
   repository: createRepository(),
-  analyzer: new WholeSongAnalysisService(),
+  analyzer: wholeAnalyzer,
 });
 export const liveController = new LiveSessionController({
   capture: new WindowsCaptureService(),
@@ -31,8 +33,13 @@ export const liveController = new LiveSessionController({
     wholeController.player.pause();
   },
 });
+const consumerCatalog = new ConsumerCatalog(
+  new NativeYouTubeSearch(),
+  new RecordingCatalog(),
+  new NativeWholeSongAudioProvider(),
+);
 export const songSearch = new SongSearchController({
-  catalog: new ConsumerCatalog(new NativeYouTubeSearch(), new RecordingCatalog()),
+  catalog: consumerCatalog,
   beforePrepare: async () => {
     await liveController.stop();
     if (liveController.snapshot().session)
@@ -41,13 +48,20 @@ export const songSearch = new SongSearchController({
     controller.player.pause();
   },
   prepare: async (file, recording, force) => {
+    wholeAnalyzer.expectDuration(
+      file,
+      recording?.provider === 'youtube' ? recording.duration : null,
+    );
     await wholeController.importFile(file, {
-      source: recording?.audio ? { ...recording, audio: recording.audio } : undefined,
+      source: consumerCatalog.sourceFor(file, recording),
       force,
     });
     const result = wholeController.snapshot();
     if (!result.current || result.status === 'failed')
-      throw new Error(result.error ?? 'This recording could not be prepared. Try another song.');
+      throw Object.assign(
+        new Error(result.error ?? 'This recording could not be prepared. Try another song.'),
+        result.failureKind === 'input' ? { code: 'INVALID_AUDIO_INPUT' } : {},
+      );
   },
   playPrepared: async (signal) => {
     signal.throwIfAborted();

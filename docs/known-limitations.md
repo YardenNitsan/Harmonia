@@ -1,5 +1,13 @@
 # Known limitations and open acceptance gates
 
+Current acquisition/player correction passes the automated flow in
+[acquisition acceptance](acquisition-acceptance.md): YouTube search selects exact
+recordings, native yt-dlp/private Cobalt acquire audio, the entire timeline completes
+before exact-file local playback. Optional SaveAPI is unconfigured. Acquisition is
+not guaranteed for every recording; no DRM/authentication/bot bypass is implemented.
+Recognition still produces excessive changes and complex estimates. The older
+Commons-only/input-unavailable description below records the superseded prototype.
+
 This is an **incomplete engineering checkpoint**, not a list of cosmetic issues
 on an approved product. The master specification's professional recognition,
 complete feature and release criteria remain unmet. The integration test/build

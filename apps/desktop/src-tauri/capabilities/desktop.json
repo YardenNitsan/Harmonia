@@ -13,6 +13,11 @@
     "allow-capture-stop",
     "allow-youtube-search",
     "allow-search-cancel",
-    "allow-search-status"
+    "allow-search-status",
+    "allow-audio-acquire",
+    "allow-audio-read",
+    "allow-audio-cancel",
+    "allow-audio-reject",
+    "allow-audio-diagnostics"
   ]
 }
