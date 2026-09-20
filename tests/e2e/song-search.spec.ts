@@ -53,6 +53,9 @@ test('catalog acquisition can be cancelled and a later selection prepares a real
   });
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Song or artist' }).fill('fixture');
+  await expect(page.getByRole('option').filter({ hasText: 'Catalog fixture' })).toContainText(
+    'Analyze & play',
+  );
   await page.getByRole('option', { name: /Catalog fixture/ }).click();
   await expect.poll(() => downloading).toBe(true);
   await page.getByRole('button', { name: 'Cancel analysis', exact: true }).click();

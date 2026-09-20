@@ -265,12 +265,56 @@ fn append_metadata(bytes: &mut Vec<u8>, chunk: &[u8]) -> Result<(), SearchError>
     Ok(())
 }
 
+// Decode provider text once, never interpret it as HTML. Unknown/malformed entities
+// stay literal; the caller bounds input and sanitizes/redacts the decoded text.
+fn decode_entities(input: &str) -> String {
+    let mut output = String::with_capacity(input.len());
+    let mut remaining = input;
+    while let Some(at) = remaining.find('&') {
+        output.push_str(&remaining[..at]);
+        remaining = &remaining[at + 1..];
+        let decoded = remaining.split_once(';').and_then(|(entity, tail)| {
+            if entity.len() > 32 {
+                return None;
+            }
+            let ch = match entity {
+                "amp" => Some('&'),
+                "quot" => Some('"'),
+                "apos" => Some('\''),
+                "lt" => Some('<'),
+                "gt" => Some('>'),
+                "nbsp" => Some(' '),
+                _ => {
+                    let number = if let Some(hex) = entity
+                        .strip_prefix("#x")
+                        .or_else(|| entity.strip_prefix("#X"))
+                    {
+                        u32::from_str_radix(hex, 16).ok()
+                    } else {
+                        entity
+                            .strip_prefix('#')
+                            .and_then(|decimal| decimal.parse::<u32>().ok())
+                    };
+                    number.and_then(char::from_u32)
+                }
+            }?;
+            Some((ch, tail))
+        });
+        if let Some((ch, tail)) = decoded {
+            output.push(ch);
+            remaining = tail;
+        } else {
+            output.push('&');
+        }
+    }
+    output.push_str(remaining);
+    output
+}
+
 fn plain(value: &Value, key: &str) -> String {
-    let text: String = value
-        .as_str()
-        .unwrap_or("")
+    let bounded: String = value.as_str().unwrap_or("").chars().take(4096).collect();
+    let text: String = decode_entities(&bounded)
         .chars()
-        .take(4096)
         .map(|ch| if ch.is_control() { ' ' } else { ch })
         .collect();
     text.replace(key, "[redacted]")
@@ -593,6 +637,38 @@ mod tests {
         append_metadata(&mut bytes, &[1]).unwrap();
         assert!(append_metadata(&mut bytes, &[1]).is_err());
         assert_eq!(bytes.len(), MAX_BYTES);
+    }
+
+    #[test]
+    fn youtube_entities_are_decoded_once_as_plain_text() {
+        let data = serde_json::json!({"items":[{"id":{"videoId":"abcdefghijk"},"snippet":{
+            "title":"Guns N&#39; Roses - Sweet Child O&#39; Mine (Official Music Video)",
+            "channelTitle":"Rock &amp; Roll &#x1F3B8;"
+        }}]});
+        let result = parse_recordings(&data, KEY).unwrap();
+        assert_eq!(
+            result[0].title,
+            "Guns N' Roses - Sweet Child O' Mine (Official Music Video)"
+        );
+        assert_eq!(result[0].artist, "Rock & Roll 🎸");
+        assert_eq!(
+            plain(
+                &serde_json::json!(
+                    "&quot;Hi&apos;&nbsp;&lt;3&gt; &amp;#39; &unknown; &#xD800; &#999999999999;"
+                ),
+                KEY
+            ),
+            "\"Hi' <3> &#39; &unknown; &#xD800; &#999999999999;"
+        );
+        assert_eq!(
+            plain(&serde_json::json!("A&#10;B&#0;C & unfinished"), KEY),
+            "A B C & unfinished"
+        );
+        let encoded_key = KEY
+            .chars()
+            .map(|c| format!("&#{};", c as u32))
+            .collect::<String>();
+        assert_eq!(plain(&serde_json::json!(encoded_key), KEY), "[redacted]");
     }
 
     #[test]

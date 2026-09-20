@@ -123,6 +123,7 @@ test('configured API mock: debounce, stale response protection, arrows, Escape a
   await input.fill('new');
   await expect(page.getByRole('option')).toHaveCount(2);
   await expect(page.getByRole('option').first()).toContainText('new song 1');
+  await expect(page.getByRole('option').first()).toContainText('Watch only · no chord analysis');
   await expect
     .poll(() => page.evaluate(() => Reflect.get(window, 'mockedSearchCompleted')))
     .toContain('old');
@@ -138,7 +139,9 @@ test('configured API mock: debounce, stale response protection, arrows, Escape a
   await input.press('Enter');
   await expect(page.getByRole('heading', { name: 'new song 2' })).toBeVisible();
   await expect(
-    page.getByText('This song isn’t available for chord playback yet. Choose another recording.'),
+    page.getByText(
+      'YouTube videos are watch-only here. For chord playback, choose a result marked Analyze & play.',
+    ),
   ).toBeVisible();
   await expect(page.getByRole('link', { name: 'Watch on YouTube' })).toHaveAttribute(
     'href',

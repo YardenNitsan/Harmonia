@@ -79,16 +79,23 @@ try {
   await expect(page.getByLabel('YouTube Data API key')).toHaveCount(0);
   const input = page.getByRole('combobox', { name: 'Song or artist' });
   const typeaheadStart = performance.now();
-  await input.fill('bou');
+  report.searchQuery = "Guns N' Roses Sweet Child O' Mine";
+  await input.fill(report.searchQuery);
   const videos = page.getByRole('option').filter({ hasText: 'YouTube' });
   await expect(videos.first()).toBeVisible({ timeout: 20000 });
   report.typeaheadSeconds = (performance.now() - typeaheadStart) / 1000;
   report.youtubeResults = (await videos.allTextContents()).slice(0, 3);
   assert.ok(report.youtubeResults.length > 0);
+  await expect(videos.first()).toContainText("Guns N' Roses");
+  await expect(videos.first()).not.toContainText('&#39;');
+  await expect(videos.first()).toContainText('Watch only · no chord analysis');
+  report.checks.youtubeTitleEntitiesDecoded = true;
   await page.screenshot({ path: resolve(root, 'docs/review-evidence/consumer-search.png') });
   await videos.first().click();
   await expect(
-    page.getByText('This song isn’t available for chord playback yet. Choose another recording.'),
+    page.getByText(
+      'YouTube videos are watch-only here. For chord playback, choose a result marked Analyze & play.',
+    ),
   ).toBeVisible();
   await expect(page.getByRole('link', { name: 'Watch on YouTube' })).toBeVisible();
   assert.equal((await page.evaluate(() => window.consumerProbe.workers)).length, 0);
@@ -102,6 +109,7 @@ try {
       .filter({ hasText: 'Julien Grandgagnage' })
       .filter({ hasNotText: 'YouTube' });
     await expect(option).toHaveCount(1, { timeout: 20000 });
+    await expect(option).toContainText('Analyze & play');
     await option.click();
   }
   await selectPermitted();

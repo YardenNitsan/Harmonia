@@ -827,6 +827,15 @@ select {
   background: var(--accent);
   color: var(--ink);
 }
+.suggestion-copy .suggestion-availability {
+  font-size: 11px;
+  margin-top: 5px;
+  color: var(--muted);
+}
+.suggestion-copy .suggestion-availability.available {
+  color: var(--accent);
+  font-weight: 600;
+}
 .beat-ruler {
   height: 14px;
   position: relative;

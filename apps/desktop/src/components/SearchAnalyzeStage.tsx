@@ -123,7 +123,11 @@ export function SearchAnalyzeStage({
           {state.status === 'input-required' && (
             <section className="consumer-unavailable" role="status">
               <h2>{state.selected?.title}</h2>
-              <p>This song isn’t available for chord playback yet. Choose another recording.</p>
+              <p>
+                {state.selected?.provider === 'youtube'
+                  ? 'YouTube videos are watch-only here. For chord playback, choose a result marked Analyze & play.'
+                  : 'Chord analysis is not available for this recording.'}
+              </p>
               {state.selected?.provider === 'youtube' && (
                 <a href={state.selected.pageUrl} target="_blank" rel="noreferrer">
                   Watch on YouTube

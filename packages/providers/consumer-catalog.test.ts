@@ -1,6 +1,38 @@
-import { expect, it, vi } from 'vitest';
+import { afterEach, expect, it, vi } from 'vitest';
 import { ConsumerCatalog } from './consumer-catalog';
 import type { CatalogRecording } from '../application/catalog-contracts';
+afterEach(() => vi.useRealTimers());
+
+it('does not discard playable catalog results after only two seconds', async () => {
+  vi.useFakeTimers();
+  let sourceSignal!: AbortSignal;
+  let finish!: (value: CatalogRecording[]) => void;
+  const service = new ConsumerCatalog(
+    { search: async () => [video] },
+    {
+      search: (_q, _provider, signal) =>
+        new Promise((resolve) => {
+          sourceSignal = signal;
+          finish = resolve;
+        }),
+      acquire: vi.fn(),
+    },
+  );
+  const pending = service.search('song', 'youtube', new AbortController().signal);
+  await vi.advanceTimersByTimeAsync(2500);
+  expect(sourceSignal.aborted).toBe(false);
+  finish([permitted]);
+  expect((await pending).results).toContain(permitted);
+});
+
+it('explains when search finds only watch-only videos, not playable recordings', async () => {
+  const service = new ConsumerCatalog(
+    { search: async () => [video] },
+    { search: async () => [], acquire: vi.fn() },
+  );
+  const page = await service.search('song', 'youtube', new AbortController().signal);
+  expect(page.notice).toContain('YouTube results are watch-only');
+});
 
 const video: CatalogRecording = {
   id: 'abcdefghijk',

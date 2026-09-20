@@ -128,6 +128,9 @@ export function SongTypeahead({
                   {recording.artist}
                   {recording.provider === 'youtube' ? ' · YouTube' : ''}
                 </span>
+                <span className={`suggestion-availability ${recording.audio ? 'available' : ''}`}>
+                  {recording.audio ? 'Analyze & play' : 'Watch only · no chord analysis'}
+                </span>
               </div>
               {recording.duration !== null && (
                 <span className="suggestion-duration">{timeLabel(recording.duration)}</span>

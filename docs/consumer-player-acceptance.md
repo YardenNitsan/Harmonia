@@ -6,6 +6,24 @@ unavailable**: no permitted exact analysis audio is connected for those videos.
 This checkpoint is not recognition-quality approval or final release acceptance.
 The visible desktop GUI was never launched.
 
+### Search bug follow-up
+
+[Native follow-up evidence](review-evidence/consumer-native-03.json) verifies the
+user-reported Guns N' Roses / Sweet Child O' Mine search against the real API and
+rebuilt Windows executable. Numeric HTML references such as `&#39;` now display
+as apostrophes; channel/title decoding remains bounded, plain-text, single-pass
+and redacted. Rows show **Analyze & play** or **Watch only · no chord analysis**
+before selection. Search clearly reports when it found no analyzable recordings.
+The separate licensed catalog now has ten seconds instead of two to respond;
+YouTube suggestions still publish immediately. These changes do not connect a
+YouTube analysis source or enable chord playback for those videos.
+
+861 unit tests, 37 Rust tests and all nine affected production browser tests pass;
+lint, types, formatting, clippy and optimized build pass. Hidden native validation
+also rechecks full licensed-song preparation (4.40s), autoplay, late seeking and
+SQLite cache (0.82s), with complete cleanup. The following earlier measurements
+are retained as checkpoint evidence rather than overwritten.
+
 ## Verified behavior
 
 - One search combobox, 300 ms debounce, real native YouTube requests without Enter,
@@ -32,7 +50,7 @@ The visible desktop GUI was never launched.
 
 ## Real source and timing
 
-[Final native evidence](review-evidence/consumer-native-02.json) exercises the fresh
+[Initial consumer native evidence](review-evidence/consumer-native-02.json) exercises the then-fresh
 release executable, actual Google API, Commons API/original media, whole-song
 worker, real hidden Windows WebView2 playback and isolated native SQLite.
 
@@ -109,5 +127,5 @@ actual low-end-hardware acceptance.
 Run when ready:
 `C:\Users\yarde\Documents\codexp\Harmonia\apps\desktop\src-tauri\target\continuation-clean\release\harmonia.exe`
 
-SHA-256: `d2095f374e0e582616165326811adb8a7dad64324bbb693bd3b47c16733f13e3`.
+Current SHA-256: `b81821a4188714cc7cd045b8140fe448b7f91e0ffe9ddccf93ac28ea8f1e14e7`.
 This executable was verified hidden and left closed.

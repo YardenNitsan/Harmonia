@@ -108,6 +108,29 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 
 ### Active continuation: consumer typeahead and prepared player
 
+User-reported follow-up: YouTube titles displayed literal `&#39;`, and every
+YouTube selection reached the same unavailable message. Native `plain()` omitted
+entity decoding; a red/green regression now covers the exact Guns N' Roses title,
+numeric/hex/common named entities, malformed references, one-pass decoding and
+redaction after decoding. The audio failure is an architecture limitation, not a
+bad key: every official YouTube result has `audio: null`. No permitted analysis
+source for arbitrary YouTube videos exists in this implementation.
+
+Search now labels each result **Analyze & play** or **Watch only · no chord
+analysis** before selection, explains watch-only searches explicitly, and removes
+the misleading suggestion that another YouTube video will work. The playable
+catalog's independent timeout rises from two to ten seconds (YouTube results
+still publish immediately); a regression proves a 2.5-second response is retained.
+This repairs title formatting/discovery and communicates the gap; it does not
+claim to have enabled arbitrary YouTube chord playback.
+
+Verified follow-up: 861 TS tests, 37 Rust tests, all nine affected production E2Es,
+lint/types/format/clippy and optimized build pass. Hidden native probe
+`consumer-native-03.json` confirms the exact official title is correctly decoded,
+capability labels match actual sources, and licensed full-song playback/cache
+remain working. The current executable/hash are in consumer acceptance. No key
+changed, no visible GUI launched and no new ML work occurred.
+
 Follow `docs/consumer-player-plan.md` and the latest detailed user specification.
 Resume checkpoint4ff6a28; preserve all code/research and untracked work. Primary
 search must make actual configured YouTube requests on debounced text changes.

@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "checks": {
+    "youtubeTitleEntitiesDecoded": true,
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "unavailableYoutubeHasNoFabricatedAnalysis": true,
+    "completeTimelineBeforeAutomaticPlayback": true,
+    "authoritativePlaybackPauseSeekAndClickableTimeline": true,
+    "noAnalysisReplacementDuringPlayback": true,
+    "reloadSqliteCacheWithoutRecognition": true,
+    "youtubeRequestsRemainNative": true
+  },
+  "errors": [],
+  "audioSaved": false,
+  "probeSha256": "5acbfa11399d4a24bf4a5ca64126eb79e5897a53123d44c753d6c662a87f7f98",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "b81821a4188714cc7cd045b8140fe448b7f91e0ffe9ddccf93ac28ea8f1e14e7",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "searchQuery": "Guns N' Roses Sweet Child O' Mine",
+  "typeaheadSeconds": 1.3418752,
+  "youtubeResults": [
+    "Guns N' Roses - Sweet Child O' Mine (Official Music Video)GunsNRosesVEVO · YouTubeWatch only · no chord analysis5:03",
+    "Guns N' Roses - Sweet Child O' Mine (Lyrics)7clouds Rock · YouTubeWatch only · no chord analysis5:57",
+    "Guns N' Roses - Sweet Child O' Mine (Alternate Version)GunsNRosesVEVO · YouTubeWatch only · no chord analysis5:12"
+  ],
+  "preparationSeconds": 4.3999812,
+  "source": {
+    "artist": "Julien Grandgagnage",
+    "audio": {
+      "attribution": "Greensleeves-by Julien Grandgagnage-tenorsax — Julien Grandgagnage — Own work — CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Greensleeves-by_Julien_Grandgagnage-tenorsax.oga",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "size": 3580170,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Greensleeves-by_Julien_Grandgagnage-tenorsax.oga"
+    },
+    "id": "28670309",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Greensleeves-by_Julien_Grandgagnage-tenorsax.oga",
+    "provider": "commons",
+    "thumbnail": null,
+    "title": "Greensleeves-by Julien Grandgagnage-tenorsax"
+  },
+  "analysis": {
+    "duration": 122.14263038548752,
+    "segments": 559,
+    "pipeline": "harmonia-whole-song-v1",
+    "model": "dsp-whole-song-v1",
+    "fingerprint": "d1901ebeb1d0931c1653ece414d35f2d84820b30bde97325f0f78c9bdceebfd0"
+  },
+  "workerSeconds": 2.608300000011921,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "N",
+    "assertionLatencyMs": 20.219600000000355
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-DFPJfQq-.js",
+      "started": 5357.5,
+      "stages": [
+        "Extracting harmonic features",
+        "Decoding complete-song harmony",
+        "Building complete-song timeline",
+        "Complete-song analysis ready"
+      ],
+      "completed": 7965.800000011921,
+      "duration": 122.14263038548752,
+      "segments": 559
+    }
+  ],
+  "cacheReopenSeconds": 0.8240307999999986,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}
