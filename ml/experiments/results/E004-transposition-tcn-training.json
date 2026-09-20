@@ -1,0 +1,142 @@
+{
+  "experiment_id": "E004-transposition-tcn",
+  "status": "completed",
+  "git_revision": "uncommitted-workspace",
+  "source_sha256": {
+    "harmonia_ml\\__init__.py": "4327f27d8d6f57846e7930fe81e65db4b1b7502031ecfa01f44a849565fb9a83",
+    "harmonia_ml\\data\\__init__.py": "95976dade01a173724dd80bad4f92cd4bb379f62d03b48599d59d068d0c74c38",
+    "harmonia_ml\\data\\guitarset.py": "a66da6697ae5a05470918bc52efec7e8c2de780e3e57c62ea5320622d4cb78e3",
+    "harmonia_ml\\data\\labels.py": "00f121b6b6b00b96ae308c8615c69a088917064370e4822110771427c76e641a",
+    "harmonia_ml\\data\\prepare.py": "239314756fb296ef1402d25b0a6704d6d064675fdbc30580b457ffde8439132f",
+    "harmonia_ml\\data\\splits.py": "3d462f56ce0943332a6bf1233dff25bf58ba36b577a27cf4a5a10b331a25166e",
+    "harmonia_ml\\evaluation\\__init__.py": "1ed9154aacef26e9e3ccdde032fccd20c09fa7742b75d97e79edb67ddab221a6",
+    "harmonia_ml\\evaluation\\boundaries.py": "12666ff471fa019dcced282161bf8a05fc0a078615762bfbfa03e2a4dd559ae2",
+    "harmonia_ml\\evaluation\\calibration.py": "931c54acabfded7e1be163f2bf94eee4eb97a189cfbfae6bb840e57a5a900fdb",
+    "harmonia_ml\\evaluation\\report.py": "7643571f6277b15629522b27d67728046a2c6007eb0b3a71d210c4a267b96d69",
+    "harmonia_ml\\export\\__init__.py": "ca8eb64e969b770529be0d474d31d92cbd397bc660ff33321f6eb4b395c1fbd9",
+    "harmonia_ml\\export\\onnx.py": "29d7c122abb63eceac72310e3442dcdfed29e99ac3d1f46265a8ff4bb15e9761",
+    "harmonia_ml\\features\\__init__.py": "8896d65084cd290c94cf4ebfdad37f1f3d502fa8a03a3437fd939ebb48e5cb26",
+    "harmonia_ml\\features\\extract.py": "9d8521f535bd45fd193a23e332468655bf2a805dc40ee838504d14d4f4c30bd4",
+    "harmonia_ml\\models\\__init__.py": "44bf4315ced15356b2b32be582bd44676d9f8925230cf0c3f1421f515838806e",
+    "harmonia_ml\\models\\dsp.py": "bb3a67214d28ad0e8008d8361fd0f2a3e262cbe15326bb548cd1bb6c4f3166a7",
+    "harmonia_ml\\models\\structured.py": "b7314d0f355791a67519acf0a360b9a3aaf0fc19b495b463ca84a1f2a02e275d",
+    "harmonia_ml\\training\\__init__.py": "6f9c7508290fcc999fd852e3dd2720f18270dbd8b805a8b88e6d7fef1c1642a4",
+    "harmonia_ml\\training\\dataset.py": "153ac146c8ca366483993df00fd90106b8c70e6db9ff85d4514623c79d903e92",
+    "harmonia_ml\\training\\runner.py": "72f2cc81818d486655e0433de70b6ec15582ee2aa87830ee048ad6a0e0fb71c8"
+  },
+  "config_sha256": "81fe8b99a6bbd83a3b809aea05857f87ed9f3453755dbf1706d3085fbfcf676c",
+  "config_path": "experiments\\E004-transposition-tcn.json",
+  "manifest": "data\\prepared\\guitarset-v1\\manifest.json",
+  "dataset_manifest_sha256": "3ca454338f85375d93744862d8d3666f5efd6584f90527401d642ff7c13b29e7",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "torch_version": "2.11.0+cu128",
+  "python": "3.13.12",
+  "elapsed_seconds": 29.816783899994334,
+  "peak_vram_bytes": 50256896,
+  "final_process_rss_bytes": 2117898240,
+  "best_validation_score": 0.41441389402341344,
+  "best_checkpoint": "checkpoints\\E004-transposition-tcn\\best.pt",
+  "epochs_completed": 11,
+  "history": [
+    {
+      "loss": 6.378985850016276,
+      "root_accuracy": 0.2350703824825821,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.1289575335323949,
+      "train_loss": 5.676343229081896,
+      "epoch": 0
+    },
+    {
+      "loss": 6.30307404200236,
+      "root_accuracy": 0.2468837385658088,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5963789753068865,
+      "bass_accuracy": 0.18225389828901845,
+      "train_loss": 5.212175125545926,
+      "epoch": 1
+    },
+    {
+      "loss": 6.05789483388265,
+      "root_accuracy": 0.3045819707095123,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964441442722404,
+      "bass_accuracy": 0.23164012512441348,
+      "train_loss": 5.03646346198188,
+      "epoch": 2
+    },
+    {
+      "loss": 6.10073626836141,
+      "root_accuracy": 0.3068569600454998,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.2411844163230485,
+      "train_loss": 4.7948064380221895,
+      "epoch": 3
+    },
+    {
+      "loss": 6.005329704284668,
+      "root_accuracy": 0.3285937722166927,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.24334091663111995,
+      "train_loss": 4.679207881291707,
+      "epoch": 4
+    },
+    {
+      "loss": 6.045377763112386,
+      "root_accuracy": 0.32525238162946113,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.2397447746338689,
+      "train_loss": 4.644480604595608,
+      "epoch": 5
+    },
+    {
+      "loss": 6.071816730499267,
+      "root_accuracy": 0.3219939333617707,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.25116119247357693,
+      "train_loss": 4.565999613867866,
+      "epoch": 6
+    },
+    {
+      "loss": 5.943122418721517,
+      "root_accuracy": 0.3404308261055026,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.270694108725532,
+      "train_loss": 4.5129707071516245,
+      "epoch": 7
+    },
+    {
+      "loss": 6.059804884592692,
+      "root_accuracy": 0.333611782548936,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.26255983695909757,
+      "train_loss": 4.459520027372572,
+      "epoch": 8
+    },
+    {
+      "loss": 5.990075302124024,
+      "root_accuracy": 0.33694132423337597,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.2737096544859946,
+      "train_loss": 4.413741583294339,
+      "epoch": 9
+    },
+    {
+      "loss": 6.007137966156006,
+      "root_accuracy": 0.34128394710649795,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964382198208446,
+      "bass_accuracy": 0.267779278638798,
+      "train_loss": 4.406188238991631,
+      "epoch": 10
+    }
+  ]
+}

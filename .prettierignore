@@ -1,0 +1,12 @@
+node_modules/
+**/target/
+**/dist/
+ml/.venv/
+ml/data/
+ml/checkpoints/
+package-lock.json
+test-results/
+playwright-report/
+apps/desktop/public/runtime/
+apps/desktop/public/models/
+apps/desktop/src-tauri/gen/

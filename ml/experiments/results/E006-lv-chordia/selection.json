@@ -1,0 +1,27 @@
+{
+  "method": "lv-chordia1.1.0-submission-ensemble",
+  "split": "validation",
+  "track_ids": [
+    "00_BN2-131-B_comp",
+    "00_Funk2-108-Eb_solo",
+    "01_Funk2-108-Eb_comp",
+    "01_Jazz2-110-Bb_solo",
+    "02_Jazz2-110-Bb_comp",
+    "02_Rock2-142-D_solo",
+    "03_Rock2-142-D_comp",
+    "03_SS2-107-Ab_solo",
+    "04_SS2-107-Ab_comp",
+    "04_BN2-131-B_solo",
+    "05_BN2-131-B_comp",
+    "05_Funk2-108-Eb_solo"
+  ],
+  "weights_sha256": {
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s0.best.sdict": "921b42d5d1cf9ce1c0c0e45a74d409b8066e0acec46058ef74e24ee0fb540761",
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s1.best.sdict": "bcb75859e0efa256696cf5da396b320093317b9b1d9560c304f46c25fe1f8b17",
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s2.best.sdict": "acddf85c3fff29954c4877021177d72e2cba9f729ce80c1010f054c477bf3f61",
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s3.best.sdict": "65d81a3ab73435aaaade586981b4cabdf57b8953d76052703e6968c32ef8421c",
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s4.best.sdict": "5ff6b0ec85640e17a09a9b3de68c93fdd45adc24488e8fa9be5715c28d561122"
+  },
+  "selection": "Fixed performer/style/version strata selected before inference",
+  "license": "MIT; original Music X Lab lineage audited in docs/data/dataset-audit.md"
+}

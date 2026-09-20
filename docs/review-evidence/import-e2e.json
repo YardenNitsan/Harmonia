@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-20",
+  "command": "npm.cmd run test:e2e -- tests/e2e/import.spec.ts",
+  "browser": "installed Chrome, headless",
+  "passed": 8,
+  "failed": 0,
+  "durationSeconds": 12.1,
+  "pageErrors": [],
+  "verification": [
+    "Generated PCM WAV traverses ordinary file decoding and DSP analysis",
+    "Playback clock advances, seeks, and persisted analysis reopens",
+    "JSON export contains DSP provenance, fingerprint, timeline, and waveform",
+    "Unsupported extension and corrupt WAV report actionable errors; subsequent valid import works",
+    "Replacing active import terminates previous worker and saves only replacement",
+    "Cancellation terminates active worker without saving cancelled analysis",
+    "Active loop wraps at edited boundary on actual media clock",
+    "Fresh empty and loaded layouts have no horizontal overflow at all three widths"
+  ],
+  "additionalChecks": [
+    "npm.cmd run typecheck: passed",
+    "eslint tests/e2e/import.spec.ts tests/e2e/fixtures.ts: passed"
+  ],
+  "screenshots": [
+    "empty-800.png",
+    "imported-800.png",
+    "empty-1440.png",
+    "imported-1440.png",
+    "empty-2560.png",
+    "imported-2560.png"
+  ],
+  "limitations": [
+    "Deterministic synthetic WAV fixtures exercise import behavior; they do not measure real-song recognition accuracy",
+    "Browser tests do not establish packaged desktop WebView or native SQLite behavior"
+  ]
+}

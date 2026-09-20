@@ -1,0 +1,92 @@
+{
+  "experiment_id": "E002-chroma-tcn",
+  "status": "completed",
+  "git_revision": "uncommitted-workspace",
+  "config_path": "experiments\\E002-chroma-tcn.json",
+  "manifest": "data\\prepared\\guitarset-v1\\manifest.json",
+  "dataset_manifest_sha256": "3ca454338f85375d93744862d8d3666f5efd6584f90527401d642ff7c13b29e7",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "torch_version": "2.11.0+cu128",
+  "python": "3.13.12",
+  "elapsed_seconds": 26.63978820000193,
+  "peak_vram_bytes": 49095680,
+  "peak_process_rss_bytes": 2111418368,
+  "best_validation_score": 0.39663905872316224,
+  "best_checkpoint": "checkpoints\\E002-chroma-tcn\\best.pt",
+  "epochs_completed": 8,
+  "history": [
+    {
+      "loss": 6.744482453664144,
+      "root_accuracy": 0.20063747097018816,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5964441442722404,
+      "bass_accuracy": 0.18855159012275463,
+      "train_loss": 5.355375936296251,
+      "epoch": 0
+    },
+    {
+      "loss": 6.617659219106039,
+      "root_accuracy": 0.22987463860846485,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5896606474240486,
+      "bass_accuracy": 0.20428100857860562,
+      "train_loss": 4.522639830907186,
+      "epoch": 1
+    },
+    {
+      "loss": 6.333441384633383,
+      "root_accuracy": 0.2695329162519551,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5614424854258495,
+      "bass_accuracy": 0.21957201763116735,
+      "train_loss": 4.314338519838121,
+      "epoch": 2
+    },
+    {
+      "loss": 6.430060195922851,
+      "root_accuracy": 0.2692840892933314,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.580785819233139,
+      "bass_accuracy": 0.21707782359353525,
+      "train_loss": 4.165040757921007,
+      "epoch": 3
+    },
+    {
+      "loss": 6.41250680287679,
+      "root_accuracy": 0.3048781932793023,
+      "triad_accuracy": 0.45008057253898287,
+      "seventh_accuracy": 0.5945364709227926,
+      "bass_accuracy": 0.23706099815157117,
+      "train_loss": 4.112241262859769,
+      "epoch": 4
+    },
+    {
+      "loss": 6.444983418782552,
+      "root_accuracy": 0.2887873832883075,
+      "triad_accuracy": 0.45006279918479547,
+      "seventh_accuracy": 0.5950341248400398,
+      "bass_accuracy": 0.23296720223707285,
+      "train_loss": 4.000842470592922,
+      "epoch": 5
+    },
+    {
+      "loss": 6.494357013702393,
+      "root_accuracy": 0.2927982368832646,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.5960531304801175,
+      "bass_accuracy": 0.23629081947011707,
+      "train_loss": 3.9582722981770835,
+      "epoch": 6
+    },
+    {
+      "loss": 6.5028910636901855,
+      "root_accuracy": 0.2934558509881985,
+      "triad_accuracy": 0.45002725247642067,
+      "seventh_accuracy": 0.5954192141807668,
+      "bass_accuracy": 0.24017133513436656,
+      "train_loss": 3.9016045411427815,
+      "epoch": 7
+    }
+  ]
+}

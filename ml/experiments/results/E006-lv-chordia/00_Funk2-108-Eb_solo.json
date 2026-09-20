@@ -1,0 +1,27 @@
+[
+  {
+    "start_time": 0.0,
+    "end_time": 0.07,
+    "chord": "N"
+  },
+  {
+    "start_time": 0.07,
+    "end_time": 1.04,
+    "chord": "F:maj"
+  },
+  {
+    "start_time": 1.04,
+    "end_time": 5.43,
+    "chord": "C#:maj"
+  },
+  {
+    "start_time": 5.43,
+    "end_time": 13.31,
+    "chord": "Ab:min"
+  },
+  {
+    "start_time": 13.31,
+    "end_time": 35.55,
+    "chord": "N"
+  }
+]

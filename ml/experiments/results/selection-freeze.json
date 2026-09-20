@@ -1,0 +1,17 @@
+{
+  "frozen_utc": "2026-09-20T09:25:29.052747+00:00",
+  "model_id": "E004-transposition-tcn",
+  "checkpoint": "checkpoints\\E004-transposition-tcn\\best.pt",
+  "checkpoint_sha256": "7d132a8f984e48d83fe4457741c773dd533fa5b4c43ff22d8411b1e3dd870111",
+  "manifest_sha256": "3ca454338f85375d93744862d8d3666f5efd6584f90527401d642ff7c13b29e7",
+  "calibration_sha256": "b948bf800626e36b266baea856ac55de2c02cc0e9f45c58d10806390be4dfade",
+  "criterion": "Maximum saved validation mean(root,triad,seventh,bass accuracy); checkpoint improvement threshold0.001",
+  "validation_scores": {
+    "E002-chroma-tcn": 0.39663905872316224,
+    "E003-chroma-bass-tcn": 0.3990577160054979,
+    "E004-transposition-tcn": 0.41441389402341344,
+    "E005-weighted-tcn": 0.41429096165695056
+  },
+  "test_policy": "Evaluate selected E004 and Python DSP once; no tuning or reselection using test results",
+  "status": "experimental; selected difference is tiny and not a statistical significance claim"
+}

@@ -1,0 +1,36 @@
+[project]
+name = "harmonia-ml"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+  "numpy>=2.3,<3",
+  "scipy>=1.16,<2",
+  "soundfile>=0.13,<1",
+  "torch>=2.8,<3",
+  "psutil>=7,<8",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mir-eval>=0.8,<1",
+  "onnx>=1.19,<2",
+  "onnxruntime>=1.22,<2",
+  "psutil>=7,<8",
+  "pytest>=8,<10",
+  "ruff>=0.12,<1",
+]
+pretrained = [
+  "lv-chordia==1.1.0",
+  "audioop-lts==0.2.2; python_version >= '3.13'",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

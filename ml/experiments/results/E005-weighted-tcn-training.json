@@ -1,0 +1,151 @@
+{
+  "experiment_id": "E005-weighted-tcn",
+  "status": "completed",
+  "git_revision": "uncommitted-workspace",
+  "source_sha256": {
+    "harmonia_ml\\__init__.py": "4327f27d8d6f57846e7930fe81e65db4b1b7502031ecfa01f44a849565fb9a83",
+    "harmonia_ml\\data\\__init__.py": "95976dade01a173724dd80bad4f92cd4bb379f62d03b48599d59d068d0c74c38",
+    "harmonia_ml\\data\\guitarset.py": "a66da6697ae5a05470918bc52efec7e8c2de780e3e57c62ea5320622d4cb78e3",
+    "harmonia_ml\\data\\labels.py": "00f121b6b6b00b96ae308c8615c69a088917064370e4822110771427c76e641a",
+    "harmonia_ml\\data\\prepare.py": "239314756fb296ef1402d25b0a6704d6d064675fdbc30580b457ffde8439132f",
+    "harmonia_ml\\data\\splits.py": "3d462f56ce0943332a6bf1233dff25bf58ba36b577a27cf4a5a10b331a25166e",
+    "harmonia_ml\\evaluation\\__init__.py": "1ed9154aacef26e9e3ccdde032fccd20c09fa7742b75d97e79edb67ddab221a6",
+    "harmonia_ml\\evaluation\\boundaries.py": "12666ff471fa019dcced282161bf8a05fc0a078615762bfbfa03e2a4dd559ae2",
+    "harmonia_ml\\evaluation\\calibration.py": "931c54acabfded7e1be163f2bf94eee4eb97a189cfbfae6bb840e57a5a900fdb",
+    "harmonia_ml\\evaluation\\report.py": "7643571f6277b15629522b27d67728046a2c6007eb0b3a71d210c4a267b96d69",
+    "harmonia_ml\\export\\__init__.py": "ca8eb64e969b770529be0d474d31d92cbd397bc660ff33321f6eb4b395c1fbd9",
+    "harmonia_ml\\export\\onnx.py": "29d7c122abb63eceac72310e3442dcdfed29e99ac3d1f46265a8ff4bb15e9761",
+    "harmonia_ml\\features\\__init__.py": "8896d65084cd290c94cf4ebfdad37f1f3d502fa8a03a3437fd939ebb48e5cb26",
+    "harmonia_ml\\features\\extract.py": "9d8521f535bd45fd193a23e332468655bf2a805dc40ee838504d14d4f4c30bd4",
+    "harmonia_ml\\models\\__init__.py": "44bf4315ced15356b2b32be582bd44676d9f8925230cf0c3f1421f515838806e",
+    "harmonia_ml\\models\\dsp.py": "bb3a67214d28ad0e8008d8361fd0f2a3e262cbe15326bb548cd1bb6c4f3166a7",
+    "harmonia_ml\\models\\structured.py": "b7314d0f355791a67519acf0a360b9a3aaf0fc19b495b463ca84a1f2a02e275d",
+    "harmonia_ml\\training\\__init__.py": "6f9c7508290fcc999fd852e3dd2720f18270dbd8b805a8b88e6d7fef1c1642a4",
+    "harmonia_ml\\training\\dataset.py": "153ac146c8ca366483993df00fd90106b8c70e6db9ff85d4514623c79d903e92",
+    "harmonia_ml\\training\\runner.py": "72f2cc81818d486655e0433de70b6ec15582ee2aa87830ee048ad6a0e0fb71c8"
+  },
+  "config_sha256": "3f3102c171f6131d46ff5f3a5ad423eb31f65ae91e78ea9cd4353250a645d2d5",
+  "config_path": "experiments\\E005-weighted-tcn.json",
+  "manifest": "data\\prepared\\guitarset-v1\\manifest.json",
+  "dataset_manifest_sha256": "3ca454338f85375d93744862d8d3666f5efd6584f90527401d642ff7c13b29e7",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "torch_version": "2.11.0+cu128",
+  "python": "3.13.12",
+  "elapsed_seconds": 27.119797899998957,
+  "peak_vram_bytes": 50257920,
+  "final_process_rss_bytes": 2097844224,
+  "best_validation_score": 0.41429096165695056,
+  "best_checkpoint": "checkpoints\\E005-weighted-tcn\\best.pt",
+  "epochs_completed": 12,
+  "history": [
+    {
+      "loss": 6.103471406300863,
+      "root_accuracy": 0.23046115929664912,
+      "triad_accuracy": 0.45009242144177447,
+      "seventh_accuracy": 0.596396748661074,
+      "bass_accuracy": 0.12639224607801317,
+      "train_loss": 6.196775574154324,
+      "epoch": 0
+    },
+    {
+      "loss": 6.144746557871501,
+      "root_accuracy": 0.2476005971847007,
+      "triad_accuracy": 0.44989691454571307,
+      "seventh_accuracy": 0.5320335086970946,
+      "bass_accuracy": 0.18100383904450448,
+      "train_loss": 5.749988820817736,
+      "epoch": 1
+    },
+    {
+      "loss": 5.878959592183431,
+      "root_accuracy": 0.3031601023745201,
+      "triad_accuracy": 0.449630314232902,
+      "seventh_accuracy": 0.5711941324233376,
+      "bass_accuracy": 0.23031897246314992,
+      "train_loss": 5.582979445987277,
+      "epoch": 2
+    },
+    {
+      "loss": 5.895197995503744,
+      "root_accuracy": 0.3093096829233613,
+      "triad_accuracy": 0.44983174558035927,
+      "seventh_accuracy": 0.5952533295416844,
+      "bass_accuracy": 0.24075785582255083,
+      "train_loss": 5.352393372853597,
+      "epoch": 3
+    },
+    {
+      "loss": 5.775522645314535,
+      "root_accuracy": 0.3284575098345893,
+      "triad_accuracy": 0.44772856533485,
+      "seventh_accuracy": 0.589382198208446,
+      "bass_accuracy": 0.24350680127020238,
+      "train_loss": 5.222266478008694,
+      "epoch": 4
+    },
+    {
+      "loss": 5.802894592285156,
+      "root_accuracy": 0.3227107919806626,
+      "triad_accuracy": 0.44887790890563534,
+      "seventh_accuracy": 0.5963789753068865,
+      "bass_accuracy": 0.23547324517749657,
+      "train_loss": 5.188345103793674,
+      "epoch": 5
+    },
+    {
+      "loss": 5.859105459849039,
+      "root_accuracy": 0.3211171145551922,
+      "triad_accuracy": 0.44993246125408787,
+      "seventh_accuracy": 0.5847670505711171,
+      "bass_accuracy": 0.25036139153514386,
+      "train_loss": 5.089466672473484,
+      "epoch": 6
+    },
+    {
+      "loss": 5.726916917165121,
+      "root_accuracy": 0.33816176122091096,
+      "triad_accuracy": 0.44993246125408787,
+      "seventh_accuracy": 0.596426370918053,
+      "bass_accuracy": 0.2681525190767335,
+      "train_loss": 5.020528417163425,
+      "epoch": 7
+    },
+    {
+      "loss": 5.828506406148275,
+      "root_accuracy": 0.33124792644201145,
+      "triad_accuracy": 0.45035902175458553,
+      "seventh_accuracy": 0.5960353571259301,
+      "bass_accuracy": 0.26141641783970804,
+      "train_loss": 4.985422786076864,
+      "epoch": 8
+    },
+    {
+      "loss": 5.7533136685689295,
+      "root_accuracy": 0.3361237499407555,
+      "triad_accuracy": 0.4508981468316034,
+      "seventh_accuracy": 0.5957450590075359,
+      "bass_accuracy": 0.27439689084790747,
+      "train_loss": 4.926405832502577,
+      "epoch": 9
+    },
+    {
+      "loss": 5.744397862752279,
+      "root_accuracy": 0.33979098535475616,
+      "triad_accuracy": 0.45050120858808473,
+      "seventh_accuracy": 0.594731977818854,
+      "bass_accuracy": 0.26605526328262,
+      "train_loss": 4.924947526719835,
+      "epoch": 10
+    },
+    {
+      "loss": 5.721929454803467,
+      "root_accuracy": 0.344820844589791,
+      "triad_accuracy": 0.450702639935542,
+      "seventh_accuracy": 0.595324422958434,
+      "bass_accuracy": 0.267364567041092,
+      "train_loss": 4.884530909856161,
+      "epoch": 11
+    }
+  ]
+}

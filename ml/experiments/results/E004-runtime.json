@@ -1,0 +1,40 @@
+{
+  "model_id": "E004-transposition-tcn",
+  "split": "validation",
+  "tracks": 120,
+  "note": "Post-selection deployment experiment only; no locked-test rerun or reselection",
+  "artifact_bytes": {
+    "float32": 233441,
+    "int8_linear_only": 232870
+  },
+  "onnx_cpu_inference_seconds": {
+    "float32": 0.20480260011390783,
+    "int8_linear_only": 0.1867094000626821
+  },
+  "linear_quantization_argmax_agreement": {
+    "root": 0.9942177354376984,
+    "triad": 1.0,
+    "seventh": 1.0,
+    "bass": 0.9933883122422864
+  },
+  "quantization_max_absolute_logit_error": {
+    "root": 0.06040674448013306,
+    "triad": 0.053446292877197266,
+    "seventh": 0.04622006416320801,
+    "bass": 0.055446065962314606,
+    "extensions": 0.04114985466003418,
+    "boundary": 0.053490400314331055
+  },
+  "pytorch_inference_only": {
+    "cpu": {
+      "median_seconds": 0.002157650000299327,
+      "frames": 1875
+    },
+    "cuda": {
+      "median_seconds": 0.0007243000000016764,
+      "frames": 1875
+    }
+  },
+  "decision": "Keep float32 selected artifact; partial quantization is research-only and changes predictions",
+  "timing_scope": "Warm in-process inference excluding audio decode, features and session creation"
+}

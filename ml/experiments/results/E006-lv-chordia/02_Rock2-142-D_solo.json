@@ -1,0 +1,27 @@
+[
+  {
+    "start_time": 0.0,
+    "end_time": 10.12,
+    "chord": "N"
+  },
+  {
+    "start_time": 10.12,
+    "end_time": 12.82,
+    "chord": "A:min"
+  },
+  {
+    "start_time": 12.82,
+    "end_time": 21.06,
+    "chord": "N"
+  },
+  {
+    "start_time": 21.06,
+    "end_time": 24.59,
+    "chord": "A:min"
+  },
+  {
+    "start_time": 24.59,
+    "end_time": 27.05,
+    "chord": "N"
+  }
+]

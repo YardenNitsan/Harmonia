@@ -1,0 +1,77 @@
+[
+  {
+    "start_time": 0.0,
+    "end_time": 0.02,
+    "chord": "N"
+  },
+  {
+    "start_time": 0.02,
+    "end_time": 2.76,
+    "chord": "Ab:maj"
+  },
+  {
+    "start_time": 2.76,
+    "end_time": 4.67,
+    "chord": "C#:maj/5"
+  },
+  {
+    "start_time": 4.67,
+    "end_time": 6.92,
+    "chord": "F#:maj"
+  },
+  {
+    "start_time": 6.92,
+    "end_time": 9.15,
+    "chord": "B:maj"
+  },
+  {
+    "start_time": 9.15,
+    "end_time": 11.75,
+    "chord": "F:maj"
+  },
+  {
+    "start_time": 11.75,
+    "end_time": 13.58,
+    "chord": "Bb:maj"
+  },
+  {
+    "start_time": 13.58,
+    "end_time": 17.76,
+    "chord": "Eb:maj"
+  },
+  {
+    "start_time": 17.76,
+    "end_time": 20.22,
+    "chord": "Ab:maj"
+  },
+  {
+    "start_time": 20.22,
+    "end_time": 22.87,
+    "chord": "C#:maj"
+  },
+  {
+    "start_time": 22.87,
+    "end_time": 24.73,
+    "chord": "F#:maj"
+  },
+  {
+    "start_time": 24.73,
+    "end_time": 26.59,
+    "chord": "B:maj"
+  },
+  {
+    "start_time": 26.59,
+    "end_time": 29.14,
+    "chord": "F:maj"
+  },
+  {
+    "start_time": 29.14,
+    "end_time": 31.39,
+    "chord": "Bb:maj"
+  },
+  {
+    "start_time": 31.39,
+    "end_time": 35.55,
+    "chord": "Eb:min"
+  }
+]

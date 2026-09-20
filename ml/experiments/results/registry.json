@@ -1,0 +1,48 @@
+{
+  "experiments": [
+    {
+      "experiment_id": "E002-chroma-tcn",
+      "training_report": "experiments\\results\\E002-chroma-tcn-training.json",
+      "checkpoint_sha256": "086ca3b2b7928c55042a80b4b3b4bbe10b95c3c80c0502364f0ffdf5b5330e50",
+      "best_validation_score": 0.39663905872316224
+    },
+    {
+      "experiment_id": "E003-chroma-bass-tcn",
+      "training_report": "experiments\\results\\E003-chroma-bass-tcn-training.json",
+      "checkpoint_sha256": "16ea7ffc53f9d6ad41a1f1d75419bc1b8a6e8d21bcd1b9504e6ec1bbd4bfde43",
+      "best_validation_score": 0.3990577160054979
+    },
+    {
+      "experiment_id": "E004-transposition-tcn",
+      "training_report": "experiments\\results\\E004-transposition-tcn-training.json",
+      "checkpoint_sha256": "7d132a8f984e48d83fe4457741c773dd533fa5b4c43ff22d8411b1e3dd870111",
+      "best_validation_score": 0.41441389402341344
+    },
+    {
+      "experiment_id": "E005-weighted-tcn",
+      "training_report": "experiments\\results\\E005-weighted-tcn-training.json",
+      "checkpoint_sha256": "85367876e7735ec0a5af025a84257116d52894a58a7373d17f101e155d62d11f",
+      "best_validation_score": 0.41429096165695056
+    }
+  ],
+  "selected": {
+    "frozen_utc": "2026-09-20T09:25:29.052747+00:00",
+    "model_id": "E004-transposition-tcn",
+    "checkpoint": "checkpoints\\E004-transposition-tcn\\best.pt",
+    "checkpoint_sha256": "7d132a8f984e48d83fe4457741c773dd533fa5b4c43ff22d8411b1e3dd870111",
+    "manifest_sha256": "3ca454338f85375d93744862d8d3666f5efd6584f90527401d642ff7c13b29e7",
+    "calibration_sha256": "b948bf800626e36b266baea856ac55de2c02cc0e9f45c58d10806390be4dfade",
+    "criterion": "Maximum saved validation mean(root,triad,seventh,bass accuracy); checkpoint improvement threshold0.001",
+    "validation_scores": {
+      "E002-chroma-tcn": 0.39663905872316224,
+      "E003-chroma-bass-tcn": 0.3990577160054979,
+      "E004-transposition-tcn": 0.41441389402341344,
+      "E005-weighted-tcn": 0.41429096165695056
+    },
+    "test_policy": "Evaluate selected E004 and Python DSP once; no tuning or reselection using test results",
+    "status": "experimental; selected difference is tiny and not a statistical significance claim"
+  },
+  "dataset_attribution": "artifacts/structured-chord-v1/ATTRIBUTION.txt",
+  "dependency_snapshot": "requirements-lock-win-py313.txt",
+  "historical_warning": "E002/E003 predate worker epoch/RNG fixes; E004/E005 uninterrupted runs predate final sampler-stream separation. Current exact CPU resume is regression-tested."
+}
