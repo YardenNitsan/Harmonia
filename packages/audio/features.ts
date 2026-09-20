@@ -1,4 +1,5 @@
-import { fft } from './fft';
+import { PeakChromaKernel } from './frame-kernel';
+export { normalize } from './frame-kernel';
 
 export const FEATURE_VERSION = 'peak-chroma-v1';
 export interface FeatureFrame {
@@ -14,10 +15,6 @@ export interface AudioFeatures {
   duration: number;
   hopSeconds: number;
 }
-export function normalize(values: number[]): number[] {
-  const norm = Math.sqrt(values.reduce((sum, value) => sum + value * value, 0));
-  return norm > 0 ? values.map((value) => value / norm) : values;
-}
 export function extractFeatures(
   samples: Float32Array,
   sampleRate: number,
@@ -29,65 +26,17 @@ export function extractFeatures(
     throw new Error('Audio must be between one sample and 20 minutes');
   if (samples.some((sample) => !Number.isFinite(sample))) throw new Error('Invalid audio samples');
   const duration = samples.length / sampleRate;
-  const size = 4096,
-    hop = Math.max(1, Math.round(sampleRate * 0.02322));
-  const window = Float64Array.from(
-    { length: size },
-    (_, i) => 0.5 - 0.5 * Math.cos((2 * Math.PI * i) / (size - 1)),
-  );
-  const real = new Float64Array(size),
-    imag = new Float64Array(size),
-    magnitude = new Float64Array(size / 2);
+  const hop = Math.max(1, Math.round(sampleRate * 0.02322));
+  const kernel = new PeakChromaKernel();
   const frames: FeatureFrame[] = [];
-  let lastEnergy = 0;
   for (let center = 0; center < samples.length; center += hop) {
-    let power = 0;
-    for (let i = 0; i < size; i++) {
-      const position = center + i - size / 2;
-      const sample = position >= 0 && position < samples.length ? samples[position] : 0;
-      real[i] = sample * window[i];
-      imag[i] = 0;
-      power += sample * sample;
-    }
-    fft(real, imag);
-    let max = 0;
-    for (let i = 0; i < magnitude.length; i++) {
-      magnitude[i] = Math.hypot(real[i], imag[i]);
-      max = Math.max(max, magnitude[i]);
-    }
-    const chroma = Array<number>(12).fill(0),
-      bass = Array<number>(12).fill(0);
-    for (let i = 2; i < magnitude.length - 1; i++) {
-      if (
-        magnitude[i] < max * 0.015 ||
-        magnitude[i] <= magnitude[i - 1] ||
-        magnitude[i] < magnitude[i + 1]
-      )
-        continue;
-      const left = Math.log(magnitude[i - 1] + 1e-12),
-        mid = Math.log(magnitude[i] + 1e-12),
-        right = Math.log(magnitude[i + 1] + 1e-12);
-      const offset = Math.max(
-        -0.5,
-        Math.min(0.5, (0.5 * (left - right)) / (left - 2 * mid + right)),
-      );
-      const frequency = ((i + offset) * sampleRate) / size;
-      if (frequency < 45 || frequency > 2500) continue;
-      const midi = Math.round(69 + 12 * Math.log2(frequency / 440));
-      const pitch = ((midi % 12) + 12) % 12;
-      const energy = Math.sqrt(magnitude[i] / Math.max(max, 1e-12));
-      chroma[pitch] += energy;
-      if (frequency < 260) bass[pitch] += energy * Math.pow(65 / frequency, 0.75);
-    }
-    const rms = Math.sqrt(power / size);
-    frames.push({
-      time: center / sampleRate,
-      chroma: normalize(chroma),
-      bass: normalize(bass),
-      rms,
-      onset: Math.max(0, rms - lastEnergy),
-    });
-    lastEnergy = rms;
+    frames.push(
+      kernel.frame(
+        (position) => (position >= 0 && position < samples.length ? samples[position] : 0),
+        center,
+        sampleRate,
+      ),
+    );
     if (frames.length % 64 === 0) progress?.(center / samples.length);
   }
   const waveform = Array.from({ length: Math.min(900, samples.length) }, (_, bin) => {

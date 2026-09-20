@@ -2,15 +2,24 @@
 
 ## Supported release target
 
+The current checkpoint is the Search & Analyze prototype, not a final installer
+release. See [actual source, timing and executable](search-analyze-acceptance.md).
+`node scripts/search-native-probe.mjs <new-report-path>` checks licensed catalog
+acquisition, whole-song analysis, seek/playback and SQLite reuse in a hidden WebView.
+Rebuild the continuation-clean executable first.
+
 The configured native release target is a Windows NSIS installer for the current
 user. The product name is **Harmonia** and the stable application identifier is
 `local.harmonia.desktop`. No MSI or non-Windows artifact has been validated yet.
 
 The main window is 1440 x 960 with a 760 x 600 minimum. Its capability grants only
-the three application-owned persistence commands. No generic shell, filesystem, or
-protected-audio-capture permission is present. The CSP permits local assets plus
+the three persistence commands and four source-discovery/capture commands to the
+local `main` WebView. No generic shell, filesystem, remote-provider capture, or
+protected-audio bypass permission is present. The CSP permits local assets plus
 `blob:` media and workers required for local decoded audio and analysis Web Workers;
-it does not permit remote scripts.
+it does not permit remote scripts. Search permits fetch to official Commons
+metadata/media hosts and Google APIs; thumbnails have explicit image hosts.
+Remote provider scripts/iframes are not enabled in the app.
 
 ## Prerequisites
 

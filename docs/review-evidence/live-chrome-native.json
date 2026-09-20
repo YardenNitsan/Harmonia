@@ -1,0 +1,47 @@
+{
+  "status": "passed_chrome_and_system_native",
+  "rawCapturedAudioSaved": false,
+  "checks": {
+    "chromeChordC": true,
+    "actualPlaybackPauseClears": true,
+    "chromeResumeChordG": true,
+    "stop": true,
+    "systemOutputRealPcmAndChord": true
+  },
+  "errors": [],
+  "probeSha256": "0efd74caf150e5d7dde32ce289deeeaf7fd993a4e62277773aa85ab67082c0a5",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "c6a744d98ba2108362ccf53e6c7b181cf434439e99c9a3e234b65da93b5dfa52",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "chromeSource": {
+    "id": "process:44084:134343928115416792",
+    "label": "chrome.exe (PID 44084, process tree)",
+    "kind": "process",
+    "pid": 44084,
+    "active": true,
+    "available": true
+  },
+  "pcm": {
+    "frames": 73920,
+    "nonzeroFrames": 57600,
+    "maxBlocks": 2,
+    "maxFrames": 960,
+    "ids": ["capture-38480-1", "capture-38480-2"],
+    "errors": []
+  },
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

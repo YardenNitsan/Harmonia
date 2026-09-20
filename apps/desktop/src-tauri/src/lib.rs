@@ -1,3 +1,4 @@
+pub mod capture;
 pub mod database;
 pub mod validation;
 
@@ -5,6 +6,49 @@ use database::{Database, LibraryReadResult};
 use serde_json::Value;
 use std::{path::PathBuf, sync::Arc};
 use tauri::Manager;
+
+#[tauri::command]
+async fn capture_sources(
+    state: tauri::State<'_, Arc<capture::CaptureService>>,
+) -> Result<Vec<capture::CaptureSource>, String> {
+    let service = Arc::clone(state.inner());
+    tauri::async_runtime::spawn_blocking(move || service.sources())
+        .await
+        .map_err(|e| e.to_string())?
+}
+
+#[tauri::command]
+async fn capture_start(
+    source_id: String,
+    state: tauri::State<'_, Arc<capture::CaptureService>>,
+) -> Result<capture::CaptureSession, String> {
+    let service = Arc::clone(state.inner());
+    tauri::async_runtime::spawn_blocking(move || service.start(&source_id))
+        .await
+        .map_err(|e| e.to_string())?
+}
+
+#[tauri::command]
+async fn capture_read(
+    capture_id: String,
+    state: tauri::State<'_, Arc<capture::CaptureService>>,
+) -> Result<capture::CaptureBatch, String> {
+    let service = Arc::clone(state.inner());
+    tauri::async_runtime::spawn_blocking(move || service.read(&capture_id))
+        .await
+        .map_err(|e| e.to_string())?
+}
+
+#[tauri::command]
+async fn capture_stop(
+    capture_id: String,
+    state: tauri::State<'_, Arc<capture::CaptureService>>,
+) -> Result<(), String> {
+    let service = Arc::clone(state.inner());
+    tauri::async_runtime::spawn_blocking(move || service.stop(&capture_id))
+        .await
+        .map_err(|e| e.to_string())?
+}
 
 #[derive(Clone)]
 struct DatabaseState {
@@ -61,6 +105,7 @@ pub fn run() {
     }
     tauri::Builder::default()
         .setup(move |app| {
+            app.manage(Arc::new(capture::CaptureService::default()));
             let path = if let Some(options) = &validation {
                 options.data_dir.join("harmonia.db")
             } else {
@@ -99,8 +144,20 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             list_saved_tracks,
             save_track,
-            delete_track
+            delete_track,
+            capture_sources,
+            capture_start,
+            capture_read,
+            capture_stop
         ])
-        .run(context)
-        .expect("failed to run Harmonia");
+        .build(context)
+        .expect("failed to build Harmonia")
+        .run(|app, event| {
+            if matches!(
+                event,
+                tauri::RunEvent::ExitRequested { .. } | tauri::RunEvent::Exit
+            ) {
+                app.state::<Arc<capture::CaptureService>>().shutdown();
+            }
+        });
 }

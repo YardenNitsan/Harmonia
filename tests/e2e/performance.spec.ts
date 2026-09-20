@@ -73,6 +73,8 @@ for (const profile of ['fast', 'accurate'] as const) {
     try {
       await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
       await page.goto('/');
+      await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+      await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
       await page.getByLabel('Analysis profile').selectOption(profile);
       await startProbe(page);
       await page.getByLabel('Import audio file').setInputFiles(audioPath);
@@ -115,6 +117,8 @@ for (const profile of ['fast', 'accurate'] as const) {
       await page.getByRole('button', { name: 'Pause', exact: true }).click();
 
       await page.reload();
+      await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+      await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
       const saved = page.getByRole('button', { name: `Open analysis: ${name}`, exact: true });
       await expect(saved).toBeVisible();
       await startProbe(page);

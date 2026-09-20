@@ -106,7 +106,104 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 
 ## Execution ledger
 
-### Active continuation: public data and stronger runtime
+### Active continuation: Search & Analyze whole song
+
+The latest user correction supersedes live-primary priority and the prior stop-after-
+live budget. Follow `docs/search-analyze-plan.md`, ADR007 and
+`docs/whole-song-recognition-research.md`. Preserve the completed live MVP and all
+frozen research; pause arbitrary custom training. No visible GUI.
+
+- [x] Inspect reusable timeline/player/cache/worker modules and official input restrictions.
+- [x] Record permitted Commons analysis-input architecture and independent YouTube limitations.
+- [x] Implement catalog search, per-recording rights validation and bounded acquisition.
+- [x] Implement separate genuinely full-song non-causal worker/decoding strategy and tests.
+- [x] Connect Search & Analyze selection/progress/precomputed timeline/playback/cache UX.
+- [x] Verify real permitted-recording search, full analysis, future-time lookup, playback/seek
+      and cache reuse in production browser and hidden native Windows build.
+- [x] Document actual analyzed source, measured analysis time, limits and executable;
+      checkpoint useful local work and stop after prototype acceptance.
+
+Native product-flow acceptance is in `docs/review-evidence/search-native-03.json`:
+Commons Greensleeves, Julien Grandgagnage, CC BY-SA 3.0, 122.14 seconds; final
+preparation 4.96s, worker 3.49s, cached preparation 0.55s. Complete timeline precedes
+playback; never-played 80s seek, changing chords while playing, pause and SQLite
+reuse after reload pass; hidden processes/data cleaned. This is an openly licensed
+catalog prototype, not YouTube PCM access or recognized-quality acceptance.
+The 559 segments still expose over-segmentation. See `docs/search-analyze-acceptance.md`.
+
+Independent review found and fixed whole-song Library routing/stale duplicate
+cache ownership and navigation hiding a completed timeline. Regression tests
+preserve corrections through Library, exact-file cache reuse and reload. Existing
+live capture, E010/LV/B001 and all frozen datasets/protocols remain unchanged.
+825 TS tests, lint/types and optimized Windows build pass. Rust fmt, 28 tests and
+clippy pass. The broad production UI run passed 32/35; its old import-navigation
+test was corrected to explicitly select the preserved earlier-profile mode and
+passes. All 33 functional flows therefore pass across the full run and scoped
+rerun. Two legacy CPU-throttled cached-reimport frame-p95 gates remain failing:
+the isolated rerun measured 152.8/152.9ms against the unchanged 150ms ceiling.
+Other timing phases pass. Initial overlapped-build failures are retained separately
+as `search-regression-performance-*-failed.json`; current timing reports hold the
+isolated rerun. No threshold was relaxed and no test disabled. This is an open
+performance/release gate, separate from the user's whole-song product-flow
+prototype acceptance. No actual weak-PC or new installer campaign was undertaken.
+
+The final catalog privacy review added explicit `cache: no-store` for metadata and
+audio, with a regression test, so temporary input does not populate HTTP cache.
+All 6 new production search/library tests and the fresh native probe pass after
+that change. Formatting and diff checks pass; no visible GUI or new ML run occurred.
+Stop at this useful local prototype checkpoint as requested. Remaining scientific,
+YouTube integration, performance and final-release gates are explicitly open.
+
+### Preserved continuation: primary Listen Live correction
+
+The user's 2026-09-20 correction supersedes the file-first interpretation. Preserve
+all completed work below; do not restart studies. Read `docs/live-input-correction.md`
+and ADR006 before implementation. No visible desktop launch.
+
+**Latest budget restriction:** finish the external live-listening MVP only. New
+ML experiments, accuracy improvements, Search & Play/provider expansion and release
+polishing are paused. Preserve their existing work and frozen protocols. Do not
+resume them automatically when live listening passes. Full-release gates below
+remain separate from MVP acceptance.
+
+- [x] Audit concrete file-first assumptions and research supported Windows capture.
+- [x] Document generic PCM architecture, bounded capture/worker lifecycle and live acceptance.
+- [x] Implement native audio-session/source discovery, process-tree and endpoint capture,
+      PID identity, bounded activation/pull queues, timestamp/loss/error handling and cleanup.
+- [x] Implement generic PCM source/stream-worker contracts, stateful preprocessing,
+      reused causal-window DSP recognition and bounded live timeline/reset behavior.
+- [x] Make Listen Live the primary screen; add actual source selection, current/recent
+      harmony, elapsed/latency, silence/resume/error states and coordinated offline mode.
+- [x] Validate actual hidden native process isolation/system capture and end-to-end
+      live recognition, source switching, stopping, queue bounds and offline regressions.
+- [ ] Continue official Search & Play/metadata integration through separate provider
+      and capture capabilities, with platform/service constraints preserved.
+- [ ] Complete streaming model quality/latency selection and remaining release gates.
+
+**Live MVP accepted on this Windows machine (2026-09-20).** See
+`docs/live-mvp.md`, `docs/review-evidence/live-native-mvp-10.json` and
+`docs/review-evidence/live-chrome-native.json`. Real selected-process PCM showed
+C → silence → G while excluding a second source, then F# after source switching.
+Actual Chrome playback pause/resume and explicit system-output capture also passed.
+The first controlled chord appeared after 472 ms. All owned test processes,
+debugging ports and isolated data were cleaned; no visible GUI was launched.
+
+Verification: 769 TS tests; 28 Rust tests; ESLint/types; Rust fmt/strict Clippy;
+12 production-browser live/offline flows and a final four-flow live rerun; optimized
+desktop build. Native ownership and process-clock packet-starvation regressions are
+fixed and covered. No model changes or new research experiments were needed.
+Source/worker queues and recent history are bounded. Recognition remains the
+uncalibrated DSP baseline. Stop here under the latest budget scope; provider,
+recognition-quality and full-release work remain paused, not completed.
+
+D003 completed once and is inconclusive: all four fits miss convergence, with
+major recall/overall accuracy declining. Preserve its reports and no promotion.
+E010's completed CPU export remains accepted research; its new WASM harness is
+prepared but unrun/unfrozen. The provider bridge browser probe is also preserved
+unrun. These tasks remain paused under the latest budget restriction, including
+after live input integration becomes stable.
+
+### Preserved continuation: public data and stronger runtime
 
 - [x] Audit public expansion candidates and inspect embedded licenses before downloading audio.
 - [x] Acquire and validate HU33 pilot02+18; preserve raw annotations, gaps and conflicts.

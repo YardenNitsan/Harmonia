@@ -4,6 +4,8 @@ test('practice notation changes the timeline without losing the editable chord',
 }) => {
   await page.setViewportSize({ width: 800, height: 900 });
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: 'Explore the demo' }).click();
   await expect(page.getByTestId('current-chord')).toHaveText('Cmaj7');
   await expect(page.getByRole('button', { name: 'Export timeline', exact: true })).toBeVisible({
@@ -38,6 +40,8 @@ test('demonstration uses real audio, supports seeking, editing, and persistence'
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: 'Explore the demo' }).click();
   await expect(page.getByTestId('track-title')).toContainText('After hours');
   await expect(page.getByTestId('current-chord')).toHaveText('Cmaj7');
@@ -51,6 +55,8 @@ test('demonstration uses real audio, supports seeking, editing, and persistence'
   await page.getByRole('button', { name: 'Save correction' }).click();
   await expect(page.getByTestId('current-chord')).toHaveText('G13(b9)/B');
   await page.reload();
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: /Open analysis: After hours/ }).click();
   await page.getByRole('button', { name: 'Seek to G13(b9)/B at 8 seconds' }).click();
   await expect(page.getByTestId('current-chord')).toHaveText('G13(b9)/B');
@@ -60,6 +66,8 @@ test('compact and large layouts have no horizontal overflow', async ({ page }) =
   for (const width of [800, 1280, 1920, 2560]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
+    await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+    await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     ).toBe(true);
@@ -67,6 +75,8 @@ test('compact and large layouts have no horizontal overflow', async ({ page }) =
 });
 test('editing during playback retains the selected chord and typed text', async ({ page }) => {
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: 'Explore the demo' }).click();
   await expect(page.getByTestId('current-chord')).toHaveText('Cmaj7');
   await page.getByLabel('Playback position').fill('3.8');

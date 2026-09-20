@@ -1,19 +1,32 @@
 # Harmonia
 
-A local-first chord listening workspace for Windows. **In development; not a finished
-recognition product.** Local playback, editable timelines, persistence and experimental
-CPU inference work. The trained model's limited accuracy is documented openly.
+A local-first whole-song chord workspace for Windows. **Engineering prototype;
+recognition accuracy is not established.** Search & Analyze is the primary mode:
+search openly licensed recordings, prepare the complete chord timeline, then play
+and seek against that timeline. Local file analysis is secondary; Listen Live is
+preserved as experimental.
+
+In **Search & Analyze**, try **Greensleeves**, select a Commons recording and choose
+**Analyze song**. Harmonia checks its license, temporarily obtains that recording,
+analyzes the full track locally and shows its complete timeline before playback.
+Analysis and playback use the same bytes. Exact recording/model/pipeline matches
+reuse cached analysis; audio is reacquired because the library does not store it.
+YouTube metadata search requires your session-only Data API key. It does not provide
+analysis audio or an integrated synchronized YouTube experience; no streams are
+extracted. See [prototype acceptance and limitations](docs/search-analyze-acceptance.md)
+and [optional live capture](docs/live-mvp.md).
 
 ```powershell
 npm.cmd ci
 npm.cmd run dev
 ```
 
-Development serves a browser workspace and does not open the desktop GUI. Use an
-authorized mono/stereo WAV, FLAC, MP3 or Ogg file, or the clearly labeled synthetic
-demo. Other containers may require conversion. Import limits: 100 MB, 20 minutes.
-The balanced profile is a DSP baseline; the experimental profile is not recommended
-for dependable transcription. All analysis stays on this device.
+Development serves a browser workspace and does not open the desktop GUI. Native
+live capture requires the Windows desktop build. In **File analysis**, use an
+authorized mono/stereo WAV, FLAC, MP3 or Ogg file. Other containers may require
+conversion. Import limits: 100 MB, 20 minutes, with an additional decoded-memory
+bound. **Earlier analysis profiles** preserves the previous DSP/experimental model
+and authored demo. The new whole-song decoder uses no newly trained model.
 
 ```powershell
 npm.cmd test

@@ -1,11 +1,23 @@
 # Architecture
 
+## Current primary workflow (ADR007)
+
+Search & Analyze selects a permitted recording, decodes the full track in the
+existing bounded worker infrastructure, runs a separate non-causal whole-song
+strategy, persists a complete versioned harmonic map and synchronizes it to the
+player's authoritative position. Discovery/playback and analysis-input access are
+independent contracts. The credential-free path uses explicitly licensed Commons
+recordings; YouTube APIs expose metadata/player controls but no analysis PCM.
+See `search-analyze-plan.md`. This supersedes the live-primary priority below;
+existing Windows capture remains optional/experimental and is preserved.
+
 ## Workspace decision
 
 Harmonia is a separate monorepo beside the existing GuitarScaleViewer repository.
 That application focuses on live key detection and contains an existing user edit.
-A separate product avoids inheriting system-audio capture and provider assumptions
-that conflict with the new local-file analysis workflow. See ADR 001.
+A separate product preserves its files and user work. The earlier file-first input
+interpretation and subsequent live-primary correction are superseded by ADR007.
+Harmonia still owns its optional Windows loopback capture (ADR006).
 
 ## Dependency direction
 
@@ -14,7 +26,22 @@ Application depends on domain (`packages/domain`) and contracts. Infrastructure
 (`packages/audio`, `packages/providers`, `packages/persistence`, and native Tauri)
 implements those contracts. Domain imports no framework or infrastructure packages.
 
-The local provider owns media-element playback. A cancellable Web Worker performs DSP
+Optional live input is selected application/process-tree PCM, or explicit system-output
+loopback, captured on a bounded native thread and analyzed continuously in a worker.
+Capture and provider playback are independent contracts; the live session does not
+require a File, saved track or finite duration. Source timestamps govern the live
+timeline, and missing audio/discontinuity clears stale estimates. See ADR006.
+
+The local-file provider owns media-element playback for both permitted catalog
+recordings and local imports. `SongSearchController` owns source preparation;
+`WholeSongAnalysisService` transfers complete PCM to a separate worker and performs
+full-sequence Viterbi decoding with final traceback. Whole-song records are owned
+by their whole-song session controller, including library corrections and cache
+reuse; the legacy controller owns only older pipeline records. This prevents stale
+duplicate library snapshots from replacing edits. Source credits are shown during
+catalog playback; catalog metadata is not yet part of saved-record provenance.
+
+The preserved legacy cancellable Web Worker performs DSP
 feature extraction, probabilistic boundary scoring, chord/bass template recognition,
 temporal stabilization, and timeline construction. Web Audio asynchronously decodes
 browser-supported files. Rust owns native SQLite with migrations; browser preview

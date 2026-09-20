@@ -38,6 +38,8 @@ async function forgetAnalyses(page: Page) {
       }),
   );
   await page.reload();
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
 }
 test('production workers reuse filesystem features across profiles and reload, recovering corruption', async ({
   page,
@@ -56,6 +58,8 @@ test('production workers reuse filesystem features across profiles and reload, r
     };
   });
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByLabel('Analysis profile').selectOption('fast');
   const file = wavFile('cached-features.wav');
   await importWav(page, file);
@@ -107,6 +111,8 @@ test('terminating an origin-filesystem writer releases its lock and orphan recov
   page,
 }) => {
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.evaluate(async () => {
     const source = `navigator.locks.request('harmonia-derived-features-v1', async () => {
       const directory = await (await navigator.storage.getDirectory()).getDirectoryHandle('harmonia-features-v1', {create:true});

@@ -6,6 +6,8 @@ test('compact high-DPI reduced-motion workspace supports keyboard playback and e
   page,
 }) => {
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   const demo = page.getByRole('button', { name: 'Explore the demo' });
   // Reach the demo using actual tab navigation instead of invoking its click handler.
   for (
@@ -86,6 +88,8 @@ test('global playback shortcuts work while form controls keep their own keyboard
   page,
 }) => {
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: 'Explore the demo' }).click();
   const chord = page.getByTestId('current-chord');
   await expect(chord).toHaveText('Cmaj7');

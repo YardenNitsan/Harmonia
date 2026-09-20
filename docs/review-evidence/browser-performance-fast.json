@@ -6,51 +6,51 @@
   "profile": "fast",
   "phases": {
     "analysis": {
-      "elapsed_ms": 523.6999999880791,
-      "frame_count": 49,
+      "elapsed_ms": 676.2999999821186,
+      "frame_count": 57,
       "frame_median_ms": 7,
-      "frame_p95_ms": 20.80000000000001,
-      "frame_max_ms": 118.19999999999993,
-      "long_tasks_ms": [90]
+      "frame_p95_ms": 34.69999999999993,
+      "frame_max_ms": 159.70000000000005,
+      "long_tasks_ms": [51, 114]
     },
     "playback": {
-      "elapsed_ms": 1989.9000000059605,
-      "frame_count": 285,
+      "elapsed_ms": 2065.699999988079,
+      "frame_count": 294,
       "frame_median_ms": 6.900000000000091,
-      "frame_p95_ms": 7.099999999999909,
-      "frame_max_ms": 7.2000000000000455,
+      "frame_p95_ms": 7,
+      "frame_max_ms": 20.90000000000009,
       "long_tasks_ms": []
     },
     "seeking": {
-      "elapsed_ms": 342.5,
-      "frame_count": 38,
-      "frame_median_ms": 7,
-      "frame_p95_ms": 13.900000000000091,
-      "frame_max_ms": 13.900000000000091,
+      "elapsed_ms": 580.3000000119209,
+      "frame_count": 40,
+      "frame_median_ms": 13.800000000000182,
+      "frame_p95_ms": 27.90000000000009,
+      "frame_max_ms": 34.70000000000027,
       "long_tasks_ms": []
     },
     "resizing": {
-      "elapsed_ms": 261.40000000596046,
+      "elapsed_ms": 434.5,
       "frame_count": 23,
-      "frame_median_ms": 7,
-      "frame_p95_ms": 27.800000000000182,
-      "frame_max_ms": 48.59999999999991,
+      "frame_median_ms": 13.799999999999272,
+      "frame_p95_ms": 48.5,
+      "frame_max_ms": 76.19999999999982,
       "long_tasks_ms": []
     },
     "saved_reopen": {
-      "elapsed_ms": 90.19999998807907,
-      "frame_count": 7,
+      "elapsed_ms": 172.59999999403954,
+      "frame_count": 11,
       "frame_median_ms": 7,
-      "frame_p95_ms": 34.900000000000006,
-      "frame_max_ms": 34.900000000000006,
-      "long_tasks_ms": []
+      "frame_p95_ms": 76.30000000000007,
+      "frame_max_ms": 76.30000000000007,
+      "long_tasks_ms": [70]
     },
     "cached_reimport": {
-      "elapsed_ms": 163.59999999403954,
-      "frame_count": 10,
-      "frame_median_ms": 7,
-      "frame_p95_ms": 62.5,
-      "frame_max_ms": 62.5,
+      "elapsed_ms": 339.09999999403954,
+      "frame_count": 12,
+      "frame_median_ms": 13.800000000000068,
+      "frame_p95_ms": 152.80000000000007,
+      "frame_max_ms": 152.80000000000007,
       "long_tasks_ms": []
     }
   }

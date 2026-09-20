@@ -1,0 +1,395 @@
+{
+  "status": "passed",
+  "audioSaved": false,
+  "checks": {
+    "completeTimelineBeforePlayback": true,
+    "neverPlayedFutureSeek": true,
+    "playPauseAuthoritativeClock": true,
+    "reloadSqliteCacheReuse": true
+  },
+  "errors": [],
+  "probeSha256": "0de7b70eaa9d2cdb4f941a62f2d4355713c351a38e6faa13426af42f98fa4bb9",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "f28d3d173264b7c1809276753db537afd5a2808907caffdf4d983f3ddd11c2c0",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "result": "Greensleeves-by Julien Grandgagnage-tenorsax\n\nJulien Grandgagnage\n\n2:02 · CC BY-SA 3.0\nAnalyze song",
+  "preparationSeconds": 4.9583849,
+  "readyText": "Complete timeline ready · 2:02 · 559 chord segments · Preparation 4.67 s",
+  "analysis": {
+    "id": "d1901ebeb1d0931c1653ece414d35f2d84820b30bde97325f0f78c9bdceebfd0:dsp-whole-song-v1:harmonia-whole-song-v1:balanced",
+    "fingerprint": "d1901ebeb1d0931c1653ece414d35f2d84820b30bde97325f0f78c9bdceebfd0",
+    "duration": 122.14263038548752,
+    "segments": 559
+  },
+  "futureLookup": {
+    "seconds": 80,
+    "chord": "Cmaj9/G",
+    "segment": {
+      "alternatives": [
+        {
+          "chord": {
+            "addedTones": [],
+            "alterations": [],
+            "bass": 7,
+            "extensions": [9, 13],
+            "fifth": 0,
+            "kind": "chord",
+            "omittedTones": [],
+            "root": 2,
+            "seventh": "minor",
+            "spelling": "sharp",
+            "triad": "sus4"
+          },
+          "score": 0.8306620651864396
+        },
+        {
+          "chord": {
+            "addedTones": [],
+            "alterations": [
+              {
+                "accidental": -1,
+                "degree": 13
+              }
+            ],
+            "bass": null,
+            "extensions": [],
+            "fifth": 0,
+            "kind": "chord",
+            "omittedTones": [],
+            "root": 4,
+            "seventh": "minor",
+            "spelling": "sharp",
+            "triad": "major"
+          },
+          "score": 0.8107512866555701
+        },
+        {
+          "chord": {
+            "addedTones": [],
+            "alterations": [
+              {
+                "accidental": 1,
+                "degree": 9
+              }
+            ],
+            "bass": 7,
+            "extensions": [],
+            "fifth": 0,
+            "kind": "chord",
+            "omittedTones": [],
+            "root": 4,
+            "seventh": "minor",
+            "spelling": "sharp",
+            "triad": "major"
+          },
+          "score": 0.8049803940178983
+        }
+      ],
+      "chord": {
+        "addedTones": [],
+        "alterations": [],
+        "bass": 7,
+        "extensions": [9],
+        "fifth": 0,
+        "kind": "chord",
+        "omittedTones": [],
+        "root": 0,
+        "seventh": "major",
+        "spelling": "sharp",
+        "triad": "major"
+      },
+      "end": 80.06240362811792,
+      "id": "whole-segment-394",
+      "score": 0.8517407413417872,
+      "start": 79.94630385487528
+    }
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-DFPJfQq-.js",
+      "started": 4979.5,
+      "stages": [
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Extracting harmonic features",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Decoding complete-song harmony",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Building complete-song timeline",
+        "Complete-song analysis ready"
+      ],
+      "completed": 8143.300000011921
+    }
+  ],
+  "cacheReadyText": "Complete timeline ready · 2:02 · 559 chord segments · Preparation 0.31 s",
+  "source": {
+    "pageid": 28670309,
+    "ns": 6,
+    "title": "File:Greensleeves-by Julien Grandgagnage-tenorsax.oga",
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 3580170,
+        "width": 0,
+        "height": 0,
+        "duration": 122.14263038548752,
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Greensleeves-by_Julien_Grandgagnage-tenorsax.oga?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Greensleeves-by_Julien_Grandgagnage-tenorsax.oga",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=28670309",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2013-09-28 20:44:34",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Greensleeves-by Julien Grandgagnage-tenorsax",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Greensleeves|Audio files by Julien Grandgagnage|Audio files of music|Self-published work|Greensleeves with minor sixth|Audio files of saxophone music",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Greensleeves-by Julien Grandgagnage on tenor <a href=\"//commons.wikimedia.org/wiki/Saxophone\" title=\"Saxophone\">saxophone</a>. With Band in a Box acc. In D minor.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2013-09-28 22:42:55",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Julien_Grandgagnage\" class=\"mw-redirect\" title=\"User:Julien Grandgagnage\">Julien Grandgagnage</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        },
+        "mime": "application/ogg",
+        "mediatype": "AUDIO"
+      }
+    ]
+  },
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

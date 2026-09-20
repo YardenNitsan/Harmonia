@@ -51,14 +51,14 @@ function inspectDuration(file: File, signal: AbortSignal): Promise<number> {
 }
 
 export class BrowserAudioAnalysisService implements AudioAnalysisService {
-  readonly pipelineVersion = PIPELINE_VERSION;
+  readonly pipelineVersion: string = PIPELINE_VERSION;
   private decoding: Promise<unknown> = Promise.resolve();
   modelVersion(profile: AnalysisProfile) {
     return profile === 'accurate' ? manifest.model_id : 'dsp-template-v1';
   }
   async fingerprint(file: File) {
     if (file.size > 100 * 1024 * 1024) throw new Error('Choose an audio file under 100 MB.');
-    if (!/\.(wav|mp3|flac|ogg|m4a|aac|aif|aiff|opus|webm)$/i.test(file.name))
+    if (!/\.(wav|mp3|flac|ogg|oga|m4a|aac|aif|aiff|opus|webm)$/i.test(file.name))
       throw new Error(
         'Unsupported file. Choose WAV, MP3, FLAC, OGG, M4A, AAC, AIFF or Opus audio.',
       );
@@ -66,7 +66,7 @@ export class BrowserAudioAnalysisService implements AudioAnalysisService {
       hash = await crypto.subtle.digest('SHA-256', bytes);
     return Array.from(new Uint8Array(hash), (b) => b.toString(16).padStart(2, '0')).join('');
   }
-  private decode(file: File, signal: AbortSignal): Promise<AudioBuffer> {
+  protected decode(file: File, signal: AbortSignal): Promise<AudioBuffer> {
     const operation = this.decoding.then(async () => {
       if (signal.aborted) throw aborted();
       const channels = inspectAudioChannels(
@@ -133,7 +133,7 @@ export class BrowserAudioAnalysisService implements AudioAnalysisService {
     );
     return { analysis: result.analysis, file: new Blob([result.bytes], { type: 'audio/wav' }) };
   }
-  private runWorker<T>(
+  protected runWorker<T>(
     worker: Worker,
     signal: AbortSignal,
     message: unknown,

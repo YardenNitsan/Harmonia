@@ -47,25 +47,34 @@ export class TemplateRecognizer implements ChordRecognizer {
     }),
   );
 
+  get templateCount(): number {
+    return this.templates.length;
+  }
+
   predict(frame: FeatureFrame): ChordAlternative[] {
+    return this.score(frame, false);
+  }
+
+  /** Stable template order, without top-k pruning, for the separate offline decoder. */
+  scoreAll(frame: FeatureFrame): ChordAlternative[] {
+    return this.score(frame, true);
+  }
+
+  private score(frame: FeatureFrame, all: boolean): ChordAlternative[] {
     if (frame.rms < 0.002 || frame.chroma.every((v) => v === 0))
       return [{ chord: { kind: 'none' }, score: 1 }];
-    const candidates = this.templates
-      .map(({ chord, pitches }) => {
-        const energy =
-          pitches.reduce((sum, pitch) => sum + frame.chroma[pitch], 0) / Math.sqrt(pitches.length);
-        const absent = pitches.reduce(
-          (sum, pitch) => sum + (frame.chroma[pitch] < 0.12 ? 1 : 0),
-          0,
-        );
-        const score = Math.max(
-          0,
-          Math.min(1, energy - absent * 0.05 - Math.max(0, pitches.length - 3) * 0.008),
-        );
-        return { chord, score };
-      })
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 4);
+    const scores = this.templates.map(({ chord, pitches }) => {
+      const energy =
+        pitches.reduce((sum, pitch) => sum + frame.chroma[pitch], 0) / Math.sqrt(pitches.length);
+      const absent = pitches.reduce((sum, pitch) => sum + (frame.chroma[pitch] < 0.12 ? 1 : 0), 0);
+      const score = Math.max(
+        0,
+        Math.min(1, energy - absent * 0.05 - Math.max(0, pitches.length - 3) * 0.008),
+      );
+      return { chord, score };
+    });
+    // Keep the live/baseline path's original top-four allocation and bass work.
+    const candidates = all ? scores : scores.sort((a, b) => b.score - a.score).slice(0, 4);
     const bass = frame.bass.indexOf(Math.max(...frame.bass));
     return candidates.map((candidate) => {
       const notes = chordPitchClasses(candidate.chord);

@@ -6,6 +6,35 @@ complete feature and release criteria remain unmet. The integration test/build
 ledger belongs in [final report](final-report.md); numerical ML evidence is in
 [evaluation](evaluation.md).
 
+The **Search & Analyze prototype** uses permitted Commons recordings and a
+non-causal whole-song DSP decoder. Product-flow correctness is verified separately
+from accuracy; the real 122-second probe still produced 559 segments, including
+implausible complex chords. Global tuning, sections, local-key/modulation analysis,
+downbeats and learned harmonic context are not implemented. Whole-song global key
+and beat estimates remain provisional. See [prototype evidence](search-analyze-acceptance.md).
+
+YouTube offers official metadata search with a supplied API key and a normal watch
+link. No key-backed live search was available for acceptance. Integrated YouTube
+player synchronization and a permitted matching analysis-input source are not
+connected. No general commercial-song analysis capability is claimed. Commons is
+a limited open-recordings catalog; rights metadata is revalidated on selection.
+Catalog credits are shown with playback but are not persisted as library/export
+provenance. Reopening a timeline alone has no audio; reselect the catalog recording
+to restore playback with attribution and exact-content cache reuse.
+
+Two preserved legacy CPU-throttle performance tests currently fail cached-reimport
+frame-p95 (152.8/152.9ms versus the unchanged150ms ceiling on the isolated run).
+Their functional playback/cache assertions pass. This remains an open performance
+gate, not evidence of physical low-end-PC readiness.
+
+The narrower **Windows Listen Live MVP passed native acceptance**; see
+[live evidence and usage](live-mvp.md). Real Chrome and system output work through
+WASAPI. This does not establish song-level recognition accuracy, Spotify-specific
+compatibility or full-release readiness. Live timing is capture-relative; upcoming
+chords and provider track metadata are unavailable. It remains optional/experimental;
+the latest correction supersedes the earlier live-only budget. No arbitrary new
+model training or full-release polishing is part of this prototype phase.
+
 ## Recognition quality and representation
 
 - The default browser DSP recognizer has no broad real-song accuracy benchmark.
@@ -77,14 +106,15 @@ ledger belongs in [final report](final-report.md); numerical ML evidence is in
 
 ## Providers, privacy and recovery
 
-- Local files are the only connected product provider. An isolated YouTube IFrame
+- Live Windows audio is the primary input; local files remain the connected offline
+  playback provider. An isolated YouTube IFrame
   adapter implements playback controls and explicit SDK errors, with 50 unit tests.
   A strict message bridge adds46 tests; isolated browser/native SDK feasibility
   passed, including native database ACL rejection. Product connection, final
   embedding/navigation restrictions and installed-client identity remain open;
   this does not establish catalog/search or other remote-provider integrations.
 - Supported remote playback APIs do not authorize Harmonia to analyze raw protected
-  streams. No ripping, DRM bypass, background capture or training-data acquisition
+  streams. No ripping, DRM bypass, unrequested capture or training-data acquisition
   from these providers is implemented or approved.
 - Local-only processing, record validation, model hashing and restricted native
   commands reduce risk but are not an independent security/supply-chain audit.

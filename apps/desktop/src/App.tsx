@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import type { SavedTrack } from '../../../packages/domain/types';
 import { createAnalysisExport, createTimelineExport } from '../../../packages/application/export';
 import { downloadAnalysisExport } from '../../../packages/providers/browser-export';
-import { controller } from './composition';
+import { controller, liveController, wholeController, songSearch } from './composition';
 import { AppFooter, AppHeader, type AppTab } from './components/AppHeader';
 import { LibraryView } from './components/LibraryView';
 import { PlaybackStage } from './components/PlaybackStage';
@@ -10,26 +10,70 @@ import { AnalysisProgress, SessionError } from './components/SessionStatus';
 import { TrackHeading } from './components/TrackHeading';
 import { WelcomeView } from './components/WelcomeView';
 import { AnalysisProfilePicker } from './components/AnalysisProfilePicker';
+import { LiveListeningStage } from './components/LiveListeningStage';
+import { SearchAnalyzeStage } from './components/SearchAnalyzeStage';
+
+const isWholeSong = (record: SavedTrack) =>
+  record.analysis.pipelineVersion.startsWith('harmonia-whole-song-');
 
 export function App() {
   const state = useSyncExternalStore(controller.subscribe, controller.snapshot);
+  const whole = useSyncExternalStore(wholeController.subscribe, wholeController.snapshot);
   const input = useRef<HTMLInputElement>(null);
-  const [tab, setTab] = useState<AppTab>('listen');
+  const navigation = useRef(0);
+  const [tab, setTab] = useState<AppTab>('search');
+  // Both controllers initially read the same repository. Only each record's owner
+  // may supply its current copy; the other controller's snapshot can be stale.
+  const library = [
+    ...state.library.filter((record) => !isWholeSong(record)),
+    ...whole.library.filter(isWholeSong),
+  ];
+  const activeController = tab === 'whole-saved' ? wholeController : controller;
+  const active = tab === 'whole-saved' ? whole : state;
   useEffect(() => {
     void controller.initialize();
+    void wholeController.initialize();
+    void liveController.refreshSources();
   }, []);
   const busy = state.status === 'preparing' || state.status === 'analyzing';
   const importAudio = () => input.current?.click();
-  const importFile = (file: File) => {
-    setTab('listen');
-    void controller.importFile(file);
+  const navigate = async (next: AppTab) => {
+    const revision = ++navigation.current;
+    if (next !== 'listen') await liveController.stop();
+    controller.player.pause();
+    wholeController.player.pause();
+    if (next !== 'search' && next !== 'file') songSearch.cancel();
+    if (next !== 'listen' && liveController.snapshot().session) return;
+    if (revision === navigation.current) setTab(next);
   };
-  const openRecord = (record: SavedTrack) => {
-    controller.open(record);
-    setTab('listen');
+  const importFile = async (file: File) => {
+    const revision = ++navigation.current;
+    await liveController.stop();
+    if (liveController.snapshot().session) return;
+    if (revision !== navigation.current) return;
+    if (tab === 'legacy') await controller.importFile(file);
+    else {
+      setTab('file');
+      await songSearch.local(file);
+    }
+  };
+  const openRecord = async (record: SavedTrack) => {
+    const revision = ++navigation.current;
+    await liveController.stop();
+    if (liveController.snapshot().session) return;
+    if (revision !== navigation.current) return;
+    songSearch.cancel(false);
+    controller.player.pause();
+    if (isWholeSong(record)) {
+      wholeController.open(record);
+      setTab('whole-saved');
+    } else {
+      controller.open(record);
+      setTab('legacy');
+    }
   };
   const exportAnalysis = () => {
-    if (state.current) downloadAnalysisExport(createAnalysisExport(state.current));
+    if (active.current) downloadAnalysisExport(createAnalysisExport(active.current));
   };
 
   return (
@@ -39,13 +83,13 @@ export function App() {
       onDrop={(event) => {
         event.preventDefault();
         const file = event.dataTransfer.files[0];
-        if (file) importFile(file);
+        if (file) void importFile(file);
       }}
     >
       <AppHeader
         tab={tab}
-        libraryCount={state.library.length}
-        onNavigate={setTab}
+        libraryCount={library.length}
+        onNavigate={(next) => void navigate(next)}
         onImport={importAudio}
       />
       <input
@@ -56,42 +100,58 @@ export function App() {
         accept="audio/*,.flac,.aiff,.opus"
         onChange={(event) => {
           const file = event.target.files?.[0];
-          if (file) importFile(file);
+          if (file) void importFile(file);
           event.target.value = '';
         }}
       />
       <main>
-        {state.error && (
-          <SessionError message={state.error} onDismiss={() => controller.clearError()} />
+        {(tab === 'legacy' || tab === 'whole-saved') && active.error && (
+          <SessionError message={active.error} onDismiss={() => activeController.clearError()} />
         )}
-        {tab === 'library' ? (
-          <LibraryView records={state.library} onOpen={openRecord} onImport={importAudio} />
-        ) : state.current ? (
+        {tab === 'search' || tab === 'file' ? (
+          <SearchAnalyzeStage
+            search={songSearch}
+            session={wholeController}
+            localOnly={tab === 'file'}
+            onLegacy={() => void navigate('legacy')}
+          />
+        ) : tab === 'listen' ? (
+          <LiveListeningStage controller={liveController} />
+        ) : tab === 'library' ? (
+          <LibraryView records={library} onOpen={openRecord} onImport={importAudio} />
+        ) : active.current ? (
           <>
             <TrackHeading
-              record={state.current}
-              saveState={state.saveState}
-              onFavorite={() => void controller.favorite()}
+              record={active.current}
+              saveState={active.saveState}
+              onFavorite={() => void activeController.favorite()}
               onExport={exportAnalysis}
               onExportTimeline={() => {
-                if (state.current) downloadAnalysisExport(createTimelineExport(state.current));
+                if (active.current) downloadAnalysisExport(createTimelineExport(active.current));
               }}
-              onLibrary={() => setTab('library')}
+              onLibrary={() => void navigate('library')}
             />
             <PlaybackStage
-              key={state.current.analysis.id}
-              record={state.current}
-              controller={controller}
+              key={active.current.analysis.id}
+              record={active.current}
+              controller={activeController}
             />
-            <div className="session-options">
-              <span>
-                Choose the profile for your next import. Existing sessions stay unchanged.
-              </span>
-              <AnalysisProfilePicker
-                profile={state.profile}
-                onChange={(profile) => controller.setProfile(profile)}
-              />
-            </div>
+            {tab === 'whole-saved' ? (
+              <p className="analysis-note">
+                Saved whole-song timeline. Import the same recording to restore playback and reuse
+                this corrected analysis. Audio is not stored in the library.
+              </p>
+            ) : (
+              <div className="session-options">
+                <span>
+                  Choose the profile for your next import. Existing sessions stay unchanged.
+                </span>
+                <AnalysisProfilePicker
+                  profile={state.profile}
+                  onChange={(profile) => controller.setProfile(profile)}
+                />
+              </div>
+            )}
           </>
         ) : busy ? (
           <AnalysisProgress
@@ -102,7 +162,7 @@ export function App() {
         ) : (
           <WelcomeView
             profile={state.profile}
-            records={state.library}
+            records={library}
             onImport={importAudio}
             onDemo={() => void controller.demo()}
             onProfile={(profile) => controller.setProfile(profile)}

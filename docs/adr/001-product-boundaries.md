@@ -2,6 +2,10 @@
 
 Status: accepted, 2026-09-20.
 
+Amendment: the user's Listen Live correction supersedes the file-first input
+decision below. Repository separation and inward-facing contracts remain accepted.
+See ADR006 and `docs/live-input-correction.md`; preserve this historical rationale.
+
 Context: the workspace contains GuitarScaleViewer, a live-key guitar-practice app,
 and a new specification for complete-song chord analysis, ML research, and packaging.
 The existing repository has a user modification in `src-tauri/Cargo.toml`.

@@ -6,6 +6,15 @@ Unknown means not established from the inspected sources. Unknown counts must be
 
 ## Acquisition decision
 
+Search & Analyze product-flow input (not a training/evaluation corpus): the official
+Commons metadata for page 28670309, Greensleeves by Julien Grandgagnage, declares
+CC BY-SA 3.0 and attribution to Julien Grandgagnage. The catalog rechecks that
+metadata before each selected download and displays its credits/license link.
+The bounded hidden-native acceptance may temporarily analyze/play that original
+recording, retaining metadata/timing/hash evidence only, no audio or training data.
+See `docs/search-analyze-plan.md` for official API and reuse sources. This does not
+grant rights to other performances, YouTube streams, or an entire catalog.
+
 Continuation: the separately documented [public expansion audit](public-expansion-audit.md)
 approved only Winterreise HU33 publisher-declared PDM audio with CC BY 3.0 annotations,
 excluding restricted SC06 and composition01. Existing acquisition and preparation

@@ -1,0 +1,57 @@
+{
+  "environment": "Headless Chrome; developer PC; CDP CPU throttle rate 4; not actual low-end hardware validation",
+  "limitations": "CDP throttling does not emulate RAM, storage, GPU, thermal limits or independently establish worker slowdown. Timings include browser automation actions. Synthetic audio is interaction evidence only.",
+  "runtime": "CPU WASM, one ONNX thread; existing runtime configuration",
+  "audio_seconds": 30,
+  "profile": "accurate",
+  "phases": {
+    "analysis": {
+      "elapsed_ms": 1581.5999999940395,
+      "frame_count": 173,
+      "frame_median_ms": 6.900000000000091,
+      "frame_p95_ms": 7.199999999999818,
+      "frame_max_ms": 180.80000000000018,
+      "long_tasks_ms": [66, 123]
+    },
+    "playback": {
+      "elapsed_ms": 2123.4000000059605,
+      "frame_count": 301,
+      "frame_median_ms": 6.900000000000546,
+      "frame_p95_ms": 7.099999999999909,
+      "frame_max_ms": 20.800000000000182,
+      "long_tasks_ms": []
+    },
+    "seeking": {
+      "elapsed_ms": 651.8000000119209,
+      "frame_count": 40,
+      "frame_median_ms": 13.899999999999636,
+      "frame_p95_ms": 34.70000000000073,
+      "frame_max_ms": 41.69999999999982,
+      "long_tasks_ms": []
+    },
+    "resizing": {
+      "elapsed_ms": 498.7000000178814,
+      "frame_count": 24,
+      "frame_median_ms": 14,
+      "frame_p95_ms": 62.400000000000546,
+      "frame_max_ms": 62.5,
+      "long_tasks_ms": []
+    },
+    "saved_reopen": {
+      "elapsed_ms": 194.80000001192093,
+      "frame_count": 11,
+      "frame_median_ms": 7,
+      "frame_p95_ms": 97.19999999999993,
+      "frame_max_ms": 97.19999999999993,
+      "long_tasks_ms": [78]
+    },
+    "cached_reimport": {
+      "elapsed_ms": 394.59999999403954,
+      "frame_count": 11,
+      "frame_median_ms": 13.899999999999977,
+      "frame_p95_ms": 180.5,
+      "frame_max_ms": 180.5,
+      "long_tasks_ms": []
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "status": "passed_live_mvp_controlled_native",
+  "controlledGeneratedAudioOnly": true,
+  "rawCapturedAudioSaved": false,
+  "checks": {
+    "discovery": true,
+    "firstRealChord": "C",
+    "processIsolationDuringSelectedSilence": true,
+    "resumeChangedChord": "G",
+    "stopClearsChord": true,
+    "switchProcessChord": "F#",
+    "sourceExit": true,
+    "boundedTransport": true,
+    "systemOutput": "Skipped: unrelated active audio; process capture verified"
+  },
+  "errors": [],
+  "sourceHashes": {
+    "scripts/live-native-probe.mjs": "bf792985e5803a6dee18819309091e5e35c2871c7f3d5f7f47c28bd07e4e3487",
+    "scripts/live-tone-fixture.py": "8732e651a98581ce8f869126bfc8f2bcc81c89274095d5d73bd1bc2f79e8e962",
+    "scripts/hidden-native-harness.mjs": "ac7ba5d9b0c115c680fb1a6191e4364bf9ad3486e388de42d5c1ea20e16f1827"
+  },
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "c6a744d98ba2108362ccf53e6c7b181cf434439e99c9a3e234b65da93b5dfa52",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "console": [],
+  "sources": [
+    {
+      "id": "process:25828:134343926815756207",
+      "label": "python.exe (PID 25828, process tree)",
+      "kind": "process",
+      "pid": 25828,
+      "active": true,
+      "available": true
+    },
+    {
+      "id": "process:42552:134343926798571501",
+      "label": "python.exe (PID 42552, process tree)",
+      "kind": "process",
+      "pid": 42552,
+      "active": true,
+      "available": true
+    }
+  ],
+  "firstDisplayAfterStartMs": 472,
+  "recent": "RECENT HARMONY\nCaptured time · recent estimates\nC\n0:00–0:15\nN\n0:15–0:19\nG\n0:19–0:19",
+  "pcm": {
+    "batches": 884,
+    "frames": 984000,
+    "nonzeroFrames": 790080,
+    "maxBlocks": 2,
+    "maxFrames": 960,
+    "statuses": ["capturing", "ended"],
+    "observedIds": ["capture-18596-1", "capture-18596-2"],
+    "errors": []
+  },
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": "capture diagnostic: client initialized and started\ncapture diagnostic: poll=1 next_frames=480\ncapture diagnostic: packet=1 frames=480 flags=0 device=0 qpc=2190926579580 pending_frames=0 blocks=0 dropped=0\ncapture diagnostic: poll=2 next_frames=0\ncapture diagnostic: poll=3 next_frames=480\ncapture diagnostic: packet=2 frames=480 flags=0 device=0 qpc=2190926679580 pending_frames=480 blocks=0 dropped=0\ncapture diagnostic: poll=4 next_frames=0\ncapture diagnostic: poll=5 next_frames=480\ncapture diagnostic: packet=3 frames=480 flags=0 device=0 qpc=2190926779580 pending_frames=0 blocks=1 dropped=0\ncapture diagnostic: poll=6 next_frames=0\ncapture diagnostic: poll=7 next_frames=480\ncapture diagnostic: packet=4 frames=480 flags=0 device=0 qpc=2190926879580 pending_frames=480 blocks=1 dropped=0\ncapture diagnostic: poll=8 next_frames=0\ncapture diagnostic: packet=5 frames=480 flags=0 device=0 qpc=2190926979580 pending_frames=0 blocks=2 dropped=0\ncapture diagnostic: packet=6 frames=480 flags=0 device=0 qpc=2190927079580 pending_frames=480 blocks=2 dropped=0\ncapture diagnostic: packet=7 frames=480 flags=0 device=0 qpc=2190927179580 pending_frames=0 blocks=3 dropped=0\ncapture diagnostic: packet=8 frames=480 flags=0 device=0 qpc=2190927279580 pending_frames=480 blocks=3 dropped=0\ncapture diagnostic: client initialized and started\ncapture diagnostic: poll=1 next_frames=480\ncapture diagnostic: packet=1 frames=480 flags=0 device=0 qpc=2191128390436 pending_frames=0 blocks=0 dropped=0\ncapture diagnostic: poll=2 next_frames=0\ncapture diagnostic: poll=3 next_frames=480\ncapture diagnostic: packet=2 frames=480 flags=0 device=0 qpc=2191128490436 pending_frames=480 blocks=0 dropped=0\ncapture diagnostic: poll=4 next_frames=0\ncapture diagnostic: poll=5 next_frames=480\ncapture diagnostic: packet=3 frames=480 flags=0 device=0 qpc=2191128590436 pending_frames=0 blocks=1 dropped=0\ncapture diagnostic: poll=6 next_frames=0\ncapture diagnostic: poll=7 next_frames=480\ncapture diagnostic: packet=4 frames=480 flags=0 device=0 qpc=2191128690436 pending_frames=480 blocks=1 dropped=0\ncapture diagnostic: poll=8 next_frames=0\ncapture diagnostic: packet=5 frames=480 flags=0 device=0 qpc=2191128790436 pending_frames=0 blocks=2 dropped=0\ncapture diagnostic: packet=6 frames=480 flags=0 device=0 qpc=2191128890436 pending_frames=480 blocks=2 dropped=0\ncapture diagnostic: packet=7 frames=480 flags=0 device=0 qpc=2191128990436 pending_frames=0 blocks=3 dropped=0\ncapture diagnostic: packet=8 frames=480 flags=0 device=0 qpc=2191129090436 pending_frames=480 blocks=3 dropped=0\n"
+  }
+}

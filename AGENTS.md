@@ -2,12 +2,29 @@
 
 ## Start and resume
 
+- Current scope (latest user correction): **Search & Analyze whole song → playback
+  synchronized to a precomputed timeline** is primary. Follow
+  `docs/search-analyze-plan.md`. Preserve Listen Live as optional/experimental.
+  Research permitted audio sources before implementation; never extract YouTube
+  streams or use capture as a provider-policy workaround. Pause arbitrary custom
+  ML training; reuse research and benchmark mature approaches. Stop after end-to-end
+  prototype acceptance and report the actual audio input, timing and limits.
+
 - Read `docs/implementation-plan.md` first; update its checkboxes and evidence as work progresses. Resume existing work instead of restarting it.
 - The full requirements are in `../instructions.txt`. Read relevant sections and `docs/product-spec.md` before changing scope.
 - Before major architecture changes, inspect `docs/architecture.md` and relevant `docs/adr/` records. Record decisions, tradeoffs, and changed interfaces in those documents.
 - Preserve user changes. Keep work local unless publishing, messaging, or external actions are explicitly authorized. Never commit secrets, personal audio, or private dataset credentials.
 
 ## Architecture and code
+
+- The latest correction supersedes ADR006's live-primary priority. Search & Analyze
+  uses full-song, non-causal analysis. Local-file whole-song analysis is secondary;
+  Windows listening remains experimental. Preserve ADR006 and its verified capture
+  implementation; do not spend this phase improving live recognition.
+- Local capture uses supported Windows loopback APIs with explicit source selection,
+  bounded ephemeral PCM and clear unavailable/protected-stream outcomes. Never bypass
+  protected-audio restrictions or assume provider APIs expose PCM. No silent capture
+  fallback to a wider source, audio uploads, captured-audio persistence or training.
 
 - Separate **Domain**, **Application**, **Infrastructure**, and **Presentation**. Domain is independent of React, Tauri, databases, providers, and ML frameworks; infrastructure implements inward-facing contracts.
 - Use clean code, focused modules, strong types, and SOLID where useful. Prefer composition. Avoid giant components, duplicated logic, hidden side effects, and speculative abstractions.
@@ -70,6 +87,18 @@ built release in an isolated hidden WebView; it must clean up all processes and 
 `node scripts/prepare-runtime.mjs` prepares pinned local model/WASM assets (also
 invoked by development/build hooks). ML export/evaluation instructions and frozen
 artifact hashes are in `docs/training.md` and `docs/evaluation.md`.
+
+Current live-MVP checks: `node scripts/live-native-probe.mjs <unused-report-path>`
+and `node scripts/live-browser-native-probe.mjs <unused-report-path>` use the fresh
+continuation-clean executable, real Windows capture and hidden isolated processes.
+They do not launch the visible app, save captured PCM or run ML. Native evidence,
+the verified executable hash and current limits are in `docs/live-mvp.md`.
+
+Current primary check: `node scripts/search-native-probe.mjs <unused-report-path>`
+uses an explicitly licensed Commons recording, whole-song worker, hidden native
+playback and SQLite cache. See `docs/search-analyze-acceptance.md` for source,
+timing, executable and unimplemented YouTube/recognition capabilities. This is
+product-flow acceptance, not recognition-model promotion or final release.
 
 The user has no private corpus: continue only with independently audited public
 datasets. Do not assume permissions from annotation licenses or a hosting site's

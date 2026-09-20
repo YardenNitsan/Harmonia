@@ -1,0 +1,50 @@
+{
+  "status": "failed",
+  "controlledGeneratedAudioOnly": true,
+  "rawCapturedAudioSaved": false,
+  "checks": {
+    "discovery": true
+  },
+  "errors": [],
+  "sourceHashes": {
+    "scripts/live-native-probe.mjs": "e12055cfbecd418e161705f11147baae052aafb6ec1bbb58751381710ae260c6",
+    "scripts/live-tone-fixture.py": "8732e651a98581ce8f869126bfc8f2bcc81c89274095d5d73bd1bc2f79e8e962",
+    "scripts/hidden-native-harness.mjs": "944140c23af300db98f7a187bf2046528be063efb3198b771f3be4aa0e1a7749"
+  },
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "17aebbcb7dc1185038e9607200e206d4d6ab1ae2e577b25b5ac76cd28a63e031",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48"
+  },
+  "sources": [
+    {
+      "id": "process:43396:134343917523017471",
+      "label": "python.exe (PID 43396, process tree)",
+      "kind": "process",
+      "pid": 43396,
+      "active": true,
+      "available": true
+    },
+    {
+      "id": "process:36068:134343917504889276",
+      "label": "python.exe (PID 36068, process tree)",
+      "kind": "process",
+      "pid": 36068,
+      "active": true,
+      "available": true
+    }
+  ],
+  "failure": "Error: page.waitForFunction: Target page, context or browser has been closed",
+  "diagnostic": null,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

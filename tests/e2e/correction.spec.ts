@@ -4,6 +4,8 @@ test('complete timing correction validates atomically, exports original chords a
   page,
 }) => {
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: 'Explore the demo' }).click();
   await page.getByRole('button', { name: 'Seek to Am9 at 4 seconds' }).click();
   await page.getByRole('button', { name: 'Transpose up' }).click();
@@ -30,6 +32,8 @@ test('complete timing correction validates atomically, exports original chords a
   expect(saved.corrections).toHaveLength(3);
   expect(saved.analysis.segments[1].chord).toMatchObject({ root: 2, bass: 5 });
   await page.reload();
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: /Open analysis: After hours/ }).click();
   await page.getByRole('button', { name: 'Seek to Dm9/F at 3 seconds' }).click();
   await expect(page.getByTestId('current-chord')).toHaveText('Dm9/F');
@@ -42,6 +46,8 @@ test('first and last bounds allow unlabelled edges, and an active loop follows t
   page,
 }) => {
   await page.goto('/');
+  await page.getByRole('button', { name: 'File analysis', exact: true }).click();
+  await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: 'Explore the demo' }).click();
   await page.getByRole('button', { name: 'Loop current chord', exact: true }).click();
   await page.getByRole('button', { name: 'Edit current chord' }).click();

@@ -1,5 +1,13 @@
 # Harmonia: incomplete engineering checkpoint
 
+Latest checkpoint: **Search & Analyze whole-song prototype**. The primary catalog
+uses permitted Commons recordings; the complete decoded timeline precedes playback.
+Real hidden Windows search/acquisition/worker/playback/seek/cache acceptance passed.
+See [exact source, timing, executable and remaining limits](search-analyze-acceptance.md).
+YouTube metadata search does not provide analysis PCM or an integrated synchronized
+video experience. Listen Live is preserved experimentally. No new model was trained
+or promoted. The historical broader acceptance report below remains incomplete.
+
 Status on 2026-09-20: **INCOMPLETE — not final product approval or a production
 release.** This report covers the categories required by master specification
 section 85, but the acceptance campaign in sections 83–84 remains open.

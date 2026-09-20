@@ -1236,6 +1236,8 @@ dependencies = [
  "tauri-build",
  "tempfile",
  "thiserror 2.0.20",
+ "windows",
+ "windows-core 0.61.2",
 ]
 
 [[package]]

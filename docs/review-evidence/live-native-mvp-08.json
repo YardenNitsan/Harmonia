@@ -1,0 +1,67 @@
+{
+  "status": "failed",
+  "controlledGeneratedAudioOnly": true,
+  "rawCapturedAudioSaved": false,
+  "checks": {
+    "discovery": true
+  },
+  "errors": [],
+  "sourceHashes": {
+    "scripts/live-native-probe.mjs": "e8bdbcd41417db5ccf95870060cd1555f3b61dc99aee92188cd30433b4e8a7d7",
+    "scripts/live-tone-fixture.py": "8732e651a98581ce8f869126bfc8f2bcc81c89274095d5d73bd1bc2f79e8e962",
+    "scripts/hidden-native-harness.mjs": "ac7ba5d9b0c115c680fb1a6191e4364bf9ad3486e388de42d5c1ea20e16f1827"
+  },
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "7d99aeeae1316e32bb6700ce4c977880713733467ce7c3246b016be9a22757a8",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "console": [],
+  "sources": [
+    {
+      "id": "process:10728:134343923281065039",
+      "label": "python.exe (PID 10728, process tree)",
+      "kind": "process",
+      "pid": 10728,
+      "active": true,
+      "available": true
+    },
+    {
+      "id": "process:20556:134343923263920467",
+      "label": "python.exe (PID 20556, process tree)",
+      "kind": "process",
+      "pid": 20556,
+      "active": true,
+      "available": true
+    }
+  ],
+  "failure": "TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.",
+  "diagnostic": {
+    "text": "harmonia.\nListen Live\nFile analysis\nLibrary\n0\nLocal by nature\nImport audio\nYOUR MUSIC, AS IT PLAYS\nListen Live\n\nChoose an application or system output. Follow its harmony without importing a file.\n\nLOCAL AUDIO · DSP ESTIMATE\nAudio source\nChoose an audio source\nApplication PID 0 — Process identity is inaccessible; refresh after it becomes available\nsteam.exe (PID 5732, process tree)\nchrome.exe (PID 34624, process tree)\npython.exe (PID 10728, process tree)\npython.exe (PID 20556, process tree)\nSystem output — yarden's headphones (Realtek(R) Audio) (current default)\nSystem output — Realtek Digital Output (Realtek(R) Audio)\nSystem output — yarden's headphones (Realtek(R) Audio)\nSystem output — HP X24ih (NVIDIA High Definition Audio)\nRefresh sources\nStop listening\n\nCaptures this application and its child processes, not an individual browser tab.\n\nApp missing? Start playback in it, then refresh sources. Stop listening before switching sources.\n\nWaiting for audio\nCaptured 0:00\nCURRENT ESTIMATE\n—\n\nListening for enough audio to estimate a chord.\n\nUpcoming unavailable during live listening.\nAnalysis lookahead —\nINSIDE THE CHORD\n—\n\nNo harmonic label\n\nPiano\nGuitar\nRECENT HARMONY\nCaptured time · recent estimates\n\nRecent chords will appear as the music changes.\n\nLive audio is processed locally and is not saved. Chord estimates may be incomplete or incorrect.\n\nAll processing on your device\nBuilt for the moments between the notes.\nHARMONIA / EARLY DEVELOPMENT",
+    "pcm": {
+      "batches": 446,
+      "frames": 0,
+      "nonzeroFrames": 0,
+      "maxBlocks": 0,
+      "maxFrames": 0,
+      "statuses": ["capturing"],
+      "observedIds": ["capture-17960-1"],
+      "errors": [],
+      "calls": {},
+      "completed": {}
+    }
+  },
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": "capture diagnostic: client initialized and started\ncapture diagnostic: poll=1 next_frames=480\ncapture diagnostic: packet=1 frames=480 flags=0 device=0 qpc=2187392182995 pending_frames=0 blocks=0 dropped=0\ncapture diagnostic: poll=2 next_frames=0\ncapture diagnostic: poll=3 next_frames=480\ncapture diagnostic: packet=2 frames=480 flags=0 device=0 qpc=2187392282995 pending_frames=480 blocks=0 dropped=0\ncapture diagnostic: poll=4 next_frames=0\ncapture diagnostic: poll=5 next_frames=480\ncapture diagnostic: packet=3 frames=480 flags=0 device=0 qpc=2187392382995 pending_frames=480 blocks=0 dropped=480\ncapture diagnostic: poll=6 next_frames=0\ncapture diagnostic: poll=7 next_frames=480\ncapture diagnostic: packet=4 frames=480 flags=0 device=0 qpc=2187392482995 pending_frames=480 blocks=0 dropped=960\ncapture diagnostic: poll=8 next_frames=0\ncapture diagnostic: packet=5 frames=480 flags=0 device=0 qpc=2187392582995 pending_frames=480 blocks=0 dropped=1440\ncapture diagnostic: packet=6 frames=480 flags=0 device=0 qpc=2187392682995 pending_frames=480 blocks=0 dropped=1920\ncapture diagnostic: packet=7 frames=480 flags=0 device=0 qpc=2187392782995 pending_frames=480 blocks=0 dropped=2400\ncapture diagnostic: packet=8 frames=480 flags=0 device=0 qpc=2187392882995 pending_frames=480 blocks=0 dropped=2880\n"
+  }
+}

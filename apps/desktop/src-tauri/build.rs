@@ -2,7 +2,15 @@ use base64::{engine::general_purpose::STANDARD, Engine as _};
 use std::{env, fs};
 
 fn main() {
-    const COMMANDS: &[&str] = &["list_saved_tracks", "save_track", "delete_track"];
+    const COMMANDS: &[&str] = &[
+        "list_saved_tracks",
+        "save_track",
+        "delete_track",
+        "capture_sources",
+        "capture_start",
+        "capture_read",
+        "capture_stop",
+    ];
     let output_directory = env::var_os("OUT_DIR").expect("Cargo did not set OUT_DIR");
     let icon_path = std::path::PathBuf::from(output_directory).join("harmonia.ico");
     let icon = STANDARD

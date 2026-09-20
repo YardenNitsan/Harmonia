@@ -1,10 +1,27 @@
 # Harmonia product specification
 
-Authority: `../../instructions.txt`, sections 1–89, plus the user's persistent-guide request.
+## Latest product correction: Search & Analyze
+
+The primary experience is song search → permitted whole-song audio input → real
+analysis/preparation → complete harmonic timeline → synchronized playback and seek.
+Use full-song past/future context and final decoding, not rolling live estimates.
+Distinguish provider discovery/player access from rights and technical access to
+analysis audio. Commons licensed recordings provide the credential-free prototype;
+YouTube APIs alone do not provide its analyzable recording. See ADR007 and
+`search-analyze-plan.md`. Local import is secondary, Listen Live experimental.
+Older live-primary wording below is superseded; its implementation is preserved.
+
+Authority: `../../instructions.txt`, sections 1–89, plus the user's persistent-guide
+request and latest Search & Analyze correction (ADR007), which supersedes the
+intermediate Listen Live correction (`live-input-correction.md`).
 
 Build a local-first Tauri 2 / React / TypeScript desktop music-analysis application.
-The primary workflow is import an authorized local audio file, analyze the complete
-recording, play/pause/seek, and display synchronized previous/current/next chords,
+The optional experimental Listen Live workflow selects a Windows application's playback or
+explicit system output, play music normally, and recognize its exposed PCM stream
+continuously without importing a file. It displays current/recent chords with honest
+capture timing, latency and uncalibrated confidence. Upcoming content is available
+only when actually known. Optional authorized file analysis retains play/pause/seek,
+and synchronized previous/current/next chords,
 a proportional waveform/chord timeline, musical position, and editable harmony.
 
 Use a canonical compositional chord model capable of extended and altered chords

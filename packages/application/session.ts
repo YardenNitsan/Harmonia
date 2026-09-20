@@ -189,6 +189,7 @@ export class SessionController {
       );
       if (cached) {
         await this.accept(cached.analysis, file, file.name, token);
+        if (this.tasks.current(token)) this.update({ stage: 'Loaded cached analysis' });
         return;
       }
       this.update({ status: 'analyzing' });

@@ -1503,3 +1503,234 @@ select {
 .notation-picker small {
   font-size: 10px;
 }
+.live-heading {
+  align-items: flex-start;
+  gap: 24px;
+}
+.live-heading h1 {
+  margin: 10px 0;
+}
+.live-heading p,
+.live-source-scope,
+.live-current-chord p,
+.live-history p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.live-source-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+  padding: 22px;
+  margin: 24px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.live-source-picker {
+  display: grid;
+  gap: 9px;
+  flex: 1 1 300px;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.live-source-picker select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: var(--bg);
+}
+.live-source-panel > button {
+  min-height: 44px;
+}
+.live-source-scope {
+  flex-basis: 100%;
+  margin: 0;
+}
+.live-elapsed {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.live-current-chord {
+  display: grid;
+  justify-items: center;
+  padding: 40px 24px 30px;
+  min-height: 270px;
+  text-align: center;
+}
+.live-current-chord h2 {
+  margin: 10px 0;
+  font-size: clamp(48px, 5vw, 82px);
+  font-weight: 500;
+  letter-spacing: -3px;
+  overflow-wrap: anywhere;
+}
+.live-current-chord p {
+  margin: 8px 0;
+}
+.live-stage-footer {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.live-stage-footer > span + span {
+  border: 0;
+  padding-left: 0;
+}
+.live-history {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-top: 24px;
+}
+.live-history ol {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 0 0 8px;
+  list-style: none;
+}
+.live-history li {
+  display: grid;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+}
+.live-history small {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 1100px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+  .topbar nav {
+    order: 3;
+    width: 100%;
+  }
+  .topbar nav button {
+    flex: 1;
+    justify-content: center;
+  }
+  .live-heading {
+    flex-wrap: wrap;
+  }
+}
+.song-search {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.song-search label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+}
+.song-search input,
+.song-search select {
+  color: inherit;
+  background: #111a17;
+  border: 1px solid #3e5148;
+  border-radius: 6px;
+  padding: 11px 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+.song-query {
+  flex: 1;
+  min-width: 180px;
+}
+.song-source-explanation {
+  width: 100%;
+  padding: 16px 0;
+}
+.song-source-explanation p {
+  max-width: 780px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.song-local-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+}
+.song-results {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+}
+.song-result {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  border: 1px solid #2f4239;
+  border-radius: 10px;
+}
+.song-result > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.song-result h2 {
+  font-size: 18px;
+  overflow-wrap: anywhere;
+}
+.song-result p {
+  margin: 6px 0;
+}
+.song-result img,
+.song-art {
+  width: 100px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.song-art {
+  display: grid;
+  place-items: center;
+  background: #213a30;
+  color: #b1d7bb;
+}
+.song-ready,
+.song-attribution {
+  margin: 16px 0 24px;
+  line-height: 1.7;
+}
+.song-attribution a,
+.song-source-explanation a {
+  color: #b1d7bb;
+  text-decoration: underline;
+}
+@media (max-width: 900px) {
+  .song-search {
+    padding: 16px;
+  }
+  .song-result {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .song-result img,
+  .song-art {
+    width: 64px;
+    height: 56px;
+  }
+  .topbar {
+    flex-wrap: wrap;
+  }
+}

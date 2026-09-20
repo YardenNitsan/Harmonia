@@ -104,6 +104,10 @@ export async function createHiddenNativeHarness(executable) {
       },
     });
     const child = application;
+    child.once('exit', (code, signal) => {
+      details.exitCode = code;
+      details.exitSignal = signal;
+    });
     let launchError;
     child.once('error', (error) => {
       launchError = error;

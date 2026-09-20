@@ -1,0 +1,64 @@
+{
+  "status": "failed",
+  "controlledGeneratedAudioOnly": true,
+  "rawCapturedAudioSaved": false,
+  "checks": {
+    "discovery": true
+  },
+  "errors": [],
+  "sourceHashes": {
+    "scripts/live-native-probe.mjs": "8512fe16918156cadcd0ed38505ef6763ba81231e855400c318ee46d26bf789a",
+    "scripts/live-tone-fixture.py": "8732e651a98581ce8f869126bfc8f2bcc81c89274095d5d73bd1bc2f79e8e962",
+    "scripts/hidden-native-harness.mjs": "ac7ba5d9b0c115c680fb1a6191e4364bf9ad3486e388de42d5c1ea20e16f1827"
+  },
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "8fff240cb3281b4296013ec561c8544bf56d5cfe9c565f2aca0bda1d6933968b",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "sources": [
+    {
+      "id": "process:44176:134343919842150281",
+      "label": "python.exe (PID 44176, process tree)",
+      "kind": "process",
+      "pid": 44176,
+      "active": true,
+      "available": true
+    },
+    {
+      "id": "process:41132:134343919825470824",
+      "label": "python.exe (PID 41132, process tree)",
+      "kind": "process",
+      "pid": 41132,
+      "active": true,
+      "available": true
+    }
+  ],
+  "failure": "TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.",
+  "diagnostic": {
+    "text": "harmonia.\nListen Live\nFile analysis\nLibrary\n0\nLocal by nature\nImport audio\nYOUR MUSIC, AS IT PLAYS\nListen Live\n\nChoose an application or system output. Follow its harmony without importing a file.\n\nLOCAL AUDIO · DSP ESTIMATE\nAudio source\nChoose an audio source\nApplication PID 0 — Process identity is inaccessible; refresh after it becomes available\nsteam.exe (PID 5732, process tree)\nchrome.exe (PID 34624, process tree)\npython.exe (PID 41132, process tree)\npython.exe (PID 44176, process tree)\nSystem output — yarden's headphones (Realtek(R) Audio) (current default)\nSystem output — Realtek Digital Output (Realtek(R) Audio)\nSystem output — yarden's headphones (Realtek(R) Audio)\nSystem output — HP X24ih (NVIDIA High Definition Audio)\nRefresh sources\nStop listening\n\nCaptures this application and its child processes, not an individual browser tab.\n\nApp missing? Start playback in it, then refresh sources. Stop listening before switching sources.\n\nWaiting for audio\nCaptured 0:00\nCURRENT ESTIMATE\n—\n\nListening for enough audio to estimate a chord.\n\nUpcoming unavailable during live listening.\nAnalysis lookahead —\nINSIDE THE CHORD\n—\n\nNo harmonic label\n\nPiano\nGuitar\nRECENT HARMONY\nCaptured time · recent estimates\n\nRecent chords will appear as the music changes.\n\nLive audio is processed locally and is not saved. Chord estimates may be incomplete or incorrect.\n\nAll processing on your device\nBuilt for the moments between the notes.\nHARMONIA / EARLY DEVELOPMENT",
+    "pcm": {
+      "batches": 0,
+      "frames": 0,
+      "nonzeroFrames": 0,
+      "maxBlocks": 0,
+      "maxFrames": 0,
+      "statuses": [],
+      "observedIds": [],
+      "errors": []
+    }
+  },
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}
