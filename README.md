@@ -1,20 +1,23 @@
 # Harmonia
 
-A local-first whole-song chord workspace for Windows. **Engineering prototype;
-recognition accuracy is not established.** Search & Analyze is the primary mode:
-search openly licensed recordings, prepare the complete chord timeline, then play
-and seek against that timeline. Local file analysis is secondary; Listen Live is
-preserved as experimental.
+A music player with whole-song chord analysis for Windows. **Recognition accuracy
+is not established.** Search & Analyze is primary: real YouTube typeahead alongside
+eligible openly licensed recordings, complete analysis before automatic playback,
+then play/pause/seek against a fixed timeline. Local files are secondary; Listen
+Live is preserved under More as experimental.
 
-In **Search & Analyze**, try **Greensleeves**, select a Commons recording and choose
-**Analyze song**. Harmonia checks its license, temporarily obtains that recording,
-analyzes the full track locally and shows its complete timeline before playback.
-Analysis and playback use the same bytes. Exact recording/model/pipeline matches
-reuse cached analysis; audio is reacquired because the library does not store it.
-YouTube metadata search requires your session-only Data API key. It does not provide
-analysis audio or an integrated synchronized YouTube experience; no streams are
-extracted. See [prototype acceptance and limitations](docs/search-analyze-acceptance.md)
-and [optional live capture](docs/live-mvp.md).
+Type **Greensleeves** in the main search field and choose the recording by
+**Julien Grandgagnage**. Harmonia checks its license, temporarily obtains that
+recording, prepares the full timeline locally and automatically opens the player.
+Use the progress bar or click a chord to seek. Details & practice contains source
+credits, musical estimates, corrections and explicit re-analysis.
+
+YouTube search uses [native configuration](docs/youtube-configuration.md), with no
+API-key form. **YouTube results currently cannot be analyzed or played inside
+Harmonia:** official APIs do not provide whole-song analysis audio. Those results
+show a clean unavailable message and a normal watch link. Licensed catalog results
+are distinct recordings, never silently substituted for a YouTube performance.
+See [consumer acceptance](docs/consumer-player-acceptance.md) for measured evidence.
 
 ```powershell
 npm.cmd ci

@@ -41,6 +41,62 @@ fn saved_track(id: &str, fingerprint: &str, favorite: bool) -> Value {
     })
 }
 
+fn source_provenance() -> Value {
+    json!({ "provider": "commons", "id": "123", "title": "Song", "artist": "Artist", "thumbnail": null,
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Song.ogg",
+        "audio": { "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Song.ogg", "license": "CC0 1.0",
+            "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "attribution": "Artist CC0", "size": 1024 }
+    })
+}
+
+#[test]
+fn optional_source_provenance_survives_reopen_without_schema_migration() {
+    let directory = tempdir().unwrap();
+    let path = directory.path().join("sources.db");
+    let db = Database::open(&path).unwrap();
+    let legacy = saved_track("legacy", "abc", false);
+    let mut sourced = saved_track("source", "abc", false);
+    sourced["source"] = source_provenance();
+    db.save(&legacy).unwrap();
+    db.save(&sourced).unwrap();
+    drop(db);
+    let reopened = Database::open(path).unwrap();
+    assert_eq!(reopened.user_version().unwrap(), SCHEMA_VERSION);
+    let records = reopened.list().unwrap().records;
+    assert!(records.contains(&legacy));
+    assert!(records.contains(&sourced));
+}
+
+#[test]
+fn rejects_untrusted_source_metadata_before_persistence() {
+    let db = Database::open_in_memory().unwrap();
+    for (path, value) in [
+        ("/thumbnail", json!("javascript:alert(1)")),
+        (
+            "/audio/url",
+            json!("https://upload.wikimedia.org.evil.test/wikipedia/commons/a/ab/Song.ogg"),
+        ),
+        (
+            "/audio/url",
+            json!("https://user@upload.wikimedia.org/wikipedia/commons/a/ab/Song.ogg"),
+        ),
+        ("/audio/size", json!(104857601)),
+        (
+            "/audio/licenseUrl",
+            json!("https://creativecommons.org/licenses/by-nc/4.0/"),
+        ),
+        ("/provider", json!("arbitrary")),
+        ("/id", json!("")),
+    ] {
+        let mut record = saved_track("invalid", "abc", false);
+        let mut source = source_provenance();
+        *source.pointer_mut(path).unwrap() = value;
+        record["source"] = source;
+        assert!(db.save(&record).is_err(), "accepted invalid source {path}");
+    }
+    assert!(db.list().unwrap().records.is_empty());
+}
+
 #[test]
 fn migrates_a_new_database_and_sets_user_version() {
     let directory = tempdir().unwrap();

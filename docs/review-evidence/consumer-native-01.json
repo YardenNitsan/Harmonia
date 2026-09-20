@@ -1,0 +1,66 @@
+{
+  "status": "failed",
+  "checks": {
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "unavailableYoutubeHasNoFabricatedAnalysis": true,
+    "completeTimelineBeforeAutomaticPlayback": true
+  },
+  "errors": [],
+  "audioSaved": false,
+  "probeSha256": "fee88fb53d13f487dedd18b2022441e6ebff9e16b6b95195191c9eaf26e0c02d",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "0645cbc33d064ee7d49c0e576a203f3aee1ba23331ea2030bb8e3f91ab572c82",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "typeaheadSeconds": 1.3436068,
+  "youtubeResults": [
+    "Bou | Live From DnB Allstars 360°DnB Allstars · YouTube60:44",
+    "Bou - Closer (feat. Slay)BOU · YouTube2:16",
+    "Bou 100% Production Showcase 2026BOU · YouTube40:41"
+  ],
+  "preparationSeconds": 4.423583000000001,
+  "source": {
+    "artist": "Julien Grandgagnage",
+    "audio": {
+      "attribution": "Greensleeves-by Julien Grandgagnage-tenorsax — Julien Grandgagnage — Own work — CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Greensleeves-by_Julien_Grandgagnage-tenorsax.oga",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "size": 3580170,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Greensleeves-by_Julien_Grandgagnage-tenorsax.oga"
+    },
+    "id": "28670309",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Greensleeves-by_Julien_Grandgagnage-tenorsax.oga",
+    "provider": "commons",
+    "thumbnail": null,
+    "title": "Greensleeves-by Julien Grandgagnage-tenorsax"
+  },
+  "analysis": {
+    "duration": 122.14263038548752,
+    "segments": 559,
+    "pipeline": "harmonia-whole-song-v1",
+    "model": "dsp-whole-song-v1",
+    "fingerprint": "d1901ebeb1d0931c1653ece414d35f2d84820b30bde97325f0f78c9bdceebfd0"
+  },
+  "workerSeconds": 2.567300000011921,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "N",
+    "assertionLatencyMs": 13.03979999999865
+  },
+  "failure": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.chord-block').first()\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"chord-block \" title=\"N · 0.00–0.09s\" aria-label=\"Seek to N at 0 seconds\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button class=\"chord-block \" title=\"Bb5 · 0.98–1.56s\" aria-label=\"Seek to Bb5 at 0.975 seconds\">…</button> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button class=\"chord-block \" title=\"Bb5 · 0.98–1.56s\" aria-label=\"Seek to Bb5 at 0.975 seconds\">…</button> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <button class=\"chord-block \" title=\"Bb5 · 0.98–1.56s\" aria-label=\"Seek to Bb5 at 0.975 seconds\">…</button> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\scripts\\consumer-native-probe.mjs:151:46",
+  "page": "harmonia.\nSearch & Analyze\nLibrary\n1\nMore\nFind another song\nYOUR LISTENING ROOM\nGreensleeves-by Julien Grandgagnage-tenorsax\n\nJulien Grandgagnage · 2:02\n\nPREVIOUS\nBb7(b13)/D\nCURRENT CHORD\nN\nFinal chord\nUP NEXT\n—\n10\n10\n2:00\n2:02\nTHE HARMONIC LANDSCAPE\n559 moments · click to explore\n1×\n0:00\n0:10\n0:20\n0:30\n0:40\n0:50\n1:01\n1:11\n1:21\n1:31\n1:41\n1:51\n2:02\nN\n0.1s\nBb11\n0.0s\nD13/A\n0.0s\nBbmaj7\n0.0s\nBbmaj7/A\n0.0s\nBbmaj7\n0.0s\nBb\n0.8s\nBb5\n0.6s\nBbmaj9/A\n0.1s\nBb5\n0.2s\nBbmaj9\n0.1s\nA\n0.5s\nA9\n0.7s\nA7\n0.3s\nA11\n0.2s\nD13\n0.0s\nD13/C\n0.0s\nD13\n0.0s\nDm\n1.0s\nBm9/D\n0.1s\nD5\n0.4s\nD5/A\n0.1s\nD5\n0.0s\nDmaj7/A\n0.0s\nDmaj7\n0.0s\nD7(#11)/A\n0.0s\nDm/A\n0.6s\nDm\n0.0s\nDm/A\n0.1s\nDm\n0.0s\nD/A\n0.0s\nD/F#\n0.0s\nDm/A\n0.1s\nG11/A\n0.0s\nG11/D\n0.0s\nD5\n0.3s\nD7\n0.2s\nE11/D\n0.1s\nE11\n0.0s\nDm7\n1.1s\nC13sus4/D\n0.2s\nG11/D\n0.1s\nG11\n0.1s\nG11/D\n0.0s\nG11\n0.0s\nA11\n1.3s\nA11/D\n0.1s\nGm9/D\n0.0s\nBbmaj9/D\n0.2s\nA11/D\n0.3s\nD13sus4\n0.0s\nD13sus4/B\n0.0s\nD13sus4/C\n1.1s\nE7(b13)/C\n0.4s\nCmaj9\n0.0s\nCmaj9/E\n0.0s\nCmaj9\n0.1s\nCmaj9/G\n0.1s\nC9/G\n0.3s\nC9\n0.0s\nCmaj9/G\n0.4s\nCmaj9\n0.0s\nCmaj9/G\n0.0s\nD11/G\n0.1s\nD11\n0.0s\nD11/C\n0.1s\nE7(b13)/C\n0.3s\nF7(#11)/C\n0.1s\nF7(#11)\n0.0s\nF7(#11)/A\n0.0s\nBbmaj9\n1.1s\nD7(b13)/A#\n0.5s\nD7(b13)\n0.0s\nDm7/F\n0.3s\nBbmaj9/F\n0.2s\nBbmaj9\n0.1s\nBbmaj9/F\n0.0s\nBbmaj9\n0.2s\nBbmaj9/F\n0.0s\nBb7(#9)/F\n0.2s\nBb7(#9)\n0.2s\nD7(b13)/A#\n0.2s\nEb13/Bb\n0.2s\nE11\n0.0s\nE11/A\n0.0s\nE11/G#\n0.0s\nE11/A\n0.3s\nA11\n0.7s\nC#7(b13)/A\n0.1s\nC#7(b13)\n0.0s\nC#7(b13)/A\n0.3s\nC#7(#11)\n0.2s\nAmaj9/E\n0.1s\nA7/E\n0.0s\nA7\n0.8s\nA9\n0.0s\nA9/E\n0.1s\nA9\n0.3s\nA11\n0.3s\nA11/D\n0.0s\nD7\n0.2s\nE11/D\n0.2s\nE7(#11)/D\n0.1s\nBbmaj9/D\n0.3s\nF13/D\n0.6s\nD7(b9)\n0.1s\nC13\n0.0s\nC13/D\n0.0s\nD13sus4\n0.2s\nD13sus4/A\n0.0s\nA11/B\n0.0s\nA11\n1.0s\nBbmaj9/A\n0.1s\nBbmaj9/D\n0.2s\nA11/D\n0.3s\nG11/D\n0.1s\nG11\n0.0s\nG11/C\n0.3s\nD13sus4/C\n0.7s\nE7(b13)/C\n0.4s\nCmaj9\n0.1s\nC\n0.2s\nC/G\n0.8s\nD13sus4/G\n0.4s\nE7(b13)\n0.2s\nG11/C\n0.0s\nG11\n0.0s\nG11/C\n0.1s\nF9/C\n0.1s\nF9\n0.1s\nF11\n0.0s\nF11/A#\n0.2s\nBbmaj9\n0.4s\nE7(#11)/A#\n0.2s\nE7(#11)\n0.1s\nBbmaj9/F\n0.2s\nBbmaj9\n0.3s\nBb7(#9)\n0.1s\nC#7(b13)\n0.1s\nC#7(b13)/G#\n0.0s\nC#7(b13)\n0.0s\nC#7(b13)/A\n0.4s\nB11/A\n0.4s\nB11\n0.0s\nB11/A\n0.1s\nB11\n0.0s\nB11/A\n0.0s\nC#7(b13)/A\n0.1s\nC#7(b13)\n0.2s\nC#7(#11)\n0.2s\nA11/C#\n0.1s\nDmaj7/C#\n0.0s\nDmaj7\n0.1s\nDmaj7/C#\n0.0s\nDmaj7\n0.0s\nD5\n1.5s\nD7(#11)/A\n0.0s\nD7(#11)\n0.0s\nD7(#11)/G#\n0.0s\nD5/A\n0.5s\nD5\n0.1s\nD5/A\n0.4s\nBm9\n0.0s\nBm9/D\n0.1s\nD5\n0.4s\nC13/D\n0.1s\nC11/D\n0.0s\nC11/F\n0.1s\nCsus4/F\n1.0s\nFmaj9\n0.4s\nC6\n0.3s\nC5\n0.6s\nFmaj9/C\n0.2s\nF7(#11)/C\n0.2s\nA7(#9)/C\n0.1s\nA7(#9)\n0.1s\nFmaj9\n0.3s\nG11/F\n0.2s\nG11\n0.0s\nG11/C\n0.1s\nCsus2\n0.4s\nD13sus4/C\n0.3s\nCmaj9\n0.3s\nCm7\n0.2s\nCmaj7\n0.1s\nE7(b13)/C\n0.1s\nCmaj9\n0.2s\nCmaj9/G\n0.1s\nC7/G\n0.3s\nC9/G\n0.3s\nD13sus4/G\n0.1s\nD13sus4\n0.0s\nD13sus4/G\n0.1s\nD13sus4\n0.0s\nD13sus4/C\n0.0s\nD11/C\n0.1s\nD13/C\n0.1s\nE7(b13)/C\n0.3s\nF7(#11)/C\n0.0s\nF7(#11)/B\n0.0s\nF7(#11)/C\n0.0s\nF7(#11)\n0.3s\nDm7\n0.9s\nD7\n1.0s\nD5\n0.3s\nC#7(b9)/D\n0.3s\nDmaj7\n0.2s\nD7(#11)\n0.3s\nA11/D\n0.1s\nCm9/D\n0.1s\nD13sus4/A\n0.0s\nE11/A\n0.1s\nEsus4/A\n0.4s\nA11\n0.5s\nC#7(b13)/A\n0.5s\nA9\n0.3s\nA9/E\n0.0s\nA/E\n0.1s\nA7/E\n0.0s\nA7\n0.7s\nA7/E\n0.1s\nA9/E\n0.1s\nA9\n0.6s\nG13sus4/F\n0.1s\nCsus4/F\n0.2s\nC\n0.3s\nC/E\n0.0s\nC\n0.4s\nC/E\n0.0s\nC\n0.0s\nCsus4/F\n0.3s\nC11/F\n0.2s\nCsus4/F\n0.2s\nC5\n0.5s\nFadd9/C\n0.3s\nF7(#11)/C\n0.3s\nA7(#9)/C\n0.3s\nA7(#9)\n0.1s\nFmaj9\n0.1s\nG11/F\n0.4s\nG11\n0.0s\nD13sus4\n0.0s\nD13sus4/C\n0.3s\nCmaj9\n0.6s\nE7(b13)/C\n0.3s\nCmaj9\n0.1s\nC\n0.4s\nC/G\n0.2s\nC\n0.0s\nC/G\n0.3s\nC\n0.0s\nG13sus4\n0.2s\nD11/G\n0.2s\nD13sus4/G\n0.1s\nE7(b13)\n0.1s\nE7(b13)/C\n0.3s\nF7(#11)/C\n0.3s\nF7(#11)/B\n0.0s\nDm7\n0.7s\nE7(b13)/D\n0.3s\nE11/D\n0.1s\nD13\n0.1s\nD5\n0.2s\nD7\n0.2s\nC#7(b9)/D\n0.0s\nC#7(b9)\n0.1s\nC#7(b13)/A\n0.6s\nB9/A\n0.3s\nB9\n0.0s\nB9/A\n0.1s\nB9\n0.0s\nB9/A\n0.0s\nB13/A\n0.1s\nB13\n0.0s\nC#7(b13)/G#\n0.0s\nC#7(b13)/A\n0.5s\nBm9\n0.0s\nBm9/D\n0.1s\nD5\n1.6s\nD5/A\n0.7s\nD5\n0.0s\nD5/A\n0.1s\nD7(#9)\n0.0s\nD7(#9)/A\n0.2s\nD7(#9)\n0.0s\nD7(#9)/A\n0.0s\nD7(#9)\n0.1s\nDm\n0.3s\nD5\n0.2s\nDm9\n0.1s\nDm7\n0.9s\nD7(#9)\n0.1s\nDmaj7\n0.1s\nGmaj9/D\n0.2s\nGmaj9/A\n0.0s\nD11\n0.0s\nD11/A\n0.0s\nD11\n0.0s\nD11/A\n0.0s\nD11\n0.0s\nDsus2\n0.1s\nDsus2/A\n0.3s\nDmaj9/A\n0.4s\nDsus2/A\n0.2s\nD7(#11)/A\n0.1s\nAmaj7\n0.1s\nBbmaj7/A\n0.1s\nBbmaj7\n0.0s\nBbmaj7/D\n0.3s\nGmadd9/D\n0.3s\nGadd9/D\n0.0s\nGadd9/A\n0.0s\nGadd9/B\n0.0s\nCsus2\n0.2s\nCadd9\n0.5s\nCmaj9\n0.5s\nE5\n0.1s\nE7(#9)\n0.1s\nCmaj9\n0.0s\nCmaj9/B\n0.0s\nCmaj9\n0.0s\nC\n0.1s\nC/G\n0.8s\nCmaj9/G\n0.0s\nCmaj9\n0.0s\nCmaj9/G\n0.1s\nD7\n0.0s\nD7/C\n0.1s\nD13sus4/C\n0.4s\nDm9/C\n0.1s\nBbmaj9\n1.7s\nBbmaj9/F\n0.0s\nBbmaj9/A\n0.0s\nBbmaj9/F\n0.6s\nBbmaj9\n0.2s\nBbmaj7\n0.0s\nBbmaj7/F\n0.1s\nBbmaj7\n0.0s\nBb7(#9)/F\n0.3s\nBb7(#9)\n0.0s\nDmMaj7\n0.1s\nDmMaj7/F\n0.0s\nDmMaj7\n0.0s\nBbmaj9\n0.1s\nEb7(#11)/Bb\n0.1s\nEb7(#11)/A\n0.0s\nEb7(#11)\n0.0s\nA11\n0.0s\nEsus4\n0.0s\nEsus4/A\n0.3s\nA11\n0.7s\nAmaj7\n0.5s\nA11\n0.1s\nA11/G\n0.0s\nA11/E\n0.0s\nA/E\n0.2s\nA7/E\n0.1s\nA9/E\n0.7s\nA9\n0.1s\nA\n0.1s\nA11\n0.1s\nD5/A\n0.2s\nD13/A\n0.0s\nD13\n0.0s\nD13/A\n0.0s\nDm7\n0.8s\nDm9\n0.3s\nG11/D\n0.1s\nGadd9/D\n0.3s\nF13/D\n0.0s\nAmMaj7\n0.1s\nAmMaj7/G#\n0.0s\nAmMaj7\n0.0s\nAmaj7\n0.2s\nDsus2/A\n0.1s\nA\n0.3s\nG13sus4\n0.0s\nG13sus4/A\n0.0s\nBbmaj7/A\n0.1s\nBbmaj7\n0.1s\nBbmaj7/F\n0.0s\nBbmaj7/A\n0.2s\nBbmaj7/D\n0.0s\nDsus2\n0.3s\nDsus4\n0.2s\nGadd9\n0.0s\nGadd9/B\n0.0s\nCsus2\n0.2s\nCmaj9\n0.5s\nCmaj7\n0.2s\nA13\n0.1s\nD7(#9)/C\n0.1s\nF#7(#11)/C\n0.1s\nCmaj9\n0.3s\nCmaj9/G\n0.1s\nC/G\n0.4s\nC9/G\n0.4s\nC/G\n0.1s\nD13sus4/G\n0.0s\nD13sus4/C\n0.0s\nD13sus4/G\n0.0s\nD7/C\n0.1s\nC13\n0.1s\nCmaj9\n0.2s\nG13sus4/C\n0.2s\nG13sus4\n0.0s\nBbmaj9\n0.7s\nBb7(#11)\n0.2s\nE7(b9)\n0.1s\nD13\n0.1s\nBbmaj7\n0.5s\nBb7(#9)/Ab\n0.0s\nBb7(#9)\n0.0s\nC#7(b13)\n0.0s\nC#7(b13)/G#\n0.0s\nC#7(b13)/A\n0.4s\nA11\n0.1s\nB11/A\n0.5s\nB13/A\n0.2s\nB13/G#\n0.0s\nB13/A\n0.0s\nC#7(b13)/A\n0.3s\nDmMaj7/A\n0.1s\nDmMaj7\n0.0s\nD5\n1.6s\nD5/A\n0.0s\nD5\n0.1s\nD5/A\n0.5s\nD5\n0.1s\nD5/A\n0.2s\nD5\n0.1s\nD5/A\n0.2s\nD5\n0.6s\nFadd9\n0.2s\nCsus4/F\n0.5s\nCsus4\n0.0s\nCsus4/F\n0.8s\nF7(#11)\n0.1s\nG7(#9)/F\n0.1s\nBmaj7\n0.1s\nCmMaj7\n0.0s\nC5\n0.8s\nB7(b9)/C\n0.2s\nB7(b9)\n0.0s\nB7(b9)/F#\n0.0s\nB7(b9)\n0.0s\nFmaj7\n0.4s\nD13sus4\n0.1s\nD13sus4/C\n0.1s\nCmaj9\n0.8s\nF#7(#11)/C\n0.2s\nCm7b5\n0.0s\nCm7\n0.1s\nC7(b9)\n0.0s\nE5\n0.3s\nCmaj9\n0.1s\nCmaj9/G\n0.0s\nC/G\n0.2s\nC9/G\n0.4s\nC9\n0.0s\nC9/G\n0.0s\nC9\n0.0s\nC9/G\n0.2s\nD11/G\n0.2s\nD13sus4/G\n0.0s\nD13sus4/C\n0.1s\nE7(b13)/C\n0.3s\nG13sus4/C\n0.2s\nDm9\n0.6s\nDm7\n0.7s\nD5\n1.3s\nDmMaj7\n0.4s\nD5\n0.2s\nDmadd9\n0.0s\nDmadd9/A\n0.0s\nDmadd9\n0.2s\nDmadd9/A\n0.0s\nAmaj9\n0.1s\nEsus4/A\n0.2s\nA11\n1.0s\nAmaj7\n0.5s\nA7\n0.0s\nA7/E\n0.9s\nA7\n0.0s\nA9\n0.7s\nFmaj9/A\n0.0s\nFmaj9\n0.1s\nC11/F\n0.2s\nCsus4/F\n0.8s\nC5\n0.3s\nCmMaj7\n0.2s\nCmMaj7/B\n0.1s\nC5\n0.6s\nCmMaj7\n0.4s\nF7(#11)/C\n0.0s\nF7(#11)\n0.1s\nFmaj7\n0.5s\nD13sus4\n0.1s\nD13sus4/C\n0.0s\nCsus2\n0.3s\nCmaj9\n0.7s\nEb\n0.1s\nEm\n0.3s\nCmaj9\n0.1s\nC\n0.0s\nC/G\n0.2s\nCmaj9/G\n0.6s\nD11/G\n0.1s\nD13sus4/G\n0.1s\nD13sus4\n0.0s\nD13sus4/G\n0.0s\nD13sus4/B\n0.0s\nD13sus4/C\n0.0s\nE7(b13)/C\n0.2s\nDm9/C\n0.3s\nDm9\n0.1s\nDm7\n0.6s\nDm9\n0.1s\nE7/D\n0.3s\nE11/D\n0.1s\nD5\n0.3s\nDmMaj7\n0.2s\nDmMaj7/A\n0.0s\nDmMaj7\n0.0s\nDmMaj7/A\n0.0s\nAmaj7\n0.3s\nA11\n0.6s\nB11/A\n0.2s\nB13sus4/A\n0.1s\nB13sus4\n0.0s\nC#5\n0.1s\nC#5/G#\n0.0s\nC#5\n0.2s\nC#7(b9)\n0.1s\nC#7(b9)/D\n0.0s\nDmMaj7\n0.5s\nD5\n0.9s\nD5/A\n0.1s\nD5\n1.0s\nDm\n0.3s\nDmaj7\n0.2s\nDm\n0.0s\nDm/A\n0.0s\nDm\n0.0s\nDm/A\n0.1s\nDm\n0.1s\nDmMaj7/C#\n0.0s\nDmMaj7\n0.1s\nD5\n0.8s\nDm\n0.8s\nDmMaj7\n0.0s\nDmMaj7/C#\n0.0s\nA11\n0.0s\nA11/B\n0.0s\nA11\n0.0s\nA11/C#\n0.0s\nDm\n1.7s\nBb7(b13)/D\n0.1s\nN\n3.0s\nDetails & practice\nAll processing on your device\nBuilt for the moments between the notes.",
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

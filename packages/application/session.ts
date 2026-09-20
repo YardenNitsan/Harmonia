@@ -1,4 +1,10 @@
-import type { Analysis, AnalysisProfile, Chord, SavedTrack } from '../domain/types';
+import type {
+  Analysis,
+  AnalysisProfile,
+  Chord,
+  SavedTrack,
+  SourceProvenance,
+} from '../domain/types';
 import {
   correctBoundary,
   correctChord,
@@ -9,6 +15,37 @@ import {
 import { equalChords } from '../domain/chord';
 import type { AnalysisRepository, AudioAnalysisService, LocalPlayback } from './contracts';
 import { LatestTask } from './tasks';
+import { validateSourceProvenance } from '../domain/source';
+
+function freezeDeep<T>(value: T): T {
+  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+    Object.values(value).forEach(freezeDeep);
+    Object.freeze(value);
+  }
+  return value;
+}
+function fixedRecord(record: SavedTrack): SavedTrack {
+  validateAnalysis(record.analysis);
+  const result = structuredClone(record);
+  if (result.source) result.source = validateSourceProvenance(result.source);
+  return freezeDeep(result);
+}
+function sameSource(a: SourceProvenance | undefined, b: SourceProvenance) {
+  return a?.provider === b.provider && a.id === b.id && a.audio.url === b.audio.url;
+}
+async function cacheId(analysis: Analysis, source?: SourceProvenance) {
+  const identity = JSON.stringify([
+    analysis.fingerprint,
+    analysis.profile,
+    analysis.modelVersion,
+    analysis.pipelineVersion,
+    source?.provider ?? null,
+    source?.id ?? null,
+    source?.audio.url ?? null,
+  ]);
+  const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(identity));
+  return `prepared:${Array.from(new Uint8Array(hash), (b) => b.toString(16).padStart(2, '0')).join('')}`;
+}
 
 export interface SessionState {
   status: 'idle' | 'preparing' | 'analyzing' | 'ready' | 'cancelled' | 'failed';
@@ -76,6 +113,7 @@ export class SessionController {
       this.initialization = this.dependencies.repository
         .list()
         .then(({ records, issues }) => {
+          records = records.map(fixedRecord);
           records.forEach((record) => this.persisted.set(record.analysis.id, record));
           const present = new Set(this.state.library.map((r) => r.analysis.id));
           this.update({
@@ -129,24 +167,35 @@ export class SessionController {
     });
     return { token: this.tasks.begin(), signal: this.abort.signal };
   }
-  private async accept(analysis: Analysis, file: Blob, name: string, token: number) {
+  private async accept(
+    analysis: Analysis,
+    file: Blob,
+    name: string,
+    token: number,
+    prepared?: SavedTrack,
+    source?: SourceProvenance,
+  ) {
     if (!this.tasks.current(token)) return;
     validateAnalysis(analysis);
-    this.player.load(file);
     const existing = this.state.library.find((r) => r.analysis.id === analysis.id);
     const prior = this.state.library.find((r) => r.track.fingerprint === analysis.fingerprint);
-    const record: SavedTrack = existing ?? {
-      track: {
-        id: analysis.fingerprint,
-        name,
-        duration: analysis.duration,
-        fingerprint: analysis.fingerprint,
-        importedAt: prior?.track.importedAt ?? new Date().toISOString(),
-        favorite: prior?.track.favorite ?? false,
-      },
-      analysis,
-      corrections: [],
-    };
+    const record = fixedRecord(
+      prepared ??
+        existing ?? {
+          track: {
+            id: analysis.fingerprint,
+            name,
+            duration: analysis.duration,
+            fingerprint: analysis.fingerprint,
+            importedAt: prior?.track.importedAt ?? new Date().toISOString(),
+            favorite: prior?.track.favorite ?? false,
+          },
+          analysis,
+          corrections: [],
+          ...(source ? { source } : {}),
+        },
+    );
+    this.player.load(file);
     this.update({ current: record, status: 'ready', progress: 1 });
     await this.save(record);
   }
@@ -172,23 +221,52 @@ export class SessionController {
     this.saveQueue = operation.catch(() => undefined);
     return operation;
   }
-  async importFile(file: File) {
+  async importFile(file: File, options: { source?: SourceProvenance; force?: boolean } = {}) {
+    const previous = this.state.current;
     const { token, signal } = this.start();
     const profile = this.state.profile;
     try {
+      const source = options.source ? validateSourceProvenance(options.source) : undefined;
       await this.initialize();
       if (!this.tasks.current(token)) return;
       const fingerprint = await this.dependencies.analyzer.fingerprint(file);
       if (!this.tasks.current(token)) return;
-      const cached = this.state.library.find(
-        (r) =>
-          r.track.fingerprint === fingerprint &&
-          r.analysis.profile === profile &&
-          r.analysis.pipelineVersion === this.dependencies.analyzer.pipelineVersion &&
-          r.analysis.modelVersion === this.dependencies.analyzer.modelVersion(profile),
-      );
+      const compatible = (r: SavedTrack) =>
+        r.track.fingerprint === fingerprint &&
+        r.analysis.profile === profile &&
+        r.analysis.pipelineVersion === this.dependencies.analyzer.pipelineVersion &&
+        r.analysis.modelVersion === this.dependencies.analyzer.modelVersion(profile);
+      const candidates = this.state.library
+        .filter(compatible)
+        .sort((a, b) => Date.parse(b.analysis.createdAt) - Date.parse(a.analysis.createdAt));
+      const cached = options.force
+        ? undefined
+        : source
+          ? previous && compatible(previous) && sameSource(previous.source, source)
+            ? previous
+            : (candidates.find((r) => sameSource(r.source, source)) ??
+              (previous && compatible(previous) && !previous.source
+                ? previous
+                : (candidates.find((r) => !r.source && r.corrections.length > 0) ??
+                  candidates.find((r) => !r.source))))
+          : previous && compatible(previous)
+            ? previous
+            : candidates[0];
       if (cached) {
-        await this.accept(cached.analysis, file, file.name, token);
+        let prepared = cached;
+        if (source && !cached.source) {
+          const id = await cacheId(cached.analysis, source);
+          prepared = {
+            ...cached,
+            source,
+            analysis: { ...cached.analysis, id },
+            corrections: cached.corrections.map((correction) => ({
+              ...correction,
+              analysisId: id,
+            })),
+          };
+        }
+        await this.accept(prepared.analysis, file, file.name, token, prepared);
         if (this.tasks.current(token)) this.update({ stage: 'Loaded cached analysis' });
         return;
       }
@@ -202,7 +280,34 @@ export class SessionController {
           if (this.tasks.current(token)) this.update({ stage, progress });
         },
       );
-      await this.accept(analysis, file, file.name, token);
+      if (
+        analysis.fingerprint !== fingerprint ||
+        analysis.profile !== profile ||
+        analysis.pipelineVersion !== this.dependencies.analyzer.pipelineVersion ||
+        analysis.modelVersion !== this.dependencies.analyzer.modelVersion(profile)
+      )
+        throw new Error(
+          'Prepared analysis identity does not match its source and requested pipeline',
+        );
+      const id = source || options.force ? await cacheId(analysis, source) : analysis.id;
+      // Reanalysis ordering survives repositories that sort by track import time.
+      const createdAt = options.force
+        ? new Date(
+            Math.max(Date.now(), ...candidates.map((r) => Date.parse(r.analysis.createdAt) + 1)),
+          ).toISOString()
+        : analysis.createdAt;
+      await this.accept(
+        {
+          ...analysis,
+          createdAt,
+          id: options.force ? `${id}:revision:${crypto.randomUUID()}` : id,
+        },
+        file,
+        file.name,
+        token,
+        undefined,
+        source,
+      );
     } catch (error) {
       if (this.tasks.current(token) && !signal.aborted) {
         if (this.state.current) this.update({ error: this.message(error) });
@@ -222,11 +327,12 @@ export class SessionController {
     }
   }
   open(record: SavedTrack) {
+    const snapshot = fixedRecord(record);
     ++this.playbackRevision;
     this.cancel();
     this.player.release();
     this.update({
-      current: record,
+      current: snapshot,
       status: 'ready',
       profile: record.analysis.profile,
       error: null,
@@ -271,11 +377,11 @@ export class SessionController {
         },
       ];
     });
-    const record = {
+    const record = fixedRecord({
       ...current,
       analysis,
       corrections: [...current.corrections, ...changes],
-    };
+    });
     this.update({
       current: record,
       ...(this.state.error?.startsWith('Changes are not saved:') ? { error: null } : {}),
@@ -306,10 +412,10 @@ export class SessionController {
       for (const id of relatedIds) {
         const latest = this.state.library.find((r) => r.analysis.id === id);
         if (!latest) continue;
-        const record = {
+        const record = fixedRecord({
           ...latest,
           track: { ...latest.track, favorite },
-        };
+        });
         if (this.state.current?.analysis.id === id) this.update({ current: record });
         await this.save(record);
       }

@@ -1,11 +1,13 @@
 import type { AnalysisRepository, LibraryResult } from '../application/contracts';
 import type { SavedTrack } from '../domain/types';
 import { validateAnalysis } from '../domain/timeline';
+import { validateSourceProvenance } from '../domain/source';
 
 export function validateSavedTrack(value: unknown): SavedTrack {
   if (!value || typeof value !== 'object') throw new Error('Invalid saved track');
   const record = value as SavedTrack;
   validateAnalysis(record.analysis);
+  const source = record.source === undefined ? undefined : validateSourceProvenance(record.source);
   if (
     !record.track ||
     typeof record.track.id !== 'string' ||
@@ -37,7 +39,7 @@ export function validateSavedTrack(value: unknown): SavedTrack {
     )
       throw new Error('Correction segment identity mismatch');
   }
-  return record;
+  return source ? { ...record, source } : record;
 }
 export class BrowserAnalysisRepository implements AnalysisRepository {
   constructor(private name = 'harmonia-v1') {}
@@ -117,12 +119,12 @@ export class BrowserAnalysisRepository implements AnalysisRepository {
     }
   }
   async save(record: SavedTrack): Promise<void> {
-    validateSavedTrack(record);
+    const normalized = validateSavedTrack(record);
     const db = await this.open();
     try {
       await new Promise<void>((resolve, reject) => {
         const tx = db.transaction('analyses', 'readwrite');
-        tx.objectStore('analyses').put(record);
+        tx.objectStore('analyses').put(normalized);
         tx.oncomplete = () => resolve();
         tx.onerror = () => reject(new Error('Could not save analysis. Storage may be full.'));
         tx.onabort = () => reject(new Error('Analysis save was interrupted'));
@@ -150,9 +152,9 @@ class NativeAnalysisRepository implements AnalysisRepository {
     return { records, issues: result.issues };
   }
   async save(record: SavedTrack) {
-    validateSavedTrack(record);
+    const normalized = validateSavedTrack(record);
     const { invoke } = await import('@tauri-apps/api/core');
-    await invoke('save_track', { record });
+    await invoke('save_track', { record: normalized });
   }
 }
 export function createRepository(): AnalysisRepository {

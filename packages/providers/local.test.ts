@@ -59,6 +59,7 @@ async function session() {
       demo: async () => ({ file: new Blob(), analysis }),
     },
   });
+  controller.setProfile('fast');
   await controller.importFile(new File(['audio'], 'track.wav'));
   return { provider, controller, media: provider.audio as unknown as TestAudio };
 }

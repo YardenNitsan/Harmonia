@@ -64,4 +64,21 @@ export interface SavedTrack {
   track: Track;
   analysis: Analysis;
   corrections: Correction[];
+  source?: SourceProvenance;
+}
+/** Exact prepared input; provider metadata never grants access to analysis audio. */
+export interface SourceProvenance {
+  provider: 'commons' | 'youtube';
+  id: string;
+  title: string;
+  artist: string;
+  thumbnail: string | null;
+  pageUrl: string;
+  audio: {
+    url: string;
+    license: string;
+    licenseUrl: string;
+    attribution: string;
+    size: number;
+  };
 }

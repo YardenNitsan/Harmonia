@@ -1,5 +1,28 @@
 # Architecture
 
+## Consumer search and playback snapshot
+
+`SongSearchController` debounces text changes, aborts superseded requests and
+rejects stale results. `ConsumerCatalog` composes native official YouTube metadata
+search and the existing permitted-recording catalog while preserving every result's
+actual provider and identity. Native code owns credentials and Google HTTPS; the
+privileged frontend receives bounded metadata only. There is no credential form
+or static autocomplete list. Missing configuration and unavailable audio are
+separate from preparation failure.
+
+`SessionController` prepares a full-song analysis before playback, freezes its
+playback snapshot and persists exact source provenance plus provider-aware cache
+identity. The search controller requests playback only after preparation completes
+and the current generation remains active. Player time performs binary timeline
+lookup, never recognition. Explicit corrections create a new frozen snapshot;
+explicit re-analysis retains the prior record. Native key storage, playback-source
+rights and cached-analysis identity remain separate responsibilities.
+
+The consumer UI presents search, preparation and player states. Technical details,
+local import and Windows live capture remain secondary. Unavailable YouTube audio
+does not permit extraction or an unverified title-based match to another recording.
+See `consumer-player-plan.md` for current tasks and acceptance.
+
 ## Current primary workflow (ADR007)
 
 Search & Analyze selects a permitted recording, decodes the full track in the

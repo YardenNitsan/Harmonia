@@ -38,6 +38,7 @@ async function forgetAnalyses(page: Page) {
       }),
   );
   await page.reload();
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
 }
@@ -58,6 +59,7 @@ test('production workers reuse filesystem features across profiles and reload, r
     };
   });
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByLabel('Analysis profile').selectOption('fast');
@@ -111,6 +113,7 @@ test('terminating an origin-filesystem writer releases its lock and orphan recov
   page,
 }) => {
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.evaluate(async () => {

@@ -65,6 +65,12 @@ export function App() {
     songSearch.cancel(false);
     controller.player.pause();
     if (isWholeSong(record)) {
+      if (record.source) {
+        wholeController.open(record);
+        setTab('search');
+        await songSearch.select({ ...record.source, duration: record.analysis.duration });
+        return;
+      }
       wholeController.open(record);
       setTab('whole-saved');
     } else {

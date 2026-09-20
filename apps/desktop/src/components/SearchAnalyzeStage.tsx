@@ -1,10 +1,9 @@
-import { useRef, useState, useSyncExternalStore } from 'react';
-import { Search, Music2 } from 'lucide-react';
+﻿import { useRef, useSyncExternalStore } from 'react';
+import { AudioLines, ArrowLeft, Upload } from 'lucide-react';
 import type { SongSearchController } from '../../../../packages/application/song-search';
 import type { SessionController } from '../../../../packages/application/session';
-import { PlaybackStage } from './PlaybackStage';
-import { AnalysisProgress } from './SessionStatus';
-import { timeLabel } from './Timeline';
+import { ConsumerPlayer } from './ConsumerPlayer';
+import { SongArtwork, SongTypeahead } from './SongTypeahead';
 
 export function SearchAnalyzeStage({
   search,
@@ -19,93 +18,17 @@ export function SearchAnalyzeStage({
 }) {
   const state = useSyncExternalStore(search.subscribe, search.snapshot);
   const analysis = useSyncExternalStore(session.subscribe, session.snapshot);
-  const [query, setQuery] = useState('');
-  const [provider, setProvider] = useState<'commons' | 'youtube'>('commons');
-  const [key, setKey] = useState('');
-  const [searched, setSearched] = useState(false);
   const file = useRef<HTMLInputElement>(null);
   const busy = state.status === 'downloading' || state.status === 'analyzing';
   const current = state.status === 'ready' ? analysis.current : null;
+  const progress =
+    state.status === 'downloading'
+      ? state.total
+        ? state.received / state.total
+        : null
+      : analysis.progress;
   return (
-    <div className="song-workspace">
-      <div className="page-heading">
-        <div>
-          <span className="eyebrow">THE WHOLE SONG, IN CONTEXT</span>
-          <h1>{localOnly ? 'Analyze a recording' : 'Search & Analyze'}</h1>
-          <p>Prepare the complete chord timeline, then listen, explore and seek anywhere.</p>
-        </div>
-        <span className="tag">WHOLE-SONG PROTOTYPE</span>
-      </div>
-      {!localOnly && (
-        <form
-          className="song-search"
-          onSubmit={(event) => {
-            event.preventDefault();
-            setSearched(true);
-            void search.search(query, provider, key);
-          }}
-        >
-          <label>
-            Music source
-            <select
-              value={provider}
-              onChange={(event) => setProvider(event.target.value as typeof provider)}
-              disabled={busy}
-            >
-              <option value="commons">Open recordings · Wikimedia Commons</option>
-              <option value="youtube">YouTube · official metadata search</option>
-            </select>
-          </label>
-          <label className="song-query">
-            Song or artist
-            <input
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              maxLength={160}
-              placeholder="Try Greensleeves, Bach or piano"
-              required
-              disabled={busy}
-            />
-          </label>
-          <button className="primary" type="submit" disabled={busy || state.status === 'searching'}>
-            <Search size={16} />
-            {state.status === 'searching' ? 'Searching…' : 'Search songs'}
-          </button>
-          {provider === 'youtube' && (
-            <div className="song-source-explanation">
-              <label>
-                YouTube Data API key
-                <input
-                  type="password"
-                  autoComplete="off"
-                  value={key}
-                  onChange={(event) => setKey(event.target.value)}
-                  maxLength={256}
-                />
-              </label>
-              <p>
-                Kept only for this session. YouTube provides search and playback, not analysis
-                audio. A separate permitted recording is required; Harmonia does not extract YouTube
-                streams.
-              </p>
-            </div>
-          )}
-        </form>
-      )}
-      <div className="song-local-actions">
-        <button className="secondary" onClick={() => file.current?.click()} disabled={busy}>
-          Analyze local recording
-        </button>
-        {localOnly && (
-          <button className="text-button" onClick={onLegacy}>
-            Earlier analysis profiles
-          </button>
-        )}
-        <span className="subtle">
-          Full-track analysis stays on this device. Playback starts only when you choose Play.
-        </span>
-      </div>
+    <div className="song-workspace consumer-workspace">
       <input
         ref={file}
         type="file"
@@ -121,117 +44,106 @@ export function SearchAnalyzeStage({
       {(state.error || analysis.error) && (
         <div role="alert" className="error-banner">
           {state.error ?? analysis.error}
+          {current && <span> Your song is ready. Press Play to try again.</span>}
         </div>
       )}
-      {busy ? (
-        <section aria-label="Whole-song preparation">
-          <h2>Analyzing song…</h2>
-          <p>{state.selected?.title ?? 'Your recording'}</p>
-          <AnalysisProgress
-            stage={
-              state.status === 'downloading'
-                ? 'Acquiring permitted recording'
-                : analysis.stage || 'Preparing whole-song analysis'
-            }
-            progress={
-              state.status === 'downloading'
-                ? state.total
-                  ? state.received / state.total
-                  : 0
-                : analysis.progress
-            }
-            onCancel={() => search.cancel()}
-          />
-        </section>
-      ) : current ? (
+      {current && state.playbackNotice && (
+        <p className="notice" role="status">
+          {state.playbackNotice}
+        </p>
+      )}
+      {current ? (
         <>
-          <div className="song-ready" role="status">
-            <h2>{state.selected?.title ?? current.track.name}</h2>
-            <p>
-              Complete timeline ready · {timeLabel(current.analysis.duration)} ·{' '}
-              {current.analysis.segments.length} chord segments · Preparation{' '}
-              {state.elapsedSeconds?.toFixed(2)} s
-            </p>
-            {analysis.stage === 'Loaded cached analysis' && (
-              <p>Loaded cached analysis · exact recording and analysis version matched.</p>
-            )}
-            <p>
-              Global key and beats are estimates. Key changes, sections and downbeats are not yet
-              inferred.
-            </p>
-          </div>
-          {state.selected?.audio && (
-            <p className="song-attribution">
-              Recording: {state.selected.audio.attribution} ·{' '}
-              <a href={state.selected.pageUrl} target="_blank" rel="noreferrer">
-                Source and credits
-              </a>{' '}
-              ·{' '}
-              <a href={state.selected.audio.licenseUrl} target="_blank" rel="noreferrer">
-                {state.selected.audio.license}
-              </a>
-              . Analysis and playback use this same recording.
-            </p>
-          )}
-          <PlaybackStage key={current.analysis.id} record={current} controller={session} />
+          <button
+            className="text-button consumer-back"
+            onClick={() => {
+              session.player.pause();
+              search.cancel(false);
+            }}
+          >
+            <ArrowLeft size={16} /> Find another song
+          </button>
+          <ConsumerPlayer
+            key={current.analysis.id}
+            record={current}
+            controller={session}
+            recording={state.selected}
+            preparationSeconds={state.elapsedSeconds}
+            onReanalyze={() => void search.reanalyze()}
+          />
         </>
-      ) : state.status === 'input-required' ? (
-        <section className="song-source-explanation" role="status">
-          <h2>Analysis recording required</h2>
-          <p>{state.selected?.title}</p>
-          <p>
-            This YouTube result does not include permitted analysis audio. No chord analysis has
-            been run. Search open recordings, or analyze a local recording you are permitted to use.
-            A different recording cannot automatically be synchronized to this video.
-          </p>
-          <a href={state.selected?.pageUrl} target="_blank" rel="noreferrer">
-            Watch on YouTube
-          </a>
+      ) : busy ? (
+        <section className="consumer-preparation" aria-label="Whole-song preparation">
+          <SongArtwork recording={state.selected} className="preparation-cover" />
+          <span className="eyebrow">GETTING YOUR SONG READY</span>
+          <h1>{state.selected?.title ?? 'Your recording'}</h1>
+          {state.selected?.artist && <p>{state.selected.artist}</p>}
+          <div className="preparation-progress" role="status">
+            <AudioLines size={24} />
+            <h2>{state.status === 'downloading' ? 'Loading your song…' : 'Finding the chords…'}</h2>
+            <progress
+              aria-label="Song preparation"
+              value={progress === null ? undefined : Math.max(0, Math.min(1, progress))}
+              max="1"
+            />
+            <span>
+              {progress === null ? 'Loading recording' : `${Math.round(progress * 100)}%`}
+            </span>
+          </div>
+          <p>We prepare the whole song first, so every chord is ready when you listen.</p>
+          <button className="text-button" onClick={() => search.cancel()}>
+            Cancel analysis
+          </button>
         </section>
       ) : (
-        !localOnly && (
-          <>
-            <p className="analysis-note">
-              {provider === 'commons'
-                ? 'Search openly licensed recordings. Choosing Analyze downloads the selected recording temporarily for local analysis and playback; attribution stays visible.'
-                : 'Official YouTube metadata results. Analysis availability is separate from video playback.'}
+        <>
+          <div className="consumer-intro">
+            <span className="eyebrow">HEAR IT. SEE IT. PLAY IT.</span>
+            <h1>{localOnly ? 'Bring your own recording.' : 'Every song has a story.'}</h1>
+            <p>
+              {localOnly
+                ? 'Discover its chords, from the first note to the last.'
+                : 'Find your song. Follow the chords. Make it yours.'}
             </p>
-            <div className="song-results" aria-label="Song search results">
-              {state.results.map((result) => (
-                <article className="song-result" key={result.id}>
-                  {result.thumbnail ? (
-                    <img
-                      src={result.thumbnail}
-                      alt=""
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : (
-                    <div className="song-art">
-                      <Music2 size={30} />
-                    </div>
-                  )}
-                  <div>
-                    <h2>{result.title}</h2>
-                    <p>{result.artist}</p>
-                    <span className="subtle">
-                      {result.duration === null
-                        ? 'Duration unavailable'
-                        : timeLabel(result.duration)}{' '}
-                      · {result.audio?.license ?? 'Separate analysis recording required'}
-                    </span>
-                  </div>
-                  <button className="secondary" onClick={() => void search.select(result)}>
-                    {result.audio ? 'Analyze song' : 'Select video'}
-                  </button>
-                </article>
-              ))}
-            </div>
-            {searched && state.status === 'idle' && state.results.length === 0 && (
-              <p role="status">No supported recordings found. Try another title or artist.</p>
+          </div>
+          {!localOnly && (
+            <SongTypeahead
+              query={state.query}
+              results={state.results}
+              searching={state.status === 'searching'}
+              onQuery={(value) => search.query(value)}
+              onSelect={(recording) => void search.select(recording)}
+            />
+          )}
+          {!localOnly && state.notice && (
+            <p className="consumer-search-notice" role="status">
+              {state.notice}
+            </p>
+          )}
+          {state.status === 'input-required' && (
+            <section className="consumer-unavailable" role="status">
+              <h2>{state.selected?.title}</h2>
+              <p>This song isn’t available for chord playback yet. Choose another recording.</p>
+              {state.selected?.provider === 'youtube' && (
+                <a href={state.selected.pageUrl} target="_blank" rel="noreferrer">
+                  Watch on YouTube
+                </a>
+              )}
+            </section>
+          )}
+          <div className="consumer-local-actions">
+            <button className="text-button" onClick={() => file.current?.click()}>
+              <Upload size={15} /> Analyze local recording
+            </button>
+            <span>Already have the audio? Bring it along.</span>
+            {localOnly && (
+              <button className="text-button" onClick={onLegacy}>
+                Earlier analysis profiles
+              </button>
             )}
-          </>
-        )
+          </div>
+          <p className="consumer-privacy">Your audio and chord analysis stay on this device.</p>
+        </>
       )}
     </div>
   );

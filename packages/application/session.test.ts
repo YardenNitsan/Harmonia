@@ -1,16 +1,177 @@
-import { expect, it } from 'vitest';
+import { expect, it, vi } from 'vitest';
 import { SessionController } from './session';
 import { parseChord, formatChord } from '../domain/chord';
 import type { Analysis, AnalysisProfile, SavedTrack } from '../domain/types';
 import { createTimelineExport } from './export';
+import type { SourceProvenance } from '../domain/types';
+
+const source: SourceProvenance = {
+  provider: 'commons',
+  id: '123',
+  title: 'Song',
+  artist: 'Artist',
+  thumbnail: null,
+  pageUrl: 'https://commons.wikimedia.org/wiki/File:Song.ogg',
+  audio: {
+    url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Song.ogg',
+    license: 'CC BY 4.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+    attribution: 'Artist CC BY 4.0',
+    size: 1024,
+  },
+};
+
+it('reuses exact source cache and preserves its corrections on local reimport', async () => {
+  const { controller, analyzer } = fixture();
+  const run = vi.spyOn(analyzer, 'analyze');
+  const file = new File(['x'], 'song.wav');
+  await controller.importFile(file, { source });
+  await controller.editChord('s1', parseChord('Dm9'));
+  const corrected = controller.snapshot().current!;
+  await controller.importFile(file, { source });
+  expect(run).toHaveBeenCalledTimes(1);
+  expect(controller.snapshot().current?.source).toEqual(source);
+  expect(controller.snapshot().current?.corrections).toEqual(corrected.corrections);
+  await controller.importFile(file);
+  expect(run).toHaveBeenCalledTimes(1);
+  expect(formatChord(controller.snapshot().current!.analysis.segments[0].chord)).toBe('Dm9');
+  expect(controller.snapshot().current?.analysis.id).toBe(corrected.analysis.id);
+  expect(new TextEncoder().encode(corrected.analysis.id).length).toBeLessThanOrEqual(256);
+});
+
+it('isolates stable recording and exact audio URL identities despite matching bytes', async () => {
+  const { controller, analyzer } = fixture();
+  const run = vi.spyOn(analyzer, 'analyze');
+  const file = new File(['x'], 'song.wav');
+  await controller.importFile(file, { source });
+  await controller.importFile(file, { source: { ...source, id: '124' } });
+  await controller.importFile(file, {
+    source: {
+      ...source,
+      audio: { ...source.audio, url: source.audio.url.replace('Song', 'Other') },
+    },
+  });
+  expect(run).toHaveBeenCalledTimes(3);
+  expect(new Set(controller.snapshot().library.map((r) => r.analysis.id)).size).toBe(3);
+});
+
+it('migrates a matching legacy local correction to source identity without replacing its record', async () => {
+  const { controller, analyzer } = fixture();
+  const run = vi.spyOn(analyzer, 'analyze');
+  const file = new File(['x'], 'song.wav');
+  await controller.importFile(file);
+  await controller.editChord('s1', parseChord('F#7'));
+  const legacy = controller.snapshot().current!;
+  await controller.importFile(file, { source });
+  const migrated = controller.snapshot().current!;
+  expect(run).toHaveBeenCalledTimes(1);
+  expect(migrated.source).toEqual(source);
+  expect(migrated.analysis.id).not.toBe(legacy.analysis.id);
+  expect(migrated.corrections[0].analysisId).toBe(migrated.analysis.id);
+  expect(formatChord(migrated.analysis.segments[0].chord)).toBe('F#7');
+  expect(controller.snapshot().library.find((r) => r.analysis.id === legacy.analysis.id)).toEqual(
+    legacy,
+  );
+});
+
+it('explicit force prepares a separate revision and preserves the previous corrected record', async () => {
+  const { controller, analyzer } = fixture();
+  const run = vi.spyOn(analyzer, 'analyze');
+  const file = new File(['x'], 'song.wav');
+  await controller.importFile(file, { source });
+  await controller.editChord('s1', parseChord('Dm7'));
+  const old = controller.snapshot().current!;
+  await controller.importFile(file, { source, force: true });
+  const fresh = controller.snapshot().current!;
+  expect(run).toHaveBeenCalledTimes(2);
+  expect(fresh.analysis.id).not.toBe(old.analysis.id);
+  expect(fresh.corrections).toEqual([]);
+  expect(controller.snapshot().library.find((r) => r.analysis.id === old.analysis.id)).toEqual(old);
+  await controller.importFile(file, { source });
+  expect(controller.snapshot().current?.analysis.id).toBe(fresh.analysis.id);
+});
+
+it.each([true, false])(
+  'reopens newest revision after restart and honors explicit selection (catalog %s)',
+  async (catalog) => {
+    const first = fixture();
+    const file = new File(['x'], 'song.wav');
+    const options = catalog ? { source } : {};
+    await first.controller.importFile(file, options);
+    await first.controller.editChord('s1', parseChord('Dm7'));
+    const original = first.controller.snapshot().current!;
+    await first.controller.importFile(file, { ...options, force: true });
+    const revision = first.controller.snapshot().current!;
+    const run = vi.spyOn(first.analyzer, 'analyze');
+    const reopened = new SessionController({
+      player: first.player,
+      analyzer: first.analyzer,
+      repository: {
+        list: async () => ({ records: [original, revision], issues: [] }),
+        save: async () => {},
+      },
+    });
+    await reopened.importFile(file, options);
+    expect(reopened.snapshot().current?.analysis.id).toBe(revision.analysis.id);
+    expect(run).not.toHaveBeenCalled();
+    reopened.open(original);
+    await reopened.importFile(file, options);
+    expect(reopened.snapshot().current?.analysis.id).toBe(original.analysis.id);
+  },
+);
+
+it('changed bytes, model or pipeline cannot hit the existing prepared source cache', async () => {
+  const { controller, analyzer } = fixture();
+  let fingerprint = 'abc',
+    model = 'model';
+  analyzer.fingerprint = async () => fingerprint;
+  analyzer.modelVersion = () => model;
+  analyzer.analyze = async (_file, hash, profile) => ({
+    ...analysis(profile),
+    fingerprint: hash,
+    modelVersion: model,
+    pipelineVersion: analyzer.pipelineVersion,
+  });
+  const run = vi.spyOn(analyzer, 'analyze');
+  const file = new File(['x'], 'song.wav');
+  await controller.importFile(file, { source });
+  fingerprint = 'other';
+  await controller.importFile(file, { source });
+  model = 'model-2';
+  await controller.importFile(file, { source });
+  analyzer.pipelineVersion = 'pipeline-2';
+  await controller.importFile(file, { source });
+  expect(run).toHaveBeenCalledTimes(4);
+  expect(new Set(controller.snapshot().library.map((r) => r.analysis.id)).size).toBe(4);
+});
+
+it('accepted, opened and explicitly corrected playback analyses are deeply immutable snapshots', async () => {
+  const { controller, analyzer } = fixture();
+  const produced = analysis('balanced');
+  analyzer.analyze = async () => produced;
+  await controller.importFile(new File(['x'], 'song.wav'));
+  const before = controller.snapshot().current!;
+  produced.segments[0].chord = parseChord('F');
+  expect(formatChord(before.analysis.segments[0].chord)).toBe('C');
+  expect(() => {
+    before.analysis.segments[0].start = 1;
+  }).toThrow();
+  await controller.editChord('s1', parseChord('Dm'));
+  expect(controller.snapshot().current!.analysis).not.toBe(before.analysis);
+  expect(Object.isFrozen(controller.snapshot().current!.analysis.segments[0].chord)).toBe(true);
+  const external = structuredClone(before);
+  controller.open(external);
+  external.analysis.segments[0].chord = parseChord('G');
+  expect(formatChord(controller.snapshot().current!.analysis.segments[0].chord)).toBe('C');
+});
 
 it('saves chord and both bounds once with history for every affected segment', async () => {
   const saved: SavedTrack[] = [];
   const { controller, analyzer } = fixture(async (record) => {
     saved.push(record);
   });
-  analyzer.analyze = async () => {
-    const result = analysis();
+  analyzer.analyze = async (_file, _hash, profile) => {
+    const result = analysis(profile);
     result.duration = 6;
     result.segments = [0, 2, 4].map((start, i) => ({
       ...result.segments[0],
@@ -290,7 +451,8 @@ it('finishing a favorite propagation cannot reopen a previously selected analysi
   controller.open(unrelated);
   pending.complete();
   await favoriting;
-  expect(controller.snapshot().current).toBe(unrelated);
+  expect(controller.snapshot().current).toEqual(unrelated);
+  expect(Object.isFrozen(controller.snapshot().current!.analysis)).toBe(true);
   expect(controller.snapshot().library.every((record) => record.track.favorite)).toBe(true);
 });
 

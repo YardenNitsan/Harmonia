@@ -8,13 +8,16 @@ import { createStreamingAnalysisService } from '../../../packages/audio/live-ser
 import { WholeSongAnalysisService } from '../../../packages/audio/whole-song-analysis';
 import { SongSearchController } from '../../../packages/application/song-search';
 import { RecordingCatalog } from '../../../packages/providers/catalog';
+import { NativeYouTubeSearch } from '../../../packages/providers/native-search';
+import { ConsumerCatalog } from '../../../packages/providers/consumer-catalog';
 export const controller = new SessionController({
   player: new LocalFileProvider(),
   repository: createRepository(),
   analyzer: new BrowserAudioAnalysisService(),
 });
+const wholePlayer = new LocalFileProvider();
 export const wholeController = new SessionController({
-  player: new LocalFileProvider(),
+  player: wholePlayer,
   repository: createRepository(),
   analyzer: new WholeSongAnalysisService(),
 });
@@ -29,7 +32,7 @@ export const liveController = new LiveSessionController({
   },
 });
 export const songSearch = new SongSearchController({
-  catalog: new RecordingCatalog(),
+  catalog: new ConsumerCatalog(new NativeYouTubeSearch(), new RecordingCatalog()),
   beforePrepare: async () => {
     await liveController.stop();
     if (liveController.snapshot().session)
@@ -37,10 +40,30 @@ export const songSearch = new SongSearchController({
     controller.cancel();
     controller.player.pause();
   },
-  prepare: async (file) => {
-    await wholeController.importFile(file);
+  prepare: async (file, recording, force) => {
+    await wholeController.importFile(file, {
+      source: recording?.audio ? { ...recording, audio: recording.audio } : undefined,
+      force,
+    });
     const result = wholeController.snapshot();
-    if (result.status === 'failed') throw new Error(result.error ?? 'Whole-song analysis failed');
+    if (!result.current || result.status === 'failed')
+      throw new Error(result.error ?? 'This recording could not be prepared. Try another song.');
+  },
+  playPrepared: async (signal) => {
+    signal.throwIfAborted();
+    // Capture the media instance: a stale play promise must never pause its replacement.
+    const audio = wholePlayer.audio;
+    const cancel = () => audio.pause();
+    signal.addEventListener('abort', cancel, { once: true });
+    try {
+      await wholePlayer.play();
+      if (signal.aborted) {
+        audio.pause();
+        signal.throwIfAborted();
+      }
+    } finally {
+      signal.removeEventListener('abort', cancel);
+    }
   },
   cancelPreparation: () => {
     wholeController.cancel();

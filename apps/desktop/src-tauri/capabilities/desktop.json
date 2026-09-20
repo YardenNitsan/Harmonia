@@ -10,6 +10,9 @@
     "allow-capture-sources",
     "allow-capture-start",
     "allow-capture-read",
-    "allow-capture-stop"
+    "allow-capture-stop",
+    "allow-youtube-search",
+    "allow-search-cancel",
+    "allow-search-status"
   ]
 }

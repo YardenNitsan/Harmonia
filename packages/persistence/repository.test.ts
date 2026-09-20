@@ -1,6 +1,6 @@
 import 'fake-indexeddb/auto';
 import { expect, it } from 'vitest';
-import { BrowserAnalysisRepository } from './repository';
+import { BrowserAnalysisRepository, validateSavedTrack } from './repository';
 import type { SavedTrack } from '../domain/types';
 const record: SavedTrack = {
   track: {
@@ -31,6 +31,46 @@ const record: SavedTrack = {
   },
   corrections: [],
 };
+const provenance = {
+  provider: 'commons' as const,
+  id: '123',
+  title: 'Song',
+  artist: 'Artist',
+  thumbnail: null,
+  pageUrl: 'https://commons.wikimedia.org/wiki/File:Song.ogg',
+  audio: {
+    url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Song.ogg',
+    license: 'CC0 1.0',
+    licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
+    attribution: 'Artist CC0',
+    size: 1024,
+  },
+};
+it('persists optional source credits through reopen without changing legacy records', async () => {
+  const name = `sources-${crypto.randomUUID()}`;
+  const repository = new BrowserAnalysisRepository(name);
+  await repository.save(record);
+  const sourced = {
+    ...record,
+    analysis: { ...record.analysis, id: 'prepared-source' },
+    source: provenance,
+  };
+  await repository.save(sourced);
+  expect((await new BrowserAnalysisRepository(name).list()).records).toEqual(
+    expect.arrayContaining([record, sourced]),
+  );
+});
+it('rejects malicious persisted source URLs and malformed credits', () => {
+  expect(() =>
+    validateSavedTrack({ ...record, source: { ...provenance, thumbnail: 'file:///secret' } }),
+  ).toThrow();
+  expect(() =>
+    validateSavedTrack({
+      ...record,
+      source: { ...provenance, audio: { ...provenance.audio, size: Infinity } },
+    }),
+  ).toThrow();
+});
 it('persists structured analyses across repository instances and upserts favorites', async () => {
   const name = `test-${crypto.randomUUID()}`;
   await new BrowserAnalysisRepository(name).save(record);

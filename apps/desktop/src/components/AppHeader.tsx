@@ -1,4 +1,4 @@
-import { AudioLines, Headphones, Library, Search, ShieldCheck, Upload } from 'lucide-react';
+import { AudioLines, ChevronDown, Headphones, Library, Search, Upload } from 'lucide-react';
 
 export type AppTab = 'search' | 'listen' | 'file' | 'whole-saved' | 'legacy' | 'library';
 
@@ -33,31 +33,39 @@ export function AppHeader({
         <button className={tab === 'search' ? 'active' : ''} onClick={() => onNavigate('search')}>
           <Search size={15} /> Search & Analyze
         </button>
-        <button
-          className={tab === 'file' || tab === 'whole-saved' ? 'active' : ''}
-          onClick={() => onNavigate('file')}
-        >
-          <AudioLines size={15} /> File analysis
-        </button>
         <button className={tab === 'library' ? 'active' : ''} onClick={() => onNavigate('library')}>
           <Library size={15} /> Library <small>{libraryCount}</small>
         </button>
-        <button
-          className={tab === 'listen' ? 'active' : ''}
-          onClick={() => onNavigate('listen')}
-          title="Experimental live recognition"
-        >
-          <Headphones size={15} /> Listen Live
-        </button>
+        <details className="navigation-more">
+          <summary>
+            More <ChevronDown size={14} />
+          </summary>
+          <div
+            className="navigation-menu"
+            onClick={(event) => {
+              const details = event.currentTarget.closest('details');
+              if (details) details.open = false;
+            }}
+          >
+            <button
+              className={tab === 'file' || tab === 'whole-saved' ? 'active' : ''}
+              onClick={() => onNavigate('file')}
+            >
+              <AudioLines size={15} /> File analysis
+            </button>
+            <button
+              className={tab === 'listen' ? 'active' : ''}
+              onClick={() => onNavigate('listen')}
+              title="Experimental live recognition"
+            >
+              <Headphones size={15} /> Listen Live
+            </button>
+            <button onClick={onImport}>
+              <Upload size={14} /> Import audio
+            </button>
+          </div>
+        </details>
       </nav>
-      <div className="topbar-right">
-        <span className="local-badge">
-          <ShieldCheck size={14} /> Local by nature
-        </span>
-        <button className="import-button" onClick={onImport}>
-          <Upload size={14} /> Import audio
-        </button>
-      </div>
     </header>
   );
 }
@@ -69,7 +77,6 @@ export function AppFooter() {
         <span className="tiny-dot" /> All processing on your device
       </span>
       <span>Built for the moments between the notes.</span>
-      <span>HARMONIA / EARLY DEVELOPMENT</span>
     </footer>
   );
 }

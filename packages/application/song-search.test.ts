@@ -1,4 +1,4 @@
-import { expect, it, vi } from 'vitest';
+import { afterEach, expect, it, vi } from 'vitest';
 import { SongSearchController } from './song-search';
 import type { CatalogRecording } from './catalog-contracts';
 
@@ -18,6 +18,7 @@ const recording: CatalogRecording = {
     size: 100,
   },
 };
+afterEach(() => vi.useRealTimers());
 function fixture() {
   const acquire = vi.fn(async () => new File(['audio'], 'Song.ogg'));
   const analyze = vi.fn(async (_file: File) => {});
@@ -84,4 +85,111 @@ it('failed source shutdown prevents network acquisition and analysis', async () 
   await controller.select(recording);
   expect(acquire).not.toHaveBeenCalled();
   expect(controller.snapshot().error).toContain('still stopping');
+});
+
+it('queries current search results after 300ms without Enter and ignores stale responses', async () => {
+  vi.useFakeTimers();
+  const queries: {
+    query: string;
+    signal: AbortSignal;
+    resolve: (value: CatalogRecording[]) => void;
+    update?: (value: CatalogRecording[]) => void;
+  }[] = [];
+  const search = vi.fn(
+    (
+      query: string,
+      _provider: string,
+      signal: AbortSignal,
+      update?: (value: CatalogRecording[]) => void,
+    ) =>
+      new Promise<CatalogRecording[]>((resolve) => {
+        queries.push({ query, signal, resolve, update });
+      }),
+  );
+  const controller = new SongSearchController({
+    catalog: { search, acquire: vi.fn() },
+    prepare: vi.fn(),
+    beforePrepare: vi.fn(),
+    cancelPreparation: vi.fn(),
+  });
+  controller.query('b');
+  await vi.advanceTimersByTimeAsync(400);
+  expect(search).not.toHaveBeenCalled();
+  controller.query('bo');
+  await vi.advanceTimersByTimeAsync(200);
+  controller.query('bou');
+  await vi.advanceTimersByTimeAsync(299);
+  expect(search).not.toHaveBeenCalled();
+  await vi.advanceTimersByTimeAsync(1);
+  expect(queries[0].query).toBe('bou');
+  queries[0].update?.([{ ...recording, title: 'Immediate YouTube result' }]);
+  expect(controller.snapshot().results[0].title).toBe('Immediate YouTube result');
+  controller.query('boulevard');
+  expect(queries[0].signal.aborted).toBe(true);
+  await vi.advanceTimersByTimeAsync(300);
+  queries[1].resolve([{ ...recording, title: 'Newest result' }]);
+  await vi.advanceTimersByTimeAsync(0);
+  queries[0].update?.([{ ...recording, title: 'Obsolete partial result' }]);
+  queries[0].resolve([{ ...recording, title: 'Obsolete result' }]);
+  await vi.advanceTimersByTimeAsync(0);
+  expect(controller.snapshot().results[0].title).toBe('Newest result');
+  controller.query('');
+  await vi.advanceTimersByTimeAsync(400);
+  expect(search).toHaveBeenCalledTimes(2);
+  expect(controller.snapshot().results).toEqual([]);
+  controller.dispose();
+});
+
+it('requests automatic playback only after complete preparation and remains ready if autoplay is denied', async () => {
+  let finish!: () => void;
+  const prepare = vi.fn(
+    () =>
+      new Promise<void>((resolve) => {
+        finish = resolve;
+      }),
+  );
+  const playPrepared = vi.fn(async () => {
+    throw new Error('Autoplay denied');
+  });
+  const controller = new SongSearchController({
+    catalog: { search: vi.fn(), acquire: vi.fn(async () => new File(['x'], 'song.wav')) },
+    prepare,
+    playPrepared,
+    beforePrepare: vi.fn(),
+    cancelPreparation: vi.fn(),
+  });
+  const pending = controller.select(recording);
+  await vi.waitFor(() => expect(prepare).toHaveBeenCalledOnce());
+  expect(playPrepared).not.toHaveBeenCalled();
+  expect(controller.snapshot().status).toBe('analyzing');
+  finish();
+  await pending;
+  expect(playPrepared).toHaveBeenCalledOnce();
+  expect(controller.snapshot().status).toBe('ready');
+  expect(controller.snapshot().playbackNotice).toContain('Play');
+});
+
+it('cancelled preparation cannot later autoplay or replace the ready page', async () => {
+  let finish!: () => void;
+  const prepare = vi.fn(
+    () =>
+      new Promise<void>((resolve) => {
+        finish = resolve;
+      }),
+  );
+  const playPrepared = vi.fn();
+  const controller = new SongSearchController({
+    catalog: { search: vi.fn(), acquire: vi.fn() },
+    prepare,
+    playPrepared,
+    beforePrepare: vi.fn(),
+    cancelPreparation: vi.fn(),
+  });
+  const pending = controller.local(new File(['x'], 'song.wav'));
+  await vi.waitFor(() => expect(prepare).toHaveBeenCalledOnce());
+  controller.cancel();
+  finish();
+  await pending;
+  expect(playPrepared).not.toHaveBeenCalled();
+  expect(controller.snapshot().status).toBe('idle');
 });

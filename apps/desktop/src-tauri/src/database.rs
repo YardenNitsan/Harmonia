@@ -267,6 +267,9 @@ struct SavedTrackMetadata {
 }
 
 fn validate_record(record: &Value) -> Result<SavedTrackMetadata, DatabaseError> {
+    if let Some(source) = record.get("source") {
+        validate_source(source)?;
+    }
     let envelope: SavedTrackEnvelope = serde_json::from_value(record.clone())
         .map_err(|error| DatabaseError::InvalidRecord(error.to_string()))?;
 
@@ -423,6 +426,143 @@ fn validate_record(record: &Value) -> Result<SavedTrackMetadata, DatabaseError> 
         pipeline_version: envelope.analysis.pipeline_version,
         analysis_profile: envelope.analysis.profile,
     })
+}
+
+fn validate_source(source: &Value) -> Result<(), DatabaseError> {
+    let invalid = || DatabaseError::InvalidRecord("invalid prepared source provenance".into());
+    let object = source.as_object().ok_or_else(invalid)?;
+    if object.keys().any(|key| {
+        ![
+            "provider",
+            "id",
+            "title",
+            "artist",
+            "thumbnail",
+            "pageUrl",
+            "audio",
+        ]
+        .contains(&key.as_str())
+    }) {
+        return Err(invalid());
+    }
+    let provider = source_text(source, "provider", 16)?;
+    let id = source_text(source, "id", 256)?;
+    source_text(source, "title", 1000)?;
+    source_text(source, "artist", 1000)?;
+    let page = source_text(source, "pageUrl", 2048)?;
+    match provider {
+        "commons" => {
+            if id.len() > 20
+                || id.starts_with('0')
+                || !id.bytes().all(|b| b.is_ascii_digit())
+                || !source_url(page, &["commons.wikimedia.org"])?
+                    .path()
+                    .starts_with("/wiki/File:")
+            {
+                return Err(invalid());
+            }
+        }
+        "youtube" => {
+            if id.len() != 11
+                || !id
+                    .bytes()
+                    .all(|b| b.is_ascii_alphanumeric() || b == b'_' || b == b'-')
+                || page != format!("https://www.youtube.com/watch?v={id}")
+            {
+                return Err(invalid());
+            }
+        }
+        _ => return Err(invalid()),
+    }
+    match source.get("thumbnail") {
+        Some(Value::Null) => (),
+        Some(Value::String(value)) => {
+            source_url(value, &["upload.wikimedia.org", "i.ytimg.com"])?;
+        }
+        _ => return Err(invalid()),
+    }
+    let audio = source.get("audio").ok_or_else(invalid)?;
+    let audio_object = audio.as_object().ok_or_else(invalid)?;
+    if audio_object
+        .keys()
+        .any(|key| !["url", "license", "licenseUrl", "attribution", "size"].contains(&key.as_str()))
+    {
+        return Err(invalid());
+    }
+    let url = source_url(source_text(audio, "url", 2048)?, &["upload.wikimedia.org"])?;
+    let parts: Vec<_> = url.path().split('/').collect();
+    let valid_audio = parts.len() == 6
+        && parts[1] == "wikipedia"
+        && parts[2] == "commons"
+        && parts[3].len() == 1
+        && parts[4].len() == 2
+        && parts[3]
+            .bytes()
+            .chain(parts[4].bytes())
+            .all(|b| b.is_ascii_hexdigit())
+        && [".wav", ".mp3", ".flac", ".ogg", ".oga"]
+            .iter()
+            .any(|ext| parts[5].len() > ext.len() && parts[5].to_ascii_lowercase().ends_with(ext));
+    if !valid_audio
+        || !audio
+            .get("size")
+            .and_then(Value::as_u64)
+            .is_some_and(|n| n > 0 && n <= 100 * 1024 * 1024)
+    {
+        return Err(invalid());
+    }
+    source_text(audio, "license", 100)?;
+    source_text(audio, "attribution", 8000)?;
+    let license = source_url(
+        source_text(audio, "licenseUrl", 2048)?,
+        &["creativecommons.org"],
+    )?;
+    let parts: Vec<_> = license.path().split('/').collect();
+    if parts.len() != 5
+        || !parts[4].is_empty()
+        || !(parts[1] == "publicdomain" && parts[2] == "zero" && parts[3] == "1.0"
+            || parts[1] == "licenses"
+                && ["by", "by-sa"].contains(&parts[2])
+                && ["1.0", "2.0", "2.5", "3.0", "4.0"].contains(&parts[3]))
+    {
+        return Err(invalid());
+    }
+    Ok(())
+}
+
+fn source_text<'a>(value: &'a Value, key: &str, max: usize) -> Result<&'a str, DatabaseError> {
+    let text = value
+        .get(key)
+        .and_then(Value::as_str)
+        .ok_or_else(|| DatabaseError::InvalidRecord(format!("source.{key} must be text")))?;
+    if text.trim().is_empty()
+        || text.encode_utf16().count() > max
+        || text.chars().any(|c| c <= '\u{1f}' || c == '\u{7f}')
+    {
+        return Err(DatabaseError::InvalidRecord(format!(
+            "source.{key} is invalid or too long"
+        )));
+    }
+    Ok(text)
+}
+
+fn source_url(value: &str, hosts: &[&str]) -> Result<tauri::Url, DatabaseError> {
+    let invalid = || DatabaseError::InvalidRecord("unsupported prepared source URL".into());
+    if value.encode_utf16().count() > 2048 {
+        return Err(invalid());
+    }
+    let url = tauri::Url::parse(value).map_err(|_| invalid())?;
+    if url.scheme() != "https"
+        || !url.host_str().is_some_and(|host| hosts.contains(&host))
+        || !url.username().is_empty()
+        || url.password().is_some()
+        || url.port().is_some()
+        || url.fragment().is_some()
+        || url.query().is_some()
+    {
+        return Err(invalid());
+    }
+    Ok(url)
 }
 
 fn validate_timeline(analysis: &AnalysisRecord) -> Result<(), DatabaseError> {

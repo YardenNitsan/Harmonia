@@ -8,6 +8,7 @@ test('experimental model runs entirely locally and exports honest provenance', a
       remote.push(request.url());
   });
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByLabel('Analysis profile').selectOption('accurate', { timeout: 2000 });
@@ -28,6 +29,7 @@ test('corrupt model fails visibly without silently substituting DSP', async ({ p
     route.fulfill({ status: 200, body: 'corrupt artifact' }),
   );
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByLabel('Analysis profile').selectOption('accurate');
@@ -43,6 +45,7 @@ test('profile can change for the next import without restarting the workspace', 
   page,
 }) => {
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByLabel('Import audio file').setInputFiles(wavFile('profiles.wav', 4));

@@ -2,6 +2,11 @@
 
 ## Start and resume
 
+- Latest correction: implement the consumer player flow in `docs/consumer-player-plan.md`:
+  native-configured real YouTube typeahead, full analysis before automatic playback,
+  fixed playback timeline, simple player UI and provider-aware cache. No primary
+  API-key textbox/provider selector. Prior prototype is preserved, not final acceptance.
+
 - Current scope (latest user correction): **Search & Analyze whole song → playback
   synchronized to a precomputed timeline** is primary. Follow
   `docs/search-analyze-plan.md`. Preserve Listen Live as optional/experimental.
@@ -94,9 +99,10 @@ continuation-clean executable, real Windows capture and hidden isolated processe
 They do not launch the visible app, save captured PCM or run ML. Native evidence,
 the verified executable hash and current limits are in `docs/live-mvp.md`.
 
-Current primary check: `node scripts/search-native-probe.mjs <unused-report-path>`
-uses an explicitly licensed Commons recording, whole-song worker, hidden native
-playback and SQLite cache. See `docs/search-analyze-acceptance.md` for source,
+Current primary check: `node scripts/consumer-native-probe.mjs <unused-report-path>`
+uses real native-configured YouTube typeahead and an explicitly licensed Commons
+recording, whole-song worker, hidden native autoplay and SQLite cache. See
+`docs/consumer-player-acceptance.md` for source,
 timing, executable and unimplemented YouTube/recognition capabilities. This is
 product-flow acceptance, not recognition-model promotion or final release.
 

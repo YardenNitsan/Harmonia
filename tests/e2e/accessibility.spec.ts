@@ -6,6 +6,7 @@ test('compact high-DPI reduced-motion workspace supports keyboard playback and e
   page,
 }) => {
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   const demo = page.getByRole('button', { name: 'Explore the demo' });
@@ -88,6 +89,7 @@ test('global playback shortcuts work while form controls keep their own keyboard
   page,
 }) => {
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: 'Explore the demo' }).click();

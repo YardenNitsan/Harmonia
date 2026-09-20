@@ -14,7 +14,7 @@
       "capabilities": ["desktop"],
       "csp": {
         "default-src": "'self' customprotocol: asset:",
-        "connect-src": "'self' ipc: http://ipc.localhost https://commons.wikimedia.org https://upload.wikimedia.org https://www.googleapis.com",
+        "connect-src": "'self' ipc: http://ipc.localhost https://commons.wikimedia.org https://upload.wikimedia.org",
         "font-src": "'self' data:",
         "img-src": "'self' asset: http://asset.localhost blob: data: https://upload.wikimedia.org https://i.ytimg.com",
         "media-src": "'self' blob: asset: http://asset.localhost",

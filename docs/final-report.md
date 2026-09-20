@@ -1,9 +1,9 @@
 # Harmonia: incomplete engineering checkpoint
 
-Latest checkpoint: **Search & Analyze whole-song prototype**. The primary catalog
-uses permitted Commons recordings; the complete decoded timeline precedes playback.
-Real hidden Windows search/acquisition/worker/playback/seek/cache acceptance passed.
-See [exact source, timing, executable and remaining limits](search-analyze-acceptance.md).
+Latest checkpoint: **consumer Search & Analyze player**. Real YouTube typeahead
+uses native protected configuration; licensed Commons results can be fully
+prepared before automatic playback. The playback snapshot is fixed and cached.
+See [exact source, timing, executable and remaining limits](consumer-player-acceptance.md).
 YouTube metadata search does not provide analysis PCM or an integrated synchronized
 video experience. Listen Live is preserved experimentally. No new model was trained
 or promoted. The historical broader acceptance report below remains incomplete.

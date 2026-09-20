@@ -19,6 +19,8 @@ apps/desktop/public/models/
 apps/desktop/public/runtime/
 *.pt
 .env
+.env.*
+!.env.example
 *.log
 /ml/experiments/results/B001-boundary-refinement/browser.json
 /ml/artifacts/lv-chordia-diagnostic/selu-arithmetic/reference.npz

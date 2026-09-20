@@ -137,6 +137,9 @@ function commonsRecording(value: unknown): CatalogRecording | null {
     (rights.by && !artist)
   )
     return null;
+  // Commons adds attribution tracking parameters; the original media path is
+  // the stable source identity used for acquisition and persisted cache matching.
+  url.search = '';
   const title = plain(field('ObjectName')) || plain(page.title.slice(5));
   const credit = plain(field('Credit'), 1000),
     requiredAttribution = plain(field('Attribution'), 2000);

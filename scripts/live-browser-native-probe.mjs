@@ -47,6 +47,7 @@ try {
   page = await harness.launch();
   report.native = harness.details;
   page.on('pageerror', (error) => report.errors.push(error.message));
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'Listen Live', exact: true }).click();
   await page.getByRole('heading', { name: 'Listen Live', exact: true }).waitFor();
   await page.evaluate(() => {

@@ -106,6 +106,7 @@ test('live app source runs actual stream worker, clears silence and stops before
 }) => {
   await mockNativeCapture(page);
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'Listen Live', exact: true }).click();
   const source = page.getByLabel('Audio source', { exact: true });
   await expect(source).toHaveValue('');
@@ -127,6 +128,7 @@ test('live app source runs actual stream worker, clears silence and stops before
     (window as unknown as { captureTest: { mode: string } }).captureTest.mode = 'audio';
   });
   await expect(current).not.toHaveText('—');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Explore the demo' })).toBeVisible();
@@ -135,6 +137,7 @@ test('live app source runs actual stream worker, clears silence and stops before
       () => (window as unknown as { captureTest: { stops: string[] } }).captureTest.stops,
     ),
   ).toEqual(['test-capture-1']);
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'Listen Live', exact: true }).click();
   await source.selectOption('test-system');
   await expect(
@@ -154,6 +157,7 @@ test('failed native stop keeps live ownership visible and prevents file playback
 }) => {
   await mockNativeCapture(page);
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'Listen Live', exact: true }).click();
   await page.getByLabel('Audio source', { exact: true }).selectOption('test-process');
   await page.getByRole('button', { name: 'Start listening', exact: true }).click();
@@ -161,6 +165,7 @@ test('failed native stop keeps live ownership visible and prevents file playback
   await page.evaluate(() => {
     (window as unknown as { captureTest: { stopError: boolean } }).captureTest.stopError = true;
   });
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await expect(page.getByRole('alert')).toContainText('Controlled capture stop failure');
   await expect(page.getByRole('heading', { name: 'Listen Live', exact: true })).toBeVisible();
@@ -177,6 +182,7 @@ test('experimental Listen Live is explicitly selected and browser preview does n
   page,
 }) => {
   await page.goto('/');
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'Listen Live', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Listen Live', exact: true })).toBeVisible({
     timeout: 3000,
@@ -186,6 +192,7 @@ test('experimental Listen Live is explicitly selected and browser preview does n
   await expect(page.getByText(/Windows desktop app/i)).toBeVisible();
   await expect(page.getByLabel('Playback position')).toHaveCount(0);
   await expect(page.getByText('Upcoming unavailable during live listening.')).toBeVisible();
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await page.getByRole('button', { name: 'Explore the demo' }).click();
@@ -193,8 +200,10 @@ test('experimental Listen Live is explicitly selected and browser preview does n
   await page.getByRole('button', { name: 'Edit current chord' }).click();
   await page.getByLabel('Chord symbol').fill('Dm7');
   await page.getByRole('button', { name: 'Save correction' }).click();
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'Listen Live', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Listen Live', exact: true })).toBeVisible();
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'File analysis', exact: true }).click();
   await page.getByRole('button', { name: 'Earlier analysis profiles', exact: true }).click();
   await expect(page.getByTestId('current-chord')).toHaveText('Dm7');
@@ -209,6 +218,7 @@ test.describe('compact live workspace', () => {
   test('live source controls fit compact high-DPI keyboard navigation', async ({ page }) => {
     await page.setViewportSize({ width: 800, height: 700 });
     await page.goto('/');
+    await page.getByText('More', { exact: true }).click();
     await page.getByRole('button', { name: 'Listen Live', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'Listen Live', exact: true })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(

@@ -78,6 +78,7 @@ try {
   harness = await createHiddenNativeHarness(executable);
   page = await harness.launch();
   report.native = harness.details;
+  await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: 'Listen Live', exact: true }).click();
   await page.getByRole('heading', { name: 'Listen Live', exact: true }).waitFor();
   page.on('pageerror', (error) => report.errors.push(error.message));

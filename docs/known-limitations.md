@@ -13,8 +13,9 @@ implausible complex chords. Global tuning, sections, local-key/modulation analys
 downbeats and learned harmonic context are not implemented. Whole-song global key
 and beat estimates remain provisional. See [prototype evidence](search-analyze-acceptance.md).
 
-YouTube offers official metadata search with a supplied API key and a normal watch
-link. No key-backed live search was available for acceptance. Integrated YouTube
+YouTube offers real native-configured typeahead and a normal watch link. Live
+credential-backed search is verified; the key never enters the primary UI or
+frontend JavaScript. See [consumer evidence](consumer-player-acceptance.md). Integrated YouTube
 player synchronization and a permitted matching analysis-input source are not
 connected. No general commercial-song analysis capability is claimed. Commons is
 a limited open-recordings catalog; rights metadata is revalidated on selection.

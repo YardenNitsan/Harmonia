@@ -1,5 +1,29 @@
 # Harmonia product specification
 
+## Current acceptance: consumer prepared player
+
+The latest correction requires a single prominent song/artist search field with
+300ms debounced real configured YouTube search results as text changes. No Enter
+requirement, primary provider selector or API-key field. Search credentials stay
+in native configuration; developer `.env.local` is ignored and examples contain
+no real key. A native per-user protected configuration supports packaged Windows.
+
+Selection prepares the entire permitted recording, freezes a complete timeline,
+then opens the player and requests playback automatically. Artwork/title/artist,
+large current/previous/next chords, controls, progress seeking and a complete
+highlighted clickable progression form the main interface. Playback only looks up
+the prepared snapshot; no recognition is triggered by playback or seeking.
+Corrections are explicit user edits. Re-analysis is explicit, stops playback and
+preserves prior edited records. Source/provider/content and pipeline/model identity
+determine cache reuse. Reopening a source-backed library record restores playback
+without a manual file prompt.
+
+YouTube discovery does not confer analysis-audio rights. Unavailable results get a
+clean song-unavailable message; a separate licensed catalog supplies playable
+recordings in the same consumer search. Different performances are never silently
+substituted or synchronized. Local files and Live capture remain secondary.
+Follow `consumer-player-plan.md`; the earlier prototype acceptance below is historical.
+
 ## Latest product correction: Search & Analyze
 
 The primary experience is song search → permitted whole-song audio input → real

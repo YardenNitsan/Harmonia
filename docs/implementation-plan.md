@@ -106,7 +106,40 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 
 ## Execution ledger
 
-### Active continuation: Search & Analyze whole song
+### Active continuation: consumer typeahead and prepared player
+
+Follow `docs/consumer-player-plan.md` and the latest detailed user specification.
+Resume checkpoint4ff6a28; preserve all code/research and untracked work. Primary
+search must make actual configured YouTube requests on debounced text changes.
+Credential absence and unavailable permitted analysis input must stay honest.
+No GUI or new ML experiments. Earlier Search & Analyze acceptance below is a
+preserved prototype, not acceptance of this new consumer workflow.
+
+Consumer checkpoint now verified; see `docs/consumer-player-acceptance.md` and
+`docs/review-evidence/consumer-native-02.json`. Real configured YouTube typeahead
+works without Enter or a key form. Licensed catalog selections produce a fixed
+whole-song snapshot before automatic playback; native 2:00 lookup, playback,
+clickable progression and SQLite cache reopen pass. Preparation 4.426s, worker
+2.546s, cached reopen 0.825s on the 122.14s Commons recording. The earlier failed
+native probe is retained: tiny timeline targets overlapped; repaired padding and
+a readable progression strip pass the final probe. No recognition changes.
+
+859 unit tests, 38 functional production E2Es and both unchanged CPU-throttled
+campaigns pass; Rust fmt/36 tests/clippy, lint/types/format and optimized native
+build pass. This rerun passes the prior 150ms cached-import threshold without
+relaxation (fast 69.5ms; accurate timing in the retained current JSON). Historical
+152.8/152.9ms failures remain in checkpoint4ff6a28 and the earlier ledger below;
+this is a new observation, not a proven performance optimization or weak-PC result.
+
+Independent review cache-revision issues are fixed with unit and browser red/green
+regressions. Credentials are ignored/native DPAPI, placeholder-only example and
+absent from tracked files/frontend/executable. Preserved unrelated untracked files
+and frozen ML work. Stop after this useful local checkpoint; visible app stays
+closed. **Arbitrary YouTube songs still lack permitted analysis input/integrated
+playback**, and the 559-segment recognition remains inaccurate. Do not relabel
+this bounded permitted-source success as complete YouTube or final-product acceptance.
+
+### Preserved continuation: Search & Analyze whole song
 
 The latest user correction supersedes live-primary priority and the prior stop-after-
 live budget. Follow `docs/search-analyze-plan.md`, ADR007 and

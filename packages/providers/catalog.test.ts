@@ -29,6 +29,16 @@ const json = (data: unknown) => new Response(JSON.stringify(data));
 const metadata = (p = page()) => json({ query: { pages: { '123': p } } });
 
 describe('recording catalog', () => {
+  it('canonicalizes Commons tracking queries for stable persisted source identity', async () => {
+    const p = page();
+    p.imageinfo[0].url = `${url}?utm_source=commons.wikimedia.org&utm_content=original`;
+    const [recording] = await new RecordingCatalog(vi.fn().mockResolvedValue(metadata(p))).search(
+      'Example',
+      'commons',
+      signal(),
+    );
+    expect(recording.audio?.url).toBe(url);
+  });
   it('uses the official anonymous Commons search and returns plain attributed metadata', async () => {
     const fetcher = vi.fn<typeof fetch>().mockResolvedValue(metadata());
     const [result] = await new RecordingCatalog(fetcher).search('Example', 'commons', signal());

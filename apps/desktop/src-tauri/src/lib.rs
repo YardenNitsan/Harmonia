@@ -1,11 +1,31 @@
 pub mod capture;
 pub mod database;
+pub mod search;
 pub mod validation;
 
 use database::{Database, LibraryReadResult};
 use serde_json::Value;
 use std::{path::PathBuf, sync::Arc};
 use tauri::Manager;
+
+#[tauri::command]
+async fn youtube_search(
+    query: String,
+    request_id: String,
+    state: tauri::State<'_, Arc<search::SearchService>>,
+) -> Result<Vec<search::CatalogRecording>, search::SearchError> {
+    state.search(&query, &request_id).await
+}
+
+#[tauri::command]
+fn search_cancel(request_id: String, state: tauri::State<'_, Arc<search::SearchService>>) {
+    state.cancel(&request_id);
+}
+
+#[tauri::command]
+fn search_status(state: tauri::State<'_, Arc<search::SearchService>>) -> search::SearchStatus {
+    state.status()
+}
 
 #[tauri::command]
 async fn capture_sources(
@@ -106,6 +126,9 @@ pub fn run() {
     tauri::Builder::default()
         .setup(move |app| {
             app.manage(Arc::new(capture::CaptureService::default()));
+            app.manage(Arc::new(
+                search::SearchService::new().map_err(|_| "search initialization failed")?,
+            ));
             let path = if let Some(options) = &validation {
                 options.data_dir.join("harmonia.db")
             } else {
@@ -148,7 +171,10 @@ pub fn run() {
             capture_sources,
             capture_start,
             capture_read,
-            capture_stop
+            capture_stop,
+            youtube_search,
+            search_cancel,
+            search_status
         ])
         .build(context)
         .expect("failed to build Harmonia")
@@ -158,6 +184,7 @@ pub fn run() {
                 tauri::RunEvent::ExitRequested { .. } | tauri::RunEvent::Exit
             ) {
                 app.state::<Arc<capture::CaptureService>>().shutdown();
+                app.state::<Arc<search::SearchService>>().shutdown();
             }
         });
 }

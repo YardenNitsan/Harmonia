@@ -1,5 +1,10 @@
 # Search & Analyze prototype acceptance
 
+Historical prototype evidence. The current consumer UI and real YouTube typeahead
+are documented in [consumer acceptance](consumer-player-acceptance.md). The old
+session-key form and manual-play sequence below have been superseded; retained
+source, timing and quality evidence still apply to that earlier executable.
+
 This is a working architecture prototype, **not recognition-quality or final
 release acceptance**. The visible desktop window stayed closed. The latest user
 direction replaces live-primary priority; Windows capture and frozen ML remain intact.

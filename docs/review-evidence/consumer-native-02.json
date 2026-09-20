@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "checks": {
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "unavailableYoutubeHasNoFabricatedAnalysis": true,
+    "completeTimelineBeforeAutomaticPlayback": true,
+    "authoritativePlaybackPauseSeekAndClickableTimeline": true,
+    "noAnalysisReplacementDuringPlayback": true,
+    "reloadSqliteCacheWithoutRecognition": true,
+    "youtubeRequestsRemainNative": true
+  },
+  "errors": [],
+  "audioSaved": false,
+  "probeSha256": "5861b831b2014d19d5ca8eb7ff89411bf09b983cf8f96737a185acdba5648a3c",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "d2095f374e0e582616165326811adb8a7dad64324bbb693bd3b47c16733f13e3",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "typeaheadSeconds": 1.3428165,
+  "youtubeResults": [
+    "Bou | Live From DnB Allstars 360°DnB Allstars · YouTube60:44",
+    "Bou - Closer (feat. Slay)BOU · YouTube2:16",
+    "Golden Boy | Promo 340 | Turkish Drama | Yali CapkiniUrdu 1 Official · YouTube2:04"
+  ],
+  "preparationSeconds": 4.426015100000001,
+  "source": {
+    "artist": "Julien Grandgagnage",
+    "audio": {
+      "attribution": "Greensleeves-by Julien Grandgagnage-tenorsax — Julien Grandgagnage — Own work — CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Greensleeves-by_Julien_Grandgagnage-tenorsax.oga",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "size": 3580170,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Greensleeves-by_Julien_Grandgagnage-tenorsax.oga"
+    },
+    "id": "28670309",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Greensleeves-by_Julien_Grandgagnage-tenorsax.oga",
+    "provider": "commons",
+    "thumbnail": null,
+    "title": "Greensleeves-by Julien Grandgagnage-tenorsax"
+  },
+  "analysis": {
+    "duration": 122.14263038548752,
+    "segments": 559,
+    "pipeline": "harmonia-whole-song-v1",
+    "model": "dsp-whole-song-v1",
+    "fingerprint": "d1901ebeb1d0931c1653ece414d35f2d84820b30bde97325f0f78c9bdceebfd0"
+  },
+  "workerSeconds": 2.5457999999821186,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "N",
+    "assertionLatencyMs": 20.899199999999837
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-DFPJfQq-.js",
+      "started": 5920.4000000059605,
+      "stages": [
+        "Extracting harmonic features",
+        "Decoding complete-song harmony",
+        "Building complete-song timeline",
+        "Complete-song analysis ready"
+      ],
+      "completed": 8466.199999988079,
+      "duration": 122.14263038548752,
+      "segments": 559
+    }
+  ],
+  "cacheReopenSeconds": 0.8252314000000006,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

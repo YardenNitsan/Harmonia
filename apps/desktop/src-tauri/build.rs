@@ -10,6 +10,9 @@ fn main() {
         "capture_start",
         "capture_read",
         "capture_stop",
+        "youtube_search",
+        "search_cancel",
+        "search_status",
     ];
     let output_directory = env::var_os("OUT_DIR").expect("Cargo did not set OUT_DIR");
     let icon_path = std::path::PathBuf::from(output_directory).join("harmonia.ico");
