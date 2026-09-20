@@ -106,6 +106,16 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 
 ## Execution ledger
 
+### Documentation checkpoint after stabilization
+
+Replaced the root README with the current product flow, dependency installation,
+native/browser run modes, configuration, architecture, measured recognition limits,
+testing, data locations and troubleshooting. Checked local dependency consistency,
+all five model hashes, documentation links and PowerShell command syntax. Preserved
+the previously untracked D003 report README in Git; archived the accidental pager
+help dump under ignored `.superpowers/cleanup/` with identical bytes. No application
+logic, scientific artifacts, secrets or recognition decisions changed.
+
 ### Active continuation: recognition and progression stabilization
 
 Stabilization implementation is verified under `stabilization-plan.md` and ADR010.

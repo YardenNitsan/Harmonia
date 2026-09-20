@@ -1,5 +1,17 @@
 # Desktop build and release
 
+## Current setup entry point
+
+Use the root [README setup guide](../README.md#getting-started-on-windows) for the
+complete current Windows prerequisites and installation sequence. Native whole-song
+recognition now requires the checkout's Python 3.13 environment, the pinned
+dependency snapshot and verified LV-Chordia weights, plus 8 GiB available RAM.
+Acquisition tools and protected search configuration are provisioned separately.
+The optimized executable still depends on its build checkout; an NSIS build does
+not yet constitute portable runtime deployment. Current behavior and measured
+acceptance are in [stabilization acceptance](stabilization-acceptance.md) and ADR010.
+The earlier consumer-only checkpoint description below is historical.
+
 ## Supported release target
 
 The current checkpoint is the consumer Search & Analyze player, not a final
