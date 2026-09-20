@@ -1,0 +1,1 @@
+{"status": "adapter_support_shape_failure", "before_reference_evaluation": true, "reason": "Original global decoration heads are 2D, not all root-conditioned 3D; no scientific settings changed; regression added."}

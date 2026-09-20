@@ -1,4 +1,5 @@
 import { test, expect, wavFile } from './fixtures';
+import { NATIVE_MODEL_VERSION } from '../../packages/audio/native-whole';
 
 // Native IPC is simulated here; actual providers have separate native evidence.
 // Both bad and good bytes really traverse hashing, validation, decode and the worker.
@@ -10,7 +11,7 @@ test('acquired audio decoder failure falls through, freezes before play and reop
     route.fulfill({ json: { query: { pages: {} } } }),
   );
   await page.addInitScript(
-    ({ base64 }) => {
+    ({ base64, modelVersion }) => {
       const good = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
       const bad = new TextEncoder().encode('<html>not audio</html>');
       let selected = bad;
@@ -32,7 +33,38 @@ test('acquired audio decoder failure falls through, freezes before play and reop
               return;
             }
             if (command === 'capture_sources') return [];
-            if (command === 'search_cancel' || command === 'audio_cancel') return;
+            if (
+              command === 'search_cancel' ||
+              command === 'audio_cancel' ||
+              command === 'recognition_cancel'
+            )
+              return;
+            if (command === 'recognition_run') {
+              const sampleCount = (args as unknown as Uint8Array).byteLength / 4;
+              const duration = sampleCount / 22050;
+              return {
+                schemaVersion: 1,
+                modelVersion,
+                sampleRate: 22050,
+                sampleCount,
+                duration,
+                segments: [
+                  { start: 0, end: duration / 2, label: 'G:maj', score: 0.9 },
+                  { start: duration / 2, end: duration, label: 'D:maj', score: 0.9 },
+                ],
+                beats: [],
+                tempo: null,
+                warnings: [],
+                timings: {
+                  setupSeconds: 0,
+                  cqtSeconds: 0,
+                  inferenceSeconds: 0,
+                  decodeSeconds: 0,
+                  beatSeconds: 0,
+                  totalSeconds: 0,
+                },
+              };
+            }
             if (command === 'youtube_search')
               return [
                 {
@@ -95,7 +127,7 @@ test('acquired audio decoder failure falls through, freezes before play and reop
         return play.call(this);
       };
     },
-    { base64: bytes },
+    { base64: bytes, modelVersion: NATIVE_MODEL_VERSION },
   );
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Song or artist' }).fill('acquired');

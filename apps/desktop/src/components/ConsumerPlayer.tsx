@@ -17,6 +17,7 @@ import {
 import { downloadAnalysisExport } from '../../../../packages/providers/browser-export';
 import { ChordEditor } from './ChordEditor';
 import { ChordInspector } from './ChordInspector';
+import { ChordProgression } from './ChordProgression';
 import { PracticeControls } from './PracticeControls';
 import { SongArtwork } from './SongTypeahead';
 import { Timeline, timeLabel } from './Timeline';
@@ -38,7 +39,7 @@ export function ConsumerPlayer({
 }) {
   const state = useSyncExternalStore(controller.subscribe, controller.snapshot);
   const source = recording ?? record.source;
-  const { time, playing, seek } = usePlaybackClock(controller.player);
+  const { time, playing, seek, seekRevision } = usePlaybackClock(controller.player);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [transpose, setTranspose] = useState(0);
   const [notation, setNotation] = useState<ChordDisplayMode>('advanced');
@@ -50,12 +51,15 @@ export function ConsumerPlayer({
   );
   const index = findSegmentIndex(analysis.segments, time);
   const segment = analysis.segments[index];
-  const { previous, next } = findSegmentNeighbors(analysis.segments, time);
+  const { previous, next } =
+    index >= 0
+      ? { previous: analysis.segments[index - 1], next: analysis.segments[index + 1] }
+      : findSegmentNeighbors(analysis.segments, time);
   const editing = record.analysis.segments.find((item) => item.id === editingId);
   const label = (chord: NonNullable<typeof segment>['chord']) =>
     displayChord(chord, notation, analysis.key?.root ?? null);
   const boundedSeek = (value: number) => seek(Math.max(0, Math.min(analysis.duration, value)));
-  usePlaybackShortcuts(controller, analysis.duration, editingId);
+  usePlaybackShortcuts(controller, analysis.duration, editingId, seek);
   return (
     <section className="consumer-player" aria-label="Song player">
       <div className="consumer-track">
@@ -154,25 +158,15 @@ export function ConsumerPlayer({
         </p>
       )}
       <Timeline analysis={analysis} time={time} index={index} onSeek={seek} notation={notation} />
-      <section className="consumer-progression" aria-label="Complete chord progression">
-        <h2>Chord progression</h2>
-        <div className="progression-scroll">
-          {analysis.segments.map((item, itemIndex) => (
-            <button
-              key={item.id}
-              className={`progression-chord ${itemIndex === index ? 'active' : ''}`}
-              aria-current={itemIndex === index ? 'true' : undefined}
-              aria-label={`Play ${label(item.chord)} at ${item.start.toFixed(2)} seconds`}
-              onClick={() => seek(item.start)}
-            >
-              <strong>{label(item.chord)}</strong>
-              <span>
-                {timeLabel(item.start)}–{timeLabel(item.end)}
-              </span>
-            </button>
-          ))}
-        </div>
-      </section>
+      <ChordProgression
+        segments={analysis.segments}
+        index={index}
+        notation={notation}
+        keyRoot={analysis.key?.root ?? null}
+        playing={playing}
+        seekRevision={seekRevision}
+        onSeek={seek}
+      />
       <details className="consumer-details">
         <summary>Details &amp; practice</summary>
         <div className="consumer-details-body">

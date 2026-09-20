@@ -31,7 +31,11 @@ evaluated once. Do not tune against, overwrite or rerun these reports.
 The selected output is `artifacts/structured-chord-v1/model.onnx`, with raw
 26-feature input and normalization embedded. Root calibration is optional,
 external to ONNX, and does not calibrate whole chords. Preserve attribution.
-The default application profile must remain DSP given the measured failures.
+E004 remains unpromoted given those measured failures. ADR010 now selects the
+original LV-Chordia native whole-song runtime using a separate frozen validation
+comparison; this does not promote the failed LV ONNX export or change historical
+E004/test conclusions. Browser/legacy profiles retain DSP. See
+`../docs/stabilization-model-comparison.md` and its exact runtime manifest.
 
 The checked-in dependency snapshot is `requirements-lock-win-py313.txt`.
 The current suite also tests persistent-worker epoch propagation, exact CPU

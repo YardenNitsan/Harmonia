@@ -1,6 +1,30 @@
 # Harmonia operating guide
 
+## Current native recognition checkpoint
+
+ADR010 selects original LV-Chordia CPU inference for the native primary whole-song
+flow. See `docs/stabilization-acceptance.md`: 67 Bob regions instead of 1,052;
+labelled metrics improve, but inversion/short-transition/rare-chord limits remain.
+The failed LV ONNX export below stays unapproved; this uses the original runtime.
+No new training or locked-test access. Browser preview/earlier profiles retain DSP.
+Native execution requires this checkout's `ml/.venv`, verified pinned weights and
+8 GiB available RAM; packaging that runtime is a separate open deployment gate.
+
+Current exact regression command:
+`node scripts/stabilization-native-probe.mjs <unused-report-path>`.
+It uses real YouTube typeahead, exact original cached Bob bytes, original model,
+hidden isolated WebView, progression/seek/playback/cache checks and bounded cleanup.
+Do not repeatedly reacquire different bytes or overwrite frozen before evidence.
+No recognition runs during playback. Native v2 model/pipeline identities invalidate
+older analysis before playback while preserving prior records and corrections.
+
 ## Start and resume
+
+- Current stabilization phase: follow `docs/stabilization-plan.md`. Freeze the
+  acquisition/search/local-player architecture. Fix progression following and
+  whole-song recognition/segmentation only; no new training or provider work.
+  Preserve exact before audio/output and use fixed labelled validation. Keep
+  playback timelines immutable and change analysis version for changed decisions.
 
 - Latest acquisition correction: follow `docs/acquisition-plan.md`. The user now
   explicitly requests local yt-dlp first, self-hosted Cobalt second, optional

@@ -11,13 +11,17 @@ import { RecordingCatalog } from '../../../packages/providers/catalog';
 import { NativeYouTubeSearch } from '../../../packages/providers/native-search';
 import { ConsumerCatalog } from '../../../packages/providers/consumer-catalog';
 import { NativeWholeSongAudioProvider } from '../../../packages/providers/native-audio';
+import { NativeWholeSongRecognizer } from '../../../packages/providers/native-recognizer';
+import { isTauri } from '@tauri-apps/api/core';
 export const controller = new SessionController({
   player: new LocalFileProvider(),
   repository: createRepository(),
   analyzer: new BrowserAudioAnalysisService(),
 });
 const wholePlayer = new LocalFileProvider();
-const wholeAnalyzer = new WholeSongAnalysisService();
+const wholeAnalyzer = new WholeSongAnalysisService(
+  isTauri() ? new NativeWholeSongRecognizer() : undefined,
+);
 export const wholeController = new SessionController({
   player: wholePlayer,
   repository: createRepository(),

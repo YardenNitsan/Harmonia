@@ -1,0 +1,16 @@
+{
+  "source_pcm_sha256": "a14cee7a84cb8d511a021269e289668708ad7abeed544b12a0345088f090dc39",
+  "source_pcm_bytes": 13355596,
+  "script_sha256": "6db9d88d1cc666a6172230ac2e06a57d8e44b426c298268132863f09c4d97818",
+  "sample_rate": 22050,
+  "channels": 1,
+  "dtype": "float32 little-endian",
+  "original_audio_sha256": "1df50037c17822f83f5162dda09b86663fa030a448bf9f758f837a44827d409b",
+  "created_epoch": 1789942503.8522928,
+  "resources": {
+    "rss_bytes": 105287680,
+    "peak_working_set_bytes": 118624256,
+    "available_bytes": 13703790592
+  },
+  "protocol": "One native LV1.1.0 submission ensemble run; exact decoded PCM; no labelled score, tuning or retraining"
+}

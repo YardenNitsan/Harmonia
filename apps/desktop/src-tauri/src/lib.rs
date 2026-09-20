@@ -1,6 +1,7 @@
 pub mod acquisition;
 pub mod capture;
 pub mod database;
+pub mod recognition;
 pub mod search;
 pub mod validation;
 
@@ -8,6 +9,33 @@ use database::{Database, LibraryReadResult};
 use serde_json::Value;
 use std::{path::PathBuf, sync::Arc};
 use tauri::Manager;
+
+#[tauri::command]
+async fn recognition_run(
+    request: tauri::ipc::Request<'_>,
+    state: tauri::State<'_, Arc<recognition::RecognitionService>>,
+) -> Result<Value, String> {
+    let id = request
+        .headers()
+        .get("x-harmonia-request-id")
+        .and_then(|v| v.to_str().ok())
+        .ok_or("Missing recognition ID")?
+        .to_owned();
+    let tauri::ipc::InvokeBody::Raw(bytes) = request.body() else {
+        return Err("Expected binary PCM".into());
+    };
+    if bytes.len() > 22050 * 1200 * 4 {
+        return Err("Recording exceeds recognition bounds".into());
+    }
+    state.recognize(&id, bytes.clone()).await
+}
+#[tauri::command]
+fn recognition_cancel(
+    request_id: String,
+    state: tauri::State<'_, Arc<recognition::RecognitionService>>,
+) {
+    state.cancel(&request_id);
+}
 
 #[tauri::command]
 async fn audio_acquire(
@@ -190,6 +218,7 @@ pub fn run() {
             app.manage(DatabaseState {
                 path: Arc::new(path.clone()),
             });
+            app.manage(Arc::new(recognition::RecognitionService::default()));
             app.manage(Arc::new(
                 acquisition::AcquisitionService::new(
                     path.parent()
@@ -240,7 +269,9 @@ pub fn run() {
             audio_read,
             audio_cancel,
             audio_reject,
-            audio_diagnostics
+            audio_diagnostics,
+            recognition_run,
+            recognition_cancel
         ])
         .build(context)
         .expect("failed to build Harmonia")

@@ -1,0 +1,3 @@
+C:\Users\yarde\Documents\codexp\Harmonia\ml\.venv\Lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+  warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
+Whole-song recognition failed: IndexError: too many indices for array: array is 2-dimensional, but 3 were indexed

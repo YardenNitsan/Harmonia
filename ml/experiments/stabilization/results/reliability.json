@@ -1,0 +1,244 @@
+{
+  "lv_emitted_region_support": {
+    "frames": 23250,
+    "ece_10_fixed_bins": 0.07909689905310188,
+    "binary_selected_event_brier": 0.18562056134709756,
+    "mean_score": 0.6018858835825356,
+    "joint_root_triad_accuracy": 0.5815913978494623,
+    "bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "count": 0,
+        "mean_score": null,
+        "joint_root_triad_accuracy": null
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 211,
+        "mean_score": 0.15834154795978872,
+        "joint_root_triad_accuracy": 0.0
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "count": 1425,
+        "mean_score": 0.23652629125536534,
+        "joint_root_triad_accuracy": 0.1656140350877193
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "count": 3091,
+        "mean_score": 0.3582337107406932,
+        "joint_root_triad_accuracy": 0.17955354254286637
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 2820,
+        "mean_score": 0.4441000626336598,
+        "joint_root_triad_accuracy": 0.425886524822695
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "count": 2477,
+        "mean_score": 0.5423420846919451,
+        "joint_root_triad_accuracy": 0.44247073072264836
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "count": 4950,
+        "mean_score": 0.653478335575624,
+        "joint_root_triad_accuracy": 0.7109090909090909
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "count": 4397,
+        "mean_score": 0.7524912858893174,
+        "joint_root_triad_accuracy": 0.8433022515351376
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 2689,
+        "mean_score": 0.8480481417837884,
+        "joint_root_triad_accuracy": 0.8133134994421718
+      },
+      {
+        "lower": 0.9,
+        "upper": 1.0,
+        "count": 1190,
+        "mean_score": 0.9214449100133751,
+        "joint_root_triad_accuracy": 0.8571428571428571
+      }
+    ]
+  },
+  "lv_frame_support": {
+    "frames": 23250,
+    "ece_10_fixed_bins": 0.041883225644307756,
+    "binary_selected_event_brier": 0.1630210575867471,
+    "mean_score": 0.6028259992599487,
+    "joint_root_triad_accuracy": 0.5815913978494623,
+    "bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "count": 223,
+        "mean_score": 0.05055735632777214,
+        "joint_root_triad_accuracy": 0.04484304932735426
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 1067,
+        "mean_score": 0.1592925786972046,
+        "joint_root_triad_accuracy": 0.1049671977507029
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "count": 2052,
+        "mean_score": 0.2531939446926117,
+        "joint_root_triad_accuracy": 0.16812865497076024
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "count": 2550,
+        "mean_score": 0.3518860936164856,
+        "joint_root_triad_accuracy": 0.24980392156862746
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 2711,
+        "mean_score": 0.448361337184906,
+        "joint_root_triad_accuracy": 0.383991147178163
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "count": 2637,
+        "mean_score": 0.5504751801490784,
+        "joint_root_triad_accuracy": 0.5384907091391733
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "count": 2657,
+        "mean_score": 0.650335431098938,
+        "joint_root_triad_accuracy": 0.6499811817839669
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "count": 2767,
+        "mean_score": 0.7504228949546814,
+        "joint_root_triad_accuracy": 0.8286953379110951
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 3035,
+        "mean_score": 0.8505896329879761,
+        "joint_root_triad_accuracy": 0.8583196046128501
+      },
+      {
+        "lower": 0.9,
+        "upper": 1.0,
+        "count": 3551,
+        "mean_score": 0.9475048780441284,
+        "joint_root_triad_accuracy": 0.9383272317656998
+      }
+    ]
+  },
+  "dsp_region_similarity": {
+    "frames": 23250,
+    "ece_10_fixed_bins": 0.503356231565201,
+    "binary_selected_event_brier": 0.47699021482812015,
+    "mean_score": 0.833850855221115,
+    "joint_root_triad_accuracy": 0.330494623655914,
+    "bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "count": 0,
+        "mean_score": null,
+        "joint_root_triad_accuracy": null
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 0,
+        "mean_score": null,
+        "joint_root_triad_accuracy": null
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "count": 0,
+        "mean_score": null,
+        "joint_root_triad_accuracy": null
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "count": 0,
+        "mean_score": null,
+        "joint_root_triad_accuracy": null
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 0,
+        "mean_score": null,
+        "joint_root_triad_accuracy": null
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "count": 3,
+        "mean_score": 0.5800154293746645,
+        "joint_root_triad_accuracy": 0.3333333333333333
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "count": 288,
+        "mean_score": 0.6778964890345492,
+        "joint_root_triad_accuracy": 0.1388888888888889
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "count": 8026,
+        "mean_score": 0.7643463215167906,
+        "joint_root_triad_accuracy": 0.23560926987291303
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 11171,
+        "mean_score": 0.8424131706940289,
+        "joint_root_triad_accuracy": 0.4100796705755975
+      },
+      {
+        "lower": 0.9,
+        "upper": 1.0,
+        "count": 3762,
+        "mean_score": 0.9688508884753034,
+        "joint_root_triad_accuracy": 0.311270600744285
+      }
+    ]
+  },
+  "e010": {
+    "status": "unavailable",
+    "reason": "Retained arrays contain decisions and boundary scores, not quality posterior; no inference rerun or fitting."
+  },
+  "interpretation": "Diagnostic confidence mismatch only. No score is a calibrated whole-chord probability. LV selected-triad support concerns joint root/triad, not suffix or bass correctness."
+}

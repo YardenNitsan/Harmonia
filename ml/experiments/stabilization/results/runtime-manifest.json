@@ -1,0 +1,45 @@
+{
+  "modelVersion": "lv-chordia-1.1.0-submission-native-v2",
+  "sourceHashes": {
+    "harmonia_ml\\inference\\whole_song.py": "dd0e8794d5e1e5b9ae57d1579a9902a6a776119dd6e341fc612c0523824348a0",
+    "harmonia_ml\\inference\\regions.py": "bc92d6356816f2d7f74d1b93bc4ced56c254f6ca8b834d25911db934a78add72",
+    "..\\scripts\\native-whole-song.py": "1bf5d2a693d0b154ed9dbb0c2ee1ea2e1b6c107971057b3d9a1ef71a3f14b2f6",
+    ".venv\\Lib\\site-packages\\lv_chordia\\data\\submission_chord_list.txt": "ac68a26e87242fc58c946d476028d4e8c8d12c9e707ced7020a4d7e31c794d7b"
+  },
+  "weights": {
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s0.best.sdict": "921b42d5d1cf9ce1c0c0e45a74d409b8066e0acec46058ef74e24ee0fb540761",
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s1.best.sdict": "bcb75859e0efa256696cf5da396b320093317b9b1d9560c304f46c25fe1f8b17",
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s2.best.sdict": "acddf85c3fff29954c4877021177d72e2cba9f729ce80c1010f054c477bf3f61",
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s3.best.sdict": "65d81a3ab73435aaaade586981b4cabdf57b8953d76052703e6968c32ef8421c",
+    "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s4.best.sdict": "5ff6b0ec85640e17a09a9b3de68c93fdd45adc24488e8fa9be5715c28d561122"
+  },
+  "packages": {
+    "lv-chordia": "1.1.0",
+    "torch": "2.11.0+cu128",
+    "librosa": "1.0.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "soundfile": "0.14.0",
+    "psutil": "7.2.2"
+  },
+  "protocol": {
+    "sampleRate": 22050,
+    "maxSamples": 26460000,
+    "maxStdoutBytes": 16777216,
+    "stdoutTrailingNewlineBytes": 1,
+    "cpuThreads": 2,
+    "gpu": false,
+    "minimumFreeRamBytes": 8589934592,
+    "refine": true
+  },
+  "validationSourcesUnchanged": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\refinement_gate.py": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\refinement-protocol.md": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\inference\\whole_song.py": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\inference\\regions.py": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\tests\\test_whole_song_inference.py": true
+  },
+  "historicalProtocolSnapshotSha256": "f9f2f28a7eee2d3debcd1c97e667cbeeb315acf4a484e27fab5ab05fd130ab1d",
+  "historicalBobRunnerSnapshotSha256": "6db9d88d1cc666a6172230ac2e06a57d8e44b426c298268132863f09c4d97818",
+  "note": "Production entry explicitly enables the validated candidate; frozen inference/region/test sources are byte-identical to validation. Human-facing comparison doc expanded after snapshot."
+}

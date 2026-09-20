@@ -106,6 +106,21 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 
 ## Execution ledger
 
+### Active continuation: recognition and progression stabilization
+
+Stabilization implementation is verified under `stabilization-plan.md` and ADR010.
+Exact Bob bytes now yield 67 regions (median 1.79 s), versus 1,052 (46 ms). Original
+native LV wins the fixed DSP/E010/LV comparison; no new training or ONNX promotion.
+Progression follows one authoritative index through playback/seeks/manual respite.
+Native hidden acceptance passes complete-timeline-before-playback, immutable late
+seek, centering and cache reuse: 10.802 s analysis, 11.363 s cached-audio preparation,
+0.111 s cached selection. See `stabilization-acceptance.md` for all metrics and
+explicit inversion/short-transition/rare-chord/runtime limits. 881 TS, 42 production
+E2E, 63 Rust and 147 Python tests pass. New-code static checks and optimized build
+pass; full-tree Ruff retains one historical SIM105 issue. No providers redesigned,
+locked tests opened or visible GUI launched. Stop after this checkpoint; broad
+recognition quality, portable runtime and final release remain open.
+
 ### Active continuation: free-first acquired-audio player
 
 Acquisition/player acceptance now passes; see `acquisition-acceptance.md` and its

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "scope": "Known configured local secret values; tracked worktree, staged blobs, frontend build and final executable. Earlier full-history audit retained; no new secret-bearing commit introduced.",
+  "trackedFiles": 581,
+  "stagedFiles": 85,
+  "noPersonalAudioOrWeightsStaged": true,
+  "runtimeSourceHashesMatch": true,
+  "ignoredLocalConfig": true,
+  "remainingUnrelatedUntrackedPreserved": true
+}

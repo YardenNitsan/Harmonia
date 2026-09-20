@@ -1,5 +1,20 @@
 # Known limitations and open acceptance gates
 
+Current stabilization materially reduces the exact Bob recording's oversegmentation
+(1,052 ? 67 regions) and fixes progression following. Native original LV improves
+same-dataset root/reduced exact, but remains inaccurate on many labelled examples.
+Boundary recall@50ms is 16.35%, exact inverted-bass accuracy 27.29%, and all four
+short-adjacent references are missed. Advanced/rare-harmony evidence is inadequate;
+9/11/13 recall cannot be measured on this validation set. No broad accuracy claim.
+
+Native v2 requires this repository's original Python/model runtime and 8 GiB
+available RAM; it is not yet a portable bundle or validated low-end deployment.
+Bob analysis is 10.802 s versus 1.416 s DSP; cached selection 0.111 s. Reliable
+meter/downbeats, sections and key-modulation labels remain absent. See
+[full current acceptance](stabilization-acceptance.md). Browser preview/legacy DSP
+retains its known weaknesses. Earlier acquisition and Commons-only limitations
+below are historical where superseded by ADR009/010.
+
 Current acquisition/player correction passes the automated flow in
 [acquisition acceptance](acquisition-acceptance.md): YouTube search selects exact
 recordings, native yt-dlp/private Cobalt acquire audio, the entire timeline completes

@@ -1,5 +1,20 @@
 # Harmonia product specification
 
+## Frozen stabilization requirement
+
+Preserve the acquisition/search/local-playback flow. A completed timeline must
+represent persistent musical regions, not frame-local bass or template flicker.
+Complex decorations and inversions require supporting component/temporal evidence;
+weak brief contradictions may merge only with corroborating surrounding/beat
+context. Strong short/offbeat changes must remain possible. Do not impose a
+song-specific progression or fixed chord-count/one-chord-per-measure rule.
+
+One authoritative `audio.currentTime` indexes the immutable segments. Hero neighbors,
+progression highlight and centered follow-scroll share that index for play, pause,
+resume, all seek controls and chord clicks. Brief manual exploration must not
+fight scrolling. Recognition never reruns during playback. Current measured
+implementation and limitations: [stabilization acceptance](stabilization-acceptance.md).
+
 Latest correction: **YouTube typeahead → native free-first audio acquisition →
 complete whole-song analysis → fixed timeline → local playback of those exact
 bytes**. Follow `acquisition-plan.md` and ADR009. yt-dlp is primary; self-hosted

@@ -142,6 +142,7 @@ export class BrowserAudioAnalysisService implements AudioAnalysisService {
     transfer: Transferable[],
     progress?: (stage: string, value: number) => void,
     result?: (message: unknown) => void,
+    request?: (message: { samples: Float32Array }) => Promise<unknown>,
   ): Promise<T> {
     return new Promise((resolve, reject) => {
       const cleanup = () => {
@@ -159,6 +160,18 @@ export class BrowserAudioAnalysisService implements AudioAnalysisService {
       }
       worker.onmessage = (event) => {
         const data = event.data;
+        if (data.kind === 'inference-request' && request) {
+          void request(data).then(
+            (value) => {
+              if (!signal.aborted) worker.postMessage({ kind: 'model-result', result: value });
+            },
+            (error) => {
+              cleanup();
+              reject(error instanceof Error ? error : new Error(String(error)));
+            },
+          );
+          return;
+        }
         if (data.kind === 'progress') {
           progress?.(data.stage, data.value);
           return;

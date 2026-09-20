@@ -18,6 +18,8 @@ fn main() {
         "audio_cancel",
         "audio_reject",
         "audio_diagnostics",
+        "recognition_run",
+        "recognition_cancel",
     ];
     let output_directory = env::var_os("OUT_DIR").expect("Cargo did not set OUT_DIR");
     let icon_path = std::path::PathBuf::from(output_directory).join("harmonia.ico");

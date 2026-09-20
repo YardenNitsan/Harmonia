@@ -1,0 +1,14 @@
+{
+  "compositions": [
+    2,
+    3
+  ],
+  "sources": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\refinement_gate.py": "1ed660667b06648543a2273c20b8568fab727b25124a2625494196b81d886c8b",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\refinement-protocol.md": "7f0b8a32b060b7d7724092fd0d3611b2ed688495e4b0d4d9db31e0be5983dd23",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\inference\\whole_song.py": "c2c16bfbc055ad001558365ee7f687e543df11250b1807ac7f4413e48bb2a107",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\inference\\regions.py": "d6e96592d971decb9b9c0f2895a39fe7c369a3dc69d85383b43c3719060670cd",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\tests\\test_whole_song_inference.py": "7c8065e2a327948695025ac016a9a8fc88f3ab75f74109bcb8ec62ed567c6254"
+  },
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d"
+}

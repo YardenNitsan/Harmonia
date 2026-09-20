@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { LocalPlayback } from '../../../../packages/application/contracts';
 export function usePlaybackClock(player: LocalPlayback) {
-  const [time, setTime] = useState(0),
-    [playing, setPlaying] = useState(false);
+  const [time, setTime] = useState(player.position),
+    [playing, setPlaying] = useState(player.playing),
+    [seekRevision, setSeekRevision] = useState(0);
   useEffect(() => {
     let frame = 0,
       last = 0;
@@ -19,10 +20,13 @@ export function usePlaybackClock(player: LocalPlayback) {
   }, [player]);
   const seek = useCallback(
     (seconds: number) => {
-      player.seek(seconds);
-      setTime(seconds);
+      // Media clocks resolve to microseconds. Round forwards so a chord-boundary
+      // seek cannot land a fraction of a microsecond in the preceding segment.
+      player.seek(Math.ceil(seconds * 1_000_000) / 1_000_000);
+      setTime(player.position);
+      setSeekRevision((revision) => revision + 1);
     },
     [player],
   );
-  return { time, playing, seek };
+  return { time, playing, seek, seekRevision };
 }

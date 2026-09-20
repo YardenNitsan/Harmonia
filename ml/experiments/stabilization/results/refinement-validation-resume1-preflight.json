@@ -1,0 +1,18 @@
+{
+  "compositions": [
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "sources": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\refinement_gate.py": "a1d6e4ce00e430ba81036c517d08dc765b14b2ac48e8f96f53342c0a3adb1414",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\refinement-protocol.md": "7f0b8a32b060b7d7724092fd0d3611b2ed688495e4b0d4d9db31e0be5983dd23",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\inference\\whole_song.py": "dd0e8794d5e1e5b9ae57d1579a9902a6a776119dd6e341fc612c0523824348a0",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\inference\\regions.py": "bc92d6356816f2d7f74d1b93bc4ced56c254f6ca8b834d25911db934a78add72",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\tests\\test_whole_song_inference.py": "eb4102a5f04370f6416fc6b025f34ef7148bfa9d75046c2a6c77a3f476dd28b7"
+  },
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "continuation_reason": "Correct final-clamped-end formatting parity check; reuse completed 14/15."
+}

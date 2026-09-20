@@ -1,5 +1,21 @@
 # Architecture
 
+## Current native whole-song recognition (ADR010)
+
+The product flow below remains frozen. Native primary and whole-song file analysis
+now decode once, prepare mono 22.05 kHz PCM in the worker, call a bounded native
+original LV-Chordia CPU runtime, and assemble its complete contextual regions
+before freezing the playback snapshot. Automatic-tuning CQT, five bidirectional
+models and a joint HMM replace flat DSP templates and post-decoder frame-local
+bass. Conservative beat-supported evidence refinement preserves strong changes.
+Playback has one clock/index for Current/Previous/Next and the following strip.
+Manual strip exploration pauses following briefly; explicit seeking resumes it.
+
+See [ADR010](adr/010-native-whole-song-regions.md) for boundaries, cancellation,
+resource bounds, model/cache versions, runtime dependency and evidence tradeoffs.
+Browser preview/earlier DSP profiles are retained. The original LV ONNX parity
+failure is unchanged; no unverified export or new training was promoted.
+
 ## Exact acquired-audio playback (ADR009, current)
 
 YouTube provides native-configured search and exact video identity. The native

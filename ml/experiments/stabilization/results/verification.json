@@ -1,0 +1,28 @@
+{
+  "python_tests": {
+    "command": ".venv/Scripts/python.exe -m pytest -q",
+    "passed": 147,
+    "warnings": 28,
+    "seconds": 27.15
+  },
+  "new_scoped_tests": 21,
+  "ruff_scoped": "passed",
+  "ruff_full": {
+    "status": "preexisting_failure",
+    "file": "experiments/e010_wasm_reference.py",
+    "line": 287,
+    "rule": "SIM105"
+  },
+  "ruff_format_full": {
+    "status": "passed",
+    "files": 93
+  },
+  "native_silence_smoke": {
+    "samples": 64,
+    "sample_rate": 22050,
+    "regions": 1,
+    "label": "N",
+    "end": 0.0029024943310657597
+  },
+  "frozen_source_identity": "runtime-manifest.json records all selected inference/region/test sources unchanged"
+}

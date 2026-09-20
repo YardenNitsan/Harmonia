@@ -1,5 +1,15 @@
 # Harmonia: incomplete engineering checkpoint
 
+Latest checkpoint: **recognition and progression stabilization**. The final hidden
+Windows Bob workflow passes: 1,052 regions become 67, current/neighbor/progression
+views agree and follow playback/seeks, no timeline mutates during listening, cache
+selection takes 0.111 s. Native original LV improves labelled reduced exact from
+6.17% DSP to 39.86%; full analysis takes 10.802 s on this recording. See
+[before/after, checks, executable and explicit limits](stabilization-acceptance.md).
+Original Python/model runtime is a current deployment dependency. Short transitions,
+inversions, rare harmony and broader release gates remain open. The reports below
+are historical; their DSP-default/no-Python statements do not describe native v2.
+
 Latest checkpoint (2026-09-21): **free-first acquired-audio player**. The actual
 YouTube typeahead → yt-dlp acquisition → full analysis → frozen timeline → local
 playback/cache path passes hidden Windows acceptance. Private Cobalt fallback is

@@ -1,0 +1,176 @@
+{
+  "composition": 16,
+  "labels": [
+    {
+      "start_time": 0.0,
+      "end_time": 2.9,
+      "chord": "N"
+    },
+    {
+      "start_time": 2.9,
+      "end_time": 16.11,
+      "chord": "A:7"
+    },
+    {
+      "start_time": 16.11,
+      "end_time": 19.34,
+      "chord": "D:7"
+    },
+    {
+      "start_time": 19.34,
+      "end_time": 57.35,
+      "chord": "N"
+    },
+    {
+      "start_time": 57.35,
+      "end_time": 57.98,
+      "chord": "F:maj"
+    },
+    {
+      "start_time": 57.98,
+      "end_time": 59.12,
+      "chord": "D:min"
+    },
+    {
+      "start_time": 59.12,
+      "end_time": 64.48,
+      "chord": "N"
+    },
+    {
+      "start_time": 64.48,
+      "end_time": 65.9,
+      "chord": "D:min"
+    },
+    {
+      "start_time": 65.9,
+      "end_time": 67.43,
+      "chord": "A:maj"
+    },
+    {
+      "start_time": 67.43,
+      "end_time": 70.1,
+      "chord": "D:min"
+    },
+    {
+      "start_time": 70.1,
+      "end_time": 71.17,
+      "chord": "A:maj"
+    },
+    {
+      "start_time": 71.17,
+      "end_time": 76.12,
+      "chord": "D:min"
+    },
+    {
+      "start_time": 76.12,
+      "end_time": 79.97,
+      "chord": "A:maj"
+    },
+    {
+      "start_time": 79.97,
+      "end_time": 80.81,
+      "chord": "D:maj"
+    },
+    {
+      "start_time": 80.81,
+      "end_time": 84.64,
+      "chord": "D:maj/3"
+    },
+    {
+      "start_time": 84.64,
+      "end_time": 89.54,
+      "chord": "G:maj"
+    },
+    {
+      "start_time": 89.54,
+      "end_time": 91.0,
+      "chord": "D:maj"
+    },
+    {
+      "start_time": 91.0,
+      "end_time": 92.86,
+      "chord": "A:maj"
+    },
+    {
+      "start_time": 92.86,
+      "end_time": 93.92,
+      "chord": "E:min"
+    },
+    {
+      "start_time": 93.92,
+      "end_time": 96.87,
+      "chord": "D:maj"
+    },
+    {
+      "start_time": 96.87,
+      "end_time": 100.94,
+      "chord": "D:maj/3"
+    },
+    {
+      "start_time": 100.94,
+      "end_time": 104.75,
+      "chord": "G:maj"
+    },
+    {
+      "start_time": 104.75,
+      "end_time": 106.77,
+      "chord": "N"
+    },
+    {
+      "start_time": 106.77,
+      "end_time": 109.44,
+      "chord": "D:maj"
+    },
+    {
+      "start_time": 109.44,
+      "end_time": 114.94,
+      "chord": "N"
+    },
+    {
+      "start_time": 114.94,
+      "end_time": 119.84,
+      "chord": "D:maj"
+    },
+    {
+      "start_time": 119.84,
+      "end_time": 125.88,
+      "chord": "D:7"
+    },
+    {
+      "start_time": 125.88,
+      "end_time": 127.45,
+      "chord": "G:maj"
+    },
+    {
+      "start_time": 127.45,
+      "end_time": 128.59,
+      "chord": "G:min"
+    },
+    {
+      "start_time": 128.59,
+      "end_time": 131.4,
+      "chord": "D:maj"
+    },
+    {
+      "start_time": 131.4,
+      "end_time": 138.51,
+      "chord": "N"
+    }
+  ],
+  "timings": {
+    "decode_and_cqt_seconds": 0.39870170000358485,
+    "five_network_inference_seconds": 4.415061300009256,
+    "hmm_seconds": 0.11074469998129643
+  },
+  "total_seconds": 4.990216199978022,
+  "before": {
+    "rss_bytes": 1359200256,
+    "peak_working_set_bytes": 1540063232,
+    "available_bytes": 12780224512
+  },
+  "after": {
+    "rss_bytes": 1380904960,
+    "peak_working_set_bytes": 1556336640,
+    "available_bytes": 12641751040
+  }
+}

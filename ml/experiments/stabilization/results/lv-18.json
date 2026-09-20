@@ -1,0 +1,91 @@
+{
+  "composition": 18,
+  "labels": [
+    {
+      "start_time": 0.0,
+      "end_time": 5.34,
+      "chord": "N"
+    },
+    {
+      "start_time": 5.34,
+      "end_time": 8.92,
+      "chord": "D:min"
+    },
+    {
+      "start_time": 8.92,
+      "end_time": 15.95,
+      "chord": "N"
+    },
+    {
+      "start_time": 15.95,
+      "end_time": 19.23,
+      "chord": "D:min"
+    },
+    {
+      "start_time": 19.23,
+      "end_time": 31.63,
+      "chord": "Bb:maj"
+    },
+    {
+      "start_time": 31.63,
+      "end_time": 33.41,
+      "chord": "A:maj"
+    },
+    {
+      "start_time": 33.41,
+      "end_time": 34.27,
+      "chord": "A:dim"
+    },
+    {
+      "start_time": 34.27,
+      "end_time": 36.27,
+      "chord": "Eb:dim"
+    },
+    {
+      "start_time": 36.27,
+      "end_time": 36.69,
+      "chord": "D:maj"
+    },
+    {
+      "start_time": 36.69,
+      "end_time": 38.82,
+      "chord": "A:maj/3"
+    },
+    {
+      "start_time": 38.82,
+      "end_time": 40.33,
+      "chord": "D:maj"
+    },
+    {
+      "start_time": 40.33,
+      "end_time": 41.01,
+      "chord": "Ab:dim"
+    },
+    {
+      "start_time": 41.01,
+      "end_time": 43.07,
+      "chord": "D:min"
+    },
+    {
+      "start_time": 43.07,
+      "end_time": 47.67,
+      "chord": "N"
+    }
+  ],
+  "timings": {
+    "decode_and_cqt_seconds": 0.15785150000010617,
+    "five_network_inference_seconds": 1.5040577999607194,
+    "hmm_seconds": 0.0373156999994535
+  },
+  "total_seconds": 1.7570680999779142,
+  "before": {
+    "rss_bytes": 1461817344,
+    "peak_working_set_bytes": 1658617856,
+    "available_bytes": 13470412800
+  },
+  "after": {
+    "rss_bytes": 1460756480,
+    "peak_working_set_bytes": 1658617856,
+    "available_bytes": 13482340352
+  }
+}

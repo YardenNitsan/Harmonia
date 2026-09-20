@@ -1,5 +1,19 @@
 # Evaluation evidence
 
+## Latest stabilization: original native LV, not ONNX or new training
+
+The fixed HU33 validation comparison selects native original LV-Chordia over
+retained E010 and whole-song DSP: root 62.66% / reduced exact 39.86%, versus DSP
+42.81% / 6.17%. Full-precision production boundary F1@50ms is 0.19283; short
+transition and inversion recall remain weak. The separate beat-supported transient
+guard changes no decisions on the frozen validation and is not credited with an
+accuracy gain. Bob's identical audio yields 67 regions instead of 1,052.
+
+See [complete comparison and class limitations](stabilization-model-comparison.md),
+[actual Windows flow/timing](stabilization-acceptance.md), and ADR010. No new fits,
+locked-test access, rewritten historical reports or relaxed ONNX parity tolerances.
+Later historical statements about unchanged production refer to those experiments.
+
 ## Latest continuation studies
 
 E010 is a separate predicted-root quality cascade fitted on HU33 training only,

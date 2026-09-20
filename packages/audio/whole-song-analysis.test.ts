@@ -3,6 +3,7 @@ import { WholeSongAnalysisService } from './whole-song-analysis';
 import { BrowserAudioAnalysisService } from './browser-analysis';
 import { analyzeWholeSongFeatures } from './whole-pipeline';
 import { extractFeatures } from './features';
+import { NATIVE_MODEL_VERSION, NATIVE_PIPELINE_VERSION } from './native-whole';
 
 class WorkerHarness {
   static latest: WorkerHarness | undefined;
@@ -34,6 +35,67 @@ class DecodedService extends WholeSongAnalysisService {
 afterEach(() => {
   vi.unstubAllGlobals();
   WorkerHarness.latest = undefined;
+});
+
+it('native model preparation has a distinct cache identity and cancellation rejects late inference', async () => {
+  vi.stubGlobal('Worker', WorkerHarness);
+  let finish!: (value: unknown) => void;
+  const recognize = vi.fn(
+    (_samples: Float32Array, _signal: AbortSignal) =>
+      new Promise<unknown>((resolve) => {
+        finish = resolve;
+      }),
+  );
+  const service = new DecodedService({ recognize });
+  expect(service.pipelineVersion).toBe(NATIVE_PIPELINE_VERSION);
+  expect(service.modelVersion('balanced')).toBe(NATIVE_MODEL_VERSION);
+  const abort = new AbortController();
+  const promise = service.analyze(
+    new File([], 'song.wav'),
+    'fixture',
+    'balanced',
+    abort.signal,
+    () => {},
+  );
+  const rejected = expect(promise).rejects.toMatchObject({ name: 'AbortError' });
+  await Promise.resolve();
+  const worker = WorkerHarness.latest!;
+  worker.onmessage!({
+    data: { kind: 'inference-request', samples: new Float32Array(22050) },
+  } as MessageEvent);
+  expect(worker.terminated).toBe(false);
+  expect(recognize).toHaveBeenCalledOnce();
+  abort.abort();
+  await rejected;
+  expect(recognize.mock.calls[0][1].aborted).toBe(true);
+  finish({ schemaVersion: 1 });
+  await Promise.resolve();
+  expect(worker.message).not.toHaveProperty('kind', 'model-result');
+  expect(worker.terminated).toBe(true);
+});
+
+it('a failed assembly worker cancels its still-running native inference', async () => {
+  vi.stubGlobal('Worker', WorkerHarness);
+  const recognize = vi.fn(
+    (_samples: Float32Array, _signal: AbortSignal) => new Promise<unknown>(() => {}),
+  );
+  const service = new DecodedService({ recognize });
+  const promise = service.analyze(
+    new File([], 'song.wav'),
+    'fixture',
+    'balanced',
+    new AbortController().signal,
+    () => {},
+  );
+  const rejected = expect(promise).rejects.toThrow('worker stopped');
+  await Promise.resolve();
+  const worker = WorkerHarness.latest!;
+  worker.onmessage!({
+    data: { kind: 'inference-request', samples: new Float32Array(22050) },
+  } as MessageEvent);
+  worker.onerror!();
+  await rejected;
+  expect(recognize.mock.calls[0][1].aborted).toBe(true);
 });
 
 it('rejects decodable wrong-duration acquired audio before starting recognition', async () => {

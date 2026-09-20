@@ -3,7 +3,13 @@ import type { Analysis, AnalysisProfile } from '../domain/types';
 import { WHOLE_SONG_MODEL_VERSION, WHOLE_SONG_PIPELINE_VERSION } from './whole-pipeline';
 import { AudioInputError } from './input-error';
 import type { WholeSongTimings, WholeWorkerTimings } from './whole-timings';
+import type { WholeSongRecognizer } from '../application/whole-song-recognizer';
+import { NATIVE_MODEL_VERSION, NATIVE_PIPELINE_VERSION } from './native-whole';
 export class WholeSongAnalysisService extends BrowserAudioAnalysisService {
+  constructor(private readonly native?: WholeSongRecognizer) {
+    super();
+    this.pipelineVersion = native ? NATIVE_PIPELINE_VERSION : WHOLE_SONG_PIPELINE_VERSION;
+  }
   private expectedDurations = new WeakMap<File, number>();
   expectDuration(file: File, duration: number | null): void {
     if (duration === null) {
@@ -18,10 +24,10 @@ export class WholeSongAnalysisService extends BrowserAudioAnalysisService {
   get lastTimings(): Readonly<WholeSongTimings> | null {
     return this.timings;
   }
-  override readonly pipelineVersion = WHOLE_SONG_PIPELINE_VERSION;
+  override readonly pipelineVersion: string;
   override modelVersion(_profile: AnalysisProfile): string {
     void _profile;
-    return WHOLE_SONG_MODEL_VERSION;
+    return this.native ? NATIVE_MODEL_VERSION : WHOLE_SONG_MODEL_VERSION;
   }
   override async analyze(
     file: File,
@@ -62,6 +68,7 @@ export class WholeSongAnalysisService extends BrowserAudioAnalysisService {
     const worker = new Worker(new URL('./whole-song-worker.ts', import.meta.url), {
       type: 'module',
     });
+    const inferenceAbort = new AbortController();
     return this.runWorker<Analysis>(
       worker,
       signal,
@@ -70,6 +77,7 @@ export class WholeSongAnalysisService extends BrowserAudioAnalysisService {
         sampleRate: decoded.sampleRate,
         fingerprint,
         profile,
+        native: Boolean(this.native),
       },
       channels.map((channel) => channel.buffer),
       progress,
@@ -89,6 +97,12 @@ export class WholeSongAnalysisService extends BrowserAudioAnalysisService {
           });
         }
       },
-    );
+      this.native
+        ? async ({ samples }) => {
+            progress('Recognizing complete-song harmony', 0.35);
+            return this.native!.recognize(samples, inferenceAbort.signal);
+          }
+        : undefined,
+    ).finally(() => inferenceAbort.abort());
   }
 }

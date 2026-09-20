@@ -1,0 +1,11 @@
+{
+  "runner_sha256": "9a0f67017ad7b11bc8d74477452fc93bce3cd897d100490f030d66773985c667",
+  "protocol": "10 equal bins [0,.1)...[.9,1], same five valid frame masks; binary Brier of correct joint root+triad event; no calibration fitting",
+  "head_sha256": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-14-heads.npz": "d741b2d6ad9f6e50f0b6401b0c32c3d82a30fa58ad1b0f8c7f61ab081cb5d9a9",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-15-heads.npz": "2a9acbfb8e5e001205bf76ee232eb9fd1c7d6dc78caa0ec162ecf61cb4d8f733",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-16-heads.npz": "1e7fd8c42af3081a9d5fbbf3df3fc40f3202f58250013d46a2787a329b7c93b8",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-17-heads.npz": "ac26b6dffb43440b8a17abaa86ff7197ac5e308ceef5873d749c077496e97f42",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-18-heads.npz": "6ea52d4257db159771144bab36b2a0fb68cca020ee5fdc5b7f65bfd3b06d1ede"
+  }
+}

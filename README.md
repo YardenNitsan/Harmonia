@@ -1,5 +1,13 @@
 # Harmonia
 
+The native stabilization build now uses original LV-Chordia whole-song inference
+and a progression strip that follows playback and seeks. The exact Bob Dylan
+regression drops from 1,052 regions to 67; labelled reduced exact improves from
+6.17% to 39.86%. Recognition remains imperfect, especially short changes/inversions.
+See [before/after, timings, executable and checks](docs/stabilization-acceptance.md).
+Native inference currently depends on this checkout's Python environment, pinned
+local weights and 8 GiB available RAM; browser preview retains the older DSP.
+
 A music player with whole-song chord analysis for Windows. **Recognition accuracy
 is not established.** Search & Analyze is primary: real YouTube typeahead, native
 free-first audio acquisition, complete analysis before automatic local playback,

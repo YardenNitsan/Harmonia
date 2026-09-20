@@ -18,6 +18,8 @@
     "allow-audio-read",
     "allow-audio-cancel",
     "allow-audio-reject",
-    "allow-audio-diagnostics"
+    "allow-audio-diagnostics",
+    "allow-recognition-run",
+    "allow-recognition-cancel"
   ]
 }

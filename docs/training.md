@@ -1,5 +1,18 @@
 # Reproducible ML workflow
 
+## Stabilization runtime, without training
+
+Native primary whole-song analysis now uses the existing audited original
+LV-Chordia 1.1.0 five-model CPU runtime under ADR010. No model was trained or
+refitted; E010 and all prior experiment artifacts remain intact. Frozen comparison,
+refinement and source/weight/runtime hashes are in `ml/experiments/stabilization/`.
+Use `scripts/native-whole-song.py --samples N` only through the bounded native
+adapter or documented diagnostic harness: stdin is exact float32LE mono 22.05 kHz
+PCM, not an encoded file. Original CQT/full-song normalization/HMM are preserved.
+Failed ONNX export gates remain failed. The native checkpoint depends on the local
+Python environment; browser/legacy profiles retain their existing inference path.
+See [evidence and deployment limits](stabilization-acceptance.md).
+
 Commands run from `ml/` with `.venv/Scripts/python.exe`; no system Python
 packages are modified. `requirements-lock-win-py313.txt` captures the tested
 Windows Python 3.13 environment. Install the recorded Torch CUDA build from
