@@ -106,4 +106,9 @@ Source/version: [Fraunhofer guitar dataset](https://www.idmt.fraunhofer.de/en/pu
 
 The raw MIT licenses in the [original repository](https://raw.githubusercontent.com/music-x-lab/ISMIR2019-Large-Vocabulary-Chord-Recognition/master/LICENSE) and [LV-Chordia](https://raw.githubusercontent.com/openmirlab/lv-chordia/master/LICENSE) were read on the audit date; both attribute Music X Lab (2023). No separate checkpoint restriction was identified in these inspected repositories. This is the evidence for the acquisition/inference decision, not a warranty of training-corpus rights.
 
-No dataset download, model execution, accuracy score, or trained checkpoint is established by this research document. Actual acquisitions and runs belong in the experiment registry and final report.
+This initial research inventory does not itself establish acquisition or model
+quality. Actual acquisitions and runs belong in the experiment registry and final
+report. The subsequent [real-recording follow-up](2026-09-20-real-recording-followup.md)
+records three further candidates and a verified five-file isolated-guitar pilot.
+That pilot remains inspection-only because aligned timing/bass labels and broader
+recording provenance are unresolved; its published Test partition was untouched.

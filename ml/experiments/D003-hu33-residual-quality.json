@@ -1,0 +1,29 @@
+{
+  "study_id": "D003-hu33-residual-quality",
+  "manifest": "data/prepared/winterreise-hu33-v1/manifest.json",
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "control_report": "experiments/results/D001-hu33-root-relative-probe/report.json",
+  "control_report_sha256": "1817b6420faa1ce57d56c918f2b22d95e12741d335c70a54aa004e1542439e72",
+  "protocol": "experiments/D003-hu33-residual-quality-protocol.md",
+  "output": "experiments/results/D003-hu33-residual-quality",
+  "checkpoint_dir": "checkpoints/D003-hu33-residual-quality",
+  "folds": [
+    [2, 6, 10],
+    [3, 7, 11],
+    [4, 8, 12],
+    [5, 9, 13]
+  ],
+  "seed": 20260920,
+  "hidden_units": 16,
+  "residual_l2": 0.0001,
+  "max_iterations": 500,
+  "max_evaluations": 625,
+  "convergence_gradient_infinity_max": 0.00001,
+  "minimum_major_recall_gain": 0.03,
+  "maximum_minor_recall_loss": 0.02,
+  "maximum_diminished_recall_loss": 0.02,
+  "minimum_macro_recall_gain": 0.005,
+  "minimum_accuracy_gain": 0.0,
+  "minimum_available_ram_bytes": 8589934592,
+  "watchdog_seconds": 600
+}

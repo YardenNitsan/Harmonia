@@ -1,0 +1,36 @@
+{
+  "study_id": "E010-onnx-cascade",
+  "status": "passed_cpu_parity_only",
+  "recommended_default": false,
+  "artifact": {
+    "path": "artifacts\\E010-onnx-cascade\\model.onnx",
+    "sha256": "f1fd6e356463fbb3387ca680ec705130ca73bbeffdb880de26028e239a8d561f",
+    "bytes": 447455
+  },
+  "outputs": [
+    "root",
+    "baseline_triad",
+    "seventh",
+    "bass",
+    "extensions",
+    "boundary",
+    "quality_logits",
+    "triad_decision"
+  ],
+  "input": {
+    "dtype": "float32",
+    "shape": [
+      1,
+      "frames",
+      26
+    ],
+    "normalization": "embedded"
+  },
+  "quality_dtype": "float64",
+  "triad_decision_dtype": "int64",
+  "semantics": "Explicit cascade adapter required; baseline_triad is NOT final triad. Raw scores uncalibrated.",
+  "receptive_field_frames": 127,
+  "chunking_verified": false,
+  "browser_verified": false,
+  "report_sha256": "f3a27e223f310b02af17baca7ace6fd84e44ea42c1283b0b7d6d4504b13cd263"
+}

@@ -35,6 +35,28 @@ global shortcuts, named editor dialog, initial focus, focus containment, Escape
 and focus restoration. Notation and Harte timeline export are exercised against
 the original canonical chords even while the display is transposed.
 
+Atomic correction flows cover both bounds, neighboring history, blank/invalid
+input, first/last gaps, original-pitch editing under display transposition, reload
+and live loop updates. The hidden native smoke additionally verifies both bounds
+and all affected history in actual SQLite, including restoration after restart.
+
+`tests/e2e/feature-cache.spec.ts` exercises actual OPFS reuse across profiles and
+reload, exact E004 output parity, corrupt payload recomputation, and termination
+of a lock-owning worker followed by orphan reclamation. The hidden native smoke
+also verifies payload bytes/checksums and reuse across a native process restart.
+
+`node scripts/youtube-provider-probe.mjs` tests the real injected adapter with the
+official public IFrame SDK in an isolated headless browser. It verifies trusted-click
+playback, advancing clock, pause, seek and disposal; its report retains source
+hashes, errors and cleanup. It establishes neither native-shell connection nor
+audible-output acceptance and never accesses Harmonia IPC/library data.
+
+`node scripts/youtube-native-probe.mjs` repeats adapter control checks inside an
+isolated hidden native WebView and verifies that remote-origin database commands
+are rejected by ACL. It uses `scripts/hidden-native-harness.mjs` for guarded hidden
+startup and cleanup. This is temporary diagnostic navigation, not a shipped
+provider connection or permission change.
+
 Screenshots/metrics live in `docs/review-evidence/`. Acoustic fixtures are numerical and
 interaction evidence, not a real-song benchmark. Frozen real-audio ML reports are in
 `ml/experiments/results/`; do not rerun test-guided model selection. Browser/native

@@ -120,20 +120,67 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 - [ ] Resolve LV-Chordia real-recording logit parity (second E006 validation recording, network0,1531frames) and network1/8192 before production acceptance; no arbitrary chunking or tolerance relaxation.
 - [ ] Port/verify CQT, tuning/resampling and original ensemble/HMM production preprocessing, then measure complete CPU pipeline resources and real-song quality.
 - [x] Finish fresh no-cache native build, rerun hidden smoke, update artifact identities, and save the verified checkpoint locally.
+- [x] Save checkpoint `d379b93`; isolate remaining real-audio export error across native PyTorch, export-copy PyTorch and ONNX layers without relaxing acceptance.
+- [x] Complete atomic manual chord/start/end correction, including neighboring histories, persistence failure recovery and transposed-display editing.
+- [x] Finish separate D001 train-only root-relative diagnostic; its oracle roots cannot establish deployable accuracy or authorize promotion.
+- [x] Run frozen E010 predicted-root quality cascade once: validation macro recall20.25%→27.02%, reduced exact19.81%→25.41%; minor recall53.53%. Research gates pass, majority/wrong-root regressions remain; no product promotion.
+- [x] Export the exact E010 cascade as a separate research artifact: all ten CPU parity cases pass, including every retained validation decision; no production change.
+- [ ] Verify E010's exact float64 cascade in browser WASM under a separately frozen runtime protocol; preserve full-sequence context and retained predictions.
+- [x] Complete D002 training-only relative-bass diagnostic: all eight fits converge, but all three signal/tradeoff gates fail. No predicted-root bass experiment follows from this result.
+- [ ] Run separately frozen D003 training-only nonlinear quality diagnostic to test major-recall recovery while guarding minor/diminished recall; reuse completed D001 controls.
+- [x] Complete B001's paired browser-DSP validation once; boundary F1 improves but short-transition misses increase0→1, so retain the production baseline.
+- [x] Test all-convolution float64 accumulation for the retained LV failure; logit violations remain29/2/15 (triad/bass/ninth). Preserve failed evidence and unchanged tolerances.
+- [x] Isolate SELU cancellation on constructed fixtures and test only that arithmetic change on the retained LV recording; logit violations remain29/2/15. Retain CQT/native references for future investigations.
+- [ ] Integrate independent boundary candidates and measured split/merge refinement; current novelty scores do not drive segmentation.
+- [x] Add reusable worker-owned OPFS feature caching with bounded cleanup, deadlines and integrity checks; verify cross-profile/restart reuse and corruption/cancellation recovery in production browser and hidden native flows.
 
-Current ownership: parent reclaimed all remaining work after delegated workers stopped;
+Current ownership: parent integrates verification and release records; bounded agents
+verify E010 WASM, implement D003 training-only quality research, and verify the
+isolated provider message bridge. D002 is complete and rejected by its guards.
+B001 is finished and rejected by its mandatory short-transition guard.
+Do not rerun E010 or B001. The five-file inspection pilot is complete;
+its missing aligned labels/provenance keep it out of training.
 HU33 preparation, E007–E009 training/evaluation and export research artifacts are saved.
 Do not redispatch completed experiments or repeat acquisition. Desktop GUI must remain
 closed throughout. Existing E004 artifacts/test results are immutable.
 
-Continuation evidence: 575 TS tests; 73 Python tests; 14 Rust tests; TypeScript/lint,
-Python Ruff/dependency consistency and Rust fmt/clippy. Production browser21/21 includes
+Continuation evidence: 736 TS tests including46 new provider-bridge checks; 98 Python tests plus the later scoped B001
+mask regression and LV convolution checks; 14 Rust tests;
+TypeScript/lint, Python Ruff/dependency consistency and Rust fmt/clippy.
+Production browser25/25 includes
 new notation/Harte export, named dialog focus/Tab/Escape restoration, keyboard/high-DPI/
 reduced-motion and fast/experimental CPU-throttle campaigns. Actual weak hardware is
 still unavailable. The fresh-target baseline native build and final incremental
 integration build both passed; final hidden smoke passed and cleaned resources.
-Source/executable/installer hashes: `docs/review-evidence/release-continuation.json`.
+Source/executable/installer hashes in `docs/review-evidence/release-continuation.json`
+await refresh for this new snapshot; the prior checkpoint identities remain historical.
 This does not verify signed or clean-machine installation.
+
+The atomic timing follow-up verifies first/last bounds, adjacent histories, blank
+and invalid values, transposed-display source editing, persisted reopening and a
+real loop following both edited bounds. Uncovered spans display no harmonic label,
+with gap-aware previous/next navigation. The latest hidden native smoke verifies
+the whole corrected timeline and its history in SQLite after process restart.
+The smoke harness initially supplied a noncanonical decimal to a range input;
+its representable seek value was corrected and the complete smoke then passed.
+
+The subsequent OPFS follow-up passed a rebuilt native executable/NSIS and hidden
+smoke with actual feature checksums, reuse across fast/accurate profiles, and reuse
+after process restart. Production browser25/25 also covers interrupted writer lock
+release, orphan reclamation and corrupt feature recomputation. ADR 004 records the
+resource/deadline contract. The standalone B001 strategy has31 behavioral tests;
+its production default remains gated on the predeclared real-validation comparison.
+The injected YouTube adapter has50 tests and passed an isolated official-SDK live
+play/pause/seek/dispose probe; it is not connected to the privileged app page.
+Its bounded proxy/endpoint message bridge now has46 additional tests. Real
+cross-origin browser bridge verification is in progress; the current production
+CSP intentionally does not permit the remote iframe.
+
+Read-only release environment inventory: Windows 11 Home, Core Ultra 7 265KF,
+about32GiB RAM; no discoverable Sandbox/VirtualBox/VMware/Hyper-V command and no
+code-signing certificates in the two personal certificate stores. No host settings
+were changed. See `docs/review-evidence/release-environment.json` and the specific
+local versus external gates in `docs/release-gates.md`.
 
 Post-implementation review found and closed source-pair swapping in HU33 validation,
 volume slider state after replacing a track, and timeline export visibility at
@@ -147,6 +194,13 @@ minor recall0.34% and inversion exact1.75% remain inadequate. It is research-onl
 LV procedural tests pass; the retained real-audio research probe deliberately remains
 a failing acceptance check (28/111763 triad logits on second validation recording).
 No legitimate failure was disabled and no model/test freeze was repurposed.
+
+D001 completed separately on training-only composition folds. Oracle-root-relative
+features improve pooled triad macro recall24.87%→45.21%, minor24.58%→69.92%, with all
+eight fits satisfying the predeclared gradient criterion. It supports further
+representation research, not deployable quality; validation/test arrays stayed
+closed. Parent independently reverified source/protocol/config/training/checkpoint
+hashes. See `docs/data/hu33-representation-diagnostic.md`.
 
 Ruling: retain mixed-precision LV normalization only as measured export research;
 passing short procedural/browser fixtures does not authorize production integration.

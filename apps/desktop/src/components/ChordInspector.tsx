@@ -15,14 +15,14 @@ export const ChordInspector = memo(function ChordInspector({
   onSelectChord,
 }: ChordInspectorProps) {
   const [instrument, setInstrument] = useState<'piano' | 'guitar'>('piano');
-  const chord = segment?.chord ?? { kind: 'none' as const };
+  const chord = segment?.chord ?? { kind: 'unknown' as const };
   return (
     <aside className="inspector" aria-label="Harmony inspector">
       <div className="section-heading">
         <span className="eyebrow">INSIDE THE CHORD</span>
-        <span className="small-index">{String(Math.max(1, index + 1)).padStart(2, '0')}</span>
+        <span className="small-index">{segment ? String(index + 1).padStart(2, '0') : '—'}</span>
       </div>
-      <h2>{formatChord(chord)}</h2>
+      <h2>{segment ? formatChord(chord) : '—'}</h2>
       <p className="chord-description">
         {chord.kind === 'chord'
           ? `${chord.triad} · ${chord.seventh ? `${chord.seventh} seventh` : 'triad'}`

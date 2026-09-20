@@ -51,6 +51,9 @@ def test_installed_first_network_exports_dynamic_raw_heads(tmp_path: Path) -> No
 
     torch.set_num_threads(2)
     model, session, metadata = export_network(0, tmp_path / "s0.onnx")
+    assert metadata["checkpoint_name"] == (
+        "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s0.best.sdict"
+    )
     # Long spatial reductions exposed drift hidden by the short export fixture.
     for frames in (1, 17, 65, 2048, 8192):
         report = compare_network(model, session, cqt_fixture(frames), repeats=1)

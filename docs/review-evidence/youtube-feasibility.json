@@ -1,0 +1,44 @@
+{
+  "purpose": "Isolated official public IFrame playback feasibility; no Harmonia IPC, user library, credentials or analysis",
+  "video": "M7lc1UVf-VE",
+  "source": "Official IFrame API documentation sample",
+  "started_at": "2026-09-20T12:10:51.273Z",
+  "passed": true,
+  "requests_failed": [
+    {
+      "host": "www.youtube.com",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "www.youtube.com",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "www.youtube.com",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "page_errors": [],
+  "api": {
+    "ready": true,
+    "errors": [],
+    "states": [-1, 3, 1],
+    "autoplayBlocked": false
+  },
+  "frame": {
+    "x": 8,
+    "y": 79.875,
+    "width": 480,
+    "height": 270
+  },
+  "before_pause": {
+    "position": 0.5070109656677246,
+    "duration": 1343.661
+  },
+  "after_seek": {
+    "position": 5,
+    "state": 2
+  },
+  "cleanup": "Owned headless browser and loopback server closed",
+  "finished_at": "2026-09-20T12:10:53.351Z"
+}

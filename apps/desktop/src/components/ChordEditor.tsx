@@ -8,16 +8,19 @@ export function ChordEditor({
   segment,
   controller,
   onClose,
-  isLast,
+  transposed,
 }: {
   segment: ChordSegment;
   controller: SessionController;
   onClose: () => void;
-  isLast: boolean;
+  transposed: boolean;
 }) {
   const [symbol, setSymbol] = useState(formatChord(segment.chord));
+  const [start, setStart] = useState(String(segment.start));
   const [end, setEnd] = useState(String(segment.end));
   const [error, setError] = useState('');
+  const [saving, setSaving] = useState(false);
+  const pending = useRef(false);
   const ref = useRef<HTMLDialogElement>(null);
   const symbolInput = useRef<HTMLInputElement>(null);
   const titleId = useId();
@@ -33,15 +36,23 @@ export function ChordEditor({
   }, []);
   async function save(event: React.FormEvent) {
     event.preventDefault();
+    if (pending.current) return;
+    pending.current = true;
+    setSaving(true);
+    setError('');
     try {
       const chord = parseChord(symbol);
-      const time = Number(end);
-      if (!Number.isFinite(time)) throw new Error('Enter a valid boundary time');
-      if (!isLast && time !== segment.end) await controller.editBoundary(segment.id, time);
-      await controller.editChord(segment.id, chord);
+      const startTime = Number(start),
+        endTime = Number(end);
+      if (!start.trim() || !end.trim() || !Number.isFinite(startTime) || !Number.isFinite(endTime))
+        throw new Error('Enter valid start and end times');
+      await controller.editSegment(segment.id, { chord, start: startTime, end: endTime });
       onClose();
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Invalid chord');
+    } finally {
+      pending.current = false;
+      setSaving(false);
     }
   }
   return (
@@ -75,36 +86,52 @@ export function ChordEditor({
         </div>
         <h2 id={titleId}>Refine this moment.</h2>
         <p>Corrections stay in your local library.</p>
+        {transposed && (
+          <p className="hint">
+            Edits use the original pitch; display transposition is not applied.
+          </p>
+        )}
         <label>
           Chord symbol
           <input
             ref={symbolInput}
+            disabled={saving}
             value={symbol}
             onChange={(event) => setSymbol(event.target.value)}
             placeholder="G13(b9)/B"
           />
         </label>
-        {!isLast && (
-          <label>
-            End time in seconds
-            <input
-              type="number"
-              step="0.001"
-              value={end}
-              onChange={(event) => setEnd(event.target.value)}
-            />
-          </label>
-        )}
+        <label>
+          Start time in seconds
+          <input
+            type="number"
+            step="any"
+            value={start}
+            disabled={saving}
+            onChange={(event) => setStart(event.target.value)}
+          />
+        </label>
+        <label>
+          End time in seconds
+          <input
+            type="number"
+            step="any"
+            value={end}
+            disabled={saving}
+            onChange={(event) => setEnd(event.target.value)}
+          />
+        </label>
         <p className="hint">
-          Supports extensions, alterations and slash chords. Use N for no chord.
+          Supports extensions, alterations and slash chords. Use N for no chord. Touching neighbors
+          move with the boundary. Other neighbors stay fixed; uncovered time has no chord label.
         </p>
         {error && (
           <p role="alert" className="error-text">
             {error}
           </p>
         )}
-        <button className="primary" type="submit">
-          Save correction
+        <button className="primary" type="submit" disabled={saving}>
+          {saving ? 'Saving correction…' : 'Save correction'}
         </button>
       </form>
     </dialog>

@@ -1,0 +1,61 @@
+{
+  "tracks": [
+    {
+      "composition": 14,
+      "audio": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-14_HU33.wav",
+      "annotation": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\02_Annotations\\ann_audio_chord\\Schubert_D911-14_HU33.csv",
+      "prepared": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-14_HU33.npz",
+      "audio_sha256": "04292b1874a7c16ab14847e7c9c41cd09d9ed84acbbb11b096508f7478bfe120",
+      "annotation_sha256": "9cefc83a4f5f2eea41647b31ef509507b38df03af07013e95276d024d2f0aaa9",
+      "prepared_sha256": "4de99752eedc31cadd65c7f98c3a43f87a7b7dcbc7495c56e68af08aacdc2c0b",
+      "duration": 183.20544217687075,
+      "source_frames": 4039680
+    },
+    {
+      "composition": 15,
+      "audio": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-15_HU33.wav",
+      "annotation": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\02_Annotations\\ann_audio_chord\\Schubert_D911-15_HU33.csv",
+      "prepared": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-15_HU33.npz",
+      "audio_sha256": "f12eb15c77ee658eb2a93c1ef79f1165c96a3dde6d4d6f37b9cfec075b5744a3",
+      "annotation_sha256": "5099097b17a988adaeb8b6b29ef502a8906b3cd6c35558abcd1931d45dd27219",
+      "prepared_sha256": "c6bbb399968aa7b7e73d90dffce1196cf82ed248ba35f799cad7cb565dc92592",
+      "duration": 124.27319727891157,
+      "source_frames": 2740224
+    },
+    {
+      "composition": 16,
+      "audio": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-16_HU33.wav",
+      "annotation": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\02_Annotations\\ann_audio_chord\\Schubert_D911-16_HU33.csv",
+      "prepared": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-16_HU33.npz",
+      "audio_sha256": "a3e314904d5c694826d85ddf4723b1988d4ef4571df47760c698a22cc094d253",
+      "annotation_sha256": "9477ae8c770376450921cbce8b1b4ae070fa4b1ff9026d2a442713112e40298f",
+      "prepared_sha256": "9ac3284bc78a602d6e3bfa05a178723ec0562a6fe7dd4d985f128ae70db68c9c",
+      "duration": 138.48380952380953,
+      "source_frames": 3053568
+    },
+    {
+      "composition": 17,
+      "audio": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-17_HU33.wav",
+      "annotation": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\02_Annotations\\ann_audio_chord\\Schubert_D911-17_HU33.csv",
+      "prepared": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-17_HU33.npz",
+      "audio_sha256": "9b99ac5af401f0081999bb689eb192acec857c01f49b3cfa7a6a6bee3d257017",
+      "annotation_sha256": "698ffa2328ce6a46df0d819ed23de3e76e08f9fc4d92aad46e6a9a3cc730d2c1",
+      "prepared_sha256": "13695428ed98bab0255dc1081b2df83bc25bdf12b7a7e58be5c339121b7429dd",
+      "duration": 197.74113378684808,
+      "source_frames": 4360192
+    },
+    {
+      "composition": 18,
+      "audio": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-18_HU33.wav",
+      "annotation": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\02_Annotations\\ann_audio_chord\\Schubert_D911-18_HU33.csv",
+      "prepared": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-18_HU33.npz",
+      "audio_sha256": "9efd3c100535bb423b8e036e617dfb047915adb38b3a1b7fe9ec44dd8ee49c0e",
+      "annotation_sha256": "1e1cb5c0a02a17cbaacf4ac0ec7275547677881ece74d6e2ca2b99b35efbc2ac",
+      "prepared_sha256": "8f02fe8970227000ff813ec688d48dc66c0fb95ace0f0ce4c570ccbb679be012",
+      "duration": 47.64734693877551,
+      "source_frames": 1050624
+    }
+  ],
+  "bundle": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\B001\\browser\\worker.js",
+  "bundle_sha256": "29b3493dd3cfd21de3f4ab6a606b0e0dc123f31a8f9ab9ff051a4daae71ce4aa"
+}

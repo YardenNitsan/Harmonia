@@ -1,0 +1,46 @@
+# Source files currently use LF. Keep future Windows checkouts byte-identical.
+*.py text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+
+# Preserve mixed original bytes of newly frozen experiment inputs/results.
+# Do not renormalize historical configurations or completed experiment artifacts.
+/ml/experiments/D001-hu33-root-relative-probe-protocol.md -text
+/ml/experiments/D001-hu33-root-relative-probe.json -text
+/ml/experiments/root_relative_probe.py -text
+/ml/tests/test_root_relative_probe.py -text
+/ml/experiments/results/D001-hu33-root-relative-probe/** -text
+/ml/experiments/E010-predicted-root-quality-cascade-protocol.md -text
+/ml/experiments/E010-predicted-root-quality-cascade.json -text
+/ml/experiments/predicted_root_cascade.py -text
+/ml/tests/test_predicted_root_cascade.py -text
+/ml/experiments/results/E010-predicted-root-quality-cascade/** -text
+/scripts/boundary-comparison.mjs -text
+/scripts/boundary-comparison-worker.ts -text
+/ml/experiments/boundary_comparison.py -text
+/ml/tests/test_boundary_comparison.py -text
+/docs/experiments/B001-boundary-refinement-protocol.md -text
+/packages/audio/segmentation.ts -text
+/packages/audio/segmentation.test.ts -text
+/ml/experiments/results/B001-boundary-refinement/** -text
+/ml/experiments/LV-all-convolutions-protocol.md -text
+/ml/artifacts/lv-chordia-diagnostic/all-convolutions/** -text
+/ml/experiments/E010-onnx-cascade-protocol.md -text
+/ml/experiments/E010-onnx-cascade.json -text
+/ml/artifacts/E010-onnx-cascade/** -text
+/ml/experiments/D002-hu33-relative-bass-protocol.md -text
+/ml/experiments/D002-hu33-relative-bass.json -text
+/ml/experiments/relative_bass_probe.py -text
+/ml/tests/test_relative_bass_probe.py -text
+/ml/experiments/results/D002-hu33-relative-bass/** -text
+/ml/experiments/LV-selu-arithmetic-protocol.md -text
+/ml/artifacts/lv-chordia-diagnostic/selu-arithmetic/** -text
+/ml/artifacts/lv-chordia-diagnostic/selu-kernel.json -text
+/ml/experiments/D003-hu33-residual-quality.json -text
+/ml/experiments/D003-hu33-residual-quality-protocol.md -text
+/ml/experiments/residual_quality_probe.py -text
+/ml/experiments/d003_watchdog.py -text
+/ml/tests/test_residual_quality_probe.py -text
+/ml/experiments/results/D003-hu33-residual-quality/** -text

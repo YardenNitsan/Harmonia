@@ -1,0 +1,16 @@
+{
+  "study_id": "E010-predicted-root-quality-cascade",
+  "manifest": "data/prepared/winterreise-hu33-v1/manifest.json",
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "checkpoint": "checkpoints/E009-hu33-context-tcn/best.pt",
+  "checkpoint_sha256": "d32c9b249cc8a2c6d4bc682851a8f21cd97901f9e85f895c05f9d8603518e299",
+  "protocol": "experiments/E010-predicted-root-quality-cascade-protocol.md",
+  "output": "experiments/results/E010-predicted-root-quality-cascade",
+  "checkpoint_dir": "checkpoints/E010-predicted-root-quality-cascade",
+  "l2": 0.0001,
+  "max_iterations": 100,
+  "convergence_gradient_infinity_max": 0.00001,
+  "minimum_macro_gain": 0.05,
+  "maximum_exact_loss": 0.01,
+  "minimum_available_ram_bytes": 8589934592
+}

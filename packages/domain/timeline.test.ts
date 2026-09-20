@@ -4,11 +4,72 @@ import type { Analysis } from './types';
 import {
   correctBoundary,
   correctChord,
+  correctSegment,
   findSegmentIndex,
+  findSegmentNeighbors,
   transposeAnalysis,
   validateAnalysis,
 } from './timeline';
 import { formatChord, parseChord } from './chord';
+
+describe('complete segment correction', () => {
+  it('moves both contiguous neighbors without mutating the source or transposed projection', () => {
+    const source = analysisFixture();
+    source.segments[1].start = 2;
+    source.segments.push({ ...source.segments[0], id: 's3', start: 6, end: 8 });
+    const before = structuredClone(source);
+    const corrected = correctSegment(source, 's2', {
+      start: 1.5,
+      end: 6.5,
+      chord: parseChord('Dm9/F'),
+    });
+    expect(corrected.segments.map(({ start, end }) => [start, end])).toEqual([
+      [0, 1.5],
+      [1.5, 6.5],
+      [6.5, 8],
+    ]);
+    expect(formatChord(corrected.segments[1].chord)).toBe('Dm9/F');
+    expect(formatChord(transposeAnalysis(corrected, 2).segments[1].chord)).toBe('Em9/G');
+    expect(source).toEqual(before);
+  });
+
+  it('allows unlabelled leading/trailing spans and leaves neighbors across gaps unchanged', () => {
+    const source = analysisFixture();
+    const first = correctSegment(source, 's1', { start: 0.5, end: 2.5, chord: parseChord('C') });
+    expect(first.segments[1]).toEqual(source.segments[1]);
+    expect(findSegmentIndex(first.segments, 0.25)).toBe(-1);
+    const last = correctSegment(first, 's2', { start: 3.5, end: 7.5, chord: parseChord('G') });
+    expect(last.segments[0]).toEqual(first.segments[0]);
+    expect(findSegmentIndex(last.segments, 7.75)).toBe(-1);
+    expect(last.segments).toHaveLength(2);
+  });
+
+  it.each([
+    [-1, 4],
+    [2, 9],
+    [4, 4],
+    [5, 4],
+    [NaN, 4],
+    [2, Infinity],
+    [1, 4],
+  ])('rejects invalid or overlapping bounds %s..%s without partial chord changes', (start, end) => {
+    const source = analysisFixture();
+    const before = structuredClone(source);
+    expect(() => correctSegment(source, 's2', { start, end, chord: parseChord('Dm') })).toThrow();
+    expect(source).toEqual(before);
+  });
+
+  it('rejects a boundary that would erase a contiguous neighbor and unknown segment IDs', () => {
+    const source = analysisFixture();
+    source.segments[1].start = 2;
+    expect(() =>
+      correctSegment(source, 's2', { start: 0, end: 7, chord: parseChord('G') }),
+    ).toThrow();
+    expect(() =>
+      correctSegment(source, 'missing', { start: 2, end: 7, chord: parseChord('G') }),
+    ).toThrow();
+  });
+});
 
 function analysisFixture(): Analysis {
   return {
@@ -52,6 +113,21 @@ function analysisFixture(): Analysis {
 }
 
 describe('timeline lookup', () => {
+  it.each([
+    [0, undefined, 's2'],
+    [2.5, 's1', 's2'],
+    [7, 's2', undefined],
+    [-1, undefined, 's1'],
+    [NaN, undefined, undefined],
+  ])(
+    'locates neighboring labels around time %s including unlabelled gaps',
+    (time, previous, next) => {
+      const result = findSegmentNeighbors(analysisFixture().segments, time);
+      expect(result.previous?.id).toBe(previous);
+      expect(result.next?.id).toBe(next);
+    },
+  );
+
   it('uses half-open segment intervals and returns -1 for gaps and the final end', () => {
     const segments = analysisFixture().segments;
 

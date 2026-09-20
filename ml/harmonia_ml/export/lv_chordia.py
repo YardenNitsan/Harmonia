@@ -147,7 +147,7 @@ def export_network(index: int, path: Path) -> tuple[RawCQTModel, ort.InferenceSe
     session = ort.InferenceSession(str(path), options, providers=["CPUExecutionProvider"])
     metadata = {
         "index": index,
-        "checkpoint_name": name,
+        "checkpoint_name": checkpoint.name,
         "checkpoint_sha256": digest.hex(),
         "checkpoint_bytes": len(payload),
         "onnx_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),

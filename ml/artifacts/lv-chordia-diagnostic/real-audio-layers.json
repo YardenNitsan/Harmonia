@@ -1,0 +1,524 @@
+{
+  "purpose": "Layer localization; original acceptance reference and tolerances unchanged",
+  "track_id": "00_Funk2-108-Eb_solo",
+  "audio_sha256": "87bf9ef1a8ba9809cd4831c47ddd34bcca180c7c1226d36c0ae42ee871cc5717",
+  "frames": 1531,
+  "onnx_sha256": "27ab16d46d5017c80803871778f4012a27512ef92d8de0861c0aa0cea7a963de",
+  "script_sha256": "84fab286387d0cd2678eabb60f73bb61460c9e6c3d31deeab01462cb57e5ef23",
+  "layers": [
+    {
+      "name": "conv1a",
+      "ort_vs_native": {
+        "max_abs": 2.384185791015625e-07,
+        "rms": 2.3923722014718002e-08
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 0.0,
+        "rms": 0.0
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 2.384185791015625e-07,
+        "rms": 2.3923722014718002e-08
+      }
+    },
+    {
+      "name": "norm1a",
+      "ort_vs_native": {
+        "max_abs": 3.7163496017456055e-05,
+        "rms": 2.7168333697403134e-06
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 4.76837158203125e-06,
+        "rms": 1.0447143466758472e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 3.8096681237220764e-05,
+        "rms": 2.5085615855546904e-06
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 4.76837158203125e-06,
+        "rms": 1.0447143466758472e-06
+      }
+    },
+    {
+      "name": "conv1b",
+      "ort_vs_native": {
+        "max_abs": 6.622076034545898e-05,
+        "rms": 8.068256485898788e-06
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 1.5497207641601562e-05,
+        "rms": 3.033427629758594e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 5.8710575103759766e-05,
+        "rms": 7.4839774190941225e-06
+      }
+    },
+    {
+      "name": "norm1b",
+      "ort_vs_native": {
+        "max_abs": 4.2650848627090454e-05,
+        "rms": 4.8032286968429815e-06
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 1.1444091796875e-05,
+        "rms": 1.3140483574758479e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 4.167109727859497e-05,
+        "rms": 4.6233124489865356e-06
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 3.814697265625e-06,
+        "rms": 5.142777791160463e-08
+      }
+    },
+    {
+      "name": "conv1c",
+      "ort_vs_native": {
+        "max_abs": 0.0002262592315673828,
+        "rms": 1.527287881522731e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 4.845857620239258e-05,
+        "rms": 4.1234443817040395e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0002034306526184082,
+        "rms": 1.4713361881818473e-05
+      }
+    },
+    {
+      "name": "norm1c",
+      "ort_vs_native": {
+        "max_abs": 0.0001456737518310547,
+        "rms": 8.046448164308662e-06
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 3.123283386230469e-05,
+        "rms": 2.139620159762736e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0001310110092163086,
+        "rms": 7.758098299787953e-06
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 1.9073486328125e-06,
+        "rms": 5.607989187264054e-08
+      }
+    },
+    {
+      "name": "conv2a",
+      "ort_vs_native": {
+        "max_abs": 0.00017750263214111328,
+        "rms": 1.7359871198811013e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 4.8160552978515625e-05,
+        "rms": 4.6895051024920396e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0001780986785888672,
+        "rms": 1.671641817384693e-05
+      }
+    },
+    {
+      "name": "norm2a",
+      "ort_vs_native": {
+        "max_abs": 8.572638034820557e-05,
+        "rms": 8.259979451775126e-06
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 2.1278858184814453e-05,
+        "rms": 2.2351595311598424e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 8.177757263183594e-05,
+        "rms": 7.953891166240152e-06
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 1.9073486328125e-06,
+        "rms": 6.280534183404402e-08
+      }
+    },
+    {
+      "name": "conv2b",
+      "ort_vs_native": {
+        "max_abs": 0.0005934238433837891,
+        "rms": 4.147712154750387e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 0.00016427040100097656,
+        "rms": 1.11980258494002e-05
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0005524754524230957,
+        "rms": 3.994225692042351e-05
+      }
+    },
+    {
+      "name": "norm2b",
+      "ort_vs_native": {
+        "max_abs": 9.106099605560303e-05,
+        "rms": 1.0031078505885248e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 2.5197863578796387e-05,
+        "rms": 2.7219013223683578e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 8.480250835418701e-05,
+        "rms": 9.656496108524508e-06
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 9.5367431640625e-07,
+        "rms": 5.550532358235639e-08
+      }
+    },
+    {
+      "name": "conv2c",
+      "ort_vs_native": {
+        "max_abs": 0.0005962848663330078,
+        "rms": 6.622396084316845e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 0.00016367435455322266,
+        "rms": 1.799406362409146e-05
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0005868077278137207,
+        "rms": 6.37369648053213e-05
+      }
+    },
+    {
+      "name": "norm2c",
+      "ort_vs_native": {
+        "max_abs": 0.00010019540786743164,
+        "rms": 1.1076841308411658e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 2.580881118774414e-05,
+        "rms": 3.0088871473394596e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 9.912252426147461e-05,
+        "rms": 1.0661497754976437e-05
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 9.5367431640625e-07,
+        "rms": 5.169296294456946e-08
+      }
+    },
+    {
+      "name": "conv3a",
+      "ort_vs_native": {
+        "max_abs": 0.0004048347473144531,
+        "rms": 4.381896786148283e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 0.0001172870397567749,
+        "rms": 1.1942374302120523e-05
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0004057884216308594,
+        "rms": 4.216912900649206e-05
+      }
+    },
+    {
+      "name": "norm3a",
+      "ort_vs_native": {
+        "max_abs": 0.00011518597602844238,
+        "rms": 1.254707262863871e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 3.266334533691406e-05,
+        "rms": 3.4188576168650277e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0001246929168701172,
+        "rms": 1.2072771540796064e-05
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 9.5367431640625e-07,
+        "rms": 6.078029941139708e-08
+      }
+    },
+    {
+      "name": "conv3b",
+      "ort_vs_native": {
+        "max_abs": 0.0014598369598388672,
+        "rms": 0.00012743515333711911
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 0.00034999847412109375,
+        "rms": 3.473270539099137e-05
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0014235973358154297,
+        "rms": 0.00012287862569249224
+      }
+    },
+    {
+      "name": "norm3b",
+      "ort_vs_native": {
+        "max_abs": 0.0001251697540283203,
+        "rms": 1.1273412972165627e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 3.635883331298828e-05,
+        "rms": 3.073221976690968e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.00012114644050598145,
+        "rms": 1.0866448490167554e-05
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 9.5367431640625e-07,
+        "rms": 5.3539425632871764e-08
+      }
+    },
+    {
+      "name": "conv4a",
+      "ort_vs_native": {
+        "max_abs": 0.0005807876586914062,
+        "rms": 6.8292490676547e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 0.00018978118896484375,
+        "rms": 1.9115929524211835e-05
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.000591278076171875,
+        "rms": 6.59245571773289e-05
+      }
+    },
+    {
+      "name": "norm4a",
+      "ort_vs_native": {
+        "max_abs": 0.00011810660362243652,
+        "rms": 1.1541876909527685e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 3.1113624572753906e-05,
+        "rms": 3.2197703309139085e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.00011390447616577148,
+        "rms": 1.1148130283038055e-05
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 4.76837158203125e-07,
+        "rms": 7.434010347311903e-08
+      }
+    },
+    {
+      "name": "conv4b",
+      "ort_vs_native": {
+        "max_abs": 0.0011835098266601562,
+        "rms": 0.000111626664449898
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 0.00026917457580566406,
+        "rms": 3.0803329395644546e-05
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0010976791381835938,
+        "rms": 0.00010794929434534445
+      }
+    },
+    {
+      "name": "norm4b",
+      "ort_vs_native": {
+        "max_abs": 0.00012159347534179688,
+        "rms": 1.2102967806540836e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 3.1247735023498535e-05,
+        "rms": 3.3311983052487216e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.00012350082397460938,
+        "rms": 1.1700602099753481e-05
+      },
+      "same_input_precise_vs_native_norm": {
+        "max_abs": 4.76837158203125e-07,
+        "rms": 5.7607898469164094e-08
+      }
+    }
+  ],
+  "heads": {
+    "triad": {
+      "ort_vs_native": {
+        "max_abs": 0.00042819976806640625,
+        "rms": 2.8871625154044507e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 0.000118255615234375,
+        "rms": 7.839980027065432e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0005402565002441406,
+        "rms": 2.838303442042869e-05
+      },
+      "ort_logit_violations": 27,
+      "torch_export_copy_logit_violations": 0
+    },
+    "bass": {
+      "ort_vs_native": {
+        "max_abs": 0.00022137165069580078,
+        "rms": 2.1282835536700023e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 5.9604644775390625e-05,
+        "rms": 6.099436177504871e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0002809762954711914,
+        "rms": 1.963849227868383e-05
+      },
+      "ort_logit_violations": 2,
+      "torch_export_copy_logit_violations": 0
+    },
+    "seventh": {
+      "ort_vs_native": {
+        "max_abs": 0.00025844573974609375,
+        "rms": 2.5236566918015215e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 5.817413330078125e-05,
+        "rms": 6.5785860134028e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.00031566619873046875,
+        "rms": 2.372954814667122e-05
+      },
+      "ort_logit_violations": 0,
+      "torch_export_copy_logit_violations": 0
+    },
+    "ninth": {
+      "ort_vs_native": {
+        "max_abs": 0.00041866302490234375,
+        "rms": 3.353889954259521e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 9.751319885253906e-05,
+        "rms": 8.004746605807185e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.0003228187561035156,
+        "rms": 2.990921730896076e-05
+      },
+      "ort_logit_violations": 14,
+      "torch_export_copy_logit_violations": 0
+    },
+    "eleventh": {
+      "ort_vs_native": {
+        "max_abs": 0.00014257431030273438,
+        "rms": 1.9916726258299502e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 4.601478576660156e-05,
+        "rms": 6.3847836209966365e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 0.00012636184692382812,
+        "rms": 1.684071961256413e-05
+      },
+      "ort_logit_violations": 0,
+      "torch_export_copy_logit_violations": 0
+    },
+    "thirteenth": {
+      "ort_vs_native": {
+        "max_abs": 0.00013577938079833984,
+        "rms": 2.0353077719224238e-05
+      },
+      "torch_export_copy_vs_native": {
+        "max_abs": 7.033348083496094e-05,
+        "rms": 5.678109108275629e-06
+      },
+      "ort_vs_torch_export_copy": {
+        "max_abs": 9.548664093017578e-05,
+        "rms": 1.7794466811504937e-05
+      },
+      "ort_logit_violations": 0,
+      "torch_export_copy_logit_violations": 0
+    }
+  },
+  "first_convolution_probes": [
+    {
+      "mode": "separate_bias",
+      "heads": {
+        "triad": {
+          "max_abs": 0.00042819976806640625,
+          "rms": 2.8871625154044507e-05,
+          "logit_violations": 27
+        },
+        "bass": {
+          "max_abs": 0.00022137165069580078,
+          "rms": 2.1282835536700023e-05,
+          "logit_violations": 2
+        },
+        "seventh": {
+          "max_abs": 0.00025844573974609375,
+          "rms": 2.5236566918015215e-05,
+          "logit_violations": 0
+        },
+        "ninth": {
+          "max_abs": 0.00041866302490234375,
+          "rms": 3.353889954259521e-05,
+          "logit_violations": 14
+        },
+        "eleventh": {
+          "max_abs": 0.00014257431030273438,
+          "rms": 1.9916726258299502e-05,
+          "logit_violations": 0
+        },
+        "thirteenth": {
+          "max_abs": 0.00013577938079833984,
+          "rms": 2.0353077719224238e-05,
+          "logit_violations": 0
+        }
+      }
+    },
+    {
+      "mode": "double_convolution",
+      "runtime_error": "[ONNXRuntimeError] : 9 : NOT_IMPLEMENTED : Could not find an implementation for Conv(11) node with name '/network/audio_feature_block/conv1a/Conv'"
+    },
+    {
+      "mode": "double_patch_matmul",
+      "heads": {
+        "triad": {
+          "max_abs": 0.0004239082336425781,
+          "rms": 2.9031187258295662e-05,
+          "logit_violations": 26
+        },
+        "bass": {
+          "max_abs": 0.0002199411392211914,
+          "rms": 2.1073990729362965e-05,
+          "logit_violations": 2
+        },
+        "seventh": {
+          "max_abs": 0.00025844573974609375,
+          "rms": 2.5240195547022086e-05,
+          "logit_violations": 0
+        },
+        "ninth": {
+          "max_abs": 0.0004162788391113281,
+          "rms": 3.329049467363599e-05,
+          "logit_violations": 15
+        },
+        "eleventh": {
+          "max_abs": 0.00014162063598632812,
+          "rms": 1.96295581760406e-05,
+          "logit_violations": 0
+        },
+        "thirteenth": {
+          "max_abs": 0.00013637542724609375,
+          "rms": 2.0062130571469935e-05,
+          "logit_violations": 0
+        }
+      }
+    }
+  ]
+}

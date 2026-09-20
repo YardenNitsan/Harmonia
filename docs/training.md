@@ -36,6 +36,34 @@ retain artifact/source/config hashes and memory-monitor reports. Results and
 limitations are in [the experiment report](data/hu33-experiment-results.md).
 The HU33 test remains closed. None replaces E004 in the application.
 
+D001 and D002 are completed training-only composition-fold diagnostics, not
+deployable oracle-root models. D001 supports root-relative quality features;
+D002 fails the required inversion/root-position tradeoff despite all eight fits
+converging. Their frozen protocols, source archives/checkpoints and reports must
+remain unchanged. HU33 training has no suspended examples, only161 augmented
+frames in one composition, and only162 positive ninth-extension frames. Adding
+output classes alone cannot establish recognition of these unsupported cases.
+
+E010's completed predicted-root cascade improves validation minor recall to53.53%
+and reduced structural exact to25.41%, while major recall falls to71.90%. Its
+four-class float64 quality classifier and E009 root/other heads are frozen. The
+separate ONNX graph passes all five procedural and five complete validation CPU
+parity cases, preserving every retained decision across29,759 raw frames. It is
+447,455 bytes with SHA256
+`f1fd6e356463fbb3387ca680ec705130ca73bbeffdb880de26028e239a8d561f`.
+This graph has explicit `quality_logits` and `triad_decision` outputs; the original
+eight-class `baseline_triad` is not its final decision. An explicit runtime adapter
+is required. Scores are uncalibrated, browser parity is separate, and E004 remains
+the unchanged experimental product model.
+
+Completed study entry points, shown for provenance rather than rerunning existing
+outputs, are `experiments/root_relative_probe.py`,
+`experiments/predicted_root_cascade.py`, `experiments/relative_bass_probe.py`, and
+`harmonia_ml.export.predicted_root`. Use their frozen configs/protocols and the
+existing evidence under `experiments/results/` and `artifacts/E010-onnx-cascade/`.
+D003 is a separate training-only quality-capacity study; it must not refit D001
+controls, retune E010 on validation, or open the locked HU33 test.
+
 Reproduce preparation only into a new output directory, from `ml/`:
 
 ```powershell

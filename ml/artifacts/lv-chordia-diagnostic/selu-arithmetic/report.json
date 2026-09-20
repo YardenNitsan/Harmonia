@@ -1,0 +1,61 @@
+{
+  "passed": false,
+  "preflight_sha256": "ef0f6ea77f4457166218545c02bce2fef627a78ec846057119b1b4377cbddcd0",
+  "heads": {
+    "triad": {
+      "max_absolute_logit_error": 0.0004162788391113281,
+      "logit_violations": 29,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "bass": {
+      "max_absolute_logit_error": 0.0002161264419555664,
+      "logit_violations": 2,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "seventh": {
+      "max_absolute_logit_error": 0.00025463104248046875,
+      "logit_violations": 0,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "ninth": {
+      "max_absolute_logit_error": 0.00041866302490234375,
+      "logit_violations": 15,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "eleventh": {
+      "max_absolute_logit_error": 0.00014090538024902344,
+      "logit_violations": 0,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "thirteenth": {
+      "max_absolute_logit_error": 0.00013506412506103516,
+      "logit_violations": 0,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    }
+  },
+  "minimum_sampled_available_ram": 16787030016,
+  "reference_sha256": "d6790ef105ff046c969e3ad4c010d3a52c7e8ede94a47ff121bc1bb2268c1ca3",
+  "onnx_sha256": "7f5b27ab37abe57fdcda61b00867fd9f4f9ed321dc9a4a880ab16f114e12350b",
+  "onnx_inference_seconds": 0.5891360000241548,
+  "frozen_files_unchanged": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\lv_precise_selu.py": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\tests\\test_lv_precise_selu.py": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\LV-selu-arithmetic-protocol.md": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\export\\lv_chordia.py": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\artifacts\\lv-chordia-diagnostic\\selu-kernel.json": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\results\\E006-lv-chordia\\selection.json": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\guitarset-v1\\manifest.json": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\extracted\\audio\\00_Funk2-108-Eb_solo_mic.wav": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\.venv\\share\\lv-chordia\\cache_data\\joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s0.best.sdict": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\artifacts\\lv-chordia-cpu-ensemble-4096\\s0.onnx": true,
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\artifacts\\lv-chordia-cpu-ensemble-4096\\report.json": true
+  },
+  "elapsed_seconds": 2.048991199990269,
+  "process_lifetime_peak_rss_bytes": 1066647552
+}

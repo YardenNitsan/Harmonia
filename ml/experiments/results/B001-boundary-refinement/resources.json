@@ -1,0 +1,11 @@
+{
+  "sampled_peak_process_tree_rss_bytes": 1261678592,
+  "minimum_sampled_available_system_bytes": 14712700928,
+  "samples": 87,
+  "sampling_seconds": 0.1,
+  "browser_elapsed_seconds": 9.826153899979545,
+  "one_analysis_worker": true,
+  "gpu_disabled": true,
+  "aborted_for_headroom": false,
+  "rss_caveat": "Sum of process RSS may count shared pages repeatedly; sampled not continuous peak."
+}

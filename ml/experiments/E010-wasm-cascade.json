@@ -1,0 +1,16 @@
+{
+  "study_id": "E010-wasm-cascade",
+  "protocol": "experiments/E010-wasm-cascade-protocol.md",
+  "manifest": "data/prepared/winterreise-hu33-v1/manifest.json",
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "model": "artifacts/E010-onnx-cascade/model.onnx",
+  "model_sha256": "f1fd6e356463fbb3387ca680ec705130ca73bbeffdb880de26028e239a8d561f",
+  "retained_report": "experiments/results/E010-predicted-root-quality-cascade/report.json",
+  "retained_report_sha256": "039aa502f502072afcdd8dcbf6f1ed427fa31c00f7cdea6521db9b50eb9587a5",
+  "reference_dir": "checkpoints/E010-wasm-cascade",
+  "output": "artifacts/E010-wasm-cascade",
+  "minimum_available_ram_bytes": 8589934592,
+  "per_binary_bytes": 8388608,
+  "total_binary_bytes": 33554432,
+  "watchdog_seconds": 120
+}

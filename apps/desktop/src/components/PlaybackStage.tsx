@@ -85,6 +85,7 @@ export function PlaybackStage({
         <HarmonyStage
           analysis={analysis}
           index={index}
+          time={time}
           transpose={transpose}
           notation={notation}
           playing={playing}
@@ -139,7 +140,7 @@ export function PlaybackStage({
           key={editedSegment.id}
           segment={editedSegment}
           controller={controller}
-          isLast={editedSegment.id === record.analysis.segments.at(-1)?.id}
+          transposed={transpose !== 0}
           onClose={() => setEditingId(null)}
         />
       )}

@@ -2,6 +2,93 @@ import { expect, it } from 'vitest';
 import { SessionController } from './session';
 import { parseChord, formatChord } from '../domain/chord';
 import type { Analysis, AnalysisProfile, SavedTrack } from '../domain/types';
+import { createTimelineExport } from './export';
+
+it('saves chord and both bounds once with history for every affected segment', async () => {
+  const saved: SavedTrack[] = [];
+  const { controller, analyzer } = fixture(async (record) => {
+    saved.push(record);
+  });
+  analyzer.analyze = async () => {
+    const result = analysis();
+    result.duration = 6;
+    result.segments = [0, 2, 4].map((start, i) => ({
+      ...result.segments[0],
+      id: `s${i + 1}`,
+      start,
+      end: start + 2,
+    }));
+    return result;
+  };
+  await controller.importFile(new File(['x'], 'song.wav'));
+  await controller.editSegment('s2', { start: 1, end: 5, chord: parseChord('G7/B') });
+  expect(saved).toHaveLength(2);
+  const record = saved[1];
+  expect(record.analysis.segments.map(({ start, end }) => [start, end])).toEqual([
+    [0, 1],
+    [1, 5],
+    [5, 6],
+  ]);
+  expect(record.corrections.map(({ segmentId }) => segmentId)).toEqual(['s1', 's2', 's3']);
+  expect(record.corrections.map(({ before }) => [before.start, before.end])).toEqual([
+    [0, 2],
+    [2, 4],
+    [4, 6],
+  ]);
+  expect(new Set(record.corrections.map(({ createdAt }) => createdAt)).size).toBe(1);
+  expect(createTimelineExport(record).contents).toContain('1\t5\tG:7/3\n');
+  expect(controller.snapshot().saveState).toBe('saved');
+});
+
+it('retains enharmonic spelling edits in correction history', async () => {
+  const { controller } = fixture();
+  await controller.importFile(new File(['x'], 'song.wav'));
+  await controller.editChord('s1', parseChord('C#'));
+  await controller.editSegment('s1', { start: 0, end: 2, chord: parseChord('Db') });
+  expect(controller.snapshot().current?.corrections).toHaveLength(2);
+  expect(formatChord(controller.snapshot().current!.corrections[1].after.chord)).toBe('Db');
+});
+
+it('invalid complete correction leaves current state, history and persisted record unchanged', async () => {
+  const saved: SavedTrack[] = [];
+  const { controller } = fixture(async (record) => {
+    saved.push(record);
+  });
+  await controller.importFile(new File(['x'], 'song.wav'));
+  const before = controller.snapshot().current;
+  await expect(
+    controller.editSegment('s1', { start: 1.5, end: 1, chord: parseChord('Dm') }),
+  ).rejects.toThrow();
+  expect(controller.snapshot().current).toBe(before);
+  expect(saved).toHaveLength(1);
+});
+
+it('a failed save keeps the whole correction unsaved and retry persists the whole record', async () => {
+  let fail = false;
+  let persisted: SavedTrack | undefined;
+  const { controller } = fixture(async (record) => {
+    if (fail) throw new Error('disk full');
+    persisted = record;
+  });
+  await controller.importFile(new File(['x'], 'song.wav'));
+  fail = true;
+  await expect(
+    controller.editSegment('s1', { start: 0.25, end: 1.75, chord: parseChord('Dm') }),
+  ).rejects.toThrow('disk full');
+  expect(persisted?.analysis.segments[0].start).toBe(0);
+  const pending = controller.snapshot().current!;
+  expect([pending.analysis.segments[0].start, pending.analysis.segments[0].end]).toEqual([
+    0.25, 1.75,
+  ]);
+  expect(formatChord(pending.analysis.segments[0].chord)).toBe('Dm');
+  expect(controller.snapshot().saveState).toBe('unsaved');
+  fail = false;
+  await controller.editSegment('s1', { start: 0.25, end: 1.75, chord: parseChord('Dm') });
+  expect(persisted?.analysis).toEqual(pending.analysis);
+  expect(persisted?.corrections).toHaveLength(1);
+  expect(controller.snapshot().saveState).toBe('saved');
+  expect(controller.snapshot().error).toBeNull();
+});
 
 function analysis(profile: AnalysisProfile = 'fast'): Analysis {
   return {

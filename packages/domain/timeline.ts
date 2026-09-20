@@ -189,6 +189,23 @@ export function findSegmentIndex(segments: readonly ChordSegment[], time: number
   return -1;
 }
 
+export function findSegmentNeighbors(
+  segments: readonly ChordSegment[],
+  time: number,
+): { previous: ChordSegment | undefined; next: ChordSegment | undefined } {
+  if (!Number.isFinite(time)) return { previous: undefined, next: undefined };
+  let low = 0;
+  let high = segments.length;
+  while (low < high) {
+    const middle = low + Math.floor((high - low) / 2);
+    if (segments[middle].start <= time) low = middle + 1;
+    else high = middle;
+  }
+  const candidate = segments[low - 1];
+  const containsTime = candidate && time < candidate.end;
+  return { previous: segments[low - (containsTime ? 2 : 1)], next: segments[low] };
+}
+
 export function correctChord(analysis: Analysis, segmentId: string, chord: Chord): Analysis {
   validateAnalysis(analysis);
   const correctedChord = normalizeChord(validateChord(chord));
@@ -197,6 +214,37 @@ export function correctChord(analysis: Analysis, segmentId: string, chord: Chord
   const segments = [...analysis.segments];
   segments[index] = { ...segments[index]!, chord: correctedChord };
   return { ...analysis, segments };
+}
+
+export interface SegmentCorrection {
+  chord: Chord;
+  start: number;
+  end: number;
+}
+
+/** Move shared boundaries together; neighbors across existing gaps stay unchanged.
+ * Leading/trailing uncovered time remains unlabelled rather than becoming N.
+ */
+export function correctSegment(
+  analysis: Analysis,
+  segmentId: string,
+  correction: SegmentCorrection,
+): Analysis {
+  validateAnalysis(analysis);
+  const chord = normalizeChord(validateChord(correction.chord));
+  assertFinite(correction.start, 'Corrected segment start');
+  assertFinite(correction.end, 'Corrected segment end');
+  const index = analysis.segments.findIndex((segment) => segment.id === segmentId);
+  if (index < 0) throw new Error(`Unknown chord segment: ${segmentId}`);
+  const selected = analysis.segments[index];
+  const segments = [...analysis.segments];
+  segments[index] = { ...selected, chord, start: correction.start, end: correction.end };
+  const previous = segments[index - 1];
+  const next = segments[index + 1];
+  if (previous && previous.end === selected.start)
+    segments[index - 1] = { ...previous, end: correction.start };
+  if (next && next.start === selected.end) segments[index + 1] = { ...next, start: correction.end };
+  return validateAnalysis({ ...analysis, segments });
 }
 
 export function correctBoundary(analysis: Analysis, leftSegmentId: string, time: number): Analysis {

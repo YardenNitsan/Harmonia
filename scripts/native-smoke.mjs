@@ -272,6 +272,30 @@ function databaseRecords() {
   return readNativeRecords(databasePath);
 }
 
+async function featureFiles(page) {
+  return page.evaluate(async () => {
+    const root = await navigator.storage.getDirectory();
+    const directory = await root.getDirectoryHandle('harmonia-features-v1');
+    const indexFile = await (await directory.getFileHandle('index.json')).getFile();
+    if (indexFile.size > 65536) throw new Error('Native feature index exceeds its bound');
+    const index = JSON.parse(await indexFile.text());
+    const payloads = [];
+    for (const entry of index.entries) {
+      const file = await (await directory.getFileHandle(entry.file)).getFile();
+      if (file.size > 16 * 1024 * 1024) throw new Error('Native feature payload exceeds its bound');
+      const digest = await crypto.subtle.digest('SHA-256', await file.arrayBuffer());
+      payloads.push({
+        ...entry,
+        actualBytes: file.size,
+        actualChecksum: Array.from(new Uint8Array(digest), (b) =>
+          b.toString(16).padStart(2, '0'),
+        ).join(''),
+      });
+    }
+    return payloads;
+  });
+}
+
 async function clock(page) {
   return page.evaluate(
     () =>
@@ -291,6 +315,10 @@ async function smoke() {
   assert.equal(first[0].analysis.modelVersion, 'dsp-template-v1');
   assert.ok(first[0].analysis.segments.length > 1);
   assert.ok(first[0].analysis.waveform.length > 0);
+  const initialFeatures = await featureFiles(page);
+  assert.equal(initialFeatures.length, 1, 'DSP creates one reusable filesystem payload');
+  assert.equal(initialFeatures[0].bytes, initialFeatures[0].actualBytes);
+  assert.equal(initialFeatures[0].checksum, initialFeatures[0].actualChecksum);
   report.checks.push('packaged asset decoding, real worker DSP analysis, native IPC SQLite save');
   await page.getByRole('button', { name: 'Play', exact: true }).click({ force: true });
   await expect.poll(() => clock(page), { timeout: 8000 }).toBeGreaterThan(0.2);
@@ -302,15 +330,26 @@ async function smoke() {
     .getByRole('button', { name: 'Edit current chord', exact: true })
     .click({ force: true });
   await page.getByLabel('Chord symbol').fill('Dm9');
+  const originalFirst = first[0].analysis.segments[0];
+  const inset = (originalFirst.end - originalFirst.start) / 10;
+  const correctedStart = originalFirst.start + inset;
+  const correctedEnd = originalFirst.end - inset;
+  await page.getByLabel('Start time in seconds').fill(String(correctedStart));
+  await page.getByLabel('End time in seconds').fill(String(correctedEnd));
   await page.getByRole('button', { name: 'Save correction', exact: true }).click({ force: true });
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await expect.poll(() => databaseRecords()[0].corrections.length).toBe(1);
+  await expect.poll(() => databaseRecords()[0].corrections.length).toBe(2);
   const corrected = databaseRecords()[0];
   assert.equal(corrected.analysis.segments[0].chord.root, 2);
   assert.equal(corrected.analysis.segments[0].chord.triad, 'minor');
+  assert.equal(corrected.analysis.segments[0].start, correctedStart);
+  assert.equal(corrected.analysis.segments[0].end, correctedEnd);
+  assert.equal(corrected.analysis.segments[1].start, correctedEnd);
   await page.getByRole('button', { name: 'Favorite track', exact: true }).click({ force: true });
   await expect.poll(() => databaseRecords()[0].track.favorite).toBe(true);
-  report.checks.push('real media clock playback/seek, correction and favorite persisted in SQLite');
+  report.checks.push(
+    'real media clock playback/seek, atomic chord/start/end and neighboring history, favorite persisted in SQLite',
+  );
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.getByLabel('Analysis profile').selectOption('accurate');
   await page
@@ -333,6 +372,17 @@ async function smoke() {
     records.find((record) => record.analysis.id === corrected.analysis.id).corrections,
     corrected.corrections,
   );
+  const bothFeatures = await featureFiles(page);
+  assert.equal(bothFeatures.length, 2, 'Accurate adds model features and reuses DSP features');
+  const reusedDsp = bothFeatures.find((entry) => entry.key === initialFeatures[0].key);
+  assert.ok(reusedDsp);
+  assert.equal(reusedDsp.file, initialFeatures[0].file);
+  assert.equal(reusedDsp.actualChecksum, initialFeatures[0].actualChecksum);
+  assert.ok(reusedDsp.touched > initialFeatures[0].touched);
+  for (const entry of bothFeatures) {
+    assert.equal(entry.bytes, entry.actualBytes);
+    assert.equal(entry.checksum, entry.actualChecksum);
+  }
   report.checks.push(
     'packaged experimental E004 ONNX/WASM inference passes native CSP and preserves a second profile in SQLite',
   );
@@ -342,6 +392,11 @@ async function smoke() {
   await reopened
     .getByRole('button', { name: 'Open analysis: native-validation.wav', exact: true })
     .click({ force: true });
+  await expect(reopened.getByTestId('current-chord')).toHaveText('—');
+  // The seek slider accepts 0.01s steps; enter a representable point inside the segment.
+  await reopened
+    .getByLabel('Playback position')
+    .fill(String(Math.ceil(correctedStart * 100) / 100));
   await expect(reopened.getByTestId('current-chord')).toHaveText('Dm9');
   await expect(
     reopened.getByRole('button', { name: 'Favorite track', exact: true }),
@@ -351,8 +406,27 @@ async function smoke() {
   assert.ok(restored);
   assert.equal(restored.analysis.id, corrected.analysis.id);
   assert.deepEqual(restored.corrections, corrected.corrections);
+  assert.deepEqual(restored.analysis.segments, corrected.analysis.segments);
+  const restoredFeatures = await featureFiles(reopened);
+  assert.deepEqual(restoredFeatures, bothFeatures);
   report.checks.push(
     'native process restart restores SQLite analysis, correction, favorite and detached-audio state',
+  );
+  await reopened.getByLabel('Analysis profile').selectOption('fast');
+  await reopened
+    .getByLabel('Import audio file')
+    .setInputFiles({ ...wav(), name: 'native-cache-reuse.wav' });
+  await expect(reopened.getByTestId('track-title')).toHaveText('native-cache-reuse.wav');
+  await expect(reopened.getByText('Saved on this device', { exact: true })).toBeVisible();
+  const warmFeatures = await featureFiles(reopened);
+  assert.equal(warmFeatures.length, 2);
+  const restartedDsp = warmFeatures.find((entry) => entry.key === reusedDsp.key);
+  assert.ok(restartedDsp);
+  assert.equal(restartedDsp.file, reusedDsp.file);
+  assert.equal(restartedDsp.actualChecksum, reusedDsp.actualChecksum);
+  assert.ok(restartedDsp.touched > reusedDsp.touched);
+  report.checks.push(
+    'worker OPFS feature checksums, cross-profile reuse and reuse after native process restart',
   );
   assert.deepEqual(pageErrors, []);
 }

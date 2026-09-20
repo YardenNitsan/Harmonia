@@ -1,0 +1,25 @@
+{
+  "purpose": "One all-convolution precision diagnostic on the retained failure; no promotion",
+  "track_id": "00_Funk2-108-Eb_solo",
+  "audio_sha256": "87bf9ef1a8ba9809cd4831c47ddd34bcca180c7c1226d36c0ae42ee871cc5717",
+  "checkpoint_sha256": "921b42d5d1cf9ce1c0c0e45a74d409b8066e0acec46058ef74e24ee0fb540761",
+  "checkpoint_name": "joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s0.best.sdict",
+  "source_onnx_sha256": "27ab16d46d5017c80803871778f4012a27512ef92d8de0861c0aa0cea7a963de",
+  "source_sha256": "0e26b2b6c053a1486110684da72c8a38010c7612c65997572084f593c3e9114f",
+  "export_helper_sha256": "cad94f8608a2337865b4dee31e40821ca4b87f7a5dd43beabcd6e3508cb5a462",
+  "test_sha256": "2b8ad50b77a359df9487cab1b7a2b815698fb1abe31d81cd660f77f88c20c7ae",
+  "protocol_sha256": "6121e05074c3c667213e75236c18c39b3ee3ab2633253d42b9911ddca0e079c8",
+  "tolerances": {
+    "logit_atol": 5e-05,
+    "logit_rtol": 0.0005,
+    "probability_atol": 1e-05
+  },
+  "threads": 2,
+  "thread_environment": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "gpu": false,
+  "available_ram_bytes": 17049165824
+}

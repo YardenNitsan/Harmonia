@@ -1,5 +1,50 @@
 # Evaluation evidence
 
+## Latest continuation studies
+
+E010 is a separate predicted-root quality cascade fitted on HU33 training only,
+then compared once against frozen E009 on the five validation compositions.
+All-present-class triad macro recall improves20.25%→27.02%, minor recall0.34%→53.53%,
+and reduced structural exact19.81%→25.41%. Root accuracy remains59.01%. Major recall
+falls99.86%→71.90% and overall triad accuracy59.97%→58.86%; augmented/sus4 remain zero.
+The bounded research criterion passes; this is not final recognition acceptance.
+Its paired CPU baseline differs from the historical GPU baseline by one root/exact
+frame out23,250. Preserve both reports. See
+`ml/experiments/results/E010-predicted-root-quality-cascade/README.md`.
+
+The separate E010 ONNX CPU export passes five procedural and five full validation
+sequences with exact retained decisions on all29,759 raw frames. Largest raw
+float32 error is4.77e-6 and float64 quality error7.11e-15, within the unchanged
+tolerances. This is runtime parity, not a second quality evaluation. Browser WASM
+verification is separate and pending; no model promotion occurred.
+
+D002 uses only four composition folds within HU33 training. Relative features
+raise exact inverted-bass recognition0.86%→5.57%, below the declared five-point
+gain, while root-position accuracy falls94.21%→90.50%, exceeding the allowed loss.
+Inversion macro gain also misses its threshold. All eight fits converge, so the
+result is a failed research direction under this protocol, not an interrupted
+optimizer. See `ml/experiments/results/D002-hu33-relative-bass/README.md`.
+
+B001 evaluates the actual browser DSP on the same five validation compositions,
+using exact valid-interval overlap and precise prepared boundary times. Boundary
+F1@50ms improves0.099445→0.135922, but short-adjacent misses increase0→1 among four
+eligible references. Root agreement41.73%→40.92% and reduced agreement6.17%→6.12%
+remain within the predeclared loss guards. The mandatory short-transition guard
+fails, so production segmentation is unchanged. The baseline has188 matched cuts
+and3330 false positives; the candidate119 and1369: reduced false positives also
+cost substantial recall. See `ml/experiments/results/B001-boundary-refinement/README.md`.
+These interval metrics are not interchangeable with historical Python frame scores.
+
+The all-convolution LV precision diagnostic also failed unchanged logit acceptance.
+Matching probabilities/argmax does not close this gate; details remain in ADR003.
+The subsequent SELU-only arithmetic diagnostic also retains29/2/15 violations;
+its improved constructed near-zero activation precision does not solve model parity.
+
+The separate D001 [root-relative diagnostic](data/hu33-representation-diagnostic.md)
+uses only training-composition cross-validation and oracle reference roots. Its
+24.87%→45.21% quality macro recall is not comparable to E009 full-validation
+accuracy and does not authorize production promotion or test access.
+
 ## Public-data continuation
 
 HU33 preparation and E007–E009 validation are recorded in

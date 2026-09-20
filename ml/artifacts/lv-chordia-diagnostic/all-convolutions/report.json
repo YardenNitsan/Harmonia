@@ -1,0 +1,47 @@
+{
+  "preflight_sha256": "8ca11a4b97118a0bc3b5074bdcd0bc538426d8c94dbf1591b88a11b58cae7f3a",
+  "passed": false,
+  "heads": {
+    "triad": {
+      "max_absolute_logit_error": 0.0004343986511230469,
+      "logit_violations": 29,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "bass": {
+      "max_absolute_logit_error": 0.0002257823944091797,
+      "logit_violations": 2,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "seventh": {
+      "max_absolute_logit_error": 0.00026702880859375,
+      "logit_violations": 0,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "ninth": {
+      "max_absolute_logit_error": 0.00041866302490234375,
+      "logit_violations": 15,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "eleventh": {
+      "max_absolute_logit_error": 0.00014090538024902344,
+      "logit_violations": 0,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    },
+    "thirteenth": {
+      "max_absolute_logit_error": 0.00013577938079833984,
+      "logit_violations": 0,
+      "probability_violations": 0,
+      "argmax_disagreements": 0
+    }
+  },
+  "onnx_inference_seconds": 1.4479471999802627,
+  "onnx_sha256": "ce9523fdaa55b9e46efbba189d821f5d0a7cf862826478e36420ccbae467fddd",
+  "elapsed_seconds": 2.8485065000131726,
+  "process_peak_rss_bytes": 2304626688,
+  "available_ram_bytes_after": 15316701184
+}

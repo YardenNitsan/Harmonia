@@ -1,0 +1,98 @@
+{
+  "scope": "Constructed isolated activation only; no model, audio or acceptance claim",
+  "source_sha256": "72b8dc4e8b26dbb1c327ec7e5bdd4922326366d5d74d9b3a53e112145c208e15",
+  "torch": "2.11.0+cu128",
+  "onnxruntime": "1.30.0",
+  "numpy": "2.5.3",
+  "thread_environment": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "sources": [
+    "https://raw.githubusercontent.com/pytorch/pytorch/v2.11.0/aten/src/ATen/native/cpu/Elu.h",
+    "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.30.0/onnxruntime/core/providers/cpu/activation/activations.h"
+  ],
+  "fixtures": {
+    "near_zero": {
+      "values": 10001,
+      "input_sha256": "1a1b545f7cc49021e62810dfa7070030053a0f5c9ba8bf427c0af08352982288",
+      "arms": {
+        "native_onnx": {
+          "finite": true,
+          "max_absolute_error": 6.056507118046284e-08,
+          "rms_error": 2.1573968227478985e-08,
+          "nonidentical_values": 5000,
+          "zeroed_nonzero_reference": 1
+        },
+        "double_difference": {
+          "finite": true,
+          "max_absolute_error": 4.547473508864641e-13,
+          "rms_error": 4.689347594498328e-15,
+          "nonidentical_values": 3,
+          "zeroed_nonzero_reference": 0
+        }
+      }
+    },
+    "normal_seed_7319": {
+      "values": 10000,
+      "input_sha256": "e2902e6d402b053bdcbbc621b3a7adebb71419c61017f2bd592df136cc8c1135",
+      "arms": {
+        "native_onnx": {
+          "finite": true,
+          "max_absolute_error": 1.1920928955078125e-07,
+          "rms_error": 3.4919159781609364e-08,
+          "nonidentical_values": 2141,
+          "zeroed_nonzero_reference": 0
+        },
+        "double_difference": {
+          "finite": true,
+          "max_absolute_error": 1.1920928955078125e-07,
+          "rms_error": 1.666000468656264e-09,
+          "nonidentical_values": 8,
+          "zeroed_nonzero_reference": 0
+        }
+      }
+    },
+    "tails": {
+      "values": 10001,
+      "input_sha256": "539abcc8f2f38a91255d7092eb10cffa81d142ef06d86ed73afa297e255aa656",
+      "arms": {
+        "native_onnx": {
+          "finite": true,
+          "max_absolute_error": 1.1920928955078125e-07,
+          "rms_error": 1.0157263141100714e-08,
+          "nonidentical_values": 94,
+          "zeroed_nonzero_reference": 0
+        },
+        "double_difference": {
+          "finite": true,
+          "max_absolute_error": 1.1920928955078125e-07,
+          "rms_error": 7.907054356461021e-09,
+          "nonidentical_values": 44,
+          "zeroed_nonzero_reference": 0
+        }
+      }
+    },
+    "zero_and_subnormal": {
+      "values": 6,
+      "input_sha256": "41bb4b59ed33c7a1264ae7e4f0e1e887d4c4fbf184d74db5b13012f191958817",
+      "arms": {
+        "native_onnx": {
+          "finite": true,
+          "max_absolute_error": 1.7580992661692108e-08,
+          "rms_error": 7.177410198793524e-09,
+          "nonidentical_values": 3,
+          "zeroed_nonzero_reference": 3
+        },
+        "double_difference": {
+          "finite": true,
+          "max_absolute_error": 1.9378300653275676e-17,
+          "rms_error": 7.911158113794554e-18,
+          "nonidentical_values": 2,
+          "zeroed_nonzero_reference": 1
+        }
+      }
+    }
+  }
+}

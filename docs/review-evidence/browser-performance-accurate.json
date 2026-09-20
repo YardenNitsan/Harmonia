@@ -6,51 +6,51 @@
   "profile": "accurate",
   "phases": {
     "analysis": {
-      "elapsed_ms": 901.0999999940395,
+      "elapsed_ms": 917.7000000178814,
       "frame_count": 107,
-      "frame_median_ms": 6.900000000000091,
+      "frame_median_ms": 7,
       "frame_p95_ms": 7.100000000000023,
-      "frame_max_ms": 125.10000000000002,
-      "long_tasks_ms": [88]
+      "frame_max_ms": 139,
+      "long_tasks_ms": [103]
     },
     "playback": {
-      "elapsed_ms": 1978.7999999821186,
-      "frame_count": 284,
+      "elapsed_ms": 2009.800000011921,
+      "frame_count": 288,
       "frame_median_ms": 6.900000000000091,
-      "frame_p95_ms": 7,
-      "frame_max_ms": 7.200000000000273,
+      "frame_p95_ms": 7.099999999999909,
+      "frame_max_ms": 8.400000000000091,
       "long_tasks_ms": []
     },
     "seeking": {
-      "elapsed_ms": 258.19999998807907,
-      "frame_count": 33,
+      "elapsed_ms": 334.90000000596046,
+      "frame_count": 38,
       "frame_median_ms": 7,
-      "frame_p95_ms": 13.899999999999636,
+      "frame_p95_ms": 14,
       "frame_max_ms": 14,
       "long_tasks_ms": []
     },
     "resizing": {
-      "elapsed_ms": 212.80000001192093,
-      "frame_count": 24,
+      "elapsed_ms": 267.69999998807907,
+      "frame_count": 23,
       "frame_median_ms": 7,
-      "frame_p95_ms": 13.900000000000091,
-      "frame_max_ms": 27.799999999999727,
+      "frame_p95_ms": 20.90000000000009,
+      "frame_max_ms": 48.600000000000364,
       "long_tasks_ms": []
     },
     "saved_reopen": {
-      "elapsed_ms": 72.5,
-      "frame_count": 6,
-      "frame_median_ms": 7,
-      "frame_p95_ms": 27.80000000000001,
-      "frame_max_ms": 27.80000000000001,
+      "elapsed_ms": 87.30000001192093,
+      "frame_count": 7,
+      "frame_median_ms": 6.900000000000034,
+      "frame_p95_ms": 41.79999999999998,
+      "frame_max_ms": 41.79999999999998,
       "long_tasks_ms": []
     },
     "cached_reimport": {
-      "elapsed_ms": 148.69999998807907,
-      "frame_count": 10,
+      "elapsed_ms": 176.30000001192093,
+      "frame_count": 11,
       "frame_median_ms": 7,
-      "frame_p95_ms": 55.39999999999998,
-      "frame_max_ms": 55.39999999999998,
+      "frame_p95_ms": 69.5,
+      "frame_max_ms": 69.5,
       "long_tasks_ms": []
     }
   }

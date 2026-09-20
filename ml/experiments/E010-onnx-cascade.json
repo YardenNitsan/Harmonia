@@ -1,0 +1,19 @@
+{
+  "study_id": "E010-onnx-cascade",
+  "protocol": "experiments/E010-onnx-cascade-protocol.md",
+  "manifest": "data/prepared/winterreise-hu33-v1/manifest.json",
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "checkpoint": "checkpoints/E009-hu33-context-tcn/best.pt",
+  "checkpoint_sha256": "d32c9b249cc8a2c6d4bc682851a8f21cd97901f9e85f895c05f9d8603518e299",
+  "quality": "checkpoints/E010-predicted-root-quality-cascade/quality.npz",
+  "quality_sha256": "5ac07607af5eb6ce8aa2eeb14027030789f3f4d85e51fc05ec95f25c40b2d06a",
+  "retained_report": "experiments/results/E010-predicted-root-quality-cascade/report.json",
+  "retained_report_sha256": "039aa502f502072afcdd8dcbf6f1ed427fa31c00f7cdea6521db9b50eb9587a5",
+  "output": "artifacts/E010-onnx-cascade",
+  "minimum_available_ram_bytes": 8589934592,
+  "procedural_lengths": [1, 17, 128, 1024, 2048],
+  "float32_atol": 0.00001,
+  "float32_rtol": 0.0001,
+  "float64_atol": 0.0000000001,
+  "float64_rtol": 0.0000000001
+}

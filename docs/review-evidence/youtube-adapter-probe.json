@@ -1,0 +1,114 @@
+{
+  "purpose": "Live official YouTube IFrame SDK through the actual injected Harmonia adapter",
+  "limitations": [
+    "Isolated headless installed Chrome, not Harmonia UI or the native desktop shell",
+    "Muted control/clock validation, not audible playback validation",
+    "One official public sample; failure branches are covered separately by adapter unit tests",
+    "No analysis, audio capture, offline copying, credentials, catalog search or user library"
+  ],
+  "video": "M7lc1UVf-VE",
+  "sample_source": "https://developers.google.com/youtube/iframe_api_reference",
+  "adapter_source": "packages/providers/youtube.ts",
+  "adapter_source_sha256": "e94af3e95e5e18d8333eb567c94a82559d54c7e842ebf99fd2a71762a33a24ce",
+  "adapter_module_sha256": "a945eb4b8e781e3891ea0d569a38e05f8f43ffeec132897d7c2c98674cc6ade3",
+  "probe_source_sha256": "9d4cf43cf4ac653cfa99b0f6acd29a5892db203dc01ccb3c29bee148d461d8bf",
+  "typescript_version": "6.0.3",
+  "node_version": "v24.11.1",
+  "started_at": "2026-09-20T12:30:41.759Z",
+  "passed": true,
+  "csp": "default-src 'none'; script-src 'self' https://www.youtube.com https://s.ytimg.com; frame-src https://www.youtube.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://www.youtube.com; base-uri 'none'; object-src 'none'; form-action 'none'; frame-ancestors 'none'",
+  "requests_failed": [
+    {
+      "host": "www.youtube.com",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "www.youtube.com",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "www.youtube.com",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "www.youtube.com",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "www.youtube.com",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "page_errors": [],
+  "cleanup_errors": [],
+  "origin": "http://127.0.0.1:49582",
+  "browser_version": "153.0.8010.52",
+  "ready": {
+    "ready": true,
+    "available": true,
+    "status": "ready",
+    "capabilities": {
+      "play": true,
+      "pause": true,
+      "seek": true,
+      "position": true,
+      "duration": true,
+      "rawAnalysisAvailable": false,
+      "offlineAvailable": false
+    },
+    "errors": []
+  },
+  "frame": {
+    "x": 8,
+    "y": 79.875,
+    "width": 480,
+    "height": 270
+  },
+  "play": {
+    "confirmed": true,
+    "playing": true,
+    "gesture": {
+      "trusted": true,
+      "active": true
+    },
+    "muted": true,
+    "initialPosition": 0.03257509346008301,
+    "errors": []
+  },
+  "clock": {
+    "position": 0.5347779446868897,
+    "duration": 1343.661
+  },
+  "pause": {
+    "position": 0.536545,
+    "playing": false,
+    "driftSeconds": 0
+  },
+  "seek": {
+    "position": 5,
+    "status": "paused"
+  },
+  "dispose": {
+    "status": "disposed",
+    "available": false,
+    "iframeCount": 0,
+    "position": 0
+  },
+  "api": {
+    "ready": true,
+    "playConfirmed": true,
+    "errors": [],
+    "sdkStates": [-1, 3, 1, 2],
+    "cspViolations": [],
+    "userGesture": {
+      "trusted": true,
+      "active": true
+    },
+    "muted": true
+  },
+  "cleanup": {
+    "browserClosed": true,
+    "serverClosed": true
+  },
+  "finished_at": "2026-09-20T12:30:44.221Z"
+}

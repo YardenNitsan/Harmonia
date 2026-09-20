@@ -1,0 +1,34 @@
+{
+  "purpose": "Single retained-recording SELU diagnostic; no production approval",
+  "frozen_files": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\lv_precise_selu.py": "f307fd76dbe83faa4de4898db16da08b5d8a444e5d88499122f8fd4113945ea2",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\tests\\test_lv_precise_selu.py": "d1735f83c673598b6b5ddde9e7ac0937fbfb870d0958a8bfbb10caa5c3f7fa37",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\LV-selu-arithmetic-protocol.md": "1b955ef1c47d082618aede66a4f8bb2c7d4b138a23e3f7d97379b894faa1df1f",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\export\\lv_chordia.py": "cad94f8608a2337865b4dee31e40821ca4b87f7a5dd43beabcd6e3508cb5a462",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\artifacts\\lv-chordia-diagnostic\\selu-kernel.json": "ec0c13daa068e5859730b01384f2320e1292d756492d226be0e66a42634ccde6",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\results\\E006-lv-chordia\\selection.json": "b278b621d87b6115788dadff9245648cb856abae283f9321108e817f887ddc04",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\guitarset-v1\\manifest.json": "3ca454338f85375d93744862d8d3666f5efd6584f90527401d642ff7c13b29e7",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\extracted\\audio\\00_Funk2-108-Eb_solo_mic.wav": "87bf9ef1a8ba9809cd4831c47ddd34bcca180c7c1226d36c0ae42ee871cc5717",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\.venv\\share\\lv-chordia\\cache_data\\joint_chord_net_ismir_naive_v1.0_reweight(0.0,10.0)_s0.best.sdict": "921b42d5d1cf9ce1c0c0e45a74d409b8066e0acec46058ef74e24ee0fb540761",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\artifacts\\lv-chordia-cpu-ensemble-4096\\s0.onnx": "27ab16d46d5017c80803871778f4012a27512ef92d8de0861c0aa0cea7a963de",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\artifacts\\lv-chordia-cpu-ensemble-4096\\report.json": "3500b16f2512ebc9d825339713f2e0370167868e466096ee1ee8c61ce6487ea9"
+  },
+  "track_id": "00_Funk2-108-Eb_solo",
+  "torch": "2.11.0+cu128",
+  "onnxruntime": "1.30.0",
+  "onnx": "1.23.0",
+  "numpy": "2.5.3",
+  "threads": 2,
+  "gpu": false,
+  "test_accessed": false,
+  "thread_environment": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "tolerances": {
+    "logit_atol": 5e-05,
+    "rtol": 0.0005,
+    "probability_atol": 1e-05
+  }
+}

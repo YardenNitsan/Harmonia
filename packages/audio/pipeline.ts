@@ -37,6 +37,15 @@ export function analyzeAudio(
   const features = extractFeatures(samples, sampleRate, (value) =>
     progress?.('Extracting harmonic features', value * 0.65),
   );
+  return analyzeFeatures(features, fingerprint, profile, progress, recognizer);
+}
+export function analyzeFeatures(
+  features: AudioFeatures,
+  fingerprint: string,
+  profile: AnalysisProfile,
+  progress?: (stage: string, value: number) => void,
+  recognizer: ChordRecognizer = new TemplateRecognizer(),
+): Analysis {
   const boundaries = new NoveltyBoundaryDetector().detect(features);
   const predictions: ChordAlternative[][] = [];
   for (let i = 0; i < features.frames.length; i++) {

@@ -2,8 +2,9 @@ import * as ort from 'onnxruntime-web/wasm';
 import manifest from '../../ml/artifacts/structured-chord-v1/manifest.json';
 import type { Analysis, ChordAlternative } from '../domain/types';
 import { modelFeatures } from './model-features';
+import type { AudioFeatures } from './features';
 import { decodeModelFrame, type ModelHeads } from './model-decoder';
-import { analyzeAudio } from './pipeline';
+import { analyzeAudio, analyzeFeatures } from './pipeline';
 
 export const EXPERIMENTAL_MODEL_VERSION = manifest.model_id;
 type Progress = (stage: string, value: number) => void;
@@ -14,6 +15,7 @@ export async function analyzeWithModel(
   fingerprint: string,
   assetBase: string,
   progress: Progress,
+  prepared?: { dsp: AudioFeatures; model: ReturnType<typeof modelFeatures> },
 ): Promise<Analysis> {
   if (samples.length === 0 || samples.length / sampleRate > 1200)
     throw new Error('Audio must be between one sample and 20 minutes');
@@ -36,7 +38,7 @@ export async function analyzeWithModel(
   });
   try {
     progress('Extracting model features', 0.05);
-    const features = modelFeatures(samples, sampleRate),
+    const features = prepared?.model ?? modelFeatures(samples, sampleRate),
       count = features.times.length;
     const predictions: ChordAlternative[][] = [];
     const context = (manifest.receptive_field_frames - 1) / 2,
@@ -78,23 +80,20 @@ export async function analyzeWithModel(
       progress('Running experimental CPU model', 0.1 + (0.5 * stop) / count);
     }
     // Reuse replaceable DSP rhythm/novelty and stabilization; learned boundaries failed evaluation.
-    const analysis = analyzeAudio(
-      samples,
-      sampleRate,
-      fingerprint,
-      'accurate',
-      (stage, value) => progress(stage, 0.6 + value * 0.4),
-      {
-        version: EXPERIMENTAL_MODEL_VERSION,
-        predict(frame) {
-          const index = Math.max(
-            0,
-            Math.min(count - 1, Math.round((frame.time * 22050 - 1024) / 512)),
-          );
-          return frame.rms < 0.002 ? [{ chord: { kind: 'none' }, score: 1 }] : predictions[index];
-        },
+    const recognizer = {
+      version: EXPERIMENTAL_MODEL_VERSION,
+      predict(frame: AudioFeatures['frames'][number]): ChordAlternative[] {
+        const index = Math.max(
+          0,
+          Math.min(count - 1, Math.round((frame.time * 22050 - 1024) / 512)),
+        );
+        return frame.rms < 0.002 ? [{ chord: { kind: 'none' }, score: 1 }] : predictions[index];
       },
-    );
+    };
+    const finalProgress = (stage: string, value: number) => progress(stage, 0.6 + value * 0.4);
+    const analysis = prepared
+      ? analyzeFeatures(prepared.dsp, fingerprint, 'accurate', finalProgress, recognizer)
+      : analyzeAudio(samples, sampleRate, fingerprint, 'accurate', finalProgress, recognizer);
     analysis.warnings = [
       'Experimental GuitarSet model: unreliable minor and extended chords. Scores are uncalibrated; review every result.',
       'DSP novelty, rhythm and stabilization are used; learned boundaries failed evaluation. Meter is unknown.',

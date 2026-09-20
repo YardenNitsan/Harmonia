@@ -2,10 +2,12 @@ import { memo } from 'react';
 import { Edit3 } from 'lucide-react';
 import { formatChord, pitchName } from '../../../../packages/domain/chord';
 import { displayChord, type ChordDisplayMode } from '../../../../packages/domain/notation';
+import { findSegmentNeighbors } from '../../../../packages/domain/timeline';
 import type { Analysis } from '../../../../packages/domain/types';
 interface HarmonyStageProps {
   analysis: Analysis;
   index: number;
+  time: number;
   transpose: number;
   notation: ChordDisplayMode;
   playing: boolean;
@@ -16,6 +18,7 @@ interface HarmonyStageProps {
 export const HarmonyStage = memo(function HarmonyStage({
   analysis,
   index,
+  time,
   transpose,
   notation,
   playing,
@@ -24,7 +27,8 @@ export const HarmonyStage = memo(function HarmonyStage({
   onEdit,
 }: HarmonyStageProps) {
   const segment = analysis.segments[index],
-    chord = segment?.chord ?? { kind: 'none' as const };
+    chord = segment?.chord ?? { kind: 'unknown' as const };
+  const { previous, next } = findSegmentNeighbors(analysis.segments, time);
   const demo = analysis.modelVersion === 'demo-reference-v1';
   return (
     <section className="harmony-stage" aria-label="Synchronized harmony">
@@ -44,44 +48,28 @@ export const HarmonyStage = memo(function HarmonyStage({
       <div className="chord-orbit">
         <div className="neighbor previous">
           <span className="eyebrow">PREVIOUS</span>
-          <button
-            onClick={() => onSeek(analysis.segments[index - 1]?.start ?? 0)}
-            disabled={index <= 0}
-          >
-            {index > 0
-              ? displayChord(
-                  analysis.segments[index - 1].chord,
-                  notation,
-                  analysis.key?.root ?? null,
-                )
-              : '—'}
+          <button onClick={() => previous && onSeek(previous.start)} disabled={!previous}>
+            {previous ? displayChord(previous.chord, notation, analysis.key?.root ?? null) : '—'}
           </button>
         </div>
         <div className="current-chord">
           <span className="eyebrow">CURRENT CHORD</span>
           <h1 key={`${index}-${transpose}-${formatChord(chord)}`} data-testid="current-chord">
-            {displayChord(chord, notation, analysis.key?.root ?? null)}
+            {segment ? displayChord(chord, notation, analysis.key?.root ?? null) : '—'}
           </h1>
           <div className="chord-annotation">
             <span className="tiny-dot" />
-            {demo
-              ? 'Authored reference'
-              : `Model score ${Math.round((segment?.score ?? 0) * 100)}% · uncalibrated`}
+            {!segment
+              ? 'No harmonic label'
+              : demo
+                ? 'Authored reference'
+                : `Model score ${Math.round((segment?.score ?? 0) * 100)}% · uncalibrated`}
           </div>
         </div>
         <div className="neighbor next">
           <span className="eyebrow">UP NEXT</span>
-          <button
-            onClick={() => onSeek(analysis.segments[index + 1]?.start ?? 0)}
-            disabled={index < 0 || index === analysis.segments.length - 1}
-          >
-            {analysis.segments[index + 1]
-              ? displayChord(
-                  analysis.segments[index + 1].chord,
-                  notation,
-                  analysis.key?.root ?? null,
-                )
-              : '—'}
+          <button onClick={() => next && onSeek(next.start)} disabled={!next}>
+            {next ? displayChord(next.chord, notation, analysis.key?.root ?? null) : '—'}
           </button>
         </div>
       </div>
@@ -116,7 +104,7 @@ export const HarmonyStage = memo(function HarmonyStage({
         </span>
         <button
           className="text-button"
-          disabled={!segment || transpose !== 0}
+          disabled={!segment}
           onClick={() => onEdit(segment.id)}
           aria-label="Edit current chord"
         >

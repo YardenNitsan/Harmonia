@@ -1,0 +1,41 @@
+{
+  "study": "D003-hu33-residual-quality",
+  "frozen_at_utc": "2026-09-20T13:41:38.248054+00:00",
+  "stage": "before training-array access and optimization",
+  "source_sha256": {
+    "experiments\\D003-hu33-residual-quality.json": "4c56562eb59fb411ef37ddbfea0cdbd35d64ac598f8aa7bdadbecb7ec51789be",
+    "experiments\\D003-hu33-residual-quality-protocol.md": "72791822b6f0c539a8ef111e9bcd5ee42c2165121f9172d8ccd4e6facf096b95",
+    "experiments\\residual_quality_probe.py": "d6755dc517b772e25f87b08647f78f7957ba8ef9bc0ae56190f005e25e71880a",
+    "experiments\\root_relative_probe.py": "2641135a485a547551ae9b84629c8b9c5d1f4833d04954172d442edb979ebd5c",
+    "experiments\\d003_watchdog.py": "5d705ca1a1aa046b11ee77df4ac534f741bf15cea9dee638f9690f817b3f43c5",
+    "tests\\test_residual_quality_probe.py": "3ccc6604c1f304d5da6c85a43a306bb40f293a1b42241e00b9e6540f33264d1c"
+  },
+  "dependency_sha256": {
+    "data\\prepared\\winterreise-hu33-v1\\manifest.json": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+    "experiments/results/D001-hu33-root-relative-probe/report.json": "1817b6420faa1ce57d56c918f2b22d95e12741d335c70a54aa004e1542439e72",
+    "checkpoints\\D001-hu33-root-relative-probe\\root_relative-fold-0.npz": "1e8460ca420c909781b9a8435e1d56db76f7a200e76bc27fccde1f29ae8a2a19",
+    "checkpoints\\D001-hu33-root-relative-probe\\root_relative-fold-1.npz": "b551418108373e993ceca2e3ff567e935d0b0a0e3ac2c00a5ff082b91378ba57",
+    "checkpoints\\D001-hu33-root-relative-probe\\root_relative-fold-2.npz": "88743fbab9faecf5c8fd1b7612f9a2c8d1aec3792b3730f966d052cc3e4844d9",
+    "checkpoints\\D001-hu33-root-relative-probe\\root_relative-fold-3.npz": "c2b600b969e33a5b12baca2686a19e171c2c83744319b16fcda045090add8860"
+  },
+  "source_archive_sha256": "8d3fc4ee0355bf0306abd75b284beada075ae4e02e17ef28c108b74779d5b992",
+  "python": "3.13.12",
+  "numpy": "2.5.3",
+  "torch": "2.11.0+cu128",
+  "threads_environment": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "watchdog_seconds": 600,
+  "resources": {
+    "elapsed_seconds": 0.009407000005012378,
+    "samples": 1,
+    "sampled_peak_process_rss_bytes": 565977088,
+    "minimum_sampled_available_system_bytes": 17557565440,
+    "sampling": "preflight, fold boundaries and every objective evaluation",
+    "cpu_threads": 2,
+    "workers": 0,
+    "gpu_used": false
+  }
+}

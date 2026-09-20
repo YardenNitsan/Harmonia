@@ -43,8 +43,10 @@ ledger belongs in [final report](final-report.md); numerical ML evidence is in
   overlap was not exhaustively established. It is not the bundled ONNX artifact.
   Export research now passes procedural fixtures, but a real validation recording
   exceeds the unchanged logit tolerance. The complete production port remains gated.
-  HU33 E007–E009 add measured context/class-weighting comparisons; E009 still has
-  only 0.34% minor recall and does not replace the product recognizer.
+  HU33 E010 improves minor recall to53.53% and reduced exact to25.41%, with major
+  recall declining to71.90%. Its ONNX CPU parity passes, but browser parity,
+  production preprocessing and final quality selection remain open. D002's
+  training-only relative-bass study fails its inversion/root-position guards.
 - Family-disjoint GuitarSet splits retain performers across splits and have severe
   quality imbalance. There is no broad performer-/artist-disjoint commercial-song
   benchmark, multiple-seed significance analysis or comprehensive learning curve.
@@ -53,6 +55,12 @@ ledger belongs in [final report](final-report.md); numerical ML evidence is in
   exact historical replay with the current runner is not claimed.
 
 ## Local workflow and feature coverage
+
+- Novelty scores are computed, but independent boundary-candidate split/merge
+  refinement is not integrated. B001 improved precision but failed its mandatory
+  short-transition guard and substantially reduced recall; it was not promoted.
+  Worker-owned OPFS now reuses versioned DSP/model features with bounded cleanup;
+  decoding still runs when no completed analysis is available. See ADR 004.
 
 - Audio imports are limited to 100 MB and 20 minutes; decoding depends on platform
   codec support. No claim covers arbitrary corrupt, protected or unusual codecs.
@@ -69,9 +77,12 @@ ledger belongs in [final report](final-report.md); numerical ML evidence is in
 
 ## Providers, privacy and recovery
 
-- Local files are the only implemented provider. Remote adapters are not configured
-  or live-tested; credentials, app registrations, SDK compatibility and permitted
-  behavior remain unresolved. Capability research is not a working integration.
+- Local files are the only connected product provider. An isolated YouTube IFrame
+  adapter implements playback controls and explicit SDK errors, with 50 unit tests.
+  A strict message bridge adds46 tests; isolated browser/native SDK feasibility
+  passed, including native database ACL rejection. Product connection, final
+  embedding/navigation restrictions and installed-client identity remain open;
+  this does not establish catalog/search or other remote-provider integrations.
 - Supported remote playback APIs do not authorize Harmonia to analyze raw protected
   streams. No ripping, DRM bypass, background capture or training-data acquisition
   from these providers is implemented or approved.

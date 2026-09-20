@@ -1,0 +1,32 @@
+{
+  "study": "D002-hu33-relative-bass",
+  "frozen_at_utc": "2026-09-20T13:28:39.997899+00:00",
+  "source_sha256": {
+    "experiments\\D002-hu33-relative-bass.json": "05e0a984ee408912e8d75ce68883c99a792d512a00c6fe64c008018f30fb6166",
+    "experiments\\D002-hu33-relative-bass-protocol.md": "88c82d2fb88922406fc7c2d2ea23fcd3543c75eba6c4a4a34d1330229ef5e38e",
+    "experiments\\relative_bass_probe.py": "a51a796101ceacc634a881d6a69ece10c1efd5a526c1d771805d0130135ac027",
+    "experiments\\root_relative_probe.py": "2641135a485a547551ae9b84629c8b9c5d1f4833d04954172d442edb979ebd5c",
+    "tests\\test_relative_bass_probe.py": "dec2ae08aa0c998d616db826cb857b52a43c4d566212f3c29c218a2cf851e06f"
+  },
+  "source_archive_sha256": "7f0b993989deea4b1e60a1b941da7e346dcfc19eb6be3832deeb85f509599345",
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "stage": "before training-array access",
+  "python": "3.13.12",
+  "numpy": "2.5.3",
+  "torch": "2.11.0+cu128",
+  "threads_environment": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "resources": {
+    "elapsed_seconds": 0.01073570002336055,
+    "samples": 1,
+    "sampled_peak_process_rss_bytes": 565579776,
+    "minimum_sampled_available_system_bytes": 17229656064,
+    "sampling": "preflight, fold boundaries and every objective evaluation",
+    "cpu_threads": 2,
+    "workers": 0,
+    "gpu_used": false
+  }
+}

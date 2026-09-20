@@ -1,0 +1,661 @@
+{
+  "schema": "harmonia-isolated-guitar-inspection-1",
+  "inspected_utc": "2026-09-20T12:08:37.668033+00:00",
+  "status": "passed_acquisition_and_signal_inspection_only",
+  "source_revision": "873968c2499d528e57e9909001d4329917f3d677",
+  "source_account": "severyn-k",
+  "license": "CC BY 4.0, explicit publisher repository statement; attribution required",
+  "readme_url": "https://huggingface.co/datasets/severyn-k/isolated-guitar-chords/raw/873968c2499d528e57e9909001d4329917f3d677/README.md",
+  "readme_sha256": "3a7627b45f9d3427d6536d0ec7eeda224847f4af4f3890a2e9d69b8e8f7d7a3a",
+  "license_text_url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+  "license_text_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+  "prior_attempt": {
+    "audio_bytes": 503876,
+    "file": "data/Train/Cm/Cm_acoustic_guitar_fender_fa_series_1.wav",
+    "failure": "cp1252 console UnicodeEncodeError printing embedded metadata after verification; no files published",
+    "retry_authorized": true,
+    "maximum_attempts": 2
+  },
+  "limits": {
+    "per_audio_file_bytes": 600000,
+    "cumulative_audio_bytes": 3050000,
+    "readme_bytes_per_request": 20000,
+    "license_bytes_per_request": 50000,
+    "timeout_seconds_per_request": 30
+  },
+  "decision": "Inspection only; no approval for frame/bass supervision, training, model selection or release",
+  "activity_measurement": {
+    "rms_window_seconds": 0.01,
+    "threshold_linear": 0.001,
+    "meaning": "Descriptive acoustic activity, not chord onset/offset or musical no-chord labels"
+  },
+  "existing_corpora_read": false,
+  "published_test_files_downloaded": false,
+  "training_or_inference_performed": false,
+  "records": [
+    {
+      "source_path": "data/Train/Cm/Cm_acoustic_guitar_fender_fa_series_1.wav",
+      "source_url": "https://huggingface.co/datasets/severyn-k/isolated-guitar-chords/resolve/873968c2499d528e57e9909001d4329917f3d677/data/Train/Cm/Cm_acoustic_guitar_fender_fa_series_1.wav",
+      "source_partition": "Train",
+      "folder_label_unverified": "Cm",
+      "bytes": 503876,
+      "sha256": "fa14180b0f18aa0ccf3b21d52f9c115b2cf2a4bb721ed12b78ca42bf9d02325f",
+      "publisher_lfs_sha256_verified": true,
+      "http": {
+        "status": 200,
+        "content_length": "503876",
+        "final_host": "us.aws.cdn.hf.co"
+      },
+      "riff_format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 44100,
+        "byte_rate": 88200,
+        "block_align": 2,
+        "bits_per_sample": 16
+      },
+      "riff_chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 485760
+        },
+        {
+          "id": "ID3 ",
+          "bytes": 18030
+        },
+        {
+          "id": "LIST",
+          "bytes": 26
+        }
+      ],
+      "sample_rate": 44100,
+      "channels": 1,
+      "frames": 242880,
+      "duration_seconds": 5.507482993197279,
+      "subtype": "PCM_16",
+      "all_samples_finite": true,
+      "decoded_sha256": "4a2fdd4a651c679d4f4b42d343aca6f04a4904cfff39a97c3ba77ee33c7947cc",
+      "peak_abs": 0.63568115234375,
+      "rms": 0.05540405610635522,
+      "clipped_sample_fraction": 0.0,
+      "exact_zero_leading_seconds": 0.027528344671201813,
+      "exact_zero_trailing_seconds": 0.0,
+      "rms_threshold_first_active_seconds": 0.06,
+      "rms_threshold_last_active_end_seconds": 5.507482993197279,
+      "observations_are_chord_ground_truth": false,
+      "embedded_metadata": [
+        {
+          "id": "ID3 ",
+          "version": "2.4",
+          "bytes": 18030,
+          "frames": [
+            {
+              "id": "TIT2",
+              "bytes": 42,
+              "text": "Cm_acoustic_guitar_fender_fa_series_1.wav"
+            },
+            {
+              "id": "TPE1",
+              "bytes": 12,
+              "text": "RecForge II"
+            },
+            {
+              "id": "TALB",
+              "bytes": 24,
+              "text": "Recorded by RecForge II"
+            },
+            {
+              "id": "COMM",
+              "bytes": 107,
+              "language": "XXX",
+              "text": "https://play.google.com/store/apps/details?id=dje073.android.modernrecforge\n\nhttps://www.recforge.ovh\n"
+            },
+            {
+              "id": "APIC",
+              "bytes": 16783,
+              "mime": "image/jpeg",
+              "picture_type": 3,
+              "description": "",
+              "image_bytes": 16769,
+              "image_sha256": "ce9032a0ddac11f86997327f29a52f997b635231c97da104cf3f3c91a78de4fe",
+              "embedded_image_xmp_fields": {
+                "{adobe:ns:meta/}xmptk": "XMP Core 4.4.0-Exiv2",
+                "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about": "",
+                "{http://ns.adobe.com/xap/1.0/mm/}DocumentID": "gimp:docid:gimp:420f5bc7-9e8f-4b71-a828-dbccac0a0b32",
+                "{http://ns.adobe.com/xap/1.0/mm/}InstanceID": "xmp.iid:e7afd70d-bdde-443b-906e-3ceabc929da3",
+                "{http://ns.adobe.com/xap/1.0/mm/}OriginalDocumentID": "xmp.did:fe3988e6-9fcf-4306-909f-68585cd89257",
+                "{http://purl.org/dc/elements/1.1/}Format": "image/jpeg",
+                "{http://www.gimp.org/xmp/}API": "2.0",
+                "{http://www.gimp.org/xmp/}Platform": "Windows",
+                "{http://www.gimp.org/xmp/}TimeStamp": "1641230470311497",
+                "{http://www.gimp.org/xmp/}Version": "2.10.24",
+                "{http://ns.adobe.com/xap/1.0/}CreatorTool": "GIMP 2.10",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}action": "saved",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}changed": "/",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}instanceID": "xmp.iid:6875f164-d068-429e-b42a-314032ed615e",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}softwareAgent": "Gimp 2.10 (Windows)",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}when": "2022-01-03T18:21:10"
+              },
+              "image_not_decoded_or_used_as_training_input": true
+            }
+          ],
+          "sha256": "fa4d28386434a65bf2bef757fd589f33f8fee6d563a82a84c281c6cc1c771163"
+        },
+        {
+          "id": "LIST",
+          "bytes": 26,
+          "INFO": {
+            "ISFT": "Lavf58.20.100"
+          },
+          "sha256": "65e2b00baa836e5853f27a298b316eafb8e398438cdf1574d20dbbc3e0af5ecb"
+        }
+      ]
+    },
+    {
+      "source_path": "data/Train/Dm/Dm_acoustic_guitar_fender_fa_series_1.wav",
+      "source_url": "https://huggingface.co/datasets/severyn-k/isolated-guitar-chords/resolve/873968c2499d528e57e9909001d4329917f3d677/data/Train/Dm/Dm_acoustic_guitar_fender_fa_series_1.wav",
+      "source_partition": "Train",
+      "folder_label_unverified": "Dm",
+      "bytes": 489796,
+      "sha256": "97ec50c8ac57dc9eeb6e17e95bf2e209dfafbd3a8c931d5ba0c528dfe78ef03b",
+      "publisher_lfs_sha256_verified": true,
+      "http": {
+        "status": 200,
+        "content_length": "489796",
+        "final_host": "us.aws.cdn.hf.co"
+      },
+      "riff_format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 44100,
+        "byte_rate": 88200,
+        "block_align": 2,
+        "bits_per_sample": 16
+      },
+      "riff_chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 471680
+        },
+        {
+          "id": "ID3 ",
+          "bytes": 18030
+        },
+        {
+          "id": "LIST",
+          "bytes": 26
+        }
+      ],
+      "sample_rate": 44100,
+      "channels": 1,
+      "frames": 235840,
+      "duration_seconds": 5.347845804988662,
+      "subtype": "PCM_16",
+      "all_samples_finite": true,
+      "decoded_sha256": "4238d77d3035fb8277d8c4affc214b4313155505b0c6b08afa12bb2294c14dfa",
+      "peak_abs": 0.819854736328125,
+      "rms": 0.0562312055899838,
+      "clipped_sample_fraction": 0.0,
+      "exact_zero_leading_seconds": 0.027165532879818596,
+      "exact_zero_trailing_seconds": 0.0,
+      "rms_threshold_first_active_seconds": 0.06,
+      "rms_threshold_last_active_end_seconds": 5.347845804988662,
+      "observations_are_chord_ground_truth": false,
+      "embedded_metadata": [
+        {
+          "id": "ID3 ",
+          "version": "2.4",
+          "bytes": 18030,
+          "frames": [
+            {
+              "id": "TIT2",
+              "bytes": 42,
+              "text": "Dm_acoustic_guitar_fender_fa_series_1.wav"
+            },
+            {
+              "id": "TPE1",
+              "bytes": 12,
+              "text": "RecForge II"
+            },
+            {
+              "id": "TALB",
+              "bytes": 24,
+              "text": "Recorded by RecForge II"
+            },
+            {
+              "id": "COMM",
+              "bytes": 107,
+              "language": "XXX",
+              "text": "https://play.google.com/store/apps/details?id=dje073.android.modernrecforge\n\nhttps://www.recforge.ovh\n"
+            },
+            {
+              "id": "APIC",
+              "bytes": 16783,
+              "mime": "image/jpeg",
+              "picture_type": 3,
+              "description": "",
+              "image_bytes": 16769,
+              "image_sha256": "ce9032a0ddac11f86997327f29a52f997b635231c97da104cf3f3c91a78de4fe",
+              "embedded_image_xmp_fields": {
+                "{adobe:ns:meta/}xmptk": "XMP Core 4.4.0-Exiv2",
+                "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about": "",
+                "{http://ns.adobe.com/xap/1.0/mm/}DocumentID": "gimp:docid:gimp:420f5bc7-9e8f-4b71-a828-dbccac0a0b32",
+                "{http://ns.adobe.com/xap/1.0/mm/}InstanceID": "xmp.iid:e7afd70d-bdde-443b-906e-3ceabc929da3",
+                "{http://ns.adobe.com/xap/1.0/mm/}OriginalDocumentID": "xmp.did:fe3988e6-9fcf-4306-909f-68585cd89257",
+                "{http://purl.org/dc/elements/1.1/}Format": "image/jpeg",
+                "{http://www.gimp.org/xmp/}API": "2.0",
+                "{http://www.gimp.org/xmp/}Platform": "Windows",
+                "{http://www.gimp.org/xmp/}TimeStamp": "1641230470311497",
+                "{http://www.gimp.org/xmp/}Version": "2.10.24",
+                "{http://ns.adobe.com/xap/1.0/}CreatorTool": "GIMP 2.10",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}action": "saved",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}changed": "/",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}instanceID": "xmp.iid:6875f164-d068-429e-b42a-314032ed615e",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}softwareAgent": "Gimp 2.10 (Windows)",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}when": "2022-01-03T18:21:10"
+              },
+              "image_not_decoded_or_used_as_training_input": true
+            }
+          ],
+          "sha256": "4a4bbd249d99acb2ffefce734bd0ee844ca6b9676cd18ea24dfbc5865ccf6d9f"
+        },
+        {
+          "id": "LIST",
+          "bytes": 26,
+          "INFO": {
+            "ISFT": "Lavf58.20.100"
+          },
+          "sha256": "65e2b00baa836e5853f27a298b316eafb8e398438cdf1574d20dbbc3e0af5ecb"
+        }
+      ]
+    },
+    {
+      "source_path": "data/Train/Em/Em_acoustic_guitar_fender_fa_series_1.wav",
+      "source_url": "https://huggingface.co/datasets/severyn-k/isolated-guitar-chords/resolve/873968c2499d528e57e9909001d4329917f3d677/data/Train/Em/Em_acoustic_guitar_fender_fa_series_1.wav",
+      "source_partition": "Train",
+      "folder_label_unverified": "Em",
+      "bytes": 544356,
+      "sha256": "7975386c3e2649f1c9b04f3b4441e42df3d7e959300e35e9e59b9b4b7bbd6679",
+      "publisher_lfs_sha256_verified": true,
+      "http": {
+        "status": 200,
+        "content_length": "544356",
+        "final_host": "us.aws.cdn.hf.co"
+      },
+      "riff_format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 44100,
+        "byte_rate": 88200,
+        "block_align": 2,
+        "bits_per_sample": 16
+      },
+      "riff_chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 526240
+        },
+        {
+          "id": "ID3 ",
+          "bytes": 18030
+        },
+        {
+          "id": "LIST",
+          "bytes": 26
+        }
+      ],
+      "sample_rate": 44100,
+      "channels": 1,
+      "frames": 263120,
+      "duration_seconds": 5.966439909297052,
+      "subtype": "PCM_16",
+      "all_samples_finite": true,
+      "decoded_sha256": "a408dd705fc26a8ae020128ca6112aed224350837a98ab9696c0407bae7235b4",
+      "peak_abs": 0.885101318359375,
+      "rms": 0.06653165770413007,
+      "clipped_sample_fraction": 0.0,
+      "exact_zero_leading_seconds": 0.02727891156462585,
+      "exact_zero_trailing_seconds": 0.0,
+      "rms_threshold_first_active_seconds": 0.06,
+      "rms_threshold_last_active_end_seconds": 5.966439909297052,
+      "observations_are_chord_ground_truth": false,
+      "embedded_metadata": [
+        {
+          "id": "ID3 ",
+          "version": "2.4",
+          "bytes": 18030,
+          "frames": [
+            {
+              "id": "TIT2",
+              "bytes": 42,
+              "text": "Em_acoustic_guitar_fender_fa_series_1.wav"
+            },
+            {
+              "id": "TPE1",
+              "bytes": 12,
+              "text": "RecForge II"
+            },
+            {
+              "id": "TALB",
+              "bytes": 24,
+              "text": "Recorded by RecForge II"
+            },
+            {
+              "id": "COMM",
+              "bytes": 107,
+              "language": "XXX",
+              "text": "https://play.google.com/store/apps/details?id=dje073.android.modernrecforge\n\nhttps://www.recforge.ovh\n"
+            },
+            {
+              "id": "APIC",
+              "bytes": 16783,
+              "mime": "image/jpeg",
+              "picture_type": 3,
+              "description": "",
+              "image_bytes": 16769,
+              "image_sha256": "ce9032a0ddac11f86997327f29a52f997b635231c97da104cf3f3c91a78de4fe",
+              "embedded_image_xmp_fields": {
+                "{adobe:ns:meta/}xmptk": "XMP Core 4.4.0-Exiv2",
+                "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about": "",
+                "{http://ns.adobe.com/xap/1.0/mm/}DocumentID": "gimp:docid:gimp:420f5bc7-9e8f-4b71-a828-dbccac0a0b32",
+                "{http://ns.adobe.com/xap/1.0/mm/}InstanceID": "xmp.iid:e7afd70d-bdde-443b-906e-3ceabc929da3",
+                "{http://ns.adobe.com/xap/1.0/mm/}OriginalDocumentID": "xmp.did:fe3988e6-9fcf-4306-909f-68585cd89257",
+                "{http://purl.org/dc/elements/1.1/}Format": "image/jpeg",
+                "{http://www.gimp.org/xmp/}API": "2.0",
+                "{http://www.gimp.org/xmp/}Platform": "Windows",
+                "{http://www.gimp.org/xmp/}TimeStamp": "1641230470311497",
+                "{http://www.gimp.org/xmp/}Version": "2.10.24",
+                "{http://ns.adobe.com/xap/1.0/}CreatorTool": "GIMP 2.10",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}action": "saved",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}changed": "/",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}instanceID": "xmp.iid:6875f164-d068-429e-b42a-314032ed615e",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}softwareAgent": "Gimp 2.10 (Windows)",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}when": "2022-01-03T18:21:10"
+              },
+              "image_not_decoded_or_used_as_training_input": true
+            }
+          ],
+          "sha256": "270c475d900286902744e12eaedb6a7b3340c29dfdb34ebd62a156c9bf7f862b"
+        },
+        {
+          "id": "LIST",
+          "bytes": 26,
+          "INFO": {
+            "ISFT": "Lavf58.20.100"
+          },
+          "sha256": "65e2b00baa836e5853f27a298b316eafb8e398438cdf1574d20dbbc3e0af5ecb"
+        }
+      ]
+    },
+    {
+      "source_path": "data/Train/Fm/Fm_acoustic_guitar_fender_fa_series_1.wav",
+      "source_url": "https://huggingface.co/datasets/severyn-k/isolated-guitar-chords/resolve/873968c2499d528e57e9909001d4329917f3d677/data/Train/Fm/Fm_acoustic_guitar_fender_fa_series_1.wav",
+      "source_partition": "Train",
+      "folder_label_unverified": "Fm",
+      "bytes": 503876,
+      "sha256": "de7072b54ea201d58b7805913a1e2e6c27dcf89c4b4f0e2c4708c64c471c8320",
+      "publisher_lfs_sha256_verified": true,
+      "http": {
+        "status": 200,
+        "content_length": "503876",
+        "final_host": "us.aws.cdn.hf.co"
+      },
+      "riff_format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 44100,
+        "byte_rate": 88200,
+        "block_align": 2,
+        "bits_per_sample": 16
+      },
+      "riff_chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 485760
+        },
+        {
+          "id": "ID3 ",
+          "bytes": 18030
+        },
+        {
+          "id": "LIST",
+          "bytes": 26
+        }
+      ],
+      "sample_rate": 44100,
+      "channels": 1,
+      "frames": 242880,
+      "duration_seconds": 5.507482993197279,
+      "subtype": "PCM_16",
+      "all_samples_finite": true,
+      "decoded_sha256": "394937db6f9771a0e02257ff9b799da11b38dcec17ea6e80aedbdebc172f6a89",
+      "peak_abs": 0.96160888671875,
+      "rms": 0.05557816477586351,
+      "clipped_sample_fraction": 0.0,
+      "exact_zero_leading_seconds": 0.02687074829931973,
+      "exact_zero_trailing_seconds": 0.0,
+      "rms_threshold_first_active_seconds": 0.07,
+      "rms_threshold_last_active_end_seconds": 5.507482993197279,
+      "observations_are_chord_ground_truth": false,
+      "embedded_metadata": [
+        {
+          "id": "ID3 ",
+          "version": "2.4",
+          "bytes": 18030,
+          "frames": [
+            {
+              "id": "TIT2",
+              "bytes": 42,
+              "text": "Fm_acoustic_guitar_fender_fa_series_1.wav"
+            },
+            {
+              "id": "TPE1",
+              "bytes": 12,
+              "text": "RecForge II"
+            },
+            {
+              "id": "TALB",
+              "bytes": 24,
+              "text": "Recorded by RecForge II"
+            },
+            {
+              "id": "COMM",
+              "bytes": 107,
+              "language": "XXX",
+              "text": "https://play.google.com/store/apps/details?id=dje073.android.modernrecforge\n\nhttps://www.recforge.ovh\n"
+            },
+            {
+              "id": "APIC",
+              "bytes": 16783,
+              "mime": "image/jpeg",
+              "picture_type": 3,
+              "description": "",
+              "image_bytes": 16769,
+              "image_sha256": "ce9032a0ddac11f86997327f29a52f997b635231c97da104cf3f3c91a78de4fe",
+              "embedded_image_xmp_fields": {
+                "{adobe:ns:meta/}xmptk": "XMP Core 4.4.0-Exiv2",
+                "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about": "",
+                "{http://ns.adobe.com/xap/1.0/mm/}DocumentID": "gimp:docid:gimp:420f5bc7-9e8f-4b71-a828-dbccac0a0b32",
+                "{http://ns.adobe.com/xap/1.0/mm/}InstanceID": "xmp.iid:e7afd70d-bdde-443b-906e-3ceabc929da3",
+                "{http://ns.adobe.com/xap/1.0/mm/}OriginalDocumentID": "xmp.did:fe3988e6-9fcf-4306-909f-68585cd89257",
+                "{http://purl.org/dc/elements/1.1/}Format": "image/jpeg",
+                "{http://www.gimp.org/xmp/}API": "2.0",
+                "{http://www.gimp.org/xmp/}Platform": "Windows",
+                "{http://www.gimp.org/xmp/}TimeStamp": "1641230470311497",
+                "{http://www.gimp.org/xmp/}Version": "2.10.24",
+                "{http://ns.adobe.com/xap/1.0/}CreatorTool": "GIMP 2.10",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}action": "saved",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}changed": "/",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}instanceID": "xmp.iid:6875f164-d068-429e-b42a-314032ed615e",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}softwareAgent": "Gimp 2.10 (Windows)",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}when": "2022-01-03T18:21:10"
+              },
+              "image_not_decoded_or_used_as_training_input": true
+            }
+          ],
+          "sha256": "158c393a11b445f5a0df3f5158e5bd89571dfbd0f22ca291590a0f38b9a316d8"
+        },
+        {
+          "id": "LIST",
+          "bytes": 26,
+          "INFO": {
+            "ISFT": "Lavf58.20.100"
+          },
+          "sha256": "65e2b00baa836e5853f27a298b316eafb8e398438cdf1574d20dbbc3e0af5ecb"
+        }
+      ]
+    },
+    {
+      "source_path": "data/Train/Gm/Gm_acoustic_guitar_fender_fa_series_1.wav",
+      "source_url": "https://huggingface.co/datasets/severyn-k/isolated-guitar-chords/resolve/873968c2499d528e57e9909001d4329917f3d677/data/Train/Gm/Gm_acoustic_guitar_fender_fa_series_1.wav",
+      "source_partition": "Train",
+      "folder_label_unverified": "Gm",
+      "bytes": 502116,
+      "sha256": "e5d605e48aa012cd78e469f567619d4c0d22c0676bb7e3f23d7c2111c9b938ae",
+      "publisher_lfs_sha256_verified": true,
+      "http": {
+        "status": 200,
+        "content_length": "502116",
+        "final_host": "us.aws.cdn.hf.co"
+      },
+      "riff_format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 44100,
+        "byte_rate": 88200,
+        "block_align": 2,
+        "bits_per_sample": 16
+      },
+      "riff_chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 484000
+        },
+        {
+          "id": "ID3 ",
+          "bytes": 18030
+        },
+        {
+          "id": "LIST",
+          "bytes": 26
+        }
+      ],
+      "sample_rate": 44100,
+      "channels": 1,
+      "frames": 242000,
+      "duration_seconds": 5.487528344671202,
+      "subtype": "PCM_16",
+      "all_samples_finite": true,
+      "decoded_sha256": "0af9d4916e3fca3497339ccabec0b7c8b33890e4b0062f793e60951dd692c5ac",
+      "peak_abs": 0.970245361328125,
+      "rms": 0.07423159791741293,
+      "clipped_sample_fraction": 0.0,
+      "exact_zero_leading_seconds": 0.027573696145124716,
+      "exact_zero_trailing_seconds": 0.0,
+      "rms_threshold_first_active_seconds": 0.06,
+      "rms_threshold_last_active_end_seconds": 5.487528344671202,
+      "observations_are_chord_ground_truth": false,
+      "embedded_metadata": [
+        {
+          "id": "ID3 ",
+          "version": "2.4",
+          "bytes": 18030,
+          "frames": [
+            {
+              "id": "TIT2",
+              "bytes": 42,
+              "text": "Gm_acoustic_guitar_fender_fa_series_1.wav"
+            },
+            {
+              "id": "TPE1",
+              "bytes": 12,
+              "text": "RecForge II"
+            },
+            {
+              "id": "TALB",
+              "bytes": 24,
+              "text": "Recorded by RecForge II"
+            },
+            {
+              "id": "COMM",
+              "bytes": 107,
+              "language": "XXX",
+              "text": "https://play.google.com/store/apps/details?id=dje073.android.modernrecforge\n\nhttps://www.recforge.ovh\n"
+            },
+            {
+              "id": "APIC",
+              "bytes": 16783,
+              "mime": "image/jpeg",
+              "picture_type": 3,
+              "description": "",
+              "image_bytes": 16769,
+              "image_sha256": "ce9032a0ddac11f86997327f29a52f997b635231c97da104cf3f3c91a78de4fe",
+              "embedded_image_xmp_fields": {
+                "{adobe:ns:meta/}xmptk": "XMP Core 4.4.0-Exiv2",
+                "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about": "",
+                "{http://ns.adobe.com/xap/1.0/mm/}DocumentID": "gimp:docid:gimp:420f5bc7-9e8f-4b71-a828-dbccac0a0b32",
+                "{http://ns.adobe.com/xap/1.0/mm/}InstanceID": "xmp.iid:e7afd70d-bdde-443b-906e-3ceabc929da3",
+                "{http://ns.adobe.com/xap/1.0/mm/}OriginalDocumentID": "xmp.did:fe3988e6-9fcf-4306-909f-68585cd89257",
+                "{http://purl.org/dc/elements/1.1/}Format": "image/jpeg",
+                "{http://www.gimp.org/xmp/}API": "2.0",
+                "{http://www.gimp.org/xmp/}Platform": "Windows",
+                "{http://www.gimp.org/xmp/}TimeStamp": "1641230470311497",
+                "{http://www.gimp.org/xmp/}Version": "2.10.24",
+                "{http://ns.adobe.com/xap/1.0/}CreatorTool": "GIMP 2.10",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}action": "saved",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}changed": "/",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}instanceID": "xmp.iid:6875f164-d068-429e-b42a-314032ed615e",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}softwareAgent": "Gimp 2.10 (Windows)",
+                "{http://ns.adobe.com/xap/1.0/sType/ResourceEvent#}when": "2022-01-03T18:21:10"
+              },
+              "image_not_decoded_or_used_as_training_input": true
+            }
+          ],
+          "sha256": "e88d9f6159064402fe0a4f689e4a5c4cefeb612bf9217beb670a774a18ac2081"
+        },
+        {
+          "id": "LIST",
+          "bytes": 26,
+          "INFO": {
+            "ISFT": "Lavf58.20.100"
+          },
+          "sha256": "65e2b00baa836e5853f27a298b316eafb8e398438cdf1574d20dbbc3e0af5ecb"
+        }
+      ]
+    }
+  ],
+  "rights_notice_conflict_detected": false,
+  "bytes": {
+    "unique_audio_retained": 2544020,
+    "current_attempt_audio": 2544020,
+    "cumulative_audio_received": 3047896,
+    "current_attempt_metadata": 23041,
+    "prior_attempt_metadata": "README and license also fetched; not separately counted by initial failed logger",
+    "prior_attempt_metadata_bound": 70000
+  },
+  "sha256_duplicate_groups": [],
+  "decoded_sha256_duplicate_groups": [],
+  "metadata_inspection": "RIFF chunk walk; ID3v2.4 text/comments, picture hashes/XMP fields and LIST/INFO parsed locally; no additional HTTP requests",
+  "decoded_hash_definition": "SHA256 of sorted-key JSON {sample_rate,shape,dtype:float32-le}, LF, then sample-major little-endian float32 PCM bytes; source rate/channels preserved",
+  "rights_notice_scope": "No conflicting restriction in parsed text/comments/XMP; no WAV-embedded license grant. Repository CC BY4 statement remains source grant. Recorder/software tags do not identify performer/author."
+}

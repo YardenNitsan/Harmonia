@@ -20,3 +20,5 @@ apps/desktop/public/runtime/
 *.pt
 .env
 *.log
+/ml/experiments/results/B001-boundary-refinement/browser.json
+/ml/artifacts/lv-chordia-diagnostic/selu-arithmetic/reference.npz

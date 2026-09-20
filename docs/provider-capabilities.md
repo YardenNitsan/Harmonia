@@ -48,13 +48,13 @@ The [API guide](https://developers.soundcloud.com/docs/api/guide) documents auth
 
 ## Adapter contract and tests
 
-The current `packages/application/contracts.ts` exposes only playback controls and seven capability booleans: `play`, `pause`, `seek`, `position`, `duration`, `rawAnalysisAvailable` and `offlineAvailable`. `LocalFileProvider` is the only implemented music provider. Authentication, catalog search, metadata/artwork adapters, typed remote errors and remote connection UI are **not implemented**. The matrix above must not be read as those features being shipped or merely awaiting a token.
+The current `packages/application/contracts.ts` exposes only playback controls and seven capability booleans: `play`, `pause`, `seek`, `position`, `duration`, `rawAnalysisAvailable` and `offlineAvailable`. `LocalFileProvider` is the connected product provider. An injected official `YouTubeProvider` now implements playback controls, availability/status and typed remote errors in isolation. Authentication, catalog search, metadata/artwork adapters and remote connection UI are **not implemented**. The matrix above must not be read as those features being shipped or merely awaiting a token.
 
 For future remote adapters, extend the inward-facing application contract with `authenticate`, `search`, `metadata` and `artwork` capabilities. Supplement booleans with availability/reason codes where account and region change behavior. Methods for unsupported actions must return typed errors; no dummy success. Local capabilities describe supported operations; `available` separately reports whether a local audio source is loaded. A saved analysis alone cannot enable playback.
 
 Application code selects behavior from capabilities, while authentication and provider-specific URLs remain inside adapters. Tokens belong in OS-backed secure storage, with minimum scopes, expiry/revocation handling and no secrets in the frontend bundle. Never invoke analysis merely because a player can produce sound.
 
-Required tests: disconnected state, token expiry, revoked scopes, rate limits, unavailable content, seek/position synchronization, unsupported analysis rejection, offline failure, cancellation and provider switch races. Tests must confirm no raw-media download occurs when analysis is unavailable. Remote API tests require authorized credentials and should be clearly distinguished from mocks. This research task has not authenticated to any provider, created an app registration or executed live playback tests.
+Required tests: disconnected state, token expiry, revoked scopes, rate limits, unavailable content, seek/position synchronization, unsupported analysis rejection, offline failure, cancellation and provider switch races. Tests must confirm no raw-media download occurs when analysis is unavailable. Remote API tests require authorized credentials and should be clearly distinguished from mocks. The initial research did not authenticate or register an application. A subsequent isolated public YouTube adapter probe passed playback controls without credentials; it does not validate authenticated providers or native-shell integration.
 
 ### Current local-provider verification
 
@@ -62,7 +62,7 @@ Required tests: disconnected state, token expiry, revoked scopes, rate limits, u
 
 ### Remote implementation and external prerequisites
 
-Rechecked against official sources on 2026-09-20. No provider account registration, credentials, paid subscription purchase or live remote playback was performed for this review. Credential absence is distinct from the remaining adapter/UI implementation work.
+Rechecked against official sources on 2026-09-20. No provider account registration, credentials or paid subscription purchase was performed. Subsequent public YouTube playback evidence is recorded below. Credential absence is distinct from the remaining adapter/UI implementation work.
 
 | Provider    | External prerequisite for live API validation                                                                                                                                              | Remaining implementation/verification                                                                                                                                                                                                                                                             |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -74,3 +74,45 @@ Rechecked against official sources on 2026-09-20. No provider account registrati
 Spotify documents [Authorization Code with PKCE](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow); app access limits remain governed by the linked February/March update. Google documents [project/API credential setup](https://developers.google.com/youtube/v3/getting-started). Apple's [media identifier and signing-key setup](https://developer.apple.com/help/account/capabilities/create-a-media-identifier-and-private-key/) requires an Account Holder or Admin. SoundCloud's [current API guide](https://developers.soundcloud.com/docs/api/guide) lists registration, PKCE and server-side flow prerequisites, approximately one-hour access tokens and single-use refresh tokens.
 
 The [YouTube IFrame reference](https://developers.google.com/youtube/iframe_api_reference) also defines error `153` for missing HTTP Referer or equivalent API client identification, besides removed/private content (`100`), disabled embedding (`101`/`150`) and HTML5 playback failures (`5`). Its `onAutoplayBlocked` event requires a visible user-recoverable state. A desktop integration must validate these behaviors rather than treating every failure as an expired token. No workaround may hide the player, extract media or bypass identification requirements.
+
+### Isolated YouTube implementation evidence
+
+`packages/providers/youtube.ts` accepts an injected official IFrame SDK factory,
+validates supported video IDs/URLs, confirms readiness and actual PLAYING state,
+and bounds pending operations. Replacement/disposal reject pending work and ignore
+stale callbacks. Fifty tests cover URL spoofing, SDK errors, autoplay blocking,
+timeouts, replacement and disposal. Raw-analysis/offline capabilities remain false.
+
+`node scripts/youtube-provider-probe.mjs` passed against the official documentation
+sample in isolated headless Chrome: visible 480?270 iframe, trusted user gesture,
+advancing playback clock, pause, seek and complete iframe/browser/server disposal.
+Source hashes, browser version and retained aborted-request diagnostics are in
+`review-evidence/youtube-adapter-probe.json`. This muted control check does not prove
+audible playback, native client identification, app UI or remote catalog support.
+The remote SDK was never loaded into Harmonia's privileged app context. A secure
+SDK isolation/connection design and native validation remain required.
+
+The subsequent hidden native probe also passed in WebView2, using the exact
+adapter and official SDK. It verified control/clock behavior and explicit ACL
+denial of remote `list_saved_tracks`, `save_track` and `delete_track` calls; the
+isolated database sentinel remained unchanged. Evidence is in
+`review-evidence/youtube-native-probe.json`; reproduce with
+`node scripts/youtube-native-probe.mjs`. The temporary native processes, profile,
+debugging endpoint and HTTP server were verified cleaned. No product capability,
+CSP, UI or Rust command was changed by this diagnostic.
+
+Observed requests carried the browser's automatic loopback Referer. The official
+[client identification requirements](https://developers.google.com/youtube/terms/required-minimum-functionality)
+distinguish automatic Referer from explicit WebView headers and prescribe an
+installed application identity when setting it explicitly. The probe did not
+override headers or establish the final installed-app identity contract. A passing
+diagnostic alone does not close the product/provider release gate.
+
+The isolated endpoint and application-side proxy now share a strict playback-only
+message protocol, verified by46 additional unit tests. It binds exact origins and
+window sources, bounds JSON messages to2KiB, limits pending requests/rates, rejects
+stale generations, and disposes abandoned playback after a five-second lease.
+The endpoint uses the actual adapter; no raw audio or arbitrary native operation
+crosses this contract. A real cross-origin browser harness is the next integration
+check. Production CSP currently blocks such an iframe, so that harness must record
+the negative gate separately from any explicit test-only embedding allowance.

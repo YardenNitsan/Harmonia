@@ -84,6 +84,25 @@ LV-Chordia export passes procedural fixtures but fails a retained real-audio
 numerical check; see ADR 003. Do not promote it, loosen tolerances or silently
 chunk full-sequence normalization/recurrent inference.
 
+D001 is a completed training-only, oracle-root representation diagnostic. Preserve
+its protocol/config/source/checkpoint hashes; it is not a deployable model or a
+reason to repeat E007–E009. The five-file isolated-guitar pilot is inspection-only,
+not aligned training data. E010's predicted-root cascade passed its bounded
+research gates and is being exported separately; it is not the production model.
+Its fit/validation and ten-case CPU ONNX parity are complete: reuse retained
+predictions, coefficients and exported artifact. Browser verification is separate.
+D002 is a completed, failed train-only bass diagnostic; do not repeat its eight
+fits or proceed to predicted-root bass from its failed guards. D003's separate
+quality-capacity protocol reuses D001 controls; do not retrain completed controls.
+B001 is complete and failed its short-transition guard; preserve its report and
+keep the current segmentation default. New work requires a separate frozen protocol.
+
+Derived features use worker-owned OPFS and Web Locks (ADR 004), never raw PCM.
+Keep cache operations optional, bounded and cancellable without releasing a lock
+while its I/O continues. `tests/e2e/feature-cache.spec.ts` checks actual worker reuse
+and corruption/cancellation recovery. The hidden native smoke also checks reuse
+across profiles and process restart; rebuild before running that smoke.
+
 The fresh native target for this continuation is
 `apps/desktop/src-tauri/target/continuation-clean`; pass its release executable to
 `node scripts/native-smoke.mjs --exe <path> --report <path>` after rebuilding.

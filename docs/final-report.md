@@ -272,12 +272,13 @@ real-song quality gain is inferred from that probe. ADR 003 records the decision
 The current app adds full/simplified/Roman/Nashville display modes and original
 corrected-chord Harte timeline export. The named editor dialog now focuses the
 symbol field, contains Tab navigation and restores focus on exit. Local playback
-preserves volume across imports and rejects invalid controls. Remote connections
-remain unimplemented; the provider matrix distinguishes that work from actual
+preserves volume across imports and rejects invalid controls. The isolated YouTube adapter now has playback/error handling and live browser
+control evidence; product remote connections remain unimplemented; the provider matrix distinguishes that work from actual
 account/registration prerequisites, including key-free public YouTube embeds.
 
-Current verification: 575 TypeScript tests, 73 Python tests, 14 Rust tests,
-TypeScript/lint/format and Rust fmt/clippy checks, 21 production-browser flows,
+Current product verification: 736 TypeScript tests, 98 Python tests plus later
+scoped B001/LV checks, 14 Rust tests, TypeScript/lint/format and Rust fmt/clippy
+checks, 25 production-browser flows,
 and the rebuilt NSIS/native hidden-smoke campaign. Python's legacy export/tracing
 warnings remain visible. The real-recording LV research acceptance probe exits
 nonzero as documented; a green unit suite does not override that failure.
@@ -289,3 +290,56 @@ Artifact identities and source hashes are in
 passed in `native-smoke-continuation.json`, with owned processes and temporary data
 cleaned. The unsigned installer has not passed clean-machine installation. The
 visible desktop application was not launched, and final acceptance remains open.
+
+Manual correction now saves the chord, start and end in one operation. Contiguous
+neighbors move with shared boundaries and every changed segment receives history;
+invalid bounds leave the timeline intact, while failed persistence retains the
+whole correction as unsaved. First/last edits can leave explicitly unlabelled
+edge spans. Gap-aware display/navigation does not invent N labels, and active
+loops follow the updated interval. The native smoke verifies these timing/history
+changes through actual SQLite persistence and process restart.
+
+The read-only [release environment inventory](review-evidence/release-environment.json)
+found a Windows 11 Home development machine with approximately32GiB RAM, no
+discoverable clean-Windows validation command and no personal-store code-signing
+certificate. It changed no host settings. [Remaining gates](release-gates.md)
+distinguishes unfinished local work from actual environment/account dependencies;
+boundary integration, model quality and secure provider connection remain local work.
+Worker-owned OPFS feature caching now passes production-browser and hidden-native
+cross-profile/restart reuse, integrity and bounded-recovery checks (ADR 004).
+
+A separate [training-only representation diagnostic](data/hu33-representation-diagnostic.md)
+found higher quality recall when the same features use an annotated root:
+24.87%→45.21% macro recall across held-out training compositions. All eight fits
+meet the frozen gradient criterion. Reference roots are unavailable at deployment;
+this supports further root-conditioned research, not a product accuracy claim.
+Validation/test arrays and the completed E007–E009 study remained untouched.
+
+The five-file [isolated-guitar pilot](data/2026-09-20-real-recording-followup.md)
+verified pinned source bytes and basic decoding without accessing its Test partition.
+It remains inspection-only; aligned timing/bass labels and recording provenance
+are unresolved. No full-corpus acquisition or training followed from that pilot.
+
+The standalone B001 boundary strategy has31 behavioral tests and a completed
+frozen comparison. F1@50ms improves0.099445→0.135922, but one additional missed
+short transition fails its mandatory guardrail. The production baseline remains.
+
+E010 follows D001 with actual predicted validation roots. It improves pooled
+triad macro recall20.25%→27.02%, minor recall0.34%→53.53% and reduced structural
+exact19.81%→25.41%. Major recall and wrong-root quality regress; augmented/sus4
+remain zero. Its research criterion passes, while model promotion remains gated.
+The exact cascade now passes ten CPU ONNX parity cases, preserving every retained
+validation decision. Browser WASM verification is separate and pending; the
+product still uses default DSP and explicitly experimental E004. D002's relative-
+bass diagnostic completed with all eight fits converged, but fails the inversion
+gains and root-position guard. A separately frozen training-only D003 diagnostic
+tests a nonlinear quality residual while guarding minor/diminished recall.
+See [evaluation](evaluation.md).
+
+The isolated YouTube adapter's50 tests and actual-SDK browser/native probes
+verify controls. A remote page was explicitly denied list/save/delete native
+commands, and its isolated database sentinel was unchanged. All owned processes,
+ports and temporary data were cleaned. The strict proxy/endpoint message bridge
+adds46 passing tests; browser embedding, product connection and installed-app
+identity acceptance remain separate work. Completed scientific
+artifacts and locked tests remain preserved.

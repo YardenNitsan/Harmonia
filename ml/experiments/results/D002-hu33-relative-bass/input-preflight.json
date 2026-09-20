@@ -1,0 +1,84 @@
+{
+  "study": "D002-hu33-relative-bass",
+  "stage": "before optimization",
+  "prepared_splits_read": [
+    "train"
+  ],
+  "source_preflight_sha256": "ec7d912991b5564cc156ec29b901673a33ba6786de3143748652b9b434613ea3",
+  "inputs": [
+    {
+      "composition": 2,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-02_HU33.npz",
+      "sha256": "eb5259962beb19feb742b71d77dbe1eef7ff4bdbec801129777d352164da6711"
+    },
+    {
+      "composition": 3,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-03_HU33.npz",
+      "sha256": "9fc1132809de8227188fff8e8485401761f79e6da81875efb0ad480adbc965cc"
+    },
+    {
+      "composition": 4,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-04_HU33.npz",
+      "sha256": "55d11d3d46bf7fba0c09b4c0d1d7f4fdca6660d73cc12118f809eb73e455fe06"
+    },
+    {
+      "composition": 5,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-05_HU33.npz",
+      "sha256": "1cdd1e6afa2c596557fb53385cb061e63d4bfc7eab6b1cd6eb33e2858b5c854f"
+    },
+    {
+      "composition": 6,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-06_HU33.npz",
+      "sha256": "eff65847713b72e147cee09e13b2f71193346a58a49d156979ffa892ae83140a"
+    },
+    {
+      "composition": 7,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-07_HU33.npz",
+      "sha256": "bd9e96f4f9e839f48cd8d672e0c1a66c1122beb3e507cc5aad1677dbc8def1ba"
+    },
+    {
+      "composition": 8,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-08_HU33.npz",
+      "sha256": "857a772e86124c5b7ab90f8c55aca7eda4941c353f482dd22ab97e44e8fbed0a"
+    },
+    {
+      "composition": 9,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-09_HU33.npz",
+      "sha256": "2ea13f1ffe91cdebf5eaf085a7b7d74dd06ac7a2920e02a8cbfb11260e7e49ea"
+    },
+    {
+      "composition": 10,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-10_HU33.npz",
+      "sha256": "8e80275d32547fb272296a64eeee72ef4b12c9aaf80ca8f17c24391f0bc2e95b"
+    },
+    {
+      "composition": 11,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-11_HU33.npz",
+      "sha256": "040ef889a7f24b123083d098d1575bf9ec43b39b94965272442e192897e82e79"
+    },
+    {
+      "composition": 12,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-12_HU33.npz",
+      "sha256": "feb573ca0f8df72be3403970c4049b4b9c604447f1fbda3755dafddc7e98f2ab"
+    },
+    {
+      "composition": 13,
+      "path": "data\\prepared\\winterreise-hu33-v1\\Schubert_D911-13_HU33.npz",
+      "sha256": "6d558069eab1c9645441791989a1609b017fec5ed2e55d387b82217278697b87"
+    }
+  ],
+  "support": [
+    56472,
+    65,
+    89,
+    3735,
+    4540,
+    205,
+    584,
+    9782,
+    0,
+    193,
+    2611,
+    74
+  ]
+}

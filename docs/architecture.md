@@ -37,6 +37,13 @@ extensions, alterations, added/omitted degrees, bass pitch class and spelling pr
 `none` and `unknown` are distinct states. Display and Harte strings are boundaries.
 Analysis stores model/pipeline/profile/fingerprint provenance and correction history.
 
+Manual chord/start/end edits form one domain-validated application transaction.
+Contiguous neighbors share the moved boundary; neighbors across existing gaps stay
+fixed. Every affected segment receives history in the same persisted record.
+Failed validation leaves state intact; failed persistence retains the complete
+transaction as unsaved for retry. Leading/trailing gaps remain unlabelled, distinct
+from canonical no-chord. Display transposition never changes the edited source pitch.
+
 ## Concurrency and trust
 
 Import increments a request identity and cancels the old worker. All late callbacks
@@ -44,3 +51,15 @@ check identity. Audio samples are transferred to workers. Playback position has 
 own subscription; animation updates remain within the player workspace. Time lookup
 is binary search using `start <= t < end`. Seek resets the visual position immediately.
 Untrusted saved analyses are validated before use. No remote audio fetch or telemetry.
+
+Derived DSP/model features live in worker-owned OPFS, separate from completed
+analysis records. Versioned keys bind source fingerprint and decode/extraction
+contracts. Checksums and exact shape/timing validation precede reuse. Web Locks,
+bounded retention/cleanup and optional-operation deadlines protect concurrent
+workers; cancellation terminates the owner without accepting stale results.
+See ADR 004 and the production-browser/hidden-native reuse evidence.
+
+The YouTube adapter accepts an injected official player factory in an isolated
+context. It exposes playback and typed errors, never raw-analysis/offline access.
+The live isolated probe does not connect remote scripts to the privileged app;
+native SDK isolation and product connection remain separate acceptance work.

@@ -1,4 +1,6 @@
-import { analyzeAudio } from './pipeline';
+import { analyzeFeatures } from './pipeline';
+import { dspFeatures, learnedFeatures } from './feature-cache';
+import { createFeatureCache } from '../persistence/feature-cache';
 import type { AnalysisProfile } from '../domain/types';
 const scope = self as unknown as {
   onmessage: (event: MessageEvent) => void;
@@ -21,12 +23,18 @@ scope.onmessage = async (
       for (let i = 0; i < mono.length; i++) mono[i] += channel[i] / channels.length;
     const progress = (stage: string, value: number) =>
       scope.postMessage({ kind: 'progress', stage, value });
+    const cache = await createFeatureCache();
+    const identity = { fingerprint, sampleRate, samples: mono.length, channels: channels.length };
+    const dsp = await dspFeatures(mono, identity, cache, progress);
     const analysis =
       profile === 'accurate'
         ? await (
             await import('./model-runtime')
-          ).analyzeWithModel(mono, sampleRate, fingerprint, event.data.assetBase, progress)
-        : analyzeAudio(mono, sampleRate, fingerprint, profile, progress);
+          ).analyzeWithModel(mono, sampleRate, fingerprint, event.data.assetBase, progress, {
+            dsp,
+            model: await learnedFeatures(mono, identity, cache, progress),
+          })
+        : analyzeFeatures(dsp, fingerprint, profile, progress);
     scope.postMessage({ kind: 'result', analysis });
   } catch (error) {
     scope.postMessage({

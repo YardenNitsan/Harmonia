@@ -1,5 +1,12 @@
 import type { Analysis, AnalysisProfile, Chord, SavedTrack } from '../domain/types';
-import { correctBoundary, correctChord, validateAnalysis } from '../domain/timeline';
+import {
+  correctBoundary,
+  correctChord,
+  correctSegment,
+  validateAnalysis,
+  type SegmentCorrection,
+} from '../domain/timeline';
+import { equalChords } from '../domain/chord';
 import type { AnalysisRepository, AudioAnalysisService, LocalPlayback } from './contracts';
 import { LatestTask } from './tasks';
 
@@ -235,40 +242,56 @@ export class SessionController {
       if (revision === this.playbackRevision) this.update({ error: this.message(error) });
     }
   }
-  private async correction(segmentId: string, analysis: Analysis) {
+  private async correction(analysis: Analysis) {
     const current = this.state.current;
     if (!current) return;
-    const before = current.analysis.segments.find((s) => s.id === segmentId),
-      after = analysis.segments.find((s) => s.id === segmentId);
-    if (!before || !after) throw new Error('Segment not found');
-    const record = {
-      ...current,
-      analysis,
-      corrections: [
-        ...current.corrections,
+    const createdAt = new Date().toISOString();
+    const changes = analysis.segments.flatMap((after, index) => {
+      const before = current.analysis.segments[index];
+      const sameSpelling =
+        before.chord.kind !== 'chord' ||
+        after.chord.kind !== 'chord' ||
+        before.chord.spelling === after.chord.spelling;
+      if (
+        before.start === after.start &&
+        before.end === after.end &&
+        sameSpelling &&
+        equalChords(before.chord, after.chord)
+      )
+        return [];
+      return [
         {
           id: crypto.randomUUID(),
           analysisId: analysis.id,
-          segmentId,
+          segmentId: after.id,
           before,
           after,
-          createdAt: new Date().toISOString(),
+          createdAt,
         },
-      ],
+      ];
+    });
+    const record = {
+      ...current,
+      analysis,
+      corrections: [...current.corrections, ...changes],
     };
-    this.update({ current: record });
+    this.update({
+      current: record,
+      ...(this.state.error?.startsWith('Changes are not saved:') ? { error: null } : {}),
+    });
     await this.save(record);
   }
   async editChord(segmentId: string, chord: Chord) {
     if (this.state.current)
-      await this.correction(segmentId, correctChord(this.state.current.analysis, segmentId, chord));
+      await this.correction(correctChord(this.state.current.analysis, segmentId, chord));
+  }
+  async editSegment(segmentId: string, correction: SegmentCorrection) {
+    if (this.state.current)
+      await this.correction(correctSegment(this.state.current.analysis, segmentId, correction));
   }
   async editBoundary(segmentId: string, time: number) {
     if (this.state.current)
-      await this.correction(
-        segmentId,
-        correctBoundary(this.state.current.analysis, segmentId, time),
-      );
+      await this.correction(correctBoundary(this.state.current.analysis, segmentId, time));
   }
   async favorite() {
     const current = this.state.current;

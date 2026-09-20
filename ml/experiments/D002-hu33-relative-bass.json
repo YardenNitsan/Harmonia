@@ -1,0 +1,17 @@
+{
+  "study_id": "D002-hu33-relative-bass",
+  "manifest": "data/prepared/winterreise-hu33-v1/manifest.json",
+  "manifest_sha256": "a54ce6ed104a42b8216f5045e4bc0be0d4912e61c8678c920ddf896dc63faf4d",
+  "protocol": "experiments/D002-hu33-relative-bass-protocol.md",
+  "output": "experiments/results/D002-hu33-relative-bass",
+  "checkpoint_dir": "checkpoints/D002-hu33-relative-bass",
+  "folds": [[2, 6, 10], [3, 7, 11], [4, 8, 12], [5, 9, 13]],
+  "l2_weights_and_biases": 0.0001,
+  "max_iterations": 300,
+  "max_evaluations": 375,
+  "convergence_gradient_infinity_max": 0.000001,
+  "minimum_inverted_exact_gain": 0.05,
+  "minimum_inversion_macro_gain": 0.02,
+  "maximum_root_position_loss": 0.02,
+  "minimum_available_ram_bytes": 8589934592
+}

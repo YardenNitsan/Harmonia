@@ -1,0 +1,32 @@
+﻿{
+  "recorded_at": "2026-09-20T11:56:49.5837759Z",
+  "purpose": "Read-only release validation environment inventory",
+  "manufacturer": "ASUSTeK COMPUTER INC.",
+  "model": "ROG G700TF",
+  "ram_bytes": 33847615488,
+  "hypervisor_present": true,
+  "processor": "Intel(R) Core(TM) Ultra 7 265KF",
+  "physical_cores": 20,
+  "logical_processors": 20,
+  "os_caption": "Microsoft Windows 11 Home",
+  "os_version": "10.0.26200",
+  "discoverable_vm_tools": [],
+  "clean_windows_environment_verified": false,
+  "physical_low_end_machine_verified": false,
+  "host_configuration_changed": false,
+  "limitation": "No supported clean-Windows validation tool was discovered through the current command environment; this does not establish absence of every possible VM installation.",
+  "signing_inventory": [
+    {
+      "store": "Cert:\\CurrentUser\\My",
+      "readable": true,
+      "code_signing_certificates": 0,
+      "valid_with_private_key": 0
+    },
+    {
+      "store": "Cert:\\LocalMachine\\My",
+      "readable": true,
+      "code_signing_certificates": 0,
+      "valid_with_private_key": 0
+    }
+  ]
+}
