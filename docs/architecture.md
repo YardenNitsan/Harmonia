@@ -20,8 +20,10 @@ and corrections remain in the now-visible consumer practice section. No cache/mo
 version changes are needed for a derived presentation feature.
 
 Guitar candidates come from pinned, licensed, pitch/finger-validated data with
-explicit reductions or unavailable results. Piano candidates separate reachable
-left/right hands rather than highlighting every octave of each pitch class. The
+explicit reductions or unavailable results. The fallback retains chord quality
+using a validated grip, disclosing any omitted colors or changed lowest bass.
+Piano candidates now use one close-position hand, with inversions and explicit
+reductions for chords exceeding five notes, rather than a separated bass part. The
 old pitch-class maps remain explicitly identified reference views. See
 `practical-voicing-sources.md` for provenance, limits and arrangement measurements.
 
@@ -33,6 +35,11 @@ original LV-Chordia CPU runtime, and assemble its complete contextual regions
 before freezing the playback snapshot. Automatic-tuning CQT, five bidirectional
 models and a joint HMM replace flat DSP templates and post-decoder frame-local
 bass. Conservative beat-supported evidence refinement preserves strong changes.
+Native v3 additionally refines uncertain pitched boundaries toward nearby acoustic
+attacks using the existing onset envelope and limited joint-evidence loss. Movement
+is bounded relative to adjacent regions, with no forced beat quantization or new
+frame-level segments. The validated gain and limitations are recorded in
+`recognition-timing-followup.md`; old v1/v2 comparison modes remain available.
 Playback has one clock/index for Current/Previous/Next and the following strip.
 Manual strip exploration pauses following briefly; explicit seeking resumes it.
 

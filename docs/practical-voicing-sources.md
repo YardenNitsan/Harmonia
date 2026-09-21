@@ -20,14 +20,24 @@ modify recognition, timing, corrections or exports.
   shapes. Our capo arithmetic shifts the played shape down by the capo fret so
   that its sounding pitch stays in the song's original key.
 
-The nine-semitone/four-note-per-hand piano limit is a conservative product choice,
-not a claim that every player can reach it. The primitive lookup provides static
-grips; the arrangement layer now chooses among those grips using the actual
-chord sequence. Neither is a transcription of the recording's fingering or
-instrument arrangement. Dense chords may require both hands; hands never cross.
-Isolated piano lookup remains within G2–G5; contextual alternatives allow C2–G5.
-Lowest MIDI note must equal the requested slash bass, or the root when no slash
-bass is supplied.
+The current piano view uses one hand and one keyboard diagram. Triads use three
+close notes; larger chords use at most five notes within eleven semitones, with
+nine semitones preferred. Power chords or explicit omissions can contain fewer
+notes. These are product constraints, not a guarantee of every player's reach.
+Unslashed piano chords offer close inversions; an explicit slash bass remains the
+lowest note. Context chooses nearby positions across the song. No separated bass
+note or left/right-hand layout is shown. See [practice revision](practice-revision.md)
+for the correction and measured before/after evidence.
+
+Additional primary references consulted on 2026-09-21:
+
+- [Berklee Keyboard Method](https://online.berklee.edu/courses/berklee-keyboard-method)
+  teaches root position, first and second inversions, close positions and triad
+  voice leading with one hand. Our layout follows these general concepts.
+- [JustinGuitar: Triad Chord Grips](https://www.justinguitar.com/guitar-lessons/triad-chord-grips-im-151)
+  teaches smaller grips on string groups and notes that another instrument can
+  supply the bass. This supports a disclosed accompaniment reduction when an
+  exact slash-bass grip is unavailable; it does not certify our generated results.
 
 ## Licensed guitar data
 
@@ -68,22 +78,25 @@ performance review of all 2,935 positions.
 
 ## Exactness and reduction
 
-Exact means all and only the canonical pitch classes, with the actual requested
-bass. In Song mode and primitive lookup, if no exact guitar grip exists, a
-reduction may omit only the unaltered
-fifth in colored chords and lower implied extensions. Root, quality tones,
-seventh, highest extension, explicit added tones, alterations (including altered
-fifths) and bass are preserved. The omitted note names are shown explicitly.
-All alternatives in one result share the same omitted notes. Unsupported dense
-harmony remains unavailable instead of changing its chord quality or bass.
+Exact guitar means all and only the canonical pitch classes with the requested
+bass. Lookup first tries exact grips, then conservative reductions omitting only
+an unaltered fifth or lower implied extensions while keeping the defining colors.
+If those fail, it searches the same validated grip index for an accompaniment
+reduction: root and basic quality remain, more colors may be removed, and every
+omitted note is named. Requested bass is preferred before a changed-bass fallback;
+the latter explicitly identifies both requested and actual played bass. All
+alternatives share one pitch set and bass, so their disclosure stays accurate.
+A grip never adds pitches absent from the original chord. Unsupported harmony
+still returns unavailable; physically arbitrary string placements are never used.
 
-Piano first distributes the full set across compact hand positions. Every
-partition and close-position right-hand rotation is checked for span, number of
-notes, register and noncrossing hands. Only when the full set cannot fit does it
-try the same conservative reduction policy. The removed pitches are reported;
-there is no blanket priority truncation. This is independent of spelling: root
-and bass pitch classes determine pitch, and original chord spelling determines
-labels and omitted-note text.
+Piano uses all pitches for chords of five notes or fewer. Denser harmony prioritizes
+explicit bass, root and quality-defining notes, seventh, then colors; an unaltered
+fifth and lower implied extensions yield first. It names every omitted pitch.
+Each candidate is a single close-position rotation within C3-B5. Slash bass is
+preserved; without an explicit slash bass, inversions remain harmonically exact.
+Thus piano exactness means the full pitch set and any explicit bass, not a
+root-position requirement on an unslashed chord. This never claims the recording's
+original register, fingering or instrumentation.
 
 ## Song voicings, Easy practice and capo
 
@@ -92,7 +105,7 @@ voicings and unique library entries. Song is the default mode and uses no capo.
 It runs a bounded dynamic program over at most 16 guitar and 12 piano candidates
 per occurrence, minimizing neighboring hand/fret movement with a small local
 comfort cost. This uses both earlier and later chords. Piano alternatives
-include close-position rotations and nearby bass octaves. Both modes retain
+include close-position rotations and nearby registers for the whole hand. Both modes retain
 piano voice leading. Gaps longer than two seconds reset movement cost.
 
 Library representatives are duration-weighted modal choices actually used by
@@ -124,13 +137,14 @@ the original sounding chord.
 
 ## Regression evidence
 
-Before the implementation, added regressions failed on Cdim7 guitar availability,
-the unnecessary reduction of C13#11/E on piano, and Cmaj7's 11-semitone right-hand
-span. The revised suite covers all 12 roots of common suspended, diminished,
-sixth, ninth and altered dominant guitar chords, common slash grips, and 1,248
-piano root/color/slash combinations including every bass pitch class.
-It independently checks actual tuning,
-canonical pitches, actual bass, omission reporting and reach constraints.
+The initial implementation's regressions covered Cdim7 guitar availability and
+two-hand reach. Those former piano requirements are superseded by the explicit
+one-hand correction. Current regressions fail on the previous implementation's
+wide triads, missing piano inversions, dense two-hand layouts and unavailable
+E13/C#, Cmaj9/B, Eb7(#9)/Bb and D11/G guitar grips. They cover 1,248 piano
+root/color/slash combinations, actual tuning, pitch subsets, omission reporting,
+requested bass and overall hand span. See [practice revision](practice-revision.md)
+for current counts and browser checks.
 
 The guitar pitch-mask/bass index is built once. Exact lookup uses two map reads;
 reduced lookup compares precomputed masks in the requested bass bucket. A
@@ -145,6 +159,6 @@ bass, unchanged input, and representative choices from real occurrences.
 A 1,000-segment/50-unique-chord local probe measured 53.81 ms for Song mode and
 39.14 ms for Easy mode after indexing aggregation and caching transitions.
 
-Checks: `npm.cmd test` (939 passing tests in 41 files), `npm.cmd run typecheck`,
+Initial checkpoint checks: `npm.cmd test` (939 passing tests in 41 files), `npm.cmd run typecheck`,
 and `npm.cmd run lint` passed after integration of these domain changes. Parent
 UI/native build verification is recorded separately.

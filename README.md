@@ -27,14 +27,15 @@ Additional features include local-file whole-song analysis, a persistent library
 the completed timeline's unique chords in first-appearance order, with appearance
 counts, total duration and clickable occurrence times. Switch between guitar chord
 boxes, piano voicings or both. **Song voicings** considers neighboring chords to
-reduce hand movement, using 2,935 validated guitar grips and reachable piano layouts
-with separate left/right hands. **Easy practice** offers explicit simpler shapes
+reduce hand movement, using 2,935 validated guitar grips and one compact piano
+voicing played with one hand. Triads use three close notes; dense chords disclose
+any reduction to five notes. **Easy practice** offers explicit simpler shapes
 and recommends a guitar capo when it makes the song easier. Sounding chord labels
 remain visible; the piano stays in the song key. You can override the capo.
 
 These are suggested arrangements, not verified original fingerings: a chord label
 alone cannot establish which strings, register or instrument produced the recording.
-Omitted notes and unavailable shapes are identified. Display transposition affects
+Omitted notes, changed guitar bass and unavailable shapes are identified. Display transposition affects
 practice views without changing the audio or saved analysis. See the
 [voicing sources and limitations](docs/practical-voicing-sources.md) and
 [Killer Queen recognition diagnosis](docs/killer-queen-diagnostic-report.md).

@@ -19,7 +19,9 @@ transcriptions of the original performer. **Easy practice** explicitly identifie
 reduced played shapes while retaining analyzed chord labels. It compares capo
 frets 0–7 across the song and recommends a capo only when useful; users may override
 it. Show both sounding chord and played guitar shape. Piano stays in the displayed
-song key, with separate left/right hand diagrams. Capo does not transpose playback.
+song key, with one compact keyboard shape and nearby inversions, not separate
+left/right parts. Dense reductions and any simplified guitar bass are explicit.
+Capo does not transpose playback.
 The current inspector and library share the same arrangement; an entry may show
 the most-used occurrence voicing while other occurrences use nearby alternatives.
 

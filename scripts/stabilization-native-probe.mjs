@@ -23,6 +23,9 @@ await access(reportPath).then(
 const fixture = process.argv[3]
   ? JSON.parse(await readFile(resolve(root, process.argv[3]), 'utf8'))
   : null;
+const baseline = process.argv[4]
+  ? JSON.parse(await readFile(resolve(root, process.argv[4]), 'utf8'))
+  : null;
 const videoId = fixture?.videoId ?? 'rm9coqlk8fY';
 const query = fixture?.title ?? "Bob Dylan Knockin' On Heaven's Door";
 const report = { status: 'running', checks: {}, errors: [], audioRetainedAfterCleanup: false };
@@ -127,8 +130,26 @@ try {
   assert.equal(record.source.audio.kind, 'acquired');
   assert.equal(record.source.audio.fingerprint, record.analysis.fingerprint);
   assert.equal(record.source.id, videoId);
-  assert.match(record.analysis.pipelineVersion, /^harmonia-whole-song-lv-v[12]$/);
-  assert.match(record.analysis.modelVersion, /^lv-chordia-1.1.0-submission-native-v[12]$/);
+  assert.equal(record.analysis.pipelineVersion, 'harmonia-whole-song-lv-v3');
+  assert.equal(record.analysis.modelVersion, 'lv-chordia-1.1.0-submission-native-v3');
+  if (baseline) {
+    assert.equal(record.analysis.fingerprint, baseline.analysis.fingerprint);
+    assert.deepEqual(
+      record.analysis.segments.map((segment) => segment.chord),
+      baseline.analysis.segments.map((segment) => segment.chord),
+    );
+    const shifts = record.analysis.segments.map(
+      (segment, index) => segment.start - baseline.analysis.segments[index].start,
+    );
+    report.baselineComparison = {
+      sameChordSequence: true,
+      previousRegions: baseline.analysis.segments.length,
+      currentRegions: record.analysis.segments.length,
+      movedBoundaries: shifts.filter((shift) => Math.abs(shift) > 1e-7).length,
+      maximumShiftSeconds: Math.max(...shifts.map(Math.abs)),
+    };
+    assert.ok(report.baselineComparison.maximumShiftSeconds <= 0.150001);
+  }
   assert.ok(record.analysis.duration > 120);
   assert.equal(record.analysis.segments[0].start, 0);
   assert.equal(record.analysis.segments.at(-1).end, record.analysis.duration);
@@ -149,6 +170,11 @@ try {
   );
   await expect(practiceLibrary.getByRole('img', { name: /Guitar voicing/ }).first()).toBeVisible();
   await expect(practiceLibrary.getByRole('img', { name: /Piano voicing/ }).first()).toBeVisible();
+  await expect(practiceLibrary.getByText('Left hand', { exact: true })).toHaveCount(0);
+  await expect(practiceLibrary.getByText('Right hand', { exact: true })).toHaveCount(0);
+  await expect(
+    practiceLibrary.getByRole('img', { name: /Piano voicing.*One hand/ }).first(),
+  ).toBeVisible();
   const lastOccurrence = practiceLibrary.getByRole('button', { name: /Jump to .* at/ }).last();
   const occurrenceTime = Number(await lastOccurrence.getAttribute('data-start'));
   await lastOccurrence.click();

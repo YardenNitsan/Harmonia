@@ -24,3 +24,4 @@ apps/desktop/public/runtime/
 *.log
 /ml/experiments/results/B001-boundary-refinement/browser.json
 /ml/artifacts/lv-chordia-diagnostic/selu-arithmetic/reference.npz
+/ml/experiments/results/R002-context-audit/*.npz

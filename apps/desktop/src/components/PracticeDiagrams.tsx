@@ -91,37 +91,57 @@ export function GuitarDiagram({ voicing, label }: { voicing: GuitarVoicing; labe
   );
 }
 
-function PianoHand({
-  notes,
-  handName,
+export function PianoDiagram({
+  voicing,
+  label,
   root,
   spelling,
 }: {
-  notes: number[];
-  handName: string;
+  voicing: PianoVoicing;
+  label: string;
   root: number;
   spelling: 'sharp' | 'flat';
 }) {
+  const notes = voicing.midiNotes;
   if (!notes.length) return null;
-  const start = Math.floor(Math.min(...notes) / 12) * 12;
-  const end = Math.ceil((Math.max(...notes) + 1) / 12) * 12 - 1;
-  const white = Array.from({ length: end - start + 1 }, (_, i) => start + i).filter((n) =>
-    [0, 2, 4, 5, 7, 9, 11].includes(n % 12),
-  );
+  const isWhite = (note: number) => [0, 2, 4, 5, 7, 9, 11].includes(note % 12);
+  // Frame the actual hand, not whole C-to-B octaves. Inversions crossing C
+  // must not shrink into an unnecessary two-octave keyboard.
+  let start = Math.min(...notes);
+  let end = Math.max(...notes);
+  while (!isWhite(start)) start--;
+  while (!isWhite(end)) end++;
+  const white: number[] = [];
+  for (let note = start; note <= end; note++) if (isWhite(note)) white.push(note);
+  let padBelow = true;
+  while (white.length < 7) {
+    if (padBelow) {
+      do {
+        start--;
+      } while (!isWhite(start));
+      white.unshift(start);
+    } else {
+      do {
+        end++;
+      } while (!isWhite(end));
+      white.push(end);
+    }
+    padBelow = !padBelow;
+  }
   const black = Array.from({ length: end - start + 1 }, (_, i) => start + i).filter((n) =>
     [1, 3, 6, 8, 10].includes(n % 12),
   );
   const noteLabel = (n: number) => `${pitchName(n % 12, spelling)}${Math.floor(n / 12) - 1}`;
   return (
-    <div className="piano-hand">
-      <span className="eyebrow">{handName}</span>
+    <div className="piano-voicing">
+      <span className="eyebrow">One hand</span>
       <svg
         viewBox={`0 0 ${white.length * 24} 108`}
         role="img"
-        aria-label={`${handName}: ${notes.map(noteLabel).join(', ')}`}
+        aria-label={`Piano voicing for ${label}. One hand: ${notes.map(noteLabel).join(', ')}`}
       >
         <title>
-          {handName} · {notes.map(noteLabel).join(', ')}
+          {label} · {notes.map(noteLabel).join(', ')}
         </title>
         {white.map((n, i) => (
           <g key={n}>
@@ -165,30 +185,6 @@ function PianoHand({
         })}
       </svg>
       <p className="voicing-notes">{notes.map(noteLabel).join(' · ')}</p>
-    </div>
-  );
-}
-
-export function PianoDiagram({
-  voicing,
-  label,
-  root,
-  spelling,
-}: {
-  voicing: PianoVoicing;
-  label: string;
-  root: number;
-  spelling: 'sharp' | 'flat';
-}) {
-  const noteLabel = (n: number) => `${pitchName(n % 12, spelling)}${Math.floor(n / 12) - 1}`;
-  return (
-    <div
-      className="piano-voicing"
-      role="img"
-      aria-label={`Piano voicing for ${label}. Left hand: ${voicing.leftHand.map(noteLabel).join(', ')}. Right hand: ${voicing.rightHand.map(noteLabel).join(', ')}`}
-    >
-      <PianoHand notes={voicing.leftHand} handName="Left hand" root={root} spelling={spelling} />
-      <PianoHand notes={voicing.rightHand} handName="Right hand" root={root} spelling={spelling} />
     </div>
   );
 }

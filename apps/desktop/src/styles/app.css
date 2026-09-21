@@ -2371,16 +2371,13 @@ select {
   font-size: 11px;
 }
 .piano-voicing {
-  margin-top: 24px;
+  margin-top: 8px;
 }
 .piano-voicing svg {
   width: 100%;
   max-width: 420px;
 }
-.piano-hand + .piano-hand {
-  margin-top: 16px;
-}
-.piano-hand > .eyebrow {
+.piano-voicing > .eyebrow {
   display: block;
   margin-bottom: 8px;
   font-size: 9px;

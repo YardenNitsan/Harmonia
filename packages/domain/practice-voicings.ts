@@ -33,8 +33,6 @@ export interface PianoVoicing {
   id: string;
   name: string;
   midiNotes: number[];
-  leftHand: number[];
-  rightHand: number[];
   omittedPitchClasses: number[];
 }
 
@@ -205,6 +203,19 @@ function reducedPitchClasses(chord: Extract<Chord, { kind: 'chord' }>): number[]
   });
 }
 
+// The fallback protects the basic quality; removed colors/bass are disclosed.
+function qualityPitchClasses(chord: Extract<Chord, { kind: 'chord' }>): number[] {
+  const full = chordPitchClasses(chord);
+  return chordPitchClasses({
+    ...chord,
+    bass: null,
+    seventh: null,
+    extensions: [],
+    addedTones: [],
+    alterations: chord.alterations.filter((tone) => [2, 4].includes((tone.degree - 1) % 7)),
+  }).filter((pitch) => full.includes(pitch));
+}
+
 function unavailable<T>(chord: Chord, explanation: string): VoicingResult<T> {
   return { requestedLabel: formatChord(chord), status: 'unavailable', explanation, voicings: [] };
 }
@@ -216,7 +227,8 @@ export function getGuitarVoicings(
   if (chord.kind !== 'chord') return unavailable(chord, 'No pitched chord to play.');
   const wanted = chordPitchClasses(chord);
   const wantedMask = pitchMask(wanted);
-  const essentialMask = pitchMask(reducedPitchClasses(chord));
+  const essential = reducedPitchClasses(chord);
+  const essentialMask = pitchMask(essential);
   const bass = chord.bass ?? chord.root;
   const byPitch = GUITAR_INDEX.get(bass);
   let matches = byPitch?.get(wantedMask) ?? [];
@@ -234,6 +246,29 @@ export function getGuitarVoicings(
       }
     }
   }
+  // Last-resort accompaniment: keep the quality, retain as much color as a
+  // validated whole grip supports, and try the requested bass before another bass.
+  // Never invent independent string placements to satisfy an arbitrary pitch set.
+  if (!matches.length) {
+    const qualityMask = pitchMask(qualityPitchClasses(chord));
+    for (const [actualBass, groups] of GUITAR_INDEX) {
+      for (const [mask, group] of groups) {
+        if ((mask & wantedMask) !== mask || (mask & qualityMask) !== qualityMask) continue;
+        const missing = wanted.filter((pitch) => !(mask & (1 << pitch))).length;
+        const missingEssential = essential.filter((pitch) => !(mask & (1 << pitch))).length;
+        const score =
+          (actualBass === bass ? 0 : 10000) +
+          missingEssential * 100 +
+          missing * 30 +
+          difficulty(group[0]);
+        if (score < bestScore) {
+          bestScore = score;
+          matches = group;
+          selectedMask = mask;
+        }
+      }
+    }
+  }
   const omitted = wanted.filter((pitch) => !(selectedMask & (1 << pitch)));
   // All variants share the same omission disclosure and exact/reduced status.
   if (!matches.length)
@@ -241,11 +276,14 @@ export function getGuitarVoicings(
       chord,
       'No verified practical guitar shape for this chord and bass yet. Use the piano voicing or chord-tone map.',
     );
+  const actualBass = Math.min(...matches[0].midiNotes) % 12;
+  const changedBass = actualBass !== bass;
+  const simplified = omitted.length > 0 || changedBass;
   return {
     requestedLabel: formatChord(chord),
-    status: omitted.length ? 'simplified' : 'exact',
-    explanation: omitted.length
-      ? `Reduced guitar voicing; omits ${omitted.map((pitch) => pitchName(pitch, chord.spelling)).join(', ')}. Root, chord quality, color and requested bass are retained.`
+    status: simplified ? 'simplified' : 'exact',
+    explanation: simplified
+      ? `Guitar practice reduction${omitted.length ? ` omits ${omitted.map((pitch) => pitchName(pitch, chord.spelling)).join(', ')}` : ''}.${changedBass ? ` Requested bass ${pitchName(bass, chord.spelling)} is not the lowest played note; this grip uses ${pitchName(actualBass, chord.spelling)} bass.` : ' Requested bass retained.'} The analyzed chord is unchanged.`
       : null,
     voicings: matches.slice(0, Math.min(16, Math.max(1, options.limit ?? 3))).map((voicing) => ({
       ...voicing,
@@ -263,97 +301,61 @@ export function getPianoVoicings(
   options: { alternatives?: boolean } = {},
 ): VoicingResult<PianoVoicing> {
   if (chord.kind !== 'chord') return unavailable(chord, 'No pitched chord to play.');
-  const bass = chord.bass ?? chord.root;
   const full = chordPitchClasses(chord);
-  let candidates = pianoHands(full, bass, options.alternatives ?? false);
-  if (!candidates.length)
-    candidates = pianoHands(reducedPitchClasses(chord), bass, options.alternatives ?? false);
-  const hands = candidates[0];
-  if (!hands)
-    return unavailable(
-      chord,
-      'No compact two-hand voicing preserves this chord and bass. Use the chord-tone map.',
-    );
-  const { leftHand, rightHand } = hands;
-  const midiNotes = [...leftHand, ...rightHand];
-  const played = new Set(midiNotes.map((note) => note % 12));
-  const omittedPitchClasses = chordPitchClasses(chord).filter((pitch) => !played.has(pitch));
+  let played = full;
+  if (full.length > 5) {
+    const core = new Set(qualityPitchClasses(chord));
+    const preferred = new Set(reducedPitchClasses(chord));
+    const seventh =
+      chord.seventh === null
+        ? null
+        : (chord.root + { minor: 10, major: 11, diminished: 9 }[chord.seventh]) % 12;
+    const priority = (pitch: number) =>
+      (pitch === chord.bass ? 1000 : 0) +
+      (core.has(pitch) && preferred.has(pitch) ? 100 : 0) +
+      (pitch === seventh ? 80 : 0) +
+      (preferred.has(pitch) ? 20 : 0);
+    played = [...full]
+      .sort(
+        (a, b) =>
+          priority(b) - priority(a) || ((a - chord.root + 12) % 12) - ((b - chord.root + 12) % 12),
+      )
+      .slice(0, 5);
+  }
+  const omittedPitchClasses = full.filter((pitch) => !played.includes(pitch));
+  const candidates: { midiNotes: number[]; score: number }[] = [];
+  // One close-position pitch per class: no detached bass or second hand.
+  // Explicit slash bass is honored; otherwise all inversions can follow the song.
+  for (let first = 48; first <= 72; first++) {
+    if (!played.includes(first % 12) || (chord.bass !== null && first % 12 !== chord.bass))
+      continue;
+    const midiNotes = played
+      .map((pitch) => first + ((pitch - (first % 12) + 12) % 12))
+      .sort((a, b) => a - b);
+    const span = midiNotes.at(-1)! - first;
+    const center = (first + midiNotes.at(-1)!) / 2;
+    candidates.push({
+      midiNotes,
+      score:
+        Math.max(0, span - 9) * 4 +
+        Math.abs(center - 64) * 0.5 +
+        (first % 12 === chord.root ? 0 : 0.1),
+    });
+  }
+  candidates.sort((a, b) => a.score - b.score);
+  if (!candidates.length) return unavailable(chord, 'No compact voicing for these pitches.');
   const simplified = omittedPitchClasses.length > 0;
   return {
     requestedLabel: formatChord(chord),
     status: simplified ? 'simplified' : 'exact',
     explanation: simplified
-      ? `Reduced piano voicing; omits ${omittedPitchClasses.map((pitch) => pitchName(pitch, chord.spelling)).join(', ')}. The analyzed chord label is unchanged.`
+      ? `One-hand piano reduction omits ${omittedPitchClasses.map((pitch) => pitchName(pitch, chord.spelling)).join(', ')}. The analyzed chord label is unchanged.`
       : null,
-    voicings: candidates.map(({ leftHand, rightHand }) => {
-      const midiNotes = [...leftHand, ...rightHand];
-      return {
-        id: `${leftHand.join('-')}|${rightHand.join('-')}`,
-        name: leftHand.length === 1 ? 'Bass + compact right hand' : 'Compact two-hand voicing',
-        midiNotes,
-        leftHand,
-        rightHand,
-        omittedPitchClasses,
-      };
-    }),
+    voicings: candidates.slice(0, options.alternatives ? 12 : 1).map(({ midiNotes }) => ({
+      id: midiNotes.join('-'),
+      name: 'One-hand close voicing',
+      midiNotes,
+      omittedPitchClasses,
+    })),
   };
-}
-
-function pianoHands(
-  pitches: number[],
-  bass: number,
-  alternatives: boolean,
-): { leftHand: number[]; rightHand: number[] }[] {
-  const defaultBass = 43 + ((bass + 5) % 12); // G2–F#3: avoid an unnecessarily high LH bass.
-  const remaining = pitches.filter((pitch) => pitch !== bass);
-  const candidates: { leftHand: number[]; rightHand: number[]; score: number }[] = [];
-  for (const bassNote of alternatives
-    ? [defaultBass, defaultBass - 12, defaultBass + 12]
-    : [defaultBass]) {
-    if (bassNote < 36 || bassNote > 60) continue;
-    // Exhaustive partitions of <=11 pitch classes are bounded; each RH rotation
-    // is a close-position voicing, optimized by actual span rather than C–B order.
-    for (let mask = 0; mask < 2 ** remaining.length; mask++) {
-      const lower = remaining.filter((_, index) => mask & (1 << index));
-      const upper = remaining.filter((_, index) => !(mask & (1 << index)));
-      if (lower.length > 3 || upper.length === 0 || upper.length > 4) continue;
-      const leftHand = [
-        bassNote,
-        ...lower.map((pitch) => bassNote + ((pitch - bass + 12) % 12)),
-      ].sort((a, b) => a - b);
-      const leftSpan = leftHand.at(-1)! - bassNote;
-      if (leftSpan > 9) continue;
-      for (const firstPitch of upper) {
-        for (let first = 55; first <= 72; first++) {
-          if (first % 12 !== firstPitch || first <= leftHand.at(-1)!) continue;
-          const rightHand = upper
-            .map((pitch) => first + ((pitch - firstPitch + 12) % 12))
-            .sort((a, b) => a - b);
-          const rightSpan = rightHand.at(-1)! - first;
-          if (rightSpan > 9 || rightHand.at(-1)! > 79) continue;
-          const score =
-            leftSpan ** 2 +
-            rightSpan ** 2 +
-            lower.length * 16 +
-            Math.abs(first - 60) * 2 +
-            Math.abs(bassNote - defaultBass);
-          candidates.push({ leftHand, rightHand, score });
-        }
-      }
-    }
-  }
-  candidates.sort((a, b) => a.score - b.score);
-  if (!alternatives) return candidates.slice(0, 1);
-  const seen = new Set<string>();
-  const registerCounts = new Map<number, number>();
-  return candidates
-    .filter((candidate) => {
-      const id = `${candidate.leftHand.join(',')}:${candidate.rightHand.join(',')}`;
-      const register = candidate.leftHand[0];
-      if (seen.has(id) || (registerCounts.get(register) ?? 0) >= 4) return false;
-      seen.add(id);
-      registerCounts.set(register, (registerCounts.get(register) ?? 0) + 1);
-      return true;
-    })
-    .slice(0, 12);
 }

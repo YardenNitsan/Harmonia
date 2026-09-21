@@ -1,5 +1,11 @@
 # Evaluation evidence
 
+Current native v3 timing follow-up: the separately frozen onset-alignment
+candidate improves fixed HU33 boundary precision/recall/F1@50ms from
+23.50/16.35/19.28% to 29.89/20.91/24.61%. Root accuracy 62.662→62.667% and reduced
+exact 39.862→39.953%; short-adjacent misses remain 4. Full per-class reports and
+limitations: `recognition-timing-followup.md`. No new test-set evaluation.
+
 ## Latest stabilization: original native LV, not ONNX or new training
 
 The fixed HU33 validation comparison selects native original LV-Chordia over

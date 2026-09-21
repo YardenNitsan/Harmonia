@@ -3,8 +3,8 @@ import { chordPitchClasses, fromHarte } from '../domain/chord';
 import { validateAnalysis } from '../domain/timeline';
 import { estimateKey } from './rhythm';
 
-export const NATIVE_MODEL_VERSION = 'lv-chordia-1.1.0-submission-native-v2';
-export const NATIVE_PIPELINE_VERSION = 'harmonia-whole-song-lv-v2';
+export const NATIVE_MODEL_VERSION = 'lv-chordia-1.1.0-submission-native-v3';
+export const NATIVE_PIPELINE_VERSION = 'harmonia-whole-song-lv-v3';
 export interface NativeHarmonyResult {
   schemaVersion: number;
   sampleRate: number;

@@ -93,7 +93,7 @@ def require_headroom():
         raise RuntimeError("Native recognition requires 8 GiB available RAM")
 
 
-def infer(pcm: np.ndarray, *, refine: bool = False, evidence=None) -> dict:
+def infer(pcm: np.ndarray, *, refine: bool = False, align: bool = False, evidence=None) -> dict:
     if (
         pcm.ndim != 1
         or pcm.dtype != np.float32
@@ -193,6 +193,17 @@ def infer(pcm: np.ndarray, *, refine: bool = False, evidence=None) -> dict:
         )
     if refine:
         timeline = candidate
+    moved = 0
+    if align:
+        from .boundary_timing import align_boundaries
+
+        peaks = librosa.onset.onset_detect(onset_envelope=onset, sr=SAMPLE_RATE, hop_length=HOP)
+        names, observations = hmm.get_chord_tag_obs(probabilities)
+        aligned = align_boundaries(
+            timeline, peaks * HOP / SAMPLE_RATE, observations, names, HOP / SAMPLE_RATE
+        )
+        moved = sum(a[0] != b[0] for a, b in zip(timeline, aligned, strict=True))
+        timeline = aligned
     timings["refinementSeconds"] = time.perf_counter() - stage
     stage = time.perf_counter()
     segments = []
@@ -230,10 +241,13 @@ def infer(pcm: np.ndarray, *, refine: bool = False, evidence=None) -> dict:
         "segments": segments,
         "beats": beats,
         "tempo": bpm if bpm > 0 and math.isfinite(bpm) else None,
-        "modelVersion": MODEL_VERSION.removesuffix("v1") + "v2" if refine else MODEL_VERSION,
+        "modelVersion": MODEL_VERSION.removesuffix("v1") + ("v3" if align else "v2")
+        if refine or align
+        else MODEL_VERSION,
         "sourceHashes": hashes,
         "timings": timings,
         "warnings": [],
         "refinement": {"enabled": refine, "collapsedTransientRegions": collapsed if refine else 0},
+        "boundaryAlignment": {"enabled": align, "movedBoundaries": moved},
         "pcmSha256": hashlib.sha256(pcm.tobytes()).hexdigest(),
     }

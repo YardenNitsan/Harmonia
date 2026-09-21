@@ -1,0 +1,63 @@
+{
+  "utc": "2026-09-21T10:24:06.442434+00:00",
+  "compositions": [
+    2,
+    3
+  ],
+  "sources": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\recognition_chordnet_audit.py": "5037267593e151509a3457c20a99d2fca7dc7b0930d093292e7502d8d8ab8c00",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\docs\\recognition-chordnet-protocol.md": "7fbbc0c3b4890ce75ff659a7d5d09d35c3ab522ad0806318f798dddd214456d6",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\compare.py": "7cb004a63e4406a2cef5734457f9eb4f2f904e9eca62e7a025315857d1503c73",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\boundary_comparison.py": "f945d5e5b0f824b68ff89e51decaf60ff824c9ebba24c3526ab8330f86ba6850",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\btc_model.py": "734d5618966f394b541ff5907d8fbfb12eb58159f0049700ac1094d1d1cc2d78",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\chord_net.py": "7c05a97c523c542154a6a39de461180f39e3623accf2f2e71c325a8a30ff8d59",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\__init__.py": "ff116c20a36b9f2d46b75b9ab6d5cbc67a01271b35c81ce5a00999ab3612650c",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\audio_io.py": "0662cd31a3057650c04e3cef3c6cd9563236a92e68924d7084e8f08d9cad09a7",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\checkpoint_utils.py": "3aafd9ec8c598780598f8b28e7aab07ea976a9e914cd05c398b1ab516fce15b5",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\chords.py": "579c578259d0fde1cfa257ef31fe7719b994257ec67c88c0d4ab86d4de6f8e21",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\cli.py": "59783144d56ed59f7cf66237aa3357f5fc044f25e34c31fef89964f83f98b1c1",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\config_utils.py": "692880ba2bb1743852603a6e8090dcec6d8d9026d8393948aa72911aa4edca78",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\dataloader.py": "ad518bce82237319f900a3ecc044e770a4f80b3bc93d58e77fd870e11400838f",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\device.py": "635c99da4d1f7f1b78ba3af631ac4799382671b6a95ecd6db5444a53a84e9cbd",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\gradient_utils.py": "a79a408de887c3493bcf441c3b5752831b8dc2c232a4cdd7a69bf9a4b5441122",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\hparams.py": "1aff9ac72c9f0e04f2eee31de6cf40db987669d1dc017d8288c087ab0e1e1158",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\logger.py": "0e9ce81ae4cb983486dad8ef342d1ebfb5ac188735ea8874a0ab717c98fd102d",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\paths.py": "b36976ba86edadfd336168846c5c329fd4ea5d931672e0d6601c6dde90767349",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\random_utils.py": "bfdecff2384bf677f555ab3ee48931610401fc9ad9e7a6366035a76685c0367d",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\utils\\__init__.py": "c99e946f2e60d95ce9eac127a1671690b7c4f0e20089d502f051ddb2e7da6c7b",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\common\\base_transformer.py": "10f1c15db0e9572c9d47e2746a0b2f99dfee663be69c73683f3ce8ea881402ad",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\common\\checkpoint_loading.py": "efa815d8a4de0ab22dc7e7d9a8d3e29d4c6fdf87d5abaf06b20ba8a35506294e",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\common\\config.py": "d14dfb6330f1c1a0cc159bd6c0ed5b2de4b77f04137d08088e0d25b793b3db4e",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\common\\temporal_smoothing.py": "9706db254b809109ff88de2561dc1a6c1c01bacdaa5a9c013f5848029b8c253f",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\common\\transformer_modules.py": "1aa87e18e4463a2f3b8b0e0ffcac49f68dea54c8e64304a1e690605d01a66ada",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\models\\common\\__init__.py": "0f298ee18469f754dd98da1d2b394a70633040e5a34d3e42bd96cc7af37dd544",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\evaluation\\utils\\common.py": "1822d8c4eefb1287e8f68562b3be3dfd545231300b50e0b4b3c9e9d0a5a1a2e4",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\evaluation\\utils\\inference.py": "d076b833dbbd8e86afd96a6d47b1199783e9499070706b515d9b6ad160b51144",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\evaluation\\utils\\quality_analysis.py": "192c2dc03c79b93b500343e2e9a6cd9b929061aa663b7d65ee44b4ee25ebbc3a",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\src\\evaluation\\utils\\__init__.py": "fd6964d41b2da77cd25be4ca591562a6e4a67897fc50951c4ca18fc97a71814b",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\checkpoints\\2e1d_model_best.pth": "ecc3de5e7b5b4affdd8e903106e11c24440631e5f43cf22d2a5975b3f160229a",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\.superpowers\\diagnostics\\chordnet-r003\\config\\ChordMini.yaml": "79fe67e764e6e8ddb1dc7bf88efecff0363d8ab25c4ad25e0b4ed429a9ad2535"
+  },
+  "inputs": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-02.json": "6863668938163cedb0178a6e0ec8df55b0f8264eead69a391990713fca53329c",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-02_HU33.npz": "eb5259962beb19feb742b71d77dbe1eef7ff4bdbec801129777d352164da6711",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-02_HU33.wav": "82df858661d662f162ab3bd3066925dc0faefeb3429584c152bc7b5e91c4e0d2",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-03.json": "944b0c987876911182dd665c978be370f38d38ba2e913fbda3dceff4e3e6e33b",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-03_HU33.npz": "9fc1132809de8227188fff8e8485401761f79e6da81875efb0ad480adbc965cc",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-03_HU33.wav": "c67fef1ed6355a43f2f25c6f3f774f3ad2019f8941c4999c45711b3b497f9ad7"
+  },
+  "configuration": {
+    "mp3": {
+      "song_hz": 22050
+    },
+    "feature": {
+      "hop_length": 2048,
+      "n_bins": 144,
+      "bins_per_octave": 24
+    },
+    "model": {
+      "num_chords": 170,
+      "seq_len": 108
+    }
+  }
+}

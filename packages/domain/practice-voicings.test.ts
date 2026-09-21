@@ -120,12 +120,27 @@ describe('practical guitar voicings', () => {
   it('does not mislabel unsupported dense harmony as an exact basic chord', () => {
     for (const label of ['C13(b9,#9,#11,b13)/F#']) {
       const result = getGuitarVoicings(parseChord(label));
-      expect(result.status).toBe('unavailable');
-      expect(result.voicings).toEqual([]);
+      expect(result.status).toBe('simplified');
+      expect(result.voicings.length).toBeGreaterThan(0);
+      expect(result.explanation).toMatch(/omits/i);
       expect(result.requestedLabel).toContain('C');
       expect(result.explanation).toBeTruthy();
     }
   });
+
+  it.each(['E13/C#', 'Cmaj9/B', 'Eb7(#9)/Bb', 'D11/G', 'C13(b9,#9,#11,b13)/F#'])(
+    'offers a playable disclosed reduction for %s',
+    (label) => {
+      const chord = parseChord(label);
+      const result = getGuitarVoicings(chord);
+      expect(result.status).not.toBe('unavailable');
+      for (const grip of result.voicings) {
+        expect(pcs(grip.midiNotes).every((p) => chordPitchClasses(chord).includes(p))).toBe(true);
+        expect(grip.midiNotes.length).toBeGreaterThanOrEqual(3);
+        if (result.status === 'simplified') expect(result.explanation).toMatch(/omits|bass/i);
+      }
+    },
+  );
 
   it('covers common extended and inverted grips with truthful omissions', () => {
     for (const root of ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']) {
@@ -199,27 +214,28 @@ describe('practical piano voicings', () => {
       expect(result.status).toBe('exact');
       const voicing = result.voicings[0];
       expect(pcs(voicing.midiNotes)).toEqual(tones);
-      expect(voicing.midiNotes[0] % 12).toBe(bass);
-      expect(voicing.leftHand[0]).toBe(voicing.midiNotes[0]);
-      expect(voicing.rightHand.length).toBeLessThanOrEqual(5);
-      expect(Math.max(...voicing.rightHand) - Math.min(...voicing.rightHand)).toBeLessThanOrEqual(
-        12,
+      if (label.includes('/')) expect(voicing.midiNotes[0] % 12).toBe(bass);
+      expect(voicing.midiNotes.length).toBeLessThanOrEqual(5);
+      expect(Math.max(...voicing.midiNotes) - Math.min(...voicing.midiNotes)).toBeLessThanOrEqual(
+        11,
       );
       expect(voicing.omittedPitchClasses).toEqual([]);
     },
   );
 
-  it('distributes dense harmony between reachable hands without throwing away chord tones', () => {
+  it('reduces dense harmony to one hand with explicit omitted tones', () => {
     const result = getPianoVoicings(parseChord('C13#11/E'));
-    expect(result.status).toBe('exact');
+    expect(result.status).toBe('simplified');
     expect(result.requestedLabel).toBe('C13(#11)/E');
     const voicing = result.voicings[0];
     expect(voicing.midiNotes[0] % 12).toBe(4);
-    expect(pcs(voicing.midiNotes)).toEqual([0, 2, 4, 6, 7, 9, 10]);
-    expect(voicing.omittedPitchClasses).toEqual([]);
+    expect(voicing.midiNotes.length).toBeLessThanOrEqual(5);
+    expect(pcs(voicing.midiNotes)).toEqual([0, 4, 6, 9, 10]);
+    expect(voicing.omittedPitchClasses.length).toBeGreaterThan(0);
+    expect(result.explanation).toMatch(/omits/i);
   });
 
-  it('keeps every hand within a ninth-semitone reach across roots, dense colors and slash basses', () => {
+  it('keeps one reachable hand across roots, dense colors and slash basses', () => {
     for (const root of ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']) {
       for (const suffix of [
         'maj7',
@@ -250,14 +266,13 @@ describe('practical piano voicings', () => {
           const result = getPianoVoicings(chord);
           expect(result.status, root + suffix + bass).not.toBe('unavailable');
           const voicing = result.voicings[0];
-          for (const hand of [voicing.leftHand, voicing.rightHand]) {
-            expect(hand.length).toBeLessThanOrEqual(4);
-            expect(Math.max(...hand) - Math.min(...hand)).toBeLessThanOrEqual(9);
-          }
-          expect(Math.max(...voicing.leftHand)).toBeLessThan(Math.min(...voicing.rightHand));
-          expect(Math.min(...voicing.midiNotes) % 12).toBe(
-            chord.kind === 'chord' ? (chord.bass ?? chord.root) : -1,
-          );
+          expect(voicing.midiNotes.length).toBeLessThanOrEqual(5);
+          expect(voicing.midiNotes.length).toBeGreaterThanOrEqual(3);
+          expect(
+            Math.max(...voicing.midiNotes) - Math.min(...voicing.midiNotes),
+          ).toBeLessThanOrEqual(11);
+          if (chord.kind === 'chord' && chord.bass !== null)
+            expect(Math.min(...voicing.midiNotes) % 12).toBe(chord.bass);
           const omitted = chordPitchClasses(chord).filter(
             (pitch) => !pcs(voicing.midiNotes).includes(pitch),
           );
@@ -268,6 +283,15 @@ describe('practical piano voicings', () => {
           ).toBe(true);
         }
       }
+    }
+  });
+
+  it('plays a triad as three close notes and offers inversions for voice leading', () => {
+    const result = getPianoVoicings(parseChord('C'), { alternatives: true });
+    expect(new Set(result.voicings.map((v) => v.midiNotes[0] % 12)).size).toBe(3);
+    for (const voicing of result.voicings) {
+      expect(voicing.midiNotes).toHaveLength(3);
+      expect(voicing.midiNotes.at(-1)! - voicing.midiNotes[0]).toBeLessThanOrEqual(9);
     }
   });
 

@@ -1,0 +1,24 @@
+{
+  "utc": "2026-09-21T10:26:41.800046+00:00",
+  "compositions": [
+    2,
+    3
+  ],
+  "sources": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\recognition_layered_audit.py": "0180bbbbef07c0b28e4e813e83007490c9fe24efcd1cbc1c011371fce5f54a9a",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\docs\\recognition-layered-protocol.md": "051d7ae370600afc879749ee0419723d65708e6d4c53026f5e99219ec4f8b512",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\.venv\\Lib\\site-packages\\lv_chordia\\data\\submission_chord_list.txt": "ac68a26e87242fc58c946d476028d4e8c8d12c9e707ced7020a4d7e31c794d7b",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\recognition_vocabulary_audit.py": "aacbd8ec39a5ac1e0e1691983d77dce5e0402818e17b26fed7c1f299ba530d6a",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\compare.py": "7cb004a63e4406a2cef5734457f9eb4f2f904e9eca62e7a025315857d1503c73",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\boundary_comparison.py": "f945d5e5b0f824b68ff89e51decaf60ff824c9ebba24c3526ab8330f86ba6850",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\.venv\\Lib\\site-packages\\lv_chordia\\extractors\\xhmm_ismir.py": "135679cbcb551ec027aa2e8a3ac0dd1a258864b6653b1af909149ef33b9b3bd3"
+  },
+  "inputs": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-02.json": "6863668938163cedb0178a6e0ec8df55b0f8264eead69a391990713fca53329c",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-02-heads.npz": "d450e7880a20c38cb4887d564f5eb6ff2b3c3ccaaebaeedc4996c091731a0a9d",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-02_HU33.npz": "eb5259962beb19feb742b71d77dbe1eef7ff4bdbec801129777d352164da6711",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-03.json": "944b0c987876911182dd665c978be370f38d38ba2e913fbda3dceff4e3e6e33b",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\stabilization\\results\\refinement-03-heads.npz": "8527443e1296e5056072a3e18f3e6ea2cff446b4511f5dbbc9d5df27a06d6376",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-03_HU33.npz": "9fc1132809de8227188fff8e8485401761f79e6da81875efb0ad480adbc965cc"
+  }
+}

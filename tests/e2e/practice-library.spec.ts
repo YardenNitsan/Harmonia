@@ -13,8 +13,9 @@ test('song practice is visible and library groups frozen chords across playback,
   await page.getByLabel('Playback position').fill('0.5');
   const inspector = page.getByRole('complementary', { name: 'Harmony inspector' });
   await expect(inspector.getByRole('img', { name: /Piano voicing/ })).toBeVisible();
-  await expect(inspector.getByText('Left hand', { exact: true })).toBeVisible();
-  await expect(inspector.getByText('Right hand', { exact: true })).toBeVisible();
+  await expect(inspector.getByText('One hand', { exact: true })).toBeVisible();
+  await expect(inspector.getByText(/Left hand|Right hand/)).toHaveCount(0);
+  await expect(inspector.locator('.piano-voicing svg')).toHaveCount(1);
   await inspector.getByRole('button', { name: 'Tone maps', exact: true }).click();
   await expect(
     inspector.getByText('Reference maps — not a fingering to play all at once.'),
@@ -64,6 +65,11 @@ test('song practice is visible and library groups frozen chords across playback,
     'aria-label',
     /finger [1-4]/,
   );
+  // The keyboard stays close to the hand even when an inversion crosses C.
+  for (const keyboard of await library.locator('.piano-voicing svg').all()) {
+    const viewBox = (await keyboard.getAttribute('viewBox'))!.split(' ').map(Number);
+    expect(viewBox[2]).toBeLessThanOrEqual(9 * 24);
+  }
   // Every card has either a truthful guitar shape or an explicit unavailable message.
   for (const card of await cards.all()) {
     expect(
@@ -97,4 +103,42 @@ test('song practice is visible and library groups frozen chords across playback,
   await library.getByRole('button', { name: 'Both', exact: true }).click();
   await library.screenshot({ path: testInfo.outputPath('chord-library.png') });
   await practice.screenshot({ path: testInfo.outputPath('practice-tools.png') });
+});
+
+test('rare slash harmony has a disclosed guitar grip and a single compact piano diagram', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByLabel('Whole-song audio file').setInputFiles(wavFile('rare-practice.wav', 4));
+  await expect(page.getByRole('button', { name: 'Pause', exact: true })).toBeVisible({
+    timeout: 30000,
+  });
+  await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await page.getByLabel('Playback position').fill('0.5');
+  await page.getByRole('button', { name: 'Edit current chord', exact: true }).click();
+  await page.getByLabel('Chord symbol').fill('E13/C#');
+  await page.getByRole('button', { name: 'Save correction', exact: true }).click();
+  const before = await exportedRecord(page);
+  const inspector = page.getByRole('complementary', { name: 'Harmony inspector' });
+  await inspector.getByRole('button', { name: 'Guitar', exact: true }).click();
+  await expect(inspector.getByRole('img', { name: /Guitar voicing for E13/ })).toBeVisible();
+  await expect(inspector.getByText(/Guitar practice reduction.*omits/)).toBeVisible();
+  const library = page.getByRole('region', { name: 'Chord Library' });
+  const card = library
+    .getByTestId('practice-chord-card')
+    .filter({ has: page.getByRole('heading', { name: 'E13/C#', exact: true }) });
+  await expect(card.getByRole('img', { name: /Guitar voicing/ })).toBeVisible();
+  await expect(card.getByText(/Guitar practice reduction.*omits/)).toBeVisible();
+  await expect(card.locator('.piano-voicing svg')).toHaveCount(1);
+  const piano = card.getByRole('img', { name: /Piano voicing/ });
+  await expect(piano).toHaveAttribute('aria-label', /One hand:/);
+  const pitches = await piano.getAttribute('aria-label');
+  expect((pitches?.split('One hand:')[1].match(/[A-G][#b]?\d/g) ?? []).length).toBeLessThanOrEqual(
+    5,
+  );
+  await expect(card.getByText(/Left hand|Right hand|unavailable/)).toHaveCount(0);
+  await library.getByRole('button', { name: 'Easy practice', exact: true }).click();
+  await library.getByLabel('Guitar capo').selectOption('1');
+  await expect(card.getByRole('img', { name: /Guitar voicing/ })).toBeVisible();
+  expect((await exportedRecord(page)).analysis).toEqual(before.analysis);
 });

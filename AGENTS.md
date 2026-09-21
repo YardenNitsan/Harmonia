@@ -5,7 +5,22 @@ checks. Preserve its historical evidence. Current diagnosis uses the exact cache
 Killer Queen recording with a separately recorded protocol; no song-specific
 progression or threshold tuning. See `docs/voicing-search-recognition-fixes.md`.
 
-## Current practice checkpoint
+## Current recognition/timing and practice correction
+
+Latest user report identifies Switch (41BZrKQY1IM) and Killer Queen (2ZBtPf7FOoM).
+Follow `docs/recognition-timing-followup.md`. Piano must show one compact hand with
+nearby inversions, not separate left/right parts. Guitar fallback reductions must
+identify omissions and any changed bass. These practice suggestions never mutate
+analyzed harmony. `docs/practice-revision.md` supersedes the dual-hand design below.
+
+Native v3 adds validated acoustic-attack boundary alignment using existing onset
+features; preserve v1/v2 baseline callable modes and frozen reports. No new training
+or locked tests. Fixed validation boundary F1@50 ms improves19.28% to24.61%; do not
+call that a large chord-identity improvement. Rejected model/decoder candidates
+must not become production. New preparations use v3 cache identity; old revisions
+and corrections remain preserved. Keep all autonomous Windows checks hidden.
+
+## Historical practice checkpoint
 
 Current follow-up: `docs/voicing-search-recognition-fixes.md` records contextual Song
 voicings, Easy practice/capo, validated guitar data, reachable separate piano hands,

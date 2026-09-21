@@ -43,10 +43,10 @@ describe('contextual practice arrangement', () => {
     for (let index = 0; index < segments.length; index++) {
       const voicing = result.occurrences[index].piano.voicings[0];
       expect(pcs(voicing.midiNotes)).toEqual(chordPitchClasses(segments[index].chord));
-      for (const hand of [voicing.leftHand, voicing.rightHand]) {
-        expect(hand.length).toBeLessThanOrEqual(4);
-        expect(Math.max(...hand) - Math.min(...hand)).toBeLessThanOrEqual(9);
-      }
+      expect(voicing.midiNotes.length).toBeLessThanOrEqual(5);
+      expect(Math.max(...voicing.midiNotes) - Math.min(...voicing.midiNotes)).toBeLessThanOrEqual(
+        9,
+      );
     }
   });
 

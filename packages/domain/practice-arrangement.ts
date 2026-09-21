@@ -104,13 +104,17 @@ function disclose<T extends GuitarVoicing | PianoVoicing>(
   if (!result.voicings.length) return { ...result, requestedLabel: formatChord(original) };
   const played = new Set(result.voicings[0].midiNotes.map((note) => (note + capo) % 12));
   const omitted = chordPitchClasses(original).filter((pitch) => !played.has(pitch));
+  const actualBass = Math.min(...result.voicings[0].midiNotes.map((note) => note + capo)) % 12;
+  const expectedBass = original.bass ?? (instrument === 'Guitar' ? original.root : null);
+  const changedBass = expectedBass !== null && actualBass !== expectedBass;
   return {
     ...result,
     requestedLabel: formatChord(original),
-    status: omitted.length ? 'simplified' : 'exact',
-    explanation: omitted.length
-      ? `${instrument} practice reduction omits ${omitted.map((pitch) => pitchName(pitch, original.spelling)).join(', ')}. The sounding song chord and bass are unchanged in the timeline.`
-      : null,
+    status: omitted.length || changedBass ? 'simplified' : 'exact',
+    explanation:
+      omitted.length || changedBass
+        ? `${instrument} practice reduction${omitted.length ? ` omits ${omitted.map((pitch) => pitchName(pitch, original.spelling)).join(', ')}` : ''}.${changedBass ? ` Requested bass ${pitchName(expectedBass!, original.spelling)} is not the lowest played note; this voicing uses ${pitchName(actualBass, original.spelling)} bass.` : ''} The analyzed song chord is unchanged.`
+        : null,
     voicings: result.voicings.map((voicing) =>
       'omittedPitchClasses' in voicing ? { ...voicing, omittedPitchClasses: omitted } : voicing,
     ),
@@ -258,11 +262,9 @@ export function buildPracticeArrangement(
   const piano = path(
     pianoLayers,
     (value) =>
-      (Math.max(...value.leftHand) -
-        Math.min(...value.leftHand) +
-        (Math.max(...value.rightHand) - Math.min(...value.rightHand))) *
-      0.03,
-    (a, b) => handMovement(a.leftHand, b.leftHand) + handMovement(a.rightHand, b.rightHand),
+      (Math.max(...value.midiNotes) - Math.min(...value.midiNotes)) * 0.03 +
+      Math.abs((value.midiNotes[0] + value.midiNotes.at(-1)!) / 2 - 64) * 0.01,
+    (a, b) => handMovement(a.midiNotes, b.midiNotes),
   );
   const occurrences = pitched.map(({ segment, entry }, index) => ({
     segmentId: segment.id,

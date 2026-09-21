@@ -6,51 +6,51 @@
   "profile": "accurate",
   "phases": {
     "analysis": {
-      "elapsed_ms": 918,
-      "frame_count": 108,
+      "elapsed_ms": 923.6000000238419,
+      "frame_count": 106,
       "frame_median_ms": 7,
-      "frame_p95_ms": 7.100000000000023,
-      "frame_max_ms": 132,
-      "long_tasks_ms": [92]
+      "frame_p95_ms": 7.100000000000136,
+      "frame_max_ms": 152.69999999999982,
+      "long_tasks_ms": [108]
     },
     "playback": {
-      "elapsed_ms": 2003.5,
+      "elapsed_ms": 1999.6000000238419,
       "frame_count": 287,
       "frame_median_ms": 6.900000000000091,
-      "frame_p95_ms": 7.099999999999909,
-      "frame_max_ms": 7.100000000000364,
+      "frame_p95_ms": 7,
+      "frame_max_ms": 7.200000000000273,
       "long_tasks_ms": []
     },
     "seeking": {
-      "elapsed_ms": 308.2999999523163,
-      "frame_count": 33,
+      "elapsed_ms": 407.89999997615814,
+      "frame_count": 40,
       "frame_median_ms": 7,
-      "frame_p95_ms": 20.90000000000009,
-      "frame_max_ms": 21,
+      "frame_p95_ms": 27.799999999999727,
+      "frame_max_ms": 27.800000000000182,
       "long_tasks_ms": []
     },
     "resizing": {
-      "elapsed_ms": 236.30000001192093,
-      "frame_count": 25,
+      "elapsed_ms": 299.19999998807907,
+      "frame_count": 23,
       "frame_median_ms": 7,
-      "frame_p95_ms": 20.800000000000182,
-      "frame_max_ms": 27.799999999999727,
+      "frame_p95_ms": 27.800000000000182,
+      "frame_max_ms": 55.69999999999982,
       "long_tasks_ms": []
     },
     "saved_reopen": {
-      "elapsed_ms": 97.69999998807907,
-      "frame_count": 7,
-      "frame_median_ms": 6.900000000000034,
-      "frame_p95_ms": 48.60000000000002,
-      "frame_max_ms": 48.60000000000002,
-      "long_tasks_ms": []
+      "elapsed_ms": 131.4000000357628,
+      "frame_count": 9,
+      "frame_median_ms": 7,
+      "frame_p95_ms": 69.5,
+      "frame_max_ms": 69.5,
+      "long_tasks_ms": [60]
     },
     "cached_reimport": {
-      "elapsed_ms": 173.60000002384186,
+      "elapsed_ms": 217.60000002384186,
       "frame_count": 9,
-      "frame_median_ms": 6.900000000000091,
-      "frame_p95_ms": 76.5,
-      "frame_max_ms": 76.5,
+      "frame_median_ms": 7.099999999999909,
+      "frame_p95_ms": 97.20000000000005,
+      "frame_max_ms": 97.20000000000005,
       "long_tasks_ms": []
     }
   }

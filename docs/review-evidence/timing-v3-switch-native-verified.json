@@ -1,0 +1,296 @@
+{
+  "status": "passed",
+  "checks": {
+    "exactOriginalAudioReused": true,
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "youtubeRequestsRemainNative": true,
+    "visiblePracticeLibraryAndOccurrenceSeek": true,
+    "completeTimelineBeforeAutomaticPlayback": true,
+    "lateSeekCentersProgression": true,
+    "playbackCentersProgression": true,
+    "authoritativePlaybackPauseSeekAndClickableTimeline": true,
+    "noAnalysisReplacementDuringPlayback": true,
+    "reloadSqliteCacheWithoutRecognition": true,
+    "cachedAudioNotReacquired": true
+  },
+  "errors": [],
+  "audioRetainedAfterCleanup": false,
+  "probeSha256": "fc86782832a4a40c1d2eaf0e8ca957ce9c7de9e4a4fe2ab8f379afd2efa5f18c",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "748f6010274e110bd569cdb3acfc6b1817bcb2bb0bcdc9bc0980ff1dd51d46d0",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "typeaheadSeconds": 0.8713584999999998,
+  "preparationSeconds": 12.9141096,
+  "baselineComparison": {
+    "sameChordSequence": true,
+    "previousRegions": 59,
+    "currentRegions": 59,
+    "movedBoundaries": 12,
+    "maximumShiftSeconds": 0.06965986394558854
+  },
+  "practice": {
+    "uniqueChords": 15,
+    "appearances": 54,
+    "occurrenceSeek": 141.52562358276643
+  },
+  "source": {
+    "artist": "פסטיגל - הערוץ הרשמי",
+    "audio": {
+      "container": "webm",
+      "fingerprint": "83bdb681eba4cfbcd96f806de090bd0cfd454bee7b4ca34060374936b7dee1dc",
+      "kind": "acquired",
+      "mime": "audio/webm",
+      "provider": "yt-dlp",
+      "size": 3079251,
+      "url": "sha256:83bdb681eba4cfbcd96f806de090bd0cfd454bee7b4ca34060374936b7dee1dc"
+    },
+    "id": "41BZrKQY1IM",
+    "pageUrl": "https://www.youtube.com/watch?v=41BZrKQY1IM",
+    "provider": "youtube",
+    "thumbnail": "https://i.ytimg.com/vi/41BZrKQY1IM/mqdefault.jpg",
+    "title": "שיר מספר 1: עדן גולן ושחר טבוך - סוויץ׳ | Imagine פסטיגל"
+  },
+  "timings": {
+    "normalizeMs": 24.899999976158142,
+    "featuresMs": 1680.6032999884335,
+    "inferenceMs": 6239.392300019972,
+    "temporalDecodingMs": 125.41440001223236,
+    "rhythmKeyMs": 954.1351000079884,
+    "timelineMs": 2.694500034209341,
+    "boundaryMs": 80.07660001749173,
+    "pipelineMs": 10571.7430000077,
+    "workerMs": 11868.199999988079,
+    "decodeMs": 508.80000001192093,
+    "analysisMs": 12385.300000011921
+  },
+  "providers": [
+    {
+      "provider": "yt-dlp",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "cobalt",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "saveapi",
+      "configured": false,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    }
+  ],
+  "sanity": {
+    "segmentCount": 59,
+    "medianSeconds": 2.159455782312925,
+    "meanSeconds": 3.3810615319574153,
+    "changesPerMinute": 17.44512789547201,
+    "sub200msPercent": 0,
+    "extensionsPercent": 0,
+    "alterationsPercent": 0,
+    "slashPercent": 8.474576271186441
+  },
+  "excerpts": [
+    {
+      "start": 0,
+      "end": 10.193560090702949,
+      "label": "N"
+    },
+    {
+      "start": 10.193560090702949,
+      "end": 11.609977324263038,
+      "label": "Bm"
+    },
+    {
+      "start": 11.609977324263038,
+      "end": 12.3762358276644,
+      "label": "E"
+    },
+    {
+      "start": 12.3762358276644,
+      "end": 20.24780045351474,
+      "label": "F#7"
+    },
+    {
+      "start": 20.24780045351474,
+      "end": 25.56517006802721,
+      "label": "F#"
+    },
+    {
+      "start": 25.56517006802721,
+      "end": 27.724625850340136,
+      "label": "Bm"
+    },
+    {
+      "start": 27.724625850340136,
+      "end": 29.744761904761905,
+      "label": "D"
+    },
+    {
+      "start": 29.744761904761905,
+      "end": 32.833015873015874,
+      "label": "E"
+    },
+    {
+      "start": 32.833015873015874,
+      "end": 33.85469387755102,
+      "label": "D"
+    },
+    {
+      "start": 33.85469387755102,
+      "end": 36.014149659863946,
+      "label": "Bm"
+    },
+    {
+      "start": 36.014149659863946,
+      "end": 38.01106575963719,
+      "label": "D"
+    },
+    {
+      "start": 38.01106575963719,
+      "end": 40.07764172335601,
+      "label": "E"
+    },
+    {
+      "start": 40.07764172335601,
+      "end": 44.210793650793654,
+      "label": "N"
+    },
+    {
+      "start": 44.210793650793654,
+      "end": 57.86412698412698,
+      "label": "Bm"
+    },
+    {
+      "start": 57.86412698412698,
+      "end": 58.63038548752834,
+      "label": "A/B"
+    },
+    {
+      "start": 58.63038548752834,
+      "end": 60.20934240362812,
+      "label": "Em7"
+    },
+    {
+      "start": 60.20934240362812,
+      "end": 60.836281179138325,
+      "label": "F#m7"
+    },
+    {
+      "start": 60.836281179138325,
+      "end": 62.80997732426304,
+      "label": "G"
+    },
+    {
+      "start": 62.80997732426304,
+      "end": 66.01433106575963,
+      "label": "Bm7"
+    },
+    {
+      "start": 66.01433106575963,
+      "end": 66.87346938775511,
+      "label": "F#m7"
+    },
+    {
+      "start": 66.87346938775511,
+      "end": 68.12734693877552,
+      "label": "Em7"
+    },
+    {
+      "start": 68.12734693877552,
+      "end": 69.1025850340136,
+      "label": "F#m7"
+    },
+    {
+      "start": 69.1025850340136,
+      "end": 71.30848072562358,
+      "label": "Gmaj7"
+    },
+    {
+      "start": 71.30848072562358,
+      "end": 79.45868480725623,
+      "label": "Bm"
+    },
+    {
+      "start": 79.45868480725623,
+      "end": 83.47573696145125,
+      "label": "Em7"
+    }
+  ],
+  "analysis": {
+    "duration": 199.4826303854875,
+    "segments": 59,
+    "pipeline": "harmonia-whole-song-lv-v3",
+    "model": "lv-chordia-1.1.0-submission-native-v3",
+    "fingerprint": "83bdb681eba4cfbcd96f806de090bd0cfd454bee7b4ca34060374936b7dee1dc"
+  },
+  "workerSeconds": 11.876099999964238,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "Em7",
+    "assertionLatencyMs": 16.7484000000004
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-CoqeWqI-.js",
+      "started": 2590.199999988079,
+      "stages": [],
+      "completed": 14466.299999952316,
+      "duration": 199.48263038548754,
+      "segments": 59
+    }
+  ],
+  "cacheReopenSeconds": 1.0027137000000002,
+  "cachedSelectionToPlayerSeconds": 0.14777370000000156,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

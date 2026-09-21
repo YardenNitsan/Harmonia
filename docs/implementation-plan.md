@@ -16,7 +16,32 @@ Tauri SQLite backend, React listening workspace, Python supervised research pipe
 
 ## Global constraints
 
-### Active continuation: contextual voicings, search typing and recognition diagnosis
+### Active continuation: recognition/timing and compact practice correction
+
+Follow `recognition-timing-followup.md`. The user identifies Switch (41BZrKQY1IM)
+and Killer Queen (2ZBtPf7FOoM), requests actual accuracy/timing improvements,
+one-hand close piano inversions and useful guitar shapes. Preserve the product
+flow, frozen timelines and old analyses; no Bob accuracy runs or locked tests.
+
+The bounded onset-timing candidate passes its frozen train/validation gates:
+boundary F1@50 ms 19.28% to 24.61%, with precision/recall gains and no extra
+short misses. Root/reduced accuracy is preserved. Native v3 integrates that
+change and invalidates older timing cache identities before new preparation.
+Practice diagrams now use one compact piano keyboard and disclosed guitar
+fallbacks; `practice-revision.md` records coverage and tests. Independent
+published-model/decoder comparisons are recorded with failures; do not promote
+a candidate merely because it changes the displayed chord or improves one metric.
+Final Windows evidence and unresolved limits belong in the follow-up report.
+
+Verified final checkpoint: 946 application tests, 150 Python tests, 45 production
+E2Es, final keyboard-crop E2Es, static checks and optimized Windows build. Hidden
+Switch/Killer Queen v3 flows pass full preparation/playback/seek/cache, retaining
+59/83 chord regions and adjusting12/18 boundaries. Preparation12.914/14.284s,
+cached selection148/113ms. All four recognition alternatives fail frozen training
+gates; no replacement model is promoted. High chord-identity accuracy remains an
+open quality goal, not a completed acceptance claim. See the controlled comparison.
+
+### Completed checkpoint: contextual voicings and search typing
 
 Completed `voicing-search-recognition-fixes.md`: raw search text/caret survives
 debounce, 2,935 validated guitar grips, reachable separate piano hands, contextual

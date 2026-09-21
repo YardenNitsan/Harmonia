@@ -1,5 +1,21 @@
 # ADR010: Original native whole-song recognition and persistent regions
 
+## v3 timing addendum, 2026-09-21
+
+Original full-song LV inference, weights and joint HMM remain selected. After
+the existing refinement, native v3 permits bounded acoustic-onset relocation
+of uncertain pitched boundaries. It reuses the onset envelope and joint model
+evidence, preserves labels/region count, and never imposes a beat grid. The
+predeclared training/validation experiment raises boundary F1@50 ms from 0.19283
+to 0.24609 without short-transition or root/reduced accuracy regression. See
+`../boundary-timing-protocol.md` and `../recognition-timing-followup.md`.
+
+Both runtime model identity and pipeline identity advance from v2 to v3 to
+invalidate old timing caches before a new preparation. Historical callable
+v1/v2 modes and saved corrections remain intact. This is a timing improvement;
+do not claim that it solves inaccurate root/quality or commercial-song harmony.
+The original decision/evidence below remains historical.
+
 Status: accepted for the configured Windows development machine, 2026-09-21.
 Scope: recognition and progression stabilization; ADR009 product/acquisition flow
 is unchanged. See [comparison](../stabilization-model-comparison.md) and

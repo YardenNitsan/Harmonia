@@ -110,7 +110,8 @@ export const ChordLibrary = memo(function ChordLibrary({
         Practice one shape at a time. Choose a timestamp to jump to it in the song.
       </p>
       <p className="library-guide">
-        Guitar: ○ open · × muted · 1–4 fingers. Piano dots mark the root.
+        Guitar: ○ open · × muted · 1–4 fingers. Piano: play the highlighted keys together with one
+        hand. Dots mark the root.
       </p>
       {!entries.length && <p>No playable chords in this timeline yet.</p>}
       <div className={`practice-chord-grid view-${instrument}`}>

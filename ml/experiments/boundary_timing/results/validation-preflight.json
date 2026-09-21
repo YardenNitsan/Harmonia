@@ -1,0 +1,18 @@
+{
+  "compositions": [
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "sources": {
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\experiments\\boundary_timing\\evaluate.py": "4d37b572e339b6aa24bbe130ad61cd9f31184142a29f83c21d45c4cbac49c5fe",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\ml\\harmonia_ml\\inference\\boundary_timing.py": "0a8fb11c2e3b51b0d3fe7c8767c54a13eb5eeb73a6df9b12aed52e2602565e55",
+    "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\docs\\boundary-timing-protocol.md": "69918ee271524e5ccb9f1f97f56cadf187d28c8b616e6c796b8b8e4d74ee7a61"
+  },
+  "modes": [
+    "original",
+    "peak"
+  ]
+}

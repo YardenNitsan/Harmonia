@@ -23,6 +23,20 @@ const result = () => ({
   },
   warnings: [],
 });
+it('invalidates the previous timing pipeline before accepting a prepared playback snapshot', () => {
+  expect(NATIVE_MODEL_VERSION).not.toBe('lv-chordia-1.1.0-submission-native-v2');
+  expect(() =>
+    assembleNativeWholeSong(
+      { ...result(), modelVersion: 'lv-chordia-1.1.0-submission-native-v2' },
+      {
+        fingerprint: 'a'.repeat(64),
+        profile: 'balanced',
+        samples: 220500,
+        waveform: [],
+      },
+    ),
+  ).toThrow('Invalid complete-song recognition result');
+});
 it('assembles native eleventh and thirteenth labels without losing their constituent extensions', () => {
   const native = result();
   native.segments[0].label = 'C:11';
