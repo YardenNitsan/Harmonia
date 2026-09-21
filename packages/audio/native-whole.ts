@@ -74,6 +74,10 @@ export function assembleNativeWholeSong(value: unknown, metadata: NativeWholeMet
   });
   if (Math.abs(segments.at(-1)!.end - duration) > 1e-6)
     throw new Error('Incomplete native timeline');
+  // Native JSON and JS division can differ by an ULP at EOF. The adapter
+  // already verifies coverage above; publish the exact sample-count endpoint
+  // so strict domain bounds cannot reject an otherwise complete recording.
+  segments.at(-1)!.end = duration;
   const chroma = Array<number>(12).fill(0);
   for (const s of segments)
     for (const pitch of chordPitchClasses(s.chord)) chroma[pitch] += (s.end - s.start) / duration;

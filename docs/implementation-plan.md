@@ -106,6 +106,20 @@ Files: `ml/{data,features,models,training,evaluation,export,experiments}` and ML
 
 ## Execution ledger
 
+### Preparation endpoint regression
+
+Investigated the user's official Imagine Festigal song failure. Acquisition and
+recognition succeed; cross-runtime EOF rounding makes the last endpoint exceed
+the PCM duration by one floating-point step, causing strict domain rejection.
+Normalize only the final endpoint after the existing coverage check. Four added
+unit regressions and the native-result acquisition E2E cover the failure without
+changing chord decisions, model versions, validation tolerances or interior cuts.
+See `preparation-endpoint-fix.md`; per-search persistent logging remains absent.
+The rebuilt hidden native test passes the exact 3:17 official recording: 74 regions,
+autoplay, late seek/following, immutable playback and cache reuse. Updated binary
+identity and the complete evidence are linked from that report. All 885 TS tests,
+two affected production E2Es, lint/types/format and optimized build pass.
+
 ### Documentation checkpoint after stabilization
 
 Replaced the root README with the current product flow, dependency installation,

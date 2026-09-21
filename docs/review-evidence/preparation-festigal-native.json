@@ -1,0 +1,283 @@
+{
+  "status": "passed",
+  "checks": {
+    "exactOriginalAudioReused": true,
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "youtubeRequestsRemainNative": true,
+    "completeTimelineBeforeAutomaticPlayback": true,
+    "lateSeekCentersProgression": true,
+    "playbackCentersProgression": true,
+    "authoritativePlaybackPauseSeekAndClickableTimeline": true,
+    "noAnalysisReplacementDuringPlayback": true,
+    "reloadSqliteCacheWithoutRecognition": true,
+    "cachedAudioNotReacquired": true
+  },
+  "errors": [],
+  "audioRetainedAfterCleanup": false,
+  "probeSha256": "9b56296b95ff894ebaa5e5b3cdd0a7264f4f65dfbf47b94240cd0993ec899f53",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "e596225e1d3a6a5470381c6e7b016c3018aa76ccb9a368629848fea3c614ebf5",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "typeaheadSeconds": 1.3705094,
+  "preparationSeconds": 18.3898205,
+  "source": {
+    "artist": "פסטיגל - הערוץ הרשמי",
+    "audio": {
+      "container": "webm",
+      "fingerprint": "1da2cfa23a755857b3f5cd5dad5dcfc2bd6d22649898bf0ebc776891c792f74a",
+      "kind": "acquired",
+      "mime": "audio/webm",
+      "provider": "yt-dlp",
+      "size": 3218030,
+      "url": "sha256:1da2cfa23a755857b3f5cd5dad5dcfc2bd6d22649898bf0ebc776891c792f74a"
+    },
+    "id": "mqvjNTx4gE4",
+    "pageUrl": "https://www.youtube.com/watch?v=mqvjNTx4gE4",
+    "provider": "youtube",
+    "thumbnail": "https://i.ytimg.com/vi/mqvjNTx4gE4/mqdefault.jpg",
+    "title": "פסטיגל Imagine - שיר הנושא"
+  },
+  "timings": {
+    "normalizeMs": 25.900000035762787,
+    "featuresMs": 4778.053099988028,
+    "inferenceMs": 6161.251700017601,
+    "temporalDecodingMs": 132.94409995432943,
+    "rhythmKeyMs": 1075.3595000132918,
+    "timelineMs": 3.4935000599361956,
+    "boundaryMs": 0.9586999658495188,
+    "pipelineMs": 16133.399199985433,
+    "workerMs": 17782.200000047684,
+    "decodeMs": 477.0999999642372,
+    "analysisMs": 18268.299999952316
+  },
+  "providers": [
+    {
+      "provider": "yt-dlp",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "cobalt",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "saveapi",
+      "configured": false,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    }
+  ],
+  "sanity": {
+    "segmentCount": 74,
+    "medianSeconds": 3.0185941043083915,
+    "meanSeconds": 2.658527915670773,
+    "changesPerMinute": 22.26389606078489,
+    "sub200msPercent": 1.3513513513513513,
+    "extensionsPercent": 0,
+    "alterationsPercent": 0,
+    "slashPercent": 8.108108108108109
+  },
+  "excerpts": [
+    {
+      "start": 0,
+      "end": 0.02321995464852608,
+      "label": "N"
+    },
+    {
+      "start": 0.02321995464852608,
+      "end": 3.900952380952381,
+      "label": "C"
+    },
+    {
+      "start": 3.900952380952381,
+      "end": 8.40562358276644,
+      "label": "N"
+    },
+    {
+      "start": 8.40562358276644,
+      "end": 11.331337868480723,
+      "label": "Ab"
+    },
+    {
+      "start": 11.331337868480723,
+      "end": 15.162630385487528,
+      "label": "N"
+    },
+    {
+      "start": 15.162630385487528,
+      "end": 18.22766439909297,
+      "label": "C"
+    },
+    {
+      "start": 18.22766439909297,
+      "end": 21.5481179138322,
+      "label": "F"
+    },
+    {
+      "start": 21.5481179138322,
+      "end": 24.45061224489796,
+      "label": "C"
+    },
+    {
+      "start": 24.45061224489796,
+      "end": 27.67818594104309,
+      "label": "F"
+    },
+    {
+      "start": 27.67818594104309,
+      "end": 30.72,
+      "label": "Am"
+    },
+    {
+      "start": 30.72,
+      "end": 33.80825396825397,
+      "label": "G"
+    },
+    {
+      "start": 33.80825396825397,
+      "end": 36.96616780045352,
+      "label": "C"
+    },
+    {
+      "start": 36.96616780045352,
+      "end": 40.12408163265306,
+      "label": "F"
+    },
+    {
+      "start": 40.12408163265306,
+      "end": 43.18911564625851,
+      "label": "Am"
+    },
+    {
+      "start": 43.18911564625851,
+      "end": 47.85632653061224,
+      "label": "G"
+    },
+    {
+      "start": 47.85632653061224,
+      "end": 50.991020408163266,
+      "label": "C"
+    },
+    {
+      "start": 50.991020408163266,
+      "end": 54.10249433106576,
+      "label": "F"
+    },
+    {
+      "start": 54.10249433106576,
+      "end": 55.751111111111115,
+      "label": "Am"
+    },
+    {
+      "start": 55.751111111111115,
+      "end": 57.19074829931973,
+      "label": "G"
+    },
+    {
+      "start": 57.19074829931973,
+      "end": 58.81614512471656,
+      "label": "F"
+    },
+    {
+      "start": 58.81614512471656,
+      "end": 60.32544217687075,
+      "label": "G"
+    },
+    {
+      "start": 60.32544217687075,
+      "end": 63.43691609977324,
+      "label": "C"
+    },
+    {
+      "start": 63.43691609977324,
+      "end": 68.10412698412699,
+      "label": "F"
+    },
+    {
+      "start": 68.10412698412699,
+      "end": 69.68308390022676,
+      "label": "A7"
+    },
+    {
+      "start": 69.68308390022676,
+      "end": 71.26204081632653,
+      "label": "Dm"
+    }
+  ],
+  "analysis": {
+    "duration": 196.7310657596372,
+    "segments": 74,
+    "pipeline": "harmonia-whole-song-lv-v2",
+    "model": "lv-chordia-1.1.0-submission-native-v2",
+    "fingerprint": "1da2cfa23a755857b3f5cd5dad5dcfc2bd6d22649898bf0ebc776891c792f74a"
+  },
+  "workerSeconds": 17.790799999952316,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "F",
+    "assertionLatencyMs": 9.744699999999284
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-DgATRD8K.js",
+      "started": 3695.2000000476837,
+      "stages": [],
+      "completed": 21486,
+      "duration": 196.73106575963718,
+      "segments": 74
+    }
+  ],
+  "cacheReopenSeconds": 0.9530368999999992,
+  "cachedSelectionToPlayerSeconds": 0.11030210000000079,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

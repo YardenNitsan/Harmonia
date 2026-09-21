@@ -50,7 +50,13 @@ test('acquired audio decoder failure falls through, freezes before play and reop
                 duration,
                 segments: [
                   { start: 0, end: duration / 2, label: 'G:maj', score: 0.9 },
-                  { start: duration / 2, end: duration, label: 'D:maj', score: 0.9 },
+                  // Native JSON can round EOF slightly above JS's PCM duration.
+                  {
+                    start: duration / 2,
+                    end: duration + Number.EPSILON * duration,
+                    label: 'D:maj',
+                    score: 0.9,
+                  },
                 ],
                 beats: [],
                 tempo: null,

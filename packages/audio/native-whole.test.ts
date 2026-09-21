@@ -51,3 +51,40 @@ it('rejects wrong models, incomplete bounds, nonfinite support and mismatched PC
   nonfinite.segments[0].score = NaN;
   expect(() => assembleNativeWholeSong(nonfinite, metadata)).toThrow();
 });
+
+it.each([196.7310657596372, 196.73106575963715])(
+  'normalizes the complete native endpoint %s to the exact PCM duration',
+  (nativeEnd) => {
+    // 4,337,920 samples reproduced a cross-runtime JSON rounding difference.
+    // Keep chord decisions and interior boundaries intact; only reconcile EOF.
+    const native = result();
+    native.sampleCount = 4337920;
+    native.duration = nativeEnd;
+    native.segments[1].end = nativeEnd;
+    const original = structuredClone(native);
+    const analysis = assembleNativeWholeSong(native, {
+      fingerprint: 'a'.repeat(64),
+      profile: 'balanced',
+      samples: native.sampleCount,
+      waveform: [],
+    });
+    expect(analysis.duration).toBe(native.sampleCount / 22050);
+    expect(analysis.segments.at(-1)!.end).toBe(analysis.duration);
+    expect(analysis.segments[0].end).toBe(5);
+    expect(analysis.segments.map((s) => formatChord(s.chord))).toEqual(['G', 'D7/F#']);
+    expect(native).toEqual(original);
+  },
+);
+
+it.each([9.99, 10.01])('still rejects a materially incomplete or overlong endpoint %s', (end) => {
+  const native = result();
+  native.segments[1].end = end;
+  expect(() =>
+    assembleNativeWholeSong(native, {
+      fingerprint: 'a'.repeat(64),
+      profile: 'balanced',
+      samples: native.sampleCount,
+      waveform: [],
+    }),
+  ).toThrow('Incomplete native timeline');
+});

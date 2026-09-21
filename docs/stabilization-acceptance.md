@@ -1,5 +1,10 @@
 # Recognition and progression stabilization evidence
 
+Follow-up: the [native endpoint rounding fix](preparation-endpoint-fix.md) corrects
+preparation failures on some otherwise valid recordings. Its linked evidence
+records the newer executable hash. The original stabilization measurements and
+binary identity below are retained as historical evidence.
+
 The frozen search → acquire → complete analysis → immutable timeline → local
 playback flow is preserved. The optimized Windows build passes the hidden exact
 Bob Dylan regression and progression-following acceptance. This is a measured
