@@ -177,4 +177,3 @@ function Initialize-HarmoniaSearchKey {
     Write-Host 'Enter the key in the masked prompt, or press Enter to start with local files only.'
     Invoke-HarmoniaCommand 'powershell.exe' @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', (Join-Path $PSScriptRoot 'configure-youtube.ps1'), '-Prompt', '-AllowEmpty', '-Replace')
 }
-
