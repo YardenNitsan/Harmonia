@@ -16,6 +16,16 @@ Tauri SQLite backend, React listening workspace, Python supervised research pipe
 
 ## Global constraints
 
+### Latest continuation: convenient Windows startup
+
+Implemented the user's one-command launcher request in `docs/desktop-startup-plan.md`.
+`npm.cmd run desktop` and `Start-Harmonia.cmd` prepare missing prerequisites, reuse
+working dependencies, offer protected one-time key setup and launch the existing app.
+No recognition/provider/UI architecture changes. Verified 10 mocked startup scenarios,
+6 Python environment checks, actual check-only/setup-only reuse, 885 application tests,
+lint, typecheck and frontend production build. No visible GUI launched. Fresh Windows
+installation and first-run installer elevation remain unverified deployment checks.
+
 Follow `AGENTS.md`. No protected streaming capture. No false confidence or quality claims.
 Dataset/license audit precedes acquisition/training. Leave GPU/RAM headroom. CPU fallback.
 No main-thread analysis. No test leakage. Preserve GuitarScaleViewer and its existing edit.

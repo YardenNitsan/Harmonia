@@ -21,7 +21,11 @@
     "lint": "eslint apps/desktop/src packages tests",
     "format": "prettier --write apps packages tests scripts *.json *.ts *.js docs AGENTS.md",
     "format:check": "prettier --check apps packages tests scripts *.json *.ts *.js docs AGENTS.md",
-    "desktop": "tauri dev --config apps/desktop/src-tauri/tauri.conf.json",
+    "desktop": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/start-harmonia.ps1",
+    "desktop:dev": "tauri dev --config apps/desktop/src-tauri/tauri.conf.json",
+    "desktop:setup": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/start-harmonia.ps1 -SetupOnly",
+    "desktop:check": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/start-harmonia.ps1 -CheckOnly",
+    "test:startup": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/startup.test.ps1",
     "desktop:build": "tauri build --config apps/desktop/src-tauri/tauri.conf.json"
   },
   "engines": {

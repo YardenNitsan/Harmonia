@@ -1,6 +1,7 @@
 param(
     [switch]$Prompt,
-    [switch]$Replace
+    [switch]$Replace,
+    [switch]$AllowEmpty
 )
 
 # Never pass a credential on the command line or print input/error details.
@@ -20,6 +21,10 @@ try {
     if ($Prompt) {
         $harmoniaSecure = Read-Host 'YouTube Data API key' -AsSecureString
         $harmoniaKey = [System.Net.NetworkCredential]::new('', $harmoniaSecure).Password
+        if ($AllowEmpty -and [string]::IsNullOrWhiteSpace($harmoniaKey)) {
+            Write-Output 'YouTube setup skipped. Local-file analysis is available; rerun setup when you have a key.'
+            exit 0
+        }
     } else {
         $harmoniaSource = Join-Path (Split-Path -Parent $PSScriptRoot) '.env.local'
         if (-not (Test-Path -LiteralPath $harmoniaSource)) { throw 'missing configuration' }

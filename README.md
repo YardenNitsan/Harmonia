@@ -29,7 +29,44 @@ The current input bounds are **100 MiB per encoded recording and 20 minutes of a
 
 These instructions target **64-bit Windows 10/11 and PowerShell**. Run repository commands from the Harmonia root. Use `npm.cmd` to avoid PowerShell's `npm.ps1` execution-policy issue. No global JavaScript package installation is needed.
 
-Already configured this checkout? Skip to [Running Harmonia](#running-harmonia). Do not recreate a working environment or overwrite existing configuration.
+### Recommended: one-command startup
+
+Download/extract this repository (or clone it), then double-click **Start-Harmonia.cmd**.
+If Node is already installed, you can instead run this from the Harmonia folder:
+
+```powershell
+npm.cmd run desktop
+```
+
+The launcher checks and reuses compatible installations, prepares missing dependencies,
+then starts the app. It handles Node, Rust/MSVC, C++ build tools and Windows SDK,
+WebView2, Python 3.13, locked JavaScript/Python libraries, recognition weights and
+the pinned local acquisition tools. You do not need to install libraries individually.
+
+The first run needs internet access, can download several GB, and may request Windows
+administrator approval. Compilation and installation can take a while; later runs reuse
+the setup. Missing system tools are installed through Windows **App Installer / WinGet**.
+If WinGet is absent, install App Installer from Microsoft Store and run again. A requested
+Windows restart must be completed manually. This remains a source-based development app,
+not a portable executable; native recognition needs **8 GiB available RAM**.
+
+**YouTube search still needs your own YouTube Data API v3 key.** If none is configured,
+the launcher offers a masked console prompt and saves it encrypted for your Windows
+account. Enter it once; subsequent starts load it automatically. Press Enter to skip
+and use local files. The launcher cannot create a Google Cloud key for you. Never share
+your real `.env.local` or credential file with a friend.
+
+Useful optional commands:
+
+```powershell
+npm.cmd run desktop:check                      # Check only; no installs or app window
+npm.cmd run desktop:setup -- -NonInteractive   # Prepare dependencies without opening the app
+npm.cmd run desktop:dev                        # Direct developer launch; bypass setup
+```
+
+The launcher has automated workflow tests and has been checked on the configured
+development PC. Installation on a completely fresh Windows machine remains unverified.
+The manual instructions below are a fallback and document the exact dependencies.
 
 ### 1. Install the system prerequisites
 
@@ -155,10 +192,9 @@ Debug builds can read repository `.env.local`. **Release search does not read th
 
 ### Desktop development
 
-After completing setup, run from the repository root:
+Run from the repository root; missing prerequisites are prepared automatically:
 
 ```powershell
-$env:CARGO_BUILD_JOBS = '2'
 npm.cmd run desktop
 ```
 

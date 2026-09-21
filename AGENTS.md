@@ -98,6 +98,16 @@ older analysis before playback while preserving prior records and corrections.
 ## Commands
 
 Run commands from this repository root unless a different directory is specified.
+
+`npm.cmd run desktop` now invokes `scripts/start-harmonia.ps1`: check/reuse or
+install missing Windows/npm/Python/acquisition dependencies, offer masked key
+setup if absent, then launch. `Start-Harmonia.cmd` also works before Node is installed.
+For autonomous checks use `npm.cmd run desktop:check` (no installs/window) or
+`npm.cmd run desktop:setup -- -NonInteractive` (may install; no window).
+`npm.cmd run desktop:dev` bypasses setup and opens the app; do not use during
+headless work. Launcher tests: `npm.cmd run test:startup` and
+`ml/.venv/Scripts/python.exe -m unittest discover -s scripts -p test_startup_environment.py`.
+Fresh-machine provisioning remains unverified; see `docs/desktop-startup-plan.md`.
 On Windows use `npm.cmd` when PowerShell execution policy blocks `npm`.
 
 | Purpose                     | Command                                                                                                                                                                                                                                                |
