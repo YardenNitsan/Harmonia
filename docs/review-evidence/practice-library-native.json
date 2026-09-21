@@ -1,0 +1,289 @@
+{
+  "status": "passed",
+  "checks": {
+    "exactOriginalAudioReused": true,
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "youtubeRequestsRemainNative": true,
+    "visiblePracticeLibraryAndOccurrenceSeek": true,
+    "completeTimelineBeforeAutomaticPlayback": true,
+    "lateSeekCentersProgression": true,
+    "playbackCentersProgression": true,
+    "authoritativePlaybackPauseSeekAndClickableTimeline": true,
+    "noAnalysisReplacementDuringPlayback": true,
+    "reloadSqliteCacheWithoutRecognition": true,
+    "cachedAudioNotReacquired": true
+  },
+  "errors": [],
+  "audioRetainedAfterCleanup": false,
+  "probeSha256": "a12ce35e20df1b8e9808fc322cfab914768197aaea02e03c8145d01d5acfaea2",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "1d1c713363ba78db42bf8ebb19d8fd7ad7c971fa4940111451448918e9fe2b6a",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "typeaheadSeconds": 1.3734288,
+  "preparationSeconds": 11.3437212,
+  "practice": {
+    "uniqueChords": 5,
+    "appearances": 65,
+    "occurrenceSeek": 46.64888888888889
+  },
+  "source": {
+    "artist": "BobDylanVEVO",
+    "audio": {
+      "container": "webm",
+      "fingerprint": "1df50037c17822f83f5162dda09b86663fa030a448bf9f758f837a44827d409b",
+      "kind": "acquired",
+      "mime": "audio/webm",
+      "provider": "yt-dlp",
+      "size": 2584162,
+      "url": "sha256:1df50037c17822f83f5162dda09b86663fa030a448bf9f758f837a44827d409b"
+    },
+    "id": "rm9coqlk8fY",
+    "pageUrl": "https://www.youtube.com/watch?v=rm9coqlk8fY",
+    "provider": "youtube",
+    "thumbnail": "https://i.ytimg.com/vi/rm9coqlk8fY/mqdefault.jpg",
+    "title": "Bob Dylan - Knockin' On Heaven's Door (Official Audio)"
+  },
+  "timings": {
+    "normalizeMs": 19.400000035762787,
+    "featuresMs": 1750.2382000093348,
+    "inferenceMs": 5133.2024000003,
+    "temporalDecodingMs": 99.26059999270365,
+    "rhythmKeyMs": 895.289599953685,
+    "timelineMs": 3.6164999259635806,
+    "boundaryMs": 1.1748000397346914,
+    "pipelineMs": 9527.569799975026,
+    "workerMs": 10734.800000011921,
+    "decodeMs": 388.39999997615814,
+    "analysisMs": 11131.600000023842
+  },
+  "providers": [
+    {
+      "provider": "yt-dlp",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "cobalt",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "saveapi",
+      "configured": false,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    }
+  ],
+  "sanity": {
+    "segmentCount": 67,
+    "medianSeconds": 1.7879365079365073,
+    "meanSeconds": 2.2600595661150034,
+    "changesPerMinute": 26.15173444899052,
+    "sub200msPercent": 0,
+    "extensionsPercent": 0,
+    "alterationsPercent": 0,
+    "slashPercent": 0
+  },
+  "excerpts": [
+    {
+      "start": 0,
+      "end": 1.2306575963718822,
+      "label": "N"
+    },
+    {
+      "start": 1.2306575963718822,
+      "end": 3.1811337868480725,
+      "label": "G"
+    },
+    {
+      "start": 3.1811337868480725,
+      "end": 4.876190476190477,
+      "label": "D"
+    },
+    {
+      "start": 4.876190476190477,
+      "end": 8.289523809523809,
+      "label": "Am"
+    },
+    {
+      "start": 8.289523809523809,
+      "end": 10.054240362811791,
+      "label": "G"
+    },
+    {
+      "start": 10.054240362811791,
+      "end": 11.865396825396823,
+      "label": "D"
+    },
+    {
+      "start": 11.865396825396823,
+      "end": 15.32517006802721,
+      "label": "C"
+    },
+    {
+      "start": 15.32517006802721,
+      "end": 17.136326530612244,
+      "label": "G"
+    },
+    {
+      "start": 17.136326530612244,
+      "end": 18.92426303854875,
+      "label": "D"
+    },
+    {
+      "start": 18.92426303854875,
+      "end": 22.31437641723356,
+      "label": "Am"
+    },
+    {
+      "start": 22.31437641723356,
+      "end": 24.102312925170068,
+      "label": "G"
+    },
+    {
+      "start": 24.102312925170068,
+      "end": 25.890249433106575,
+      "label": "D"
+    },
+    {
+      "start": 25.890249433106575,
+      "end": 29.35002267573696,
+      "label": "C"
+    },
+    {
+      "start": 29.35002267573696,
+      "end": 31.068299319727892,
+      "label": "G"
+    },
+    {
+      "start": 31.068299319727892,
+      "end": 32.80979591836735,
+      "label": "D"
+    },
+    {
+      "start": 32.80979591836735,
+      "end": 36.17668934240363,
+      "label": "Am"
+    },
+    {
+      "start": 36.17668934240363,
+      "end": 37.964625850340134,
+      "label": "G"
+    },
+    {
+      "start": 37.964625850340134,
+      "end": 39.65968253968254,
+      "label": "D"
+    },
+    {
+      "start": 39.65968253968254,
+      "end": 43.119455782312926,
+      "label": "C"
+    },
+    {
+      "start": 43.119455782312926,
+      "end": 44.83773242630386,
+      "label": "G"
+    },
+    {
+      "start": 44.83773242630386,
+      "end": 46.64888888888889,
+      "label": "D"
+    },
+    {
+      "start": 46.64888888888889,
+      "end": 49.946122448979594,
+      "label": "Am7"
+    },
+    {
+      "start": 49.946122448979594,
+      "end": 51.7340589569161,
+      "label": "G"
+    },
+    {
+      "start": 51.7340589569161,
+      "end": 53.4291156462585,
+      "label": "D"
+    },
+    {
+      "start": 53.4291156462585,
+      "end": 56.47092970521542,
+      "label": "C"
+    }
+  ],
+  "analysis": {
+    "duration": 151.4239909297052,
+    "segments": 67,
+    "pipeline": "harmonia-whole-song-lv-v2",
+    "model": "lv-chordia-1.1.0-submission-native-v2",
+    "fingerprint": "1df50037c17822f83f5162dda09b86663fa030a448bf9f758f837a44827d409b"
+  },
+  "workerSeconds": 10.742600000023842,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "G",
+    "assertionLatencyMs": 13.332100000001446
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-DgATRD8K.js",
+      "started": 3050.399999976158,
+      "stages": [],
+      "completed": 13793,
+      "duration": 151.4239909297052,
+      "segments": 67
+    }
+  ],
+  "cacheReopenSeconds": 0.9718418000000002,
+  "cachedSelectionToPlayerSeconds": 0.11138220000000001,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

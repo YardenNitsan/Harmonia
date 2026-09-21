@@ -152,7 +152,7 @@ test('acquired audio decoder failure falls through, freezes before play and reop
   await page.getByRole('combobox', { name: 'Song or artist' }).fill('acquired again');
   await page.getByRole('option').filter({ hasText: 'Acquired song' }).click();
   await expect(page.getByRole('button', { name: 'Pause', exact: true })).toBeVisible();
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   await expect(page.getByText('Loaded cached analysis.', { exact: true })).toBeVisible();
   expect((await page.evaluate(() => Reflect.get(window, 'acquisitionTest'))).workers).toHaveLength(
     1,

@@ -64,7 +64,7 @@ test('catalog acquisition can be cancelled and a later selection prepares a real
   await page.getByRole('combobox', { name: 'Song or artist' }).focus();
   await page.getByRole('option', { name: /Catalog fixture/ }).click();
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   await expect(page.getByText(/Complete timeline ready/)).toBeVisible();
   await expect(page.getByText(/Analysis and playback use this same recording/)).toBeVisible();
   expect(
@@ -104,7 +104,7 @@ test('source-backed library reopens the chosen corrected revision without new an
   await page.getByRole('option', { name: /Catalog fixture/ }).click();
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
   await page.getByRole('slider', { name: 'Playback position' }).fill('0');
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   await page.getByRole('button', { name: 'Edit current chord', exact: true }).click();
   await page.getByLabel('Chord symbol').fill('F#7(b9)/A#');
   await page.getByRole('button', { name: 'Save correction', exact: true }).click();
@@ -117,7 +117,7 @@ test('source-backed library reopens the chosen corrected revision without new an
 
   await page.getByRole('button', { name: 'Analyze again', exact: true }).click();
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   const replacement = await exportedRecord(page);
   expect(replacement.analysis.id).not.toBe(original.analysis.id);
   expect(replacement.corrections).toHaveLength(0);
@@ -135,7 +135,7 @@ test('source-backed library reopens the chosen corrected revision without new an
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
   await page.getByRole('slider', { name: 'Playback position' }).fill('0');
   await expect(page.getByTestId('current-chord')).toHaveText('F#7(b9)/A#');
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   await expect(page.getByText('Loaded cached analysis.', { exact: true })).toBeVisible();
   expect(await exportedRecord(page)).toEqual(original);
   expect(await page.evaluate(() => Reflect.get(window, 'revisionAnalysisWorkers'))).toBe(
@@ -160,7 +160,7 @@ test('whole-song local input prepares a complete timeline before play and suppor
   await page.goto('/');
   await page.getByLabel('Whole-song audio file').setInputFiles(wavFile('whole-test.wav', 180));
   await page.getByRole('button', { name: 'Pause', exact: true }).click({ timeout: 30000 });
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   await expect(page.getByText(/Complete timeline ready/)).toBeVisible({ timeout: 30000 });
   await expect(page.getByRole('button', { name: 'Play', exact: true })).toBeVisible();
   await page.getByRole('slider', { name: 'Playback position' }).fill('0');

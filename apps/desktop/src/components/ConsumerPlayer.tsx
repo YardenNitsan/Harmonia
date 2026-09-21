@@ -18,6 +18,7 @@ import { downloadAnalysisExport } from '../../../../packages/providers/browser-e
 import { ChordEditor } from './ChordEditor';
 import { ChordInspector } from './ChordInspector';
 import { ChordProgression } from './ChordProgression';
+import { ChordLibrary } from './ChordLibrary';
 import { PracticeControls } from './PracticeControls';
 import { SongArtwork } from './SongTypeahead';
 import { Timeline, timeLabel } from './Timeline';
@@ -167,98 +168,109 @@ export function ConsumerPlayer({
         seekRevision={seekRevision}
         onSeek={seek}
       />
-      <details className="consumer-details">
-        <summary>Details &amp; practice</summary>
+      <section className="consumer-details" aria-label="Practice tools">
+        <div className="practice-heading">
+          <div>
+            <span className="eyebrow">PLAY ALONG</span>
+            <h2>Make it your own</h2>
+          </div>
+          <p>Your key, your pace. Everything you need to practice.</p>
+        </div>
         <div className="consumer-details-body">
-          <div className="consumer-song-facts">
-            {analysis.key && (
+          <div className="practice-settings">
+            <div className="consumer-song-facts">
+              {analysis.key && (
+                <span>
+                  Key: {pitchName(analysis.key.root)} {analysis.key.mode} · estimated
+                </span>
+              )}
+              {analysis.tempo !== null && <span>{Math.round(analysis.tempo)} BPM · estimated</span>}
+              {analysis.meter && <span>Meter: {analysis.meter}</span>}
               <span>
-                Key: {pitchName(analysis.key.root)} {analysis.key.mode} · estimated
+                {state.saveState === 'saved'
+                  ? 'Saved on this device'
+                  : state.saveState === 'saving'
+                    ? 'Saving locally…'
+                    : 'Changes not saved'}
               </span>
-            )}
-            {analysis.tempo !== null && <span>{Math.round(analysis.tempo)} BPM · estimated</span>}
-            {analysis.meter && <span>Meter: {analysis.meter}</span>}
-            <span>
-              {state.saveState === 'saved'
-                ? 'Saved on this device'
-                : state.saveState === 'saving'
-                  ? 'Saving locally…'
-                  : 'Changes not saved'}
-            </span>
-          </div>
-          <p>
-            Complete timeline ready · {analysis.segments.length} chord segments
-            {preparationSeconds != null ? ` · Prepared in ${preparationSeconds.toFixed(2)} s` : ''}.
-          </p>
-          {state.stage === 'Loaded cached analysis' && <p>Loaded cached analysis.</p>}
-          <div className="consumer-detail-actions">
-            <button
-              className="secondary"
-              aria-label="Edit current chord"
-              disabled={!segment}
-              onClick={() => setEditingId(segment.id)}
-            >
-              Refine chord
-            </button>
-            <button
-              className="secondary"
-              onClick={() => downloadAnalysisExport(createAnalysisExport(record))}
-            >
-              <ArrowDownToLine size={14} /> Export
-            </button>
-            <button
-              className="secondary"
-              onClick={() => downloadAnalysisExport(createTimelineExport(record))}
-            >
-              Export timeline
-            </button>
-            {onReanalyze && (
-              <button className="text-button" onClick={onReanalyze}>
-                Analyze again
-              </button>
-            )}
-          </div>
-          <PracticeControls
-            transpose={transpose}
-            onChange={setTranspose}
-            mode={notation}
-            onModeChange={setNotation}
-            hasKey={analysis.key !== null}
-          />
-          <div className="consumer-audio-options">
-            <label>
-              Speed{' '}
-              <select
-                aria-label="Playback speed"
-                value={speed}
-                onChange={(event) => {
-                  const value = Number(event.target.value);
-                  controller.player.setSpeed(value);
-                  setSpeed(value);
-                }}
+            </div>
+            <p>
+              Complete timeline ready · {analysis.segments.length} chord segments
+              {preparationSeconds != null
+                ? ` · Prepared in ${preparationSeconds.toFixed(2)} s`
+                : ''}
+              .
+            </p>
+            {state.stage === 'Loaded cached analysis' && <p>Loaded cached analysis.</p>}
+            <div className="consumer-detail-actions">
+              <button
+                className="secondary"
+                aria-label="Edit current chord"
+                disabled={!segment}
+                onClick={() => setEditingId(segment.id)}
               >
-                {[0.5, 0.75, 1, 1.25, 1.5].map((value) => (
-                  <option key={value} value={value}>
-                    {value}×
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Volume{' '}
-              <input
-                aria-label="Volume"
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value={volume}
-                onChange={(event) => {
-                  controller.player.setVolume(Number(event.target.value));
-                  setVolume(controller.player.volume);
-                }}
-              />
-            </label>
+                Refine chord
+              </button>
+              <button
+                className="secondary"
+                onClick={() => downloadAnalysisExport(createAnalysisExport(record))}
+              >
+                <ArrowDownToLine size={14} /> Export
+              </button>
+              <button
+                className="secondary"
+                onClick={() => downloadAnalysisExport(createTimelineExport(record))}
+              >
+                Export timeline
+              </button>
+              {onReanalyze && (
+                <button className="text-button" onClick={onReanalyze}>
+                  Analyze again
+                </button>
+              )}
+            </div>
+            <PracticeControls
+              transpose={transpose}
+              onChange={setTranspose}
+              mode={notation}
+              onModeChange={setNotation}
+              hasKey={analysis.key !== null}
+            />
+            <div className="consumer-audio-options">
+              <label>
+                Speed{' '}
+                <select
+                  aria-label="Playback speed"
+                  value={speed}
+                  onChange={(event) => {
+                    const value = Number(event.target.value);
+                    controller.player.setSpeed(value);
+                    setSpeed(value);
+                  }}
+                >
+                  {[0.5, 0.75, 1, 1.25, 1.5].map((value) => (
+                    <option key={value} value={value}>
+                      {value}×
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Volume{' '}
+                <input
+                  aria-label="Volume"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={volume}
+                  onChange={(event) => {
+                    controller.player.setVolume(Number(event.target.value));
+                    setVolume(controller.player.volume);
+                  }}
+                />
+              </label>
+            </div>
           </div>
           <ChordInspector
             segment={segment}
@@ -283,7 +295,8 @@ export function ConsumerPlayer({
           )}
           <p className="analysis-note">{analysis.warnings.join(' ')}</p>
         </div>
-      </details>
+      </section>
+      <ChordLibrary segments={analysis.segments} transpose={transpose} onSeek={seek} />
       {editing && (
         <ChordEditor
           key={editing.id}

@@ -16,6 +16,21 @@ Tauri SQLite backend, React listening workspace, Python supervised research pipe
 
 ## Global constraints
 
+### Active continuation: visible practice and song chord library
+
+Follow `practice-library-plan.md`: expose existing practice controls directly,
+derive unique counted chord entries from the frozen timeline and add practical
+guitar/piano references without redesigning search/preparation/playback. Reuse
+canonical chords, preserve exact analyzed labels and identify diagram reductions.
+Retained recognition evidence and fresh correctness checks are recorded in
+`practice-recognition-review.md`; no model/threshold promotion without measured gain.
+
+Verified under `practice-library-acceptance.md`: 926 unit tests, 43 production E2Es,
+147 Python tests, static checks, optimized build and exact-Bob hidden Windows flow.
+Five library chords group 65 pitched occurrences from the unchanged 67 regions;
+11.344 s preparation with cached audio, 111 ms cached selection, 13.3 ms late seek.
+Recognition is preserved with no claimed new accuracy gain. GUI stayed hidden.
+
 ### Latest continuation: convenient Windows startup
 
 Implemented the user's one-command launcher request in `docs/desktop-startup-plan.md`.

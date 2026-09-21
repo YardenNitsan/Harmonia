@@ -1,5 +1,17 @@
 # Architecture
 
+## Frozen-timeline practice views
+
+`practice-library.ts` projects the completed canonical segments into unique chord
+entries with occurrence/count/duration metadata. `practice-voicings.ts` resolves
+standard-tuning guitar fingerings and compact piano MIDI voicings separately from
+recognition. These pure domain functions never edit an analysis or infer from audio.
+`ChordLibrary` memoizes its projection by timeline identity; playback clock updates
+do not rebuild it. Occurrence buttons use the player's existing authoritative seek
+path. `PracticeDiagrams` renders original accessible SVGs. Existing instrument maps
+and corrections remain in the now-visible consumer practice section. No cache/model
+version changes are needed for a derived presentation feature.
+
 ## Current native whole-song recognition (ADR010)
 
 The product flow below remains frozen. Native primary and whole-song file analysis

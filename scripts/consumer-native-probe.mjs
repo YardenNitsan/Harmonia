@@ -184,7 +184,7 @@ try {
   await expect(page.getByRole('region', { name: 'Song player' })).toBeVisible({ timeout: 25000 });
   await expect(page.getByRole('button', { name: 'Pause', exact: true })).toBeVisible();
   report.cacheReopenSeconds = (performance.now() - cacheStart) / 1000;
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   await expect(page.getByText('Loaded cached analysis.', { exact: true })).toBeVisible();
   assert.equal((await page.evaluate(() => window.consumerProbe.workers)).length, 0);
   assert.equal(saved().length, 1);

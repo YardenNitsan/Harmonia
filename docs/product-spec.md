@@ -1,5 +1,18 @@
 # Harmonia product specification
 
+## Song practice library
+
+The completed song page exposes practice tools without an accordion: key/tempo,
+saved state, refinement/export, notation, transposition, speed, volume and the
+current chord inspector. A visible Chord Library derives unique harmonic entries
+from the frozen final timeline in first-appearance order, with occurrence counts,
+total duration and timestamp seek buttons. Repeated chords share a card; inversions
+remain distinct. Guitar boxes and compact piano voicings are practice references,
+not detected fingerings. Unsupported/reduced voicings are identified honestly.
+Transposition changes the practice display only; the saved analyzed labels and
+audio remain intact. No recognition or timeline mutation occurs during playback.
+See `practice-library-plan.md` and `practice-recognition-review.md`.
+
 ## Frozen stabilization requirement
 
 Preserve the acquisition/search/local-playback flow. A completed timeline must

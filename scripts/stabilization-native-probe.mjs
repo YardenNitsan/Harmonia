@@ -123,6 +123,35 @@ try {
   assert.equal(record.analysis.segments[0].start, 0);
   assert.equal(record.analysis.segments.at(-1).end, record.analysis.duration);
   const immutableHash = hash(JSON.stringify(record.analysis));
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
+  await expect(page.getByLabel('Chord notation')).toBeVisible();
+  await expect(page.getByLabel('Playback speed')).toBeVisible();
+  await expect(page.getByLabel('Volume', { exact: true })).toBeVisible();
+  const practiceLibrary = page.getByRole('region', { name: 'Chord Library' });
+  await expect(practiceLibrary).toBeVisible();
+  const cards = practiceLibrary.getByTestId('practice-chord-card');
+  const cardCounts = await cards.evaluateAll((nodes) =>
+    nodes.map((node) => Number(node.getAttribute('data-count'))),
+  );
+  assert.equal(
+    cardCounts.reduce((sum, count) => sum + count, 0),
+    record.analysis.segments.filter((s) => s.chord.kind === 'chord').length,
+  );
+  await expect(practiceLibrary.getByRole('img', { name: /Guitar voicing/ }).first()).toBeVisible();
+  await expect(practiceLibrary.getByRole('img', { name: /Piano voicing/ }).first()).toBeVisible();
+  const lastOccurrence = practiceLibrary.getByRole('button', { name: /Jump to .* at/ }).last();
+  const occurrenceTime = Number(await lastOccurrence.getAttribute('data-start'));
+  await lastOccurrence.click();
+  await expect(page.getByLabel('Playback position')).toHaveValue(
+    String(Number(occurrenceTime.toFixed(2))),
+  );
+  assert.equal(hash(JSON.stringify(saved()[0].analysis)), immutableHash);
+  report.practice = {
+    uniqueChords: cardCounts.length,
+    appearances: cardCounts.reduce((sum, count) => sum + count, 0),
+    occurrenceSeek: occurrenceTime,
+  };
+  report.checks.visiblePracticeLibraryAndOccurrenceSeek = true;
   report.source = record.source;
   report.timings = await page.evaluate(
     () => performance.getEntriesByName('harmonia.whole.analysis').at(-1)?.detail,
@@ -244,7 +273,7 @@ try {
   await expect(page.getByRole('button', { name: 'Pause', exact: true })).toBeVisible();
   report.cacheReopenSeconds = (performance.now() - cacheStart) / 1000;
   report.cachedSelectionToPlayerSeconds = (performance.now() - clickedAt) / 1000;
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   await expect(page.getByText('Loaded cached analysis.', { exact: true })).toBeVisible();
   assert.equal((await page.evaluate(() => window.consumerProbe.workers)).length, 0);
   assert.equal(saved().length, 1);

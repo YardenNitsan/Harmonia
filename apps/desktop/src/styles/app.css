@@ -2183,13 +2183,10 @@ select {
   margin: 25px 0;
   border-top: 1px solid var(--line);
 }
-.consumer-details summary {
-  cursor: pointer;
-  color: var(--muted);
-  font-size: 13px;
-  padding: 20px 0;
-}
 .consumer-details-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr);
+  gap: 24px;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.6;
@@ -2214,11 +2211,173 @@ select {
   padding: 7px;
   color: var(--text);
 }
-.consumer-details .chord-inspector {
-  max-width: 500px;
-  margin-top: 20px;
+.consumer-details .inspector {
+  margin: 0;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.consumer-details .practice-row {
+  flex-wrap: wrap;
+  margin-top: 24px;
+  gap: 16px;
+}
+.consumer-details .analysis-note,
+.consumer-details .song-attribution {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.practice-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px 0;
+}
+.practice-heading h2 {
+  font-size: 24px;
+  margin: 5px 0;
+  color: var(--text);
+  letter-spacing: -0.6px;
+}
+.practice-heading p,
+.library-guide {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 4px 0;
+}
+.practice-heading .instrument-tabs {
+  margin: 0;
+}
+.chord-library {
+  border-top: 1px solid var(--line);
+  padding-bottom: 32px;
+}
+.practice-chord-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+.practice-chord-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 20px;
+}
+.practice-chord-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.practice-chord-card h3 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.8px;
+  overflow-wrap: anywhere;
+}
+.practice-chord-card header div {
+  display: grid;
+  gap: 4px;
+  text-align: right;
+  color: var(--muted);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.practice-chord-card header strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+.practice-diagrams {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+  padding: 22px 0 12px;
+}
+.view-piano .practice-diagrams,
+.view-guitar .practice-diagrams {
+  grid-template-columns: 1fr;
+}
+.practice-instrument {
+  min-width: 0;
+}
+.practice-instrument > .eyebrow {
+  font-size: 9px;
+}
+.guitar-diagram {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  margin: 8px auto 0;
+}
+.diagram-finger,
+.piano-note-label {
+  fill: var(--ink);
+  font-size: 10px;
+  font-weight: 600;
+}
+.diagram-string-mark {
+  fill: var(--text);
+  font-size: 18px;
+}
+.diagram-fret-label,
+.diagram-string-label {
+  fill: var(--muted);
+  font-size: 11px;
+}
+.piano-voicing {
+  margin-top: 24px;
+}
+.piano-voicing svg {
+  width: 100%;
+  max-width: 420px;
+}
+.voicing-notes,
+.voicing-hands,
+.voicing-note,
+.diagram-unavailable {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.voicing-notes {
+  color: var(--text);
+}
+.chord-occurrences {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  max-height: 104px;
+  overflow: auto;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.chord-occurrences button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  padding: 7px 9px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.chord-occurrences button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.practice-transposition {
+  color: var(--accent);
+  font-size: 13px;
 }
 @media (max-width: 760px) {
+  .consumer-details-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .topbar {
     gap: 12px;
     padding: 20px;

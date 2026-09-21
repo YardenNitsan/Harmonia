@@ -55,8 +55,7 @@ test('prepared consumer player autoplays a complete timeline and supports future
   expect(await page.evaluate(() => Reflect.get(window, 'createdAnalysisWorkers'))).toBe(
     workerCount,
   );
-  await expect(page.getByRole('button', { name: 'Edit current chord' })).not.toBeVisible();
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Edit current chord' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Export', exact: true })).toBeVisible();
   await page.setViewportSize({ width: 390, height: 844 });

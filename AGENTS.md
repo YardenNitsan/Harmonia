@@ -1,5 +1,15 @@
 # Harmonia operating guide
 
+## Current practice checkpoint
+
+The consumer song page now exposes practice controls and a frozen-timeline Chord
+Library with counted occurrences and original guitar/piano diagrams. See
+`docs/practice-library-acceptance.md` for tests, native evidence and executable hash.
+Practice mappings never change recognition decisions. New mappings require exact
+pitch/bass and fingering tests or explicit reduced/unavailable states. The original
+LV recognizer is unchanged; `docs/practice-recognition-review.md` records current
+dictionary/decoder limitations. No new training or locked-test evaluation occurred.
+
 ## Current native recognition checkpoint
 
 ADR010 selects original LV-Chordia CPU inference for the native primary whole-song

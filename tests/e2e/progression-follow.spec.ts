@@ -69,9 +69,9 @@ test('full progression follows the audio clock, late seeks and transport, with m
     timeout: 30000,
   });
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   const record = await exportedRecord(page);
-  await page.getByText('Details & practice', { exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Practice tools' })).toBeVisible();
   const position = page.getByRole('slider', { name: 'Playback position' });
   await position.fill('5');
   await position.fill('130');
