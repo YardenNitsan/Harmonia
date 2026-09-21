@@ -1,0 +1,103 @@
+{
+  "track_id": "04_Rock2-142-D_comp",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "77589eeda2dfd7a8e8652b9b0c8a002529d911786e4be29c7bafda31fa32ba99",
+    "annotation": "aaab63931089e7910af048ab49e10f99c2302b83cdfc78d077e74d5c228625ce",
+    "prepared": "d1bd8f3cbaafbff6c75063d9ac0bcb78ed9328260b02ca435b8d3e0e956cceb9"
+  },
+  "pcm": {
+    "source_sha256": "77589eeda2dfd7a8e8652b9b0c8a002529d911786e4be29c7bafda31fa32ba99",
+    "file_sha256": "bfad8980dea5ba8517e4084bc28d95c664bb94ee79c2a9c1accb03c93af7379e",
+    "pcm_sha256": "6196a29d4577890a16cbab386994a26f00ab5f4534eead2f55e29c802f290e3d",
+    "duration": 27.041632653061225,
+    "decode_seconds": 0.020246599975507706
+  },
+  "timings": {
+    "feature_seconds": 0.055722299963235855,
+    "model_seconds": 0.05814720003399998
+  },
+  "wall_seconds": 0.12735119997523725,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.3931972789115645,
+      "label": "G:min"
+    },
+    {
+      "start": 1.3931972789115645,
+      "end": 3.250793650793651,
+      "label": "C:maj"
+    },
+    {
+      "start": 3.250793650793651,
+      "end": 4.829750566893424,
+      "label": "F:maj"
+    },
+    {
+      "start": 4.829750566893424,
+      "end": 6.6873469387755105,
+      "label": "A#:maj"
+    },
+    {
+      "start": 6.6873469387755105,
+      "end": 7.987664399092971,
+      "label": "G:min6"
+    },
+    {
+      "start": 7.987664399092971,
+      "end": 10.0,
+      "label": "A:7"
+    },
+    {
+      "start": 10.0,
+      "end": 13.436553287981859,
+      "label": "D:min"
+    },
+    {
+      "start": 13.436553287981859,
+      "end": 14.922630385487528,
+      "label": "G:maj"
+    },
+    {
+      "start": 14.922630385487528,
+      "end": 16.873106575963718,
+      "label": "C:maj"
+    },
+    {
+      "start": 16.873106575963718,
+      "end": 18.35918367346939,
+      "label": "F:maj"
+    },
+    {
+      "start": 18.35918367346939,
+      "end": 20.0,
+      "label": "A#:maj"
+    },
+    {
+      "start": 20.0,
+      "end": 20.092879818594103,
+      "label": "N"
+    },
+    {
+      "start": 20.092879818594103,
+      "end": 20.27863945578231,
+      "label": "A:7"
+    },
+    {
+      "start": 20.27863945578231,
+      "end": 21.393197278911565,
+      "label": "G:min6"
+    },
+    {
+      "start": 21.393197278911565,
+      "end": 23.715192743764174,
+      "label": "A:7"
+    },
+    {
+      "start": 23.715192743764174,
+      "end": 27.041632653061225,
+      "label": "D:min"
+    }
+  ]
+}

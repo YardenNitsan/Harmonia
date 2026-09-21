@@ -1,0 +1,48 @@
+{
+  "track_id": "05_SS2-88-F_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "5ec8758016f8f3eb02b83907db981533b773594e3aeb44f313150a8d51a17cc0",
+    "annotation": "654a69a86cfaaf46c3a6c5a709de5a83bcb34de107d2e7a7aebbf79b68020184",
+    "prepared": "9b4f5b7cce1c7814dd32380440a3c535e6a1fb53ac22b202ffdb86757df11ae0"
+  },
+  "pcm": {
+    "source_sha256": "5ec8758016f8f3eb02b83907db981533b773594e3aeb44f313150a8d51a17cc0",
+    "file_sha256": "831a71858e62564188ec5143376266cd7bc416e17cc1ba78986c43165801751b",
+    "pcm_sha256": "d9d5ecc4c50037529628c79b5f9d6957122a94a9bc45133091431abae8c8b619",
+    "duration": 43.62920634920635,
+    "decode_seconds": 0.02605250000488013
+  },
+  "timings": {
+    "feature_seconds": 0.09078990004491061,
+    "model_seconds": 0.09941839997190982
+  },
+  "wall_seconds": 0.21303069998975843,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 16.5015873015873,
+      "label": "N"
+    },
+    {
+      "start": 16.5015873015873,
+      "end": 16.594467120181406,
+      "label": "F:min"
+    },
+    {
+      "start": 16.594467120181406,
+      "end": 16.687346938775512,
+      "label": "N"
+    },
+    {
+      "start": 16.687346938775512,
+      "end": 18.91646258503401,
+      "label": "F:min"
+    },
+    {
+      "start": 18.91646258503401,
+      "end": 43.62920634920635,
+      "label": "N"
+    }
+  ]
+}

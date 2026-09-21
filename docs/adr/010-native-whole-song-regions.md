@@ -95,3 +95,14 @@ meter, local keys/modulations and sections are not implemented.
 LV notices and existing license audit remain in force. ChordMini BTC/ChordNet
 checkpoint terms/runtime are unresolved and no comparison score is invented.
 Software licensing does not convey rights to training or selected recordings.
+
+## Subsequent broad validation, 2026-09-21
+
+`broad-recognition-results.md` records the completed original BTC170 comparison:
+150 GuitarSet recordings and five HU33 validation recordings. The explicit original
+architecture and safe local loader were audited; no pretrained replacement passed
+the multi-metric comparison. A separate semitone-grid tuning candidate improves
+controlled pitch-offset robustness but fails its fixed minimum real-data gain.
+Both remain research artifacts. Production retains LV v3 and its existing bounded
+boundary alignment; classic practice shapes do not change recognition or cache
+identity. Representative full-mix and performed beat ground truth remain open.

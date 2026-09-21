@@ -1,0 +1,149 @@
+{
+  "track_id": "02_SS2-88-F_solo",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "ba204ea5373cd0aa9ccb2d27aac54f9d1d2f20b06fd964fbb6019bf12c44f600",
+    "annotation": "27d4b1b44b04b1bca90b6307f2312b1ddd833ee5f4e8ad958a7b2d427fd59295",
+    "prepared": "e07824c2a233a9696fc04b8167f09874c3920887e6604297788f26c0894bfba0"
+  },
+  "pcm": {
+    "source_sha256": "ba204ea5373cd0aa9ccb2d27aac54f9d1d2f20b06fd964fbb6019bf12c44f600",
+    "file_sha256": "be885a6f65589bc988ff1e9176a0098877cc036cfe09e7f24c5077e8c505e64c",
+    "pcm_sha256": "67e0ada35719c6c134567c235e54a9d0942ea0239005911b147a3006f5800c0e",
+    "duration": 43.62920634920635,
+    "decode_seconds": 0.027105499990284443
+  },
+  "timings": {
+    "setupSeconds": 0.02159590000519529,
+    "cqtSeconds": 0.15220840001711622,
+    "inferenceSeconds": 1.2754186000092886,
+    "hmmSeconds": 0.03241109999362379,
+    "beatSeconds": 0.05972770001972094,
+    "refinementSeconds": 0.00013479997869580984,
+    "decodeSeconds": 0.00039010000182315707,
+    "totalSeconds": 1.542504100012593
+  },
+  "wall_seconds": 1.5453793000197038,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.14,
+      "label": "F:maj"
+    },
+    {
+      "start": 1.14,
+      "end": 2.07,
+      "label": "G:min"
+    },
+    {
+      "start": 2.07,
+      "end": 2.65,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 2.65,
+      "end": 3.81,
+      "label": "C:min"
+    },
+    {
+      "start": 3.81,
+      "end": 6.59,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 6.59,
+      "end": 8.89,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 8.89,
+      "end": 10.4,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 10.4,
+      "end": 13.63,
+      "label": "N"
+    },
+    {
+      "start": 13.63,
+      "end": 15.56,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 15.56,
+      "end": 16.42,
+      "label": "C:min"
+    },
+    {
+      "start": 16.42,
+      "end": 17.55,
+      "label": "F:maj"
+    },
+    {
+      "start": 17.55,
+      "end": 18.48,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 18.48,
+      "end": 20.27,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 20.27,
+      "end": 21.36,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 21.36,
+      "end": 23.92,
+      "label": "N"
+    },
+    {
+      "start": 23.92,
+      "end": 31.58,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 31.58,
+      "end": 32.81,
+      "label": "F:maj"
+    },
+    {
+      "start": 32.81,
+      "end": 33.79,
+      "label": "G:min"
+    },
+    {
+      "start": 33.79,
+      "end": 35.81,
+      "label": "N"
+    },
+    {
+      "start": 35.81,
+      "end": 39.13,
+      "label": "F:maj"
+    },
+    {
+      "start": 39.13,
+      "end": 40.7,
+      "label": "N"
+    },
+    {
+      "start": 40.7,
+      "end": 42.33,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 42.33,
+      "end": 43.62920634920635,
+      "label": "C:min"
+    }
+  ]
+}

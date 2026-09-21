@@ -1,0 +1,64 @@
+{
+  "track_id": "02_SS1-100-C#_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "2010d893d0ee8c5aa8ed64eb9890f52c2bacb46d74878936002ae6d93a5c082a",
+    "annotation": "b5f238ad900ad97a92d35d7eb4a210f10ba98c1b6f9847d8d38795ef417a6505",
+    "prepared": "35260193c0c8592946f44b7bbc196ef6531d67f9937c4f8eadba18c4f274969b"
+  },
+  "pcm": {
+    "source_sha256": "2010d893d0ee8c5aa8ed64eb9890f52c2bacb46d74878936002ae6d93a5c082a",
+    "file_sha256": "9d0dd0bc1df9a72a195182d8ec56720a6478172428cd805fb246e7cee1697e2b",
+    "pcm_sha256": "5f7bc9006be65893685486dc7f024f2f941aa4cfb1d5570ce6f27562e6314095",
+    "duration": 28.8,
+    "decode_seconds": 0.019913299998734146
+  },
+  "timings": {
+    "setupSeconds": 0.023766800004523247,
+    "cqtSeconds": 0.14807529997779056,
+    "inferenceSeconds": 1.0375684999744408,
+    "hmmSeconds": 0.025527499965392053,
+    "beatSeconds": 0.04392989998450503,
+    "refinementSeconds": 8.279999019578099e-05,
+    "decodeSeconds": 0.0002270000404678285,
+    "totalSeconds": 1.279761600017082
+  },
+  "wall_seconds": 1.2815269000129774,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 9.66,
+      "label": "C#:maj"
+    },
+    {
+      "start": 9.66,
+      "end": 14.37,
+      "label": "F#:maj"
+    },
+    {
+      "start": 14.37,
+      "end": 19.16,
+      "label": "C#:maj"
+    },
+    {
+      "start": 19.16,
+      "end": 21.94,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 21.94,
+      "end": 24.03,
+      "label": "F#:maj"
+    },
+    {
+      "start": 24.03,
+      "end": 28.8,
+      "label": "C#:maj"
+    }
+  ]
+}

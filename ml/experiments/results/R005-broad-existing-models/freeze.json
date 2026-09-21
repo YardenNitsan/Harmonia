@@ -1,0 +1,3776 @@
+{
+  "created_epoch": 1789987925.5274277,
+  "tracks": [
+    {
+      "track_id": "00_BN1-129-Eb_comp",
+      "performer_id": "00",
+      "composition_id": "BN1-129-Eb",
+      "progression_family": 1,
+      "style": "BN",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.32439909297052,
+      "frames": 958,
+      "segments": 6,
+      "annotation_sha256": "cd79564c51d0dec7d04e010d31525e9f7d2b9d41cf6116118a66ac5a8c181007",
+      "audio_sha256": "59e1e3c9bebdabd48afe28050a2c031e6cf36e5697268301cdf2e74bc66b71f1",
+      "prepared_file": "00_BN1-129-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_BN1-129-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_BN1-129-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_BN1-129-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "59e1e3c9bebdabd48afe28050a2c031e6cf36e5697268301cdf2e74bc66b71f1",
+        "annotation": "cd79564c51d0dec7d04e010d31525e9f7d2b9d41cf6116118a66ac5a8c181007",
+        "prepared": "51b431d15af8e2e507e34ddd190178454b09811788c59c18cdf5f2516948e763"
+      }
+    },
+    {
+      "track_id": "00_Funk1-114-Ab_solo",
+      "performer_id": "00",
+      "composition_id": "Funk1-114-Ab",
+      "progression_family": 1,
+      "style": "Funk",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 25.258390022675737,
+      "frames": 1084,
+      "segments": 6,
+      "annotation_sha256": "b85df717d2f28522bfdd6ba645c1e1cc446e63c25c8364a27afa4b8fe76322a6",
+      "audio_sha256": "a3de6523399ff052aa54479b72a5584f757f7efdff53f7993c66cfe679e831a0",
+      "prepared_file": "00_Funk1-114-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Funk1-114-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Funk1-114-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Funk1-114-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "a3de6523399ff052aa54479b72a5584f757f7efdff53f7993c66cfe679e831a0",
+        "annotation": "b85df717d2f28522bfdd6ba645c1e1cc446e63c25c8364a27afa4b8fe76322a6",
+        "prepared": "dc9e409603407864da4809cadd73f1f9e2bc4dda4152ea1bab797444557822d7"
+      }
+    },
+    {
+      "track_id": "00_Jazz1-130-D_comp",
+      "performer_id": "00",
+      "composition_id": "Jazz1-130-D",
+      "progression_family": 1,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "e91e087cc46802634052365b9ca98463e09bf75adac69db23d0b13154c37bf1d",
+      "audio_sha256": "b686a47b0a0a58dbdd818d2ebc9c31da87e4bed1af889dd62b1ffd1d1496f827",
+      "prepared_file": "00_Jazz1-130-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Jazz1-130-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Jazz1-130-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Jazz1-130-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "b686a47b0a0a58dbdd818d2ebc9c31da87e4bed1af889dd62b1ffd1d1496f827",
+        "annotation": "e91e087cc46802634052365b9ca98463e09bf75adac69db23d0b13154c37bf1d",
+        "prepared": "4383bdcaae85f0aa9333eedab1475d1186ccc9a07e306b3da6c3de23c4cc73b5"
+      }
+    },
+    {
+      "track_id": "00_Rock1-130-A_solo",
+      "performer_id": "00",
+      "composition_id": "Rock1-130-A",
+      "progression_family": 1,
+      "style": "Rock",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "cccc1c58abf78cb6668bac907816ee77f5ad14de31106b6de03e033d1e77254d",
+      "audio_sha256": "f8811017bcb62a3b08db1a27f3745219c0116abb7e80189445280b578bd2d995",
+      "prepared_file": "00_Rock1-130-A_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Rock1-130-A_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Rock1-130-A_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Rock1-130-A_solo.npz"
+      },
+      "hashes": {
+        "audio": "f8811017bcb62a3b08db1a27f3745219c0116abb7e80189445280b578bd2d995",
+        "annotation": "cccc1c58abf78cb6668bac907816ee77f5ad14de31106b6de03e033d1e77254d",
+        "prepared": "a07a975d85f26f7ea2a0f31a00fb6ed74170ecd407ccee4bda13f46ae63de572"
+      }
+    },
+    {
+      "track_id": "00_SS1-100-C#_comp",
+      "performer_id": "00",
+      "composition_id": "SS1-100-C#",
+      "progression_family": 1,
+      "style": "SS",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 28.8,
+      "frames": 1237,
+      "segments": 6,
+      "annotation_sha256": "3906180e46ec49867cde81cc6fd798827206cd65afc00754b959770c27c4ac8b",
+      "audio_sha256": "4180689b2d372b7588253f3bf6782e904af04feef4d80726160965387d443662",
+      "prepared_file": "00_SS1-100-C#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_SS1-100-C#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_SS1-100-C#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_SS1-100-C#_comp.npz"
+      },
+      "hashes": {
+        "audio": "4180689b2d372b7588253f3bf6782e904af04feef4d80726160965387d443662",
+        "annotation": "3906180e46ec49867cde81cc6fd798827206cd65afc00754b959770c27c4ac8b",
+        "prepared": "951b869a053540a63c1fb1ec33cf2a7b161b8ed38b60e4602260e57fd0684f88"
+      }
+    },
+    {
+      "track_id": "01_BN1-129-Eb_solo",
+      "performer_id": "01",
+      "composition_id": "BN1-129-Eb",
+      "progression_family": 1,
+      "style": "BN",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.32439909297052,
+      "frames": 958,
+      "segments": 6,
+      "annotation_sha256": "ecdd877eaf6208cfefa47b74c1a6a5211146e12dfa0f5132345a4c456cd67fc8",
+      "audio_sha256": "76330537c6a88df56c7e338da9dd81d84cbf7f3a5ae7cd1b32a663bded6b76b4",
+      "prepared_file": "01_BN1-129-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_BN1-129-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_BN1-129-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_BN1-129-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "76330537c6a88df56c7e338da9dd81d84cbf7f3a5ae7cd1b32a663bded6b76b4",
+        "annotation": "ecdd877eaf6208cfefa47b74c1a6a5211146e12dfa0f5132345a4c456cd67fc8",
+        "prepared": "2ca11ba9df7a83467cdfc1f07ad97e5cb2b5e724b7e46acc910e8ac867cff65b"
+      }
+    },
+    {
+      "track_id": "01_Funk1-114-Ab_comp",
+      "performer_id": "01",
+      "composition_id": "Funk1-114-Ab",
+      "progression_family": 1,
+      "style": "Funk",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 25.258390022675737,
+      "frames": 1084,
+      "segments": 6,
+      "annotation_sha256": "429e06078c84f38ae3d551bdf594d0cac75a58c43783b23e1d436363a9fbe97a",
+      "audio_sha256": "9ee4888317faba89ba1a9929d6e3b044a3363eb925e6c432b2b30e4f3c83ab22",
+      "prepared_file": "01_Funk1-114-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Funk1-114-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Funk1-114-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Funk1-114-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "9ee4888317faba89ba1a9929d6e3b044a3363eb925e6c432b2b30e4f3c83ab22",
+        "annotation": "429e06078c84f38ae3d551bdf594d0cac75a58c43783b23e1d436363a9fbe97a",
+        "prepared": "1187a5c5eec606a7b79c1cdfc4a4f2b454bd85c8064c52f1d41eabc321ae3586"
+      }
+    },
+    {
+      "track_id": "01_Jazz1-130-D_solo",
+      "performer_id": "01",
+      "composition_id": "Jazz1-130-D",
+      "progression_family": 1,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "39226e2e4bc3178272d22f940b66986fec22474cf8c2b0ec4838942b469b942d",
+      "audio_sha256": "726991869569d7b76fe69b36fbefb3571f030556f020a7e3d599f0728d60f3ef",
+      "prepared_file": "01_Jazz1-130-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Jazz1-130-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Jazz1-130-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Jazz1-130-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "726991869569d7b76fe69b36fbefb3571f030556f020a7e3d599f0728d60f3ef",
+        "annotation": "39226e2e4bc3178272d22f940b66986fec22474cf8c2b0ec4838942b469b942d",
+        "prepared": "ad9f78aa68efd39d6e038d8eb06dc027c3b66628a34d86f9f5148ee68c097249"
+      }
+    },
+    {
+      "track_id": "01_Rock1-130-A_comp",
+      "performer_id": "01",
+      "composition_id": "Rock1-130-A",
+      "progression_family": 1,
+      "style": "Rock",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "546bce99efd52256b4c6a03f0281292d5ba30761d7f799e3ada703d1617873d1",
+      "audio_sha256": "1ead2a124768727b6ee3ddcfec2df7ad5f7087fa74ac0a49822d0028685f8731",
+      "prepared_file": "01_Rock1-130-A_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Rock1-130-A_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Rock1-130-A_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Rock1-130-A_comp.npz"
+      },
+      "hashes": {
+        "audio": "1ead2a124768727b6ee3ddcfec2df7ad5f7087fa74ac0a49822d0028685f8731",
+        "annotation": "546bce99efd52256b4c6a03f0281292d5ba30761d7f799e3ada703d1617873d1",
+        "prepared": "2707ccf120343e493928dc9d3553c57888f69c566260bf18af6d39e0f7767888"
+      }
+    },
+    {
+      "track_id": "01_SS1-100-C#_solo",
+      "performer_id": "01",
+      "composition_id": "SS1-100-C#",
+      "progression_family": 1,
+      "style": "SS",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 28.8,
+      "frames": 1237,
+      "segments": 6,
+      "annotation_sha256": "86377a1d21a57900b5df1f4e05230faedc83e6a17a5c7277887f2e5fc1c2e8ed",
+      "audio_sha256": "2b9c9eda652c2ebf9dab32d906f757973427c00c3df9f945e357a54156e47069",
+      "prepared_file": "01_SS1-100-C#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_SS1-100-C#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_SS1-100-C#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_SS1-100-C#_solo.npz"
+      },
+      "hashes": {
+        "audio": "2b9c9eda652c2ebf9dab32d906f757973427c00c3df9f945e357a54156e47069",
+        "annotation": "86377a1d21a57900b5df1f4e05230faedc83e6a17a5c7277887f2e5fc1c2e8ed",
+        "prepared": "ce295128dfdb9fe1c537fe01f88d77e548ba0d7527d653c557e73d34ccb9ecfc"
+      }
+    },
+    {
+      "track_id": "02_BN1-129-Eb_comp",
+      "performer_id": "02",
+      "composition_id": "BN1-129-Eb",
+      "progression_family": 1,
+      "style": "BN",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.32439909297052,
+      "frames": 958,
+      "segments": 6,
+      "annotation_sha256": "38208980f05c69d1560306553651f687a3c6260f47d98b64e33eb74c33e14931",
+      "audio_sha256": "54d0b5d30a727ddbf3f9dbe18663063d6c55c979627ab6993fdede63f0a54cc0",
+      "prepared_file": "02_BN1-129-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_BN1-129-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_BN1-129-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_BN1-129-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "54d0b5d30a727ddbf3f9dbe18663063d6c55c979627ab6993fdede63f0a54cc0",
+        "annotation": "38208980f05c69d1560306553651f687a3c6260f47d98b64e33eb74c33e14931",
+        "prepared": "18726a8914f7f245781cdfbdb30a7ef8a9625c6dad77826cdd200ba47f457194"
+      }
+    },
+    {
+      "track_id": "02_Funk1-114-Ab_solo",
+      "performer_id": "02",
+      "composition_id": "Funk1-114-Ab",
+      "progression_family": 1,
+      "style": "Funk",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 25.258390022675737,
+      "frames": 1084,
+      "segments": 6,
+      "annotation_sha256": "e7252a03938166bae5d7b394798f16f681fe40a3316f10c2c2d48fb7ad0168c5",
+      "audio_sha256": "7c10e95b9d378a4bae8b3d5a6ce11841a3fdfa4e65059df0e6fe3526eb31b7a2",
+      "prepared_file": "02_Funk1-114-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Funk1-114-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Funk1-114-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Funk1-114-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "7c10e95b9d378a4bae8b3d5a6ce11841a3fdfa4e65059df0e6fe3526eb31b7a2",
+        "annotation": "e7252a03938166bae5d7b394798f16f681fe40a3316f10c2c2d48fb7ad0168c5",
+        "prepared": "7558dd8aac4ce2acf3c7ca64198e40f70bbe9e2134123788bc858b144bd8c32f"
+      }
+    },
+    {
+      "track_id": "02_Jazz1-130-D_comp",
+      "performer_id": "02",
+      "composition_id": "Jazz1-130-D",
+      "progression_family": 1,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "e06bd1f4e088b0a0892366193a2d951420288cd9709bfaaacdafd320bf55489e",
+      "audio_sha256": "7b769c278bb3d44440420a79cba1e486119f823a33f78465aa9acdcdef277df5",
+      "prepared_file": "02_Jazz1-130-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Jazz1-130-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Jazz1-130-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Jazz1-130-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "7b769c278bb3d44440420a79cba1e486119f823a33f78465aa9acdcdef277df5",
+        "annotation": "e06bd1f4e088b0a0892366193a2d951420288cd9709bfaaacdafd320bf55489e",
+        "prepared": "6fbc1f719b0df0fb9750b5e997706f1c290c72a7833b0514ce2a7f49557fd85c"
+      }
+    },
+    {
+      "track_id": "02_Rock1-130-A_solo",
+      "performer_id": "02",
+      "composition_id": "Rock1-130-A",
+      "progression_family": 1,
+      "style": "Rock",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "8bd8efd12c095c40be6791bdd74b56e02bb015a556c02d9677a840d22eecbfcd",
+      "audio_sha256": "567cb38a651c2ea950e155a9d31a9d93305983b20573e3fe88723d8d8f66afd2",
+      "prepared_file": "02_Rock1-130-A_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Rock1-130-A_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Rock1-130-A_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Rock1-130-A_solo.npz"
+      },
+      "hashes": {
+        "audio": "567cb38a651c2ea950e155a9d31a9d93305983b20573e3fe88723d8d8f66afd2",
+        "annotation": "8bd8efd12c095c40be6791bdd74b56e02bb015a556c02d9677a840d22eecbfcd",
+        "prepared": "3b691a8ac36fe6baeac60858101cdda74781b7c047dc0163ab56c057ddff4d9c"
+      }
+    },
+    {
+      "track_id": "02_SS1-100-C#_comp",
+      "performer_id": "02",
+      "composition_id": "SS1-100-C#",
+      "progression_family": 1,
+      "style": "SS",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 28.8,
+      "frames": 1237,
+      "segments": 6,
+      "annotation_sha256": "b5f238ad900ad97a92d35d7eb4a210f10ba98c1b6f9847d8d38795ef417a6505",
+      "audio_sha256": "2010d893d0ee8c5aa8ed64eb9890f52c2bacb46d74878936002ae6d93a5c082a",
+      "prepared_file": "02_SS1-100-C#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_SS1-100-C#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_SS1-100-C#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_SS1-100-C#_comp.npz"
+      },
+      "hashes": {
+        "audio": "2010d893d0ee8c5aa8ed64eb9890f52c2bacb46d74878936002ae6d93a5c082a",
+        "annotation": "b5f238ad900ad97a92d35d7eb4a210f10ba98c1b6f9847d8d38795ef417a6505",
+        "prepared": "35260193c0c8592946f44b7bbc196ef6531d67f9937c4f8eadba18c4f274969b"
+      }
+    },
+    {
+      "track_id": "03_BN1-129-Eb_solo",
+      "performer_id": "03",
+      "composition_id": "BN1-129-Eb",
+      "progression_family": 1,
+      "style": "BN",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.32439909297052,
+      "frames": 958,
+      "segments": 6,
+      "annotation_sha256": "44dd4061b27bb3320d1e42180f5602e71932be8c388945f8b06a46d2df6d7aef",
+      "audio_sha256": "51ec6f1d43b4866a02ca5ff43bb5cfcb7f2b8069fe12b078385e091a8f8d78f4",
+      "prepared_file": "03_BN1-129-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_BN1-129-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_BN1-129-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_BN1-129-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "51ec6f1d43b4866a02ca5ff43bb5cfcb7f2b8069fe12b078385e091a8f8d78f4",
+        "annotation": "44dd4061b27bb3320d1e42180f5602e71932be8c388945f8b06a46d2df6d7aef",
+        "prepared": "0e397f904d1983bf861348b7c39d64e21d1d42e4c9f511658d5b8a27288704ae"
+      }
+    },
+    {
+      "track_id": "03_Funk1-114-Ab_comp",
+      "performer_id": "03",
+      "composition_id": "Funk1-114-Ab",
+      "progression_family": 1,
+      "style": "Funk",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 25.258390022675737,
+      "frames": 1084,
+      "segments": 6,
+      "annotation_sha256": "194ddead88ec8d96bf7ae28bbaa17678287757d8b9eb1aa1e8f65e5584feebde",
+      "audio_sha256": "796ccebfb5265044b6f8b33b84d2b2004f7dfa9b2b44b28dd0de65e45c257f0d",
+      "prepared_file": "03_Funk1-114-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Funk1-114-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Funk1-114-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Funk1-114-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "796ccebfb5265044b6f8b33b84d2b2004f7dfa9b2b44b28dd0de65e45c257f0d",
+        "annotation": "194ddead88ec8d96bf7ae28bbaa17678287757d8b9eb1aa1e8f65e5584feebde",
+        "prepared": "65597ab22763cc75217c3a434fc86679974ff14158f353d1869bd40656e92e18"
+      }
+    },
+    {
+      "track_id": "03_Jazz1-130-D_solo",
+      "performer_id": "03",
+      "composition_id": "Jazz1-130-D",
+      "progression_family": 1,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "16f13c05c317abc57386e2614b3919a98512d9951af47985311640fc7c82512f",
+      "audio_sha256": "088c1afa042e7b860228b1a74015cdd7f6bb59c44cc25e8cc70c17047c32a802",
+      "prepared_file": "03_Jazz1-130-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Jazz1-130-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Jazz1-130-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Jazz1-130-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "088c1afa042e7b860228b1a74015cdd7f6bb59c44cc25e8cc70c17047c32a802",
+        "annotation": "16f13c05c317abc57386e2614b3919a98512d9951af47985311640fc7c82512f",
+        "prepared": "c2944db11243674960482946d6629e1d0d4ad230ad4e3f232a7bac06e68540db"
+      }
+    },
+    {
+      "track_id": "03_Rock1-130-A_comp",
+      "performer_id": "03",
+      "composition_id": "Rock1-130-A",
+      "progression_family": 1,
+      "style": "Rock",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "502ab4f7788bad71bafe9572ba185e698b3cf82576be105acd6d4112b711f1fa",
+      "audio_sha256": "5e71387daf08213651f8b8f0d9b1db7d589cbc6b9fefd8e052e13a1f8f7286ca",
+      "prepared_file": "03_Rock1-130-A_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Rock1-130-A_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Rock1-130-A_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Rock1-130-A_comp.npz"
+      },
+      "hashes": {
+        "audio": "5e71387daf08213651f8b8f0d9b1db7d589cbc6b9fefd8e052e13a1f8f7286ca",
+        "annotation": "502ab4f7788bad71bafe9572ba185e698b3cf82576be105acd6d4112b711f1fa",
+        "prepared": "2091e0f84f10e4b546bd0571e1ef595045a80adfc42e1a6afff3431b9f8ee7e9"
+      }
+    },
+    {
+      "track_id": "03_SS1-100-C#_solo",
+      "performer_id": "03",
+      "composition_id": "SS1-100-C#",
+      "progression_family": 1,
+      "style": "SS",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 28.8,
+      "frames": 1237,
+      "segments": 6,
+      "annotation_sha256": "74a2594c91af47e47407a9bb8d7b997e6e98083cf1e1169358353870edd16571",
+      "audio_sha256": "26913110e0daa319160ed395eda4fe77ee3cd589c335b0da59449c97114c410d",
+      "prepared_file": "03_SS1-100-C#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_SS1-100-C#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_SS1-100-C#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_SS1-100-C#_solo.npz"
+      },
+      "hashes": {
+        "audio": "26913110e0daa319160ed395eda4fe77ee3cd589c335b0da59449c97114c410d",
+        "annotation": "74a2594c91af47e47407a9bb8d7b997e6e98083cf1e1169358353870edd16571",
+        "prepared": "4c322958995f89b269620af44084eac3a4712d05f9f053f12b2b4034e6214897"
+      }
+    },
+    {
+      "track_id": "04_BN1-129-Eb_comp",
+      "performer_id": "04",
+      "composition_id": "BN1-129-Eb",
+      "progression_family": 1,
+      "style": "BN",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.32439909297052,
+      "frames": 958,
+      "segments": 6,
+      "annotation_sha256": "81c4818b93f86a45a582d1b958837b5579c599a2b0a214e9025c63981c87538a",
+      "audio_sha256": "ca4b487760400edabb87ed478a523ad0587c020b8463f97429af4009789f4ebd",
+      "prepared_file": "04_BN1-129-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_BN1-129-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_BN1-129-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_BN1-129-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "ca4b487760400edabb87ed478a523ad0587c020b8463f97429af4009789f4ebd",
+        "annotation": "81c4818b93f86a45a582d1b958837b5579c599a2b0a214e9025c63981c87538a",
+        "prepared": "f49e0f989f32ccc3bcbe204d715b8bb3c50684a39229d6a1490025ef3f0138d1"
+      }
+    },
+    {
+      "track_id": "04_Funk1-114-Ab_solo",
+      "performer_id": "04",
+      "composition_id": "Funk1-114-Ab",
+      "progression_family": 1,
+      "style": "Funk",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 25.258390022675737,
+      "frames": 1084,
+      "segments": 6,
+      "annotation_sha256": "388c93e6cb86e48c50a1745fff0db3b77f204c9596ae9d8927d8d5c4d4a12c47",
+      "audio_sha256": "baf346f568302a185484de83a2ec0a273b560eed501c16fed3f633e02c12dc4c",
+      "prepared_file": "04_Funk1-114-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Funk1-114-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Funk1-114-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Funk1-114-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "baf346f568302a185484de83a2ec0a273b560eed501c16fed3f633e02c12dc4c",
+        "annotation": "388c93e6cb86e48c50a1745fff0db3b77f204c9596ae9d8927d8d5c4d4a12c47",
+        "prepared": "27fe311c63014cda89aec0c8ee9c8e52cdddb8082899da199aa159130af42fef"
+      }
+    },
+    {
+      "track_id": "04_Jazz1-130-D_comp",
+      "performer_id": "04",
+      "composition_id": "Jazz1-130-D",
+      "progression_family": 1,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "a895d5a9d077e060a832ed9a9e4b33f599b840180d894f91edb6591021ae1185",
+      "audio_sha256": "69a9b13b9b4206c7b05ababa7dc4f63027212596aa9d255cac9301487099c899",
+      "prepared_file": "04_Jazz1-130-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Jazz1-130-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Jazz1-130-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Jazz1-130-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "69a9b13b9b4206c7b05ababa7dc4f63027212596aa9d255cac9301487099c899",
+        "annotation": "a895d5a9d077e060a832ed9a9e4b33f599b840180d894f91edb6591021ae1185",
+        "prepared": "57474e9633d759cb404817d1f1becfe1129992e48572636cc14d300292812457"
+      }
+    },
+    {
+      "track_id": "04_Rock1-130-A_solo",
+      "performer_id": "04",
+      "composition_id": "Rock1-130-A",
+      "progression_family": 1,
+      "style": "Rock",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "3ac77ff9ffdbd32b2b6f322cfd8de4a39b87fe029d2576168d9787f19a480d35",
+      "audio_sha256": "ae20b3c54b9c5b2b001eb6acf07efeab26faee270cdbec238d62bc4055d51a2e",
+      "prepared_file": "04_Rock1-130-A_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Rock1-130-A_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Rock1-130-A_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Rock1-130-A_solo.npz"
+      },
+      "hashes": {
+        "audio": "ae20b3c54b9c5b2b001eb6acf07efeab26faee270cdbec238d62bc4055d51a2e",
+        "annotation": "3ac77ff9ffdbd32b2b6f322cfd8de4a39b87fe029d2576168d9787f19a480d35",
+        "prepared": "eb5ff2aee0bb24ea59a1b78c44eaaa42b1ac1272a232f76325d4756ccdcb6578"
+      }
+    },
+    {
+      "track_id": "04_SS1-100-C#_comp",
+      "performer_id": "04",
+      "composition_id": "SS1-100-C#",
+      "progression_family": 1,
+      "style": "SS",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 28.8,
+      "frames": 1237,
+      "segments": 6,
+      "annotation_sha256": "9cee71992ad50e4aca49266702a4c92098a9299bc4051c3daf7aed160ec5914c",
+      "audio_sha256": "39b592e5ab79e457a7901e865b4320e04014903465acdebd64235b4f44416650",
+      "prepared_file": "04_SS1-100-C#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_SS1-100-C#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_SS1-100-C#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_SS1-100-C#_comp.npz"
+      },
+      "hashes": {
+        "audio": "39b592e5ab79e457a7901e865b4320e04014903465acdebd64235b4f44416650",
+        "annotation": "9cee71992ad50e4aca49266702a4c92098a9299bc4051c3daf7aed160ec5914c",
+        "prepared": "8e9f79d8ee4d15647e92025944ce8282fd3d067ab37cfd3f546c7b935d677768"
+      }
+    },
+    {
+      "track_id": "05_BN1-129-Eb_solo",
+      "performer_id": "05",
+      "composition_id": "BN1-129-Eb",
+      "progression_family": 1,
+      "style": "BN",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.32439909297052,
+      "frames": 958,
+      "segments": 6,
+      "annotation_sha256": "8b9c47dae61790596142ffc898995a82d066229fa5b2947facc4a83750a921e1",
+      "audio_sha256": "ccf801f3a6e7b1ab38dd9bf1ae917d13c51ef93c977af41cdabcb0548f55a261",
+      "prepared_file": "05_BN1-129-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_BN1-129-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_BN1-129-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_BN1-129-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "ccf801f3a6e7b1ab38dd9bf1ae917d13c51ef93c977af41cdabcb0548f55a261",
+        "annotation": "8b9c47dae61790596142ffc898995a82d066229fa5b2947facc4a83750a921e1",
+        "prepared": "b601f2d0f1474f6dc12d86315586fcf30fbb770ab9293819b4bbd61c17b8144a"
+      }
+    },
+    {
+      "track_id": "05_Funk1-114-Ab_comp",
+      "performer_id": "05",
+      "composition_id": "Funk1-114-Ab",
+      "progression_family": 1,
+      "style": "Funk",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 25.258390022675737,
+      "frames": 1084,
+      "segments": 6,
+      "annotation_sha256": "10b1126a6ab6d8638b366baff9a9a70c2ef4a4334488c1b2bd8dc63c4d9cbf77",
+      "audio_sha256": "63300b35df98320564fda1505df27b55bc519707728c1185e5b34da0e478b097",
+      "prepared_file": "05_Funk1-114-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Funk1-114-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Funk1-114-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Funk1-114-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "63300b35df98320564fda1505df27b55bc519707728c1185e5b34da0e478b097",
+        "annotation": "10b1126a6ab6d8638b366baff9a9a70c2ef4a4334488c1b2bd8dc63c4d9cbf77",
+        "prepared": "e6b3e70eefd1af47a7cd3de028619b3be89b2d315728c1958eaa277fe0bad51b"
+      }
+    },
+    {
+      "track_id": "05_Jazz1-130-D_solo",
+      "performer_id": "05",
+      "composition_id": "Jazz1-130-D",
+      "progression_family": 1,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "a29056c9fb0e6b4bee228cc6f17480e93750a54f375cbcc87edd4bef7b8e5c30",
+      "audio_sha256": "957fd5a4a98c8b9f804b44a664e521dd6268c4e892cce1a0eeb5364dec52afa9",
+      "prepared_file": "05_Jazz1-130-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Jazz1-130-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Jazz1-130-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Jazz1-130-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "957fd5a4a98c8b9f804b44a664e521dd6268c4e892cce1a0eeb5364dec52afa9",
+        "annotation": "a29056c9fb0e6b4bee228cc6f17480e93750a54f375cbcc87edd4bef7b8e5c30",
+        "prepared": "6d76a155c4d135ed35c8f9a9bf3cb72f3758b9f573abd355b3813f9528cf863b"
+      }
+    },
+    {
+      "track_id": "05_Rock1-130-A_comp",
+      "performer_id": "05",
+      "composition_id": "Rock1-130-A",
+      "progression_family": 1,
+      "style": "Rock",
+      "version": "comp",
+      "split": "train",
+      "duration_seconds": 22.14721088435374,
+      "frames": 950,
+      "segments": 6,
+      "annotation_sha256": "49a8b51c72e3adc1affbcb41dd36978bd088d4f18c98a761f005d403d8bcc174",
+      "audio_sha256": "711b2cc0a44a3890bf028c282e8edbc3f8ebfc2ec35a3806524abe7537c3db19",
+      "prepared_file": "05_Rock1-130-A_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Rock1-130-A_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Rock1-130-A_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Rock1-130-A_comp.npz"
+      },
+      "hashes": {
+        "audio": "711b2cc0a44a3890bf028c282e8edbc3f8ebfc2ec35a3806524abe7537c3db19",
+        "annotation": "49a8b51c72e3adc1affbcb41dd36978bd088d4f18c98a761f005d403d8bcc174",
+        "prepared": "b35b62d7eaeaf616c706d7825ccb275e4f80a9650062f1127f7229b8ecf853fb"
+      }
+    },
+    {
+      "track_id": "05_SS1-100-C#_solo",
+      "performer_id": "05",
+      "composition_id": "SS1-100-C#",
+      "progression_family": 1,
+      "style": "SS",
+      "version": "solo",
+      "split": "train",
+      "duration_seconds": 28.8,
+      "frames": 1237,
+      "segments": 6,
+      "annotation_sha256": "d5bb7ae6b49f5dde00101ce39f221125365486386b6f804b2564c7701412f77c",
+      "audio_sha256": "7e1f99d1d851130cc9c8be6890afcf2ab5d09849240a242de2d90d99b1f7ed9b",
+      "prepared_file": "05_SS1-100-C#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_SS1-100-C#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_SS1-100-C#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_SS1-100-C#_solo.npz"
+      },
+      "hashes": {
+        "audio": "7e1f99d1d851130cc9c8be6890afcf2ab5d09849240a242de2d90d99b1f7ed9b",
+        "annotation": "d5bb7ae6b49f5dde00101ce39f221125365486386b6f804b2564c7701412f77c",
+        "prepared": "de431c77f2500f977be7ded8f4fed0e0f78a7818e60479fc15e477df43919e26"
+      }
+    },
+    {
+      "track_id": "00_BN2-131-B_comp",
+      "performer_id": "00",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "ff206228f1a98eaf579d6964bf96590e52e886208d0d7b90cf662d662df11025",
+      "audio_sha256": "eff298aea64674e2976d1d80ab73612375fc7b59819867435fa295357de51146",
+      "prepared_file": "00_BN2-131-B_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_BN2-131-B_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_BN2-131-B_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_BN2-131-B_comp.npz"
+      },
+      "hashes": {
+        "audio": "eff298aea64674e2976d1d80ab73612375fc7b59819867435fa295357de51146",
+        "annotation": "ff206228f1a98eaf579d6964bf96590e52e886208d0d7b90cf662d662df11025",
+        "prepared": "2350dd131ee810cef6e5445f3914abe412d96a1df6b74017c20c02a7b9fd0279"
+      },
+      "retained_lv_sha256": "25df9689d739b1fe7834ad6918ac88eac6fa7b781a66cb961f557a2d04d75ac5"
+    },
+    {
+      "track_id": "00_BN2-131-B_solo",
+      "performer_id": "00",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "811e32e179475488b96b606f61c4b3d3ba92248222d60b5a8317061df76039b3",
+      "audio_sha256": "fbc13c6efdd05455b4812bc855ed1d22f8cb2cfeeefe2fa09e2b3bf85ed8ff71",
+      "prepared_file": "00_BN2-131-B_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_BN2-131-B_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_BN2-131-B_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_BN2-131-B_solo.npz"
+      },
+      "hashes": {
+        "audio": "fbc13c6efdd05455b4812bc855ed1d22f8cb2cfeeefe2fa09e2b3bf85ed8ff71",
+        "annotation": "811e32e179475488b96b606f61c4b3d3ba92248222d60b5a8317061df76039b3",
+        "prepared": "fff27649e1f0ac6637d25c6b9a6e5953159a716555f4f1cb6f2a2969e5689ab7"
+      }
+    },
+    {
+      "track_id": "00_BN2-166-Ab_comp",
+      "performer_id": "00",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "d87a3c5a13487d26cb0a527c2ec1a990400acbc4a55c187671986733637c0573",
+      "audio_sha256": "96f8d2baad5be003dd901c2048917a4dc8cacc7dca1ec3fea607900f201a3a55",
+      "prepared_file": "00_BN2-166-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_BN2-166-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_BN2-166-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_BN2-166-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "96f8d2baad5be003dd901c2048917a4dc8cacc7dca1ec3fea607900f201a3a55",
+        "annotation": "d87a3c5a13487d26cb0a527c2ec1a990400acbc4a55c187671986733637c0573",
+        "prepared": "36ee2aae0d8f7fa62cf0aac0f3a6da852edff3a1e65b08b8f9dca3365d5962c2"
+      }
+    },
+    {
+      "track_id": "00_BN2-166-Ab_solo",
+      "performer_id": "00",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "d81885146221ef65677d87c2919d96068a4860b501ce87939efdceca9c69c751",
+      "audio_sha256": "d55cb5f934c763a94383a25c7d6fd6fd35a534cf73ce4582f69228c6d17a4cbe",
+      "prepared_file": "00_BN2-166-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_BN2-166-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_BN2-166-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_BN2-166-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "d55cb5f934c763a94383a25c7d6fd6fd35a534cf73ce4582f69228c6d17a4cbe",
+        "annotation": "d81885146221ef65677d87c2919d96068a4860b501ce87939efdceca9c69c751",
+        "prepared": "54d6c957f190c9cb53eca87e9a10cf067da4df34fac6eb4f73fa71ae34b79c99"
+      }
+    },
+    {
+      "track_id": "00_Funk2-108-Eb_comp",
+      "performer_id": "00",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "2d0786127549389b9076680b114900e802569740f1ea276d5711298988c2b53d",
+      "audio_sha256": "8e6a1c38db071723f91444c597e39adf8ced5e980ecf21bf9f61f2c1464e9010",
+      "prepared_file": "00_Funk2-108-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Funk2-108-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Funk2-108-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Funk2-108-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "8e6a1c38db071723f91444c597e39adf8ced5e980ecf21bf9f61f2c1464e9010",
+        "annotation": "2d0786127549389b9076680b114900e802569740f1ea276d5711298988c2b53d",
+        "prepared": "b355be3a191ac9d90a7296ffc4703edc0293b81787cf46bb34b9b5d5638cb0ec"
+      }
+    },
+    {
+      "track_id": "00_Funk2-108-Eb_solo",
+      "performer_id": "00",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "04b29d55092056a5fb394a222f3e54cb80f1917398b6e21e6e5ac2d5562facd2",
+      "audio_sha256": "87bf9ef1a8ba9809cd4831c47ddd34bcca180c7c1226d36c0ae42ee871cc5717",
+      "prepared_file": "00_Funk2-108-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Funk2-108-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Funk2-108-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Funk2-108-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "87bf9ef1a8ba9809cd4831c47ddd34bcca180c7c1226d36c0ae42ee871cc5717",
+        "annotation": "04b29d55092056a5fb394a222f3e54cb80f1917398b6e21e6e5ac2d5562facd2",
+        "prepared": "106525a08edfb2176f978c05c5508a54aada2aff077ba8fff1c7730e725203a0"
+      },
+      "retained_lv_sha256": "6e9b44e803683a06ccefff44bcca9ac22a6b55fde68504552f58df0c2c40e697"
+    },
+    {
+      "track_id": "00_Funk2-119-G_comp",
+      "performer_id": "00",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "12f621b9a9c24f85d8ac3c0deb7e76bd86f0630f63fb3925d62dbc80fd04e371",
+      "audio_sha256": "94b32bcaeb915add436a971355b4cf467e2d5eeabad05856d0462e24abe6e3e1",
+      "prepared_file": "00_Funk2-119-G_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Funk2-119-G_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Funk2-119-G_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Funk2-119-G_comp.npz"
+      },
+      "hashes": {
+        "audio": "94b32bcaeb915add436a971355b4cf467e2d5eeabad05856d0462e24abe6e3e1",
+        "annotation": "12f621b9a9c24f85d8ac3c0deb7e76bd86f0630f63fb3925d62dbc80fd04e371",
+        "prepared": "0a612371c51ea1fe2ab87170acd8393143f6fcc0ca509f987a6b1667d66f9880"
+      }
+    },
+    {
+      "track_id": "00_Funk2-119-G_solo",
+      "performer_id": "00",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "17600bbd3bf97d4e236cedcc2ddec7e71e1687bc65a93d29162e1d0ed56be969",
+      "audio_sha256": "4cb571f05512f8f1bf3f655b1ed6f31ea08045fd6c90a5bdf83a79c1a7ce3b67",
+      "prepared_file": "00_Funk2-119-G_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Funk2-119-G_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Funk2-119-G_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Funk2-119-G_solo.npz"
+      },
+      "hashes": {
+        "audio": "4cb571f05512f8f1bf3f655b1ed6f31ea08045fd6c90a5bdf83a79c1a7ce3b67",
+        "annotation": "17600bbd3bf97d4e236cedcc2ddec7e71e1687bc65a93d29162e1d0ed56be969",
+        "prepared": "a25634edb4ccba45eb27ebdf6b6c22ffdea03322e02ef25f96c2dbe7810e96ef"
+      }
+    },
+    {
+      "track_id": "00_Jazz2-110-Bb_comp",
+      "performer_id": "00",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "b2c70a3b3cbcc011e1bb006fce09052109a713b2d10e88175e9e7eb6b6e51bab",
+      "audio_sha256": "47f1d3da58af0239febcbe1fb8d27da9d17a21b403f5011d01f011eda4406764",
+      "prepared_file": "00_Jazz2-110-Bb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Jazz2-110-Bb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Jazz2-110-Bb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Jazz2-110-Bb_comp.npz"
+      },
+      "hashes": {
+        "audio": "47f1d3da58af0239febcbe1fb8d27da9d17a21b403f5011d01f011eda4406764",
+        "annotation": "b2c70a3b3cbcc011e1bb006fce09052109a713b2d10e88175e9e7eb6b6e51bab",
+        "prepared": "ad400128c7fa5955e723be3c7a103e0dc63e83bc3e09461b69e962bae516f688"
+      }
+    },
+    {
+      "track_id": "00_Jazz2-110-Bb_solo",
+      "performer_id": "00",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "ab9766cffbdd4be8b1a784e1f482bf9d53150e4e3c6a4b8d46567c1ce16d1192",
+      "audio_sha256": "77884729ebc69b5441508254d16292f4f46c78d38d4f3840945a6fa696536d8e",
+      "prepared_file": "00_Jazz2-110-Bb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Jazz2-110-Bb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Jazz2-110-Bb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Jazz2-110-Bb_solo.npz"
+      },
+      "hashes": {
+        "audio": "77884729ebc69b5441508254d16292f4f46c78d38d4f3840945a6fa696536d8e",
+        "annotation": "ab9766cffbdd4be8b1a784e1f482bf9d53150e4e3c6a4b8d46567c1ce16d1192",
+        "prepared": "8374fd040bcb2612fe37f158048d2d58a176aec9482d22d982f6aa26df1b95ab"
+      }
+    },
+    {
+      "track_id": "00_Jazz2-187-F#_comp",
+      "performer_id": "00",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "b49477bac54a2e2120ba2637ac78f857b1741ea3c481e24e45c9ab1890ae0c6d",
+      "audio_sha256": "80a465e983eb70dcce01f94e055a41cf0ac7d91a1241afce24cc7cc764cfba81",
+      "prepared_file": "00_Jazz2-187-F#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Jazz2-187-F#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Jazz2-187-F#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Jazz2-187-F#_comp.npz"
+      },
+      "hashes": {
+        "audio": "80a465e983eb70dcce01f94e055a41cf0ac7d91a1241afce24cc7cc764cfba81",
+        "annotation": "b49477bac54a2e2120ba2637ac78f857b1741ea3c481e24e45c9ab1890ae0c6d",
+        "prepared": "744da4488f40c9080154f4114a8154d7523b1442508876c03791bb3be1820fb2"
+      }
+    },
+    {
+      "track_id": "00_Jazz2-187-F#_solo",
+      "performer_id": "00",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "2d32deca37899bcd1245d76b1b96b30ee861821db1367c13f47014a4c9f0c680",
+      "audio_sha256": "746aefd895490a408a36e4f1932ba3badfd4e98e30da2a4fe560b0a867f9607d",
+      "prepared_file": "00_Jazz2-187-F#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Jazz2-187-F#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Jazz2-187-F#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Jazz2-187-F#_solo.npz"
+      },
+      "hashes": {
+        "audio": "746aefd895490a408a36e4f1932ba3badfd4e98e30da2a4fe560b0a867f9607d",
+        "annotation": "2d32deca37899bcd1245d76b1b96b30ee861821db1367c13f47014a4c9f0c680",
+        "prepared": "7b77fd74c26d85de5b19aede4e244c6acafba0ec32be76e868aedba0ec5874f7"
+      }
+    },
+    {
+      "track_id": "00_Rock2-142-D_comp",
+      "performer_id": "00",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "d47ebfd4cf65a0a0ccd031eace564c0dd1c9b688dfa07fe013d3823d4b01cd04",
+      "audio_sha256": "1f15351a6df0e47aa7b7aa82816317ca0921fcecc75189ec8f5d0ffb1606b159",
+      "prepared_file": "00_Rock2-142-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Rock2-142-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Rock2-142-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Rock2-142-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "1f15351a6df0e47aa7b7aa82816317ca0921fcecc75189ec8f5d0ffb1606b159",
+        "annotation": "d47ebfd4cf65a0a0ccd031eace564c0dd1c9b688dfa07fe013d3823d4b01cd04",
+        "prepared": "cc909b65096ce94bdafc2f6c044452dc980ff43a2d7b9ac1f775e4588d41bbbb"
+      }
+    },
+    {
+      "track_id": "00_Rock2-142-D_solo",
+      "performer_id": "00",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "16d320feab6ecb85c4a7ee6c92c4a1ee27ace8857a56ac31b5ed3d4ee1225484",
+      "audio_sha256": "a85fbf8dec3090f8521b5d2878ee9e96229b11e2516c9adf9e188eddea810667",
+      "prepared_file": "00_Rock2-142-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Rock2-142-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Rock2-142-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Rock2-142-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "a85fbf8dec3090f8521b5d2878ee9e96229b11e2516c9adf9e188eddea810667",
+        "annotation": "16d320feab6ecb85c4a7ee6c92c4a1ee27ace8857a56ac31b5ed3d4ee1225484",
+        "prepared": "58cbc45a850622c8aaba6c03ca8a69e342d202604feca72a7cd3d3d1c3ee02ad"
+      }
+    },
+    {
+      "track_id": "00_Rock2-85-F_comp",
+      "performer_id": "00",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "cdf7a9bf2756222a4042e896a4aff40959cc17f6990dd2b705350505e063815f",
+      "audio_sha256": "5d5882f6fcdcb7f87fec383be08fed1fe69e650a855d4bea6481c092454a5181",
+      "prepared_file": "00_Rock2-85-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Rock2-85-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Rock2-85-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Rock2-85-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "5d5882f6fcdcb7f87fec383be08fed1fe69e650a855d4bea6481c092454a5181",
+        "annotation": "cdf7a9bf2756222a4042e896a4aff40959cc17f6990dd2b705350505e063815f",
+        "prepared": "830b2d8dd6f449a6f040471cab96e3c2da9a68723fbd1cdfa86e07245e6a3b60"
+      }
+    },
+    {
+      "track_id": "00_Rock2-85-F_solo",
+      "performer_id": "00",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "fd82a492584598adee821b5139ec320ef7c00cf3341e889771e9647de5a946ea",
+      "audio_sha256": "e3036161fa5c14533e0431276f84c00927b4b79efca08a1c336ad276e30c2697",
+      "prepared_file": "00_Rock2-85-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_Rock2-85-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_Rock2-85-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_Rock2-85-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "e3036161fa5c14533e0431276f84c00927b4b79efca08a1c336ad276e30c2697",
+        "annotation": "fd82a492584598adee821b5139ec320ef7c00cf3341e889771e9647de5a946ea",
+        "prepared": "f869391fd33be32d3d81c8a2f94d7da299e4fd6b279ab4cb4f603a9b53522e18"
+      }
+    },
+    {
+      "track_id": "00_SS2-107-Ab_comp",
+      "performer_id": "00",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "59ef2d54f86424500e45643f6d83914d166e31ffff192dbd9875f327d5e52a20",
+      "audio_sha256": "a38692e129bb3291c73ce82eece5655cfeed81e6c139726e82e0e30b1176f88e",
+      "prepared_file": "00_SS2-107-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_SS2-107-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_SS2-107-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_SS2-107-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "a38692e129bb3291c73ce82eece5655cfeed81e6c139726e82e0e30b1176f88e",
+        "annotation": "59ef2d54f86424500e45643f6d83914d166e31ffff192dbd9875f327d5e52a20",
+        "prepared": "11695d2b4f0f6927e8b64af23fb94351b6834c5a713da78e5a3963c1d43b05f2"
+      }
+    },
+    {
+      "track_id": "00_SS2-107-Ab_solo",
+      "performer_id": "00",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "ea3ea3f15051fbac2cfacba47fbb31550a9c5b51efdcd37d4110642d250046ed",
+      "audio_sha256": "71fc3ccc8b5eba4ad5cc7dd0896c0fc50f284d297d2673869a58d0062e52d70e",
+      "prepared_file": "00_SS2-107-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_SS2-107-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_SS2-107-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_SS2-107-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "71fc3ccc8b5eba4ad5cc7dd0896c0fc50f284d297d2673869a58d0062e52d70e",
+        "annotation": "ea3ea3f15051fbac2cfacba47fbb31550a9c5b51efdcd37d4110642d250046ed",
+        "prepared": "31d35589a4d49b43c596f1e1dfd08270622f0787f0845e24321a54cdb0377639"
+      }
+    },
+    {
+      "track_id": "00_SS2-88-F_comp",
+      "performer_id": "00",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "bb4942bd8a25bfaa5fa78cb7134b52f4a16c7586fd590ebc26e219437a29aa27",
+      "audio_sha256": "2f2c5c65d86fd135a15c47d38e9d61e3748c0c31a5ca163632b36eba239811f4",
+      "prepared_file": "00_SS2-88-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_SS2-88-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_SS2-88-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_SS2-88-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "2f2c5c65d86fd135a15c47d38e9d61e3748c0c31a5ca163632b36eba239811f4",
+        "annotation": "bb4942bd8a25bfaa5fa78cb7134b52f4a16c7586fd590ebc26e219437a29aa27",
+        "prepared": "072b4e3d9a2f8b60bec0afba081d4ea44cd5a4add3990b2bbec14b09565be7af"
+      }
+    },
+    {
+      "track_id": "00_SS2-88-F_solo",
+      "performer_id": "00",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "bc0bfb8117ba0c0e87d2c4b4d6ee29280c505761e97ec76fac5b732ea5f5b7fc",
+      "audio_sha256": "229eeb552e688aa30fdc248073d659cfec1e9110c188108636c677c1957e0e0b",
+      "prepared_file": "00_SS2-88-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\00_SS2-88-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\00_SS2-88-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\00_SS2-88-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "229eeb552e688aa30fdc248073d659cfec1e9110c188108636c677c1957e0e0b",
+        "annotation": "bc0bfb8117ba0c0e87d2c4b4d6ee29280c505761e97ec76fac5b732ea5f5b7fc",
+        "prepared": "30b84a141089deff9c49f6dfa8fce5228f85f8127d0d20c7646b2503041912f2"
+      }
+    },
+    {
+      "track_id": "01_BN2-131-B_comp",
+      "performer_id": "01",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "0ac4eb2fc2f2bd3cfd70e0063da6fffc8bf529e7c7abd7bd1c4bd7b2b02dbb74",
+      "audio_sha256": "bc9f4e89b043a68e9bc5512d7376e9cd356505464e20712bda0bd2f0ac140acd",
+      "prepared_file": "01_BN2-131-B_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_BN2-131-B_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_BN2-131-B_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_BN2-131-B_comp.npz"
+      },
+      "hashes": {
+        "audio": "bc9f4e89b043a68e9bc5512d7376e9cd356505464e20712bda0bd2f0ac140acd",
+        "annotation": "0ac4eb2fc2f2bd3cfd70e0063da6fffc8bf529e7c7abd7bd1c4bd7b2b02dbb74",
+        "prepared": "fa44bdcba52b97285e4f0ee86fc97f3b64d43df3712de58c276aa2033e0a7302"
+      }
+    },
+    {
+      "track_id": "01_BN2-131-B_solo",
+      "performer_id": "01",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "176bc507fb4c40c84070f57e6bd1a4db48e2ce4dfaad4841d1c914cc6b01322f",
+      "audio_sha256": "26793be902c9a3d7b957c3903fa24c1c649cc45a12a24ea923f21df73e27b04b",
+      "prepared_file": "01_BN2-131-B_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_BN2-131-B_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_BN2-131-B_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_BN2-131-B_solo.npz"
+      },
+      "hashes": {
+        "audio": "26793be902c9a3d7b957c3903fa24c1c649cc45a12a24ea923f21df73e27b04b",
+        "annotation": "176bc507fb4c40c84070f57e6bd1a4db48e2ce4dfaad4841d1c914cc6b01322f",
+        "prepared": "9f2ded70fcdde4aa660fb7a34861fe26a5271239ddbaee3b0991ec6266bffe69"
+      }
+    },
+    {
+      "track_id": "01_BN2-166-Ab_comp",
+      "performer_id": "01",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "406461c3458263665cb10d067f90db663a1b8510d5accfac80febe4084d7da36",
+      "audio_sha256": "6aa9debf130ca3e27ed5fe30d4986ad4dcd2620a21760a1984e548cc0231b62c",
+      "prepared_file": "01_BN2-166-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_BN2-166-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_BN2-166-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_BN2-166-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "6aa9debf130ca3e27ed5fe30d4986ad4dcd2620a21760a1984e548cc0231b62c",
+        "annotation": "406461c3458263665cb10d067f90db663a1b8510d5accfac80febe4084d7da36",
+        "prepared": "262e1ca85ebdd81bdb5f80460037976a9b71c96ba0fa6cb20753fe93033c41e5"
+      }
+    },
+    {
+      "track_id": "01_BN2-166-Ab_solo",
+      "performer_id": "01",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "83e12badb40e45c5da1cef9761fe8c23d9430d7aade52824f0ce7a68e6805eae",
+      "audio_sha256": "6e92a265dc0e22d9cf640f2fad5affbb80163fb85223ad9dda8152de9517db36",
+      "prepared_file": "01_BN2-166-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_BN2-166-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_BN2-166-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_BN2-166-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "6e92a265dc0e22d9cf640f2fad5affbb80163fb85223ad9dda8152de9517db36",
+        "annotation": "83e12badb40e45c5da1cef9761fe8c23d9430d7aade52824f0ce7a68e6805eae",
+        "prepared": "f4d760cb1154a446d992a1523cd842f65bde8df9aa4b389ee17852b30bf2a1b3"
+      }
+    },
+    {
+      "track_id": "01_Funk2-108-Eb_comp",
+      "performer_id": "01",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "ac85247c29ac36886bcbdccc89ce9b9755bb3a7320d94357abcb938d52b4212a",
+      "audio_sha256": "ed6170345637448e9d75996da516cfe7f7d5286d5a490eb333f576fc905b2918",
+      "prepared_file": "01_Funk2-108-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Funk2-108-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Funk2-108-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Funk2-108-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "ed6170345637448e9d75996da516cfe7f7d5286d5a490eb333f576fc905b2918",
+        "annotation": "ac85247c29ac36886bcbdccc89ce9b9755bb3a7320d94357abcb938d52b4212a",
+        "prepared": "defad4259e4c85f25eb5d8b0826f7928c8d42a15cad5058d0a4a036b0cfa3ccb"
+      },
+      "retained_lv_sha256": "d03983f5914223c5d88b7cf4cbcd0fe3b7c63f76aaaa7b8afcb185e4dc10016d"
+    },
+    {
+      "track_id": "01_Funk2-108-Eb_solo",
+      "performer_id": "01",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "ffbe0788a56d3e6f8313ecca90ddd6508aa4b80c9031b119e412f779d7e04048",
+      "audio_sha256": "fb2b6044f99b615c89b4f6b1093c54ac6c7f5e71a89d49fbf0f7e95d4bde5056",
+      "prepared_file": "01_Funk2-108-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Funk2-108-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Funk2-108-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Funk2-108-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "fb2b6044f99b615c89b4f6b1093c54ac6c7f5e71a89d49fbf0f7e95d4bde5056",
+        "annotation": "ffbe0788a56d3e6f8313ecca90ddd6508aa4b80c9031b119e412f779d7e04048",
+        "prepared": "9d8ce09e22d9e5845f63d547219a8c9eeecacfc96f8adfa73b102574a58314fd"
+      }
+    },
+    {
+      "track_id": "01_Funk2-119-G_comp",
+      "performer_id": "01",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "0c2902555407acbc00347385759ce04733ccfe13f75473b40329c4fc9e3a1fb4",
+      "audio_sha256": "4112ba7fb59f847ee302d49db9bc7c0cc1f246bf98cccbcb7d443c9df61499a6",
+      "prepared_file": "01_Funk2-119-G_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Funk2-119-G_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Funk2-119-G_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Funk2-119-G_comp.npz"
+      },
+      "hashes": {
+        "audio": "4112ba7fb59f847ee302d49db9bc7c0cc1f246bf98cccbcb7d443c9df61499a6",
+        "annotation": "0c2902555407acbc00347385759ce04733ccfe13f75473b40329c4fc9e3a1fb4",
+        "prepared": "3f34d7b5947d2874910203ace15b1cd65c1d6b11e7378ce2842b38e95b49028d"
+      }
+    },
+    {
+      "track_id": "01_Funk2-119-G_solo",
+      "performer_id": "01",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "54c617bb2d8297930616867f9a16c0cc11f0466ebc521b1ca771d9d56dd0d228",
+      "audio_sha256": "5ab14d6e9d5ab560862fc6f29ccd5aa2194a784e67450cbed6ae31ed28fcfb04",
+      "prepared_file": "01_Funk2-119-G_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Funk2-119-G_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Funk2-119-G_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Funk2-119-G_solo.npz"
+      },
+      "hashes": {
+        "audio": "5ab14d6e9d5ab560862fc6f29ccd5aa2194a784e67450cbed6ae31ed28fcfb04",
+        "annotation": "54c617bb2d8297930616867f9a16c0cc11f0466ebc521b1ca771d9d56dd0d228",
+        "prepared": "09ae67d3636cb88829e457f9141929d25d46fa27f5c30b35a9be4770d89cfbec"
+      }
+    },
+    {
+      "track_id": "01_Jazz2-110-Bb_comp",
+      "performer_id": "01",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "15ec1c9307608366b20c469a6d61e8192304a787edcc209aaaf658c27cd85882",
+      "audio_sha256": "58f53e19e2420391afba687c7a10f2d1c80a89cf0392821729549e629b9ba55a",
+      "prepared_file": "01_Jazz2-110-Bb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Jazz2-110-Bb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Jazz2-110-Bb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Jazz2-110-Bb_comp.npz"
+      },
+      "hashes": {
+        "audio": "58f53e19e2420391afba687c7a10f2d1c80a89cf0392821729549e629b9ba55a",
+        "annotation": "15ec1c9307608366b20c469a6d61e8192304a787edcc209aaaf658c27cd85882",
+        "prepared": "708cfeaeada8480beb274581ecff3585c3a01845cc0aac8cc8336ec5ce12f422"
+      }
+    },
+    {
+      "track_id": "01_Jazz2-110-Bb_solo",
+      "performer_id": "01",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "062da26f139aeb681db85a7c6f6413363078c2655c9d39c3eec041654e744181",
+      "audio_sha256": "8d3bdfd4befab11e2dab11fe4c778feeb5799946dbc2d313c0c5648bfc0ac362",
+      "prepared_file": "01_Jazz2-110-Bb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Jazz2-110-Bb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Jazz2-110-Bb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Jazz2-110-Bb_solo.npz"
+      },
+      "hashes": {
+        "audio": "8d3bdfd4befab11e2dab11fe4c778feeb5799946dbc2d313c0c5648bfc0ac362",
+        "annotation": "062da26f139aeb681db85a7c6f6413363078c2655c9d39c3eec041654e744181",
+        "prepared": "26d28085506291c06a4f48ebd0552850606583356d1f1a2c996b25d327106da1"
+      },
+      "retained_lv_sha256": "16748f666e0fd5a786808f0a2fcacbd43625cc4c29719f9a32935dfeabcd930d"
+    },
+    {
+      "track_id": "01_Jazz2-187-F#_comp",
+      "performer_id": "01",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "317c9a5d9cc8ddf4f1ce8c5c82bdf21cd0365aeca4fd6012129b0b40ac5c3884",
+      "audio_sha256": "f91bc905f7554d25497d1585a054683799bc5e5c91d97b16f871785460b3a146",
+      "prepared_file": "01_Jazz2-187-F#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Jazz2-187-F#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Jazz2-187-F#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Jazz2-187-F#_comp.npz"
+      },
+      "hashes": {
+        "audio": "f91bc905f7554d25497d1585a054683799bc5e5c91d97b16f871785460b3a146",
+        "annotation": "317c9a5d9cc8ddf4f1ce8c5c82bdf21cd0365aeca4fd6012129b0b40ac5c3884",
+        "prepared": "c0c315b1f140d83987d5a1f9c16f86ed8a5650ea6aa6ad2de5113cddc1a0c059"
+      }
+    },
+    {
+      "track_id": "01_Jazz2-187-F#_solo",
+      "performer_id": "01",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "70640b2f41c9f961b71790c30881b3981cb47953d285859952a9b7cd45cc0298",
+      "audio_sha256": "1709e23d524e05e5b5e7c344b722b8c6826426feaf3eb97bd9bd7242611e3f0e",
+      "prepared_file": "01_Jazz2-187-F#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Jazz2-187-F#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Jazz2-187-F#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Jazz2-187-F#_solo.npz"
+      },
+      "hashes": {
+        "audio": "1709e23d524e05e5b5e7c344b722b8c6826426feaf3eb97bd9bd7242611e3f0e",
+        "annotation": "70640b2f41c9f961b71790c30881b3981cb47953d285859952a9b7cd45cc0298",
+        "prepared": "c17712f75ee4673c1716e1ddf3839f6456cbe6443364d459067760cbb84903a5"
+      }
+    },
+    {
+      "track_id": "01_Rock2-142-D_comp",
+      "performer_id": "01",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "879dfc8039b8598fdd9db59041ab23f028b4e19cbcae2754732640ed71dc4800",
+      "audio_sha256": "93df9d80cbba876d6fb0ff45c92b9978ae072d205436a738b3bd813cfdf05973",
+      "prepared_file": "01_Rock2-142-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Rock2-142-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Rock2-142-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Rock2-142-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "93df9d80cbba876d6fb0ff45c92b9978ae072d205436a738b3bd813cfdf05973",
+        "annotation": "879dfc8039b8598fdd9db59041ab23f028b4e19cbcae2754732640ed71dc4800",
+        "prepared": "3e62b281cea41ce9f7dfb70bbf0c0c2b958ed54cd24524903c7cba13199c7036"
+      }
+    },
+    {
+      "track_id": "01_Rock2-142-D_solo",
+      "performer_id": "01",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "b94b67e82fd33db9fb41db9fcb17dcd2d77f20d992f49f4d243db036659a0b64",
+      "audio_sha256": "b984aa0034aee4859199433d261c66974478045fccf5d22351d9046a5d4daa24",
+      "prepared_file": "01_Rock2-142-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Rock2-142-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Rock2-142-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Rock2-142-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "b984aa0034aee4859199433d261c66974478045fccf5d22351d9046a5d4daa24",
+        "annotation": "b94b67e82fd33db9fb41db9fcb17dcd2d77f20d992f49f4d243db036659a0b64",
+        "prepared": "29fd66ecca17f3341f373908e3744b89e0b73058c21c4ac2063fca89df0586c5"
+      }
+    },
+    {
+      "track_id": "01_Rock2-85-F_comp",
+      "performer_id": "01",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "3176413a5e43b0cb4dbef1b5086ec7af389afe9d72d00ee77b5bf6f1ce601d48",
+      "audio_sha256": "be67838b6159a088a3559a5f9971d60c31b5d99220edbcde0c73738786514db4",
+      "prepared_file": "01_Rock2-85-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Rock2-85-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Rock2-85-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Rock2-85-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "be67838b6159a088a3559a5f9971d60c31b5d99220edbcde0c73738786514db4",
+        "annotation": "3176413a5e43b0cb4dbef1b5086ec7af389afe9d72d00ee77b5bf6f1ce601d48",
+        "prepared": "3eb98529a2ce828d1f78c081bbfdea1aeedb7d98e6b9db722dc66fd94d26af8f"
+      }
+    },
+    {
+      "track_id": "01_Rock2-85-F_solo",
+      "performer_id": "01",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "f74288b33268c2ad55af99af8b8ce6824a0aebfb6ccb70645ad1dd3bce40e089",
+      "audio_sha256": "1719050da2c618b30fb469d04303ab89ab6970f7e8ed7bad2cbf011a43261376",
+      "prepared_file": "01_Rock2-85-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_Rock2-85-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_Rock2-85-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_Rock2-85-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "1719050da2c618b30fb469d04303ab89ab6970f7e8ed7bad2cbf011a43261376",
+        "annotation": "f74288b33268c2ad55af99af8b8ce6824a0aebfb6ccb70645ad1dd3bce40e089",
+        "prepared": "22eafd12b5fd6e70150b325e08e3e53195b474afd88ee98db6c807c2fc482be9"
+      }
+    },
+    {
+      "track_id": "01_SS2-107-Ab_comp",
+      "performer_id": "01",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "b404574fb82dd2e08e99e63613132dde2bdac1087aad488412b39173adf6a531",
+      "audio_sha256": "36bbde7f7a6f952786fb1aee2e69aab5538668c8016993a3cd0a0570c3544f58",
+      "prepared_file": "01_SS2-107-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_SS2-107-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_SS2-107-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_SS2-107-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "36bbde7f7a6f952786fb1aee2e69aab5538668c8016993a3cd0a0570c3544f58",
+        "annotation": "b404574fb82dd2e08e99e63613132dde2bdac1087aad488412b39173adf6a531",
+        "prepared": "aa08a3b37e15a0a942b2659c6be8896c8ebed2b86566f2998cae818b9e4f4d65"
+      }
+    },
+    {
+      "track_id": "01_SS2-107-Ab_solo",
+      "performer_id": "01",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "5dc2fedf14a6df96add7cb8dfd2570ba4a307c394d6044afd7497c003e1b2a04",
+      "audio_sha256": "874905a621edb1bf38ddf76d5a865fb806b575e84874806d63f43f961bacffed",
+      "prepared_file": "01_SS2-107-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_SS2-107-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_SS2-107-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_SS2-107-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "874905a621edb1bf38ddf76d5a865fb806b575e84874806d63f43f961bacffed",
+        "annotation": "5dc2fedf14a6df96add7cb8dfd2570ba4a307c394d6044afd7497c003e1b2a04",
+        "prepared": "2a35fb516f0da061f7b3a4a4ec9f3844aa2cfbf6d970b5bd51d5886dc9f231bc"
+      }
+    },
+    {
+      "track_id": "01_SS2-88-F_comp",
+      "performer_id": "01",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "ec82fc8642e81e8c5679d46356bba160a3ad34dd702fa50faf21ecdd0b9c8abe",
+      "audio_sha256": "0e2f0a2b957f8a9224d06bfe5c446f7488266c7fb4cc82f3264fa1e5c1105a86",
+      "prepared_file": "01_SS2-88-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_SS2-88-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_SS2-88-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_SS2-88-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "0e2f0a2b957f8a9224d06bfe5c446f7488266c7fb4cc82f3264fa1e5c1105a86",
+        "annotation": "ec82fc8642e81e8c5679d46356bba160a3ad34dd702fa50faf21ecdd0b9c8abe",
+        "prepared": "12f662cca9d1507117f733888957a8d35e598cd584bce44879156000668d5767"
+      }
+    },
+    {
+      "track_id": "01_SS2-88-F_solo",
+      "performer_id": "01",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "3674c9d128a5ab04e5153c93cb0efe37a35a21641a0dc953548d3ece56f50cbb",
+      "audio_sha256": "eed2e966799068762bf6db5b0fabb0360e5a909334978651702533f0d60fddcb",
+      "prepared_file": "01_SS2-88-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\01_SS2-88-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\01_SS2-88-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\01_SS2-88-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "eed2e966799068762bf6db5b0fabb0360e5a909334978651702533f0d60fddcb",
+        "annotation": "3674c9d128a5ab04e5153c93cb0efe37a35a21641a0dc953548d3ece56f50cbb",
+        "prepared": "e05f73ea6374e5040c63fba16cb12a77496e3fdc0764f9a6cad51364e5a3d212"
+      }
+    },
+    {
+      "track_id": "02_BN2-131-B_comp",
+      "performer_id": "02",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "5a6d1d87cae3a9496395a671f3575f2de96d8a1939d2460cbc02eccc0a3b74b7",
+      "audio_sha256": "6478e7ade863d3b84ec26b443499979ee8db10a726d60ad0836e805f5349af83",
+      "prepared_file": "02_BN2-131-B_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_BN2-131-B_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_BN2-131-B_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_BN2-131-B_comp.npz"
+      },
+      "hashes": {
+        "audio": "6478e7ade863d3b84ec26b443499979ee8db10a726d60ad0836e805f5349af83",
+        "annotation": "5a6d1d87cae3a9496395a671f3575f2de96d8a1939d2460cbc02eccc0a3b74b7",
+        "prepared": "623682dbdaf04cbcbe3ef77601c9e58e191d706ef913bab2f14b30272237b08d"
+      }
+    },
+    {
+      "track_id": "02_BN2-131-B_solo",
+      "performer_id": "02",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "4eb324bdb325af7ab97e2e58e3c1d7972ac6699116642cf7f15b5241ce4000f2",
+      "audio_sha256": "5fbec1a2812360183811773320e7ad05016be2ab5af1dbcab09dd5f540511081",
+      "prepared_file": "02_BN2-131-B_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_BN2-131-B_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_BN2-131-B_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_BN2-131-B_solo.npz"
+      },
+      "hashes": {
+        "audio": "5fbec1a2812360183811773320e7ad05016be2ab5af1dbcab09dd5f540511081",
+        "annotation": "4eb324bdb325af7ab97e2e58e3c1d7972ac6699116642cf7f15b5241ce4000f2",
+        "prepared": "4d559813df132f523d60510ac744dda3bdac51ac68137a95be9e881d603641b4"
+      }
+    },
+    {
+      "track_id": "02_BN2-166-Ab_comp",
+      "performer_id": "02",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "54b3fd1468233e0a204db50c4b4b9b6863e895e6e1798ec0f46a39b7f48afe80",
+      "audio_sha256": "4e3b4f683b1bb9dc106570e56189ec1c555b644aefaf1c13ca510cd04479908e",
+      "prepared_file": "02_BN2-166-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_BN2-166-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_BN2-166-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_BN2-166-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "4e3b4f683b1bb9dc106570e56189ec1c555b644aefaf1c13ca510cd04479908e",
+        "annotation": "54b3fd1468233e0a204db50c4b4b9b6863e895e6e1798ec0f46a39b7f48afe80",
+        "prepared": "bbbefd17ab326977fff26c6b0d226fc58629284ebaf5ccbbdefc3a2f5431a8da"
+      }
+    },
+    {
+      "track_id": "02_BN2-166-Ab_solo",
+      "performer_id": "02",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "a7e6ed8d931dc3c41334e8401b94d942d4e681b8c3e9ac13cd191ff3549a8bb3",
+      "audio_sha256": "355011d9d666875b5472601dc589f402b671c853a44a3ca4d3fab9132c6de596",
+      "prepared_file": "02_BN2-166-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_BN2-166-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_BN2-166-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_BN2-166-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "355011d9d666875b5472601dc589f402b671c853a44a3ca4d3fab9132c6de596",
+        "annotation": "a7e6ed8d931dc3c41334e8401b94d942d4e681b8c3e9ac13cd191ff3549a8bb3",
+        "prepared": "c1bd58014ac046c5eae54bf5c78f213ac8f30c175dc9951f8b98963df345bbc5"
+      }
+    },
+    {
+      "track_id": "02_Funk2-108-Eb_comp",
+      "performer_id": "02",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "b9fe69f52e3734a27d1c3d1d02a9ec87128a5503b7d5155da01d860ebd6f7b28",
+      "audio_sha256": "18fb8ba717efeaaa5b1c9180cd97801107d2ad6c5677499d1522970a7117b63e",
+      "prepared_file": "02_Funk2-108-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Funk2-108-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Funk2-108-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Funk2-108-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "18fb8ba717efeaaa5b1c9180cd97801107d2ad6c5677499d1522970a7117b63e",
+        "annotation": "b9fe69f52e3734a27d1c3d1d02a9ec87128a5503b7d5155da01d860ebd6f7b28",
+        "prepared": "d2cb547392fe044842a3d5752dc8d55c34f33a21e7a48deb0759b5612dbd7dc7"
+      }
+    },
+    {
+      "track_id": "02_Funk2-108-Eb_solo",
+      "performer_id": "02",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "b0f71755caeb4d6e1d68ab4c0307c25490ca75c200995ad0928f43f95bde8d65",
+      "audio_sha256": "1cede35cfc35f708a64d166342809aee6e545a9833a218d8b51d89db02b0e2c5",
+      "prepared_file": "02_Funk2-108-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Funk2-108-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Funk2-108-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Funk2-108-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "1cede35cfc35f708a64d166342809aee6e545a9833a218d8b51d89db02b0e2c5",
+        "annotation": "b0f71755caeb4d6e1d68ab4c0307c25490ca75c200995ad0928f43f95bde8d65",
+        "prepared": "e80e7360786294256035c5360412721c58c692402968b217cd2e9e09a784ed77"
+      }
+    },
+    {
+      "track_id": "02_Funk2-119-G_comp",
+      "performer_id": "02",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "8cb74ef2af5a2ad48aab7c12dbc44cac4dd8e87a5147b9b0ab23c24fc720cea7",
+      "audio_sha256": "426f9c1e0aeec6a2909aad153c4bc739b9a23f4f24ccf34e2e11fcef4009d037",
+      "prepared_file": "02_Funk2-119-G_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Funk2-119-G_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Funk2-119-G_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Funk2-119-G_comp.npz"
+      },
+      "hashes": {
+        "audio": "426f9c1e0aeec6a2909aad153c4bc739b9a23f4f24ccf34e2e11fcef4009d037",
+        "annotation": "8cb74ef2af5a2ad48aab7c12dbc44cac4dd8e87a5147b9b0ab23c24fc720cea7",
+        "prepared": "d413473e7b12acb1eaedba9e442ab4efdae38d9b0f35b0e48783ac4f03923b65"
+      }
+    },
+    {
+      "track_id": "02_Funk2-119-G_solo",
+      "performer_id": "02",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "d0054e550532c439f3e4d86e4d2eb61af61aa0a3a0d2694c3436582bee31f82f",
+      "audio_sha256": "deb59f119b5b762656ad20fa1a15dbbf87e5d02bf7fbd88e324bc34422ea99d4",
+      "prepared_file": "02_Funk2-119-G_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Funk2-119-G_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Funk2-119-G_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Funk2-119-G_solo.npz"
+      },
+      "hashes": {
+        "audio": "deb59f119b5b762656ad20fa1a15dbbf87e5d02bf7fbd88e324bc34422ea99d4",
+        "annotation": "d0054e550532c439f3e4d86e4d2eb61af61aa0a3a0d2694c3436582bee31f82f",
+        "prepared": "62e3079930c236c189a38250e077e24b9853a863c88db90e0ff19ec801879d2a"
+      }
+    },
+    {
+      "track_id": "02_Jazz2-110-Bb_comp",
+      "performer_id": "02",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "2abafd983a953f0b8e5fa1922e77f3805cfcd143bda165cd98976d72866fbc92",
+      "audio_sha256": "4740b6cb39c681728776d9b8350797ad00eb2a0d1974c0be2c259c62e70f9f48",
+      "prepared_file": "02_Jazz2-110-Bb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Jazz2-110-Bb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Jazz2-110-Bb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Jazz2-110-Bb_comp.npz"
+      },
+      "hashes": {
+        "audio": "4740b6cb39c681728776d9b8350797ad00eb2a0d1974c0be2c259c62e70f9f48",
+        "annotation": "2abafd983a953f0b8e5fa1922e77f3805cfcd143bda165cd98976d72866fbc92",
+        "prepared": "fdc652b23f01719e22c41ea3b1d344412577912077364c00f23c326124c5b2ab"
+      },
+      "retained_lv_sha256": "5ec78132b3da37214f74d419d4732e3a42043d63ccfa4a019e93202b93c85feb"
+    },
+    {
+      "track_id": "02_Jazz2-110-Bb_solo",
+      "performer_id": "02",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "b0741d8588966002cad2c9888c7572b3af8948122e67970c38f41c70e8e21eae",
+      "audio_sha256": "bcd85839107291baa56521bff5988a53e142504d873833e2be8268497d5bdae0",
+      "prepared_file": "02_Jazz2-110-Bb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Jazz2-110-Bb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Jazz2-110-Bb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Jazz2-110-Bb_solo.npz"
+      },
+      "hashes": {
+        "audio": "bcd85839107291baa56521bff5988a53e142504d873833e2be8268497d5bdae0",
+        "annotation": "b0741d8588966002cad2c9888c7572b3af8948122e67970c38f41c70e8e21eae",
+        "prepared": "b87d38bd725cff4e11137b237737d77385548869e968af12aa2aadefae665990"
+      }
+    },
+    {
+      "track_id": "02_Jazz2-187-F#_comp",
+      "performer_id": "02",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "dc4ef2a01f21c45aab0cf2466f8df6d2039c66d7709fe0be2b4798b01806ddc1",
+      "audio_sha256": "8c8f612a0a9f52bab9b8c10d490d10edfffa40fff86f09e4ff5e1b9faf766aae",
+      "prepared_file": "02_Jazz2-187-F#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Jazz2-187-F#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Jazz2-187-F#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Jazz2-187-F#_comp.npz"
+      },
+      "hashes": {
+        "audio": "8c8f612a0a9f52bab9b8c10d490d10edfffa40fff86f09e4ff5e1b9faf766aae",
+        "annotation": "dc4ef2a01f21c45aab0cf2466f8df6d2039c66d7709fe0be2b4798b01806ddc1",
+        "prepared": "94800556b5106af6cbb6c2096bd9878559d7871132f9bca2929c243ea83cf32f"
+      }
+    },
+    {
+      "track_id": "02_Jazz2-187-F#_solo",
+      "performer_id": "02",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "7cc9c5a06ca1108718c3cd824c09f6e10e8e14959b930e62b06a66e48313313d",
+      "audio_sha256": "218d77c69150fd0bf4dd05cd21df88920dea4d25dddefddc4b7f00f22f097894",
+      "prepared_file": "02_Jazz2-187-F#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Jazz2-187-F#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Jazz2-187-F#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Jazz2-187-F#_solo.npz"
+      },
+      "hashes": {
+        "audio": "218d77c69150fd0bf4dd05cd21df88920dea4d25dddefddc4b7f00f22f097894",
+        "annotation": "7cc9c5a06ca1108718c3cd824c09f6e10e8e14959b930e62b06a66e48313313d",
+        "prepared": "2a1478867a666fcdad672aeeec67c428290e7d8995d77b8167bb911e9fe28a2e"
+      }
+    },
+    {
+      "track_id": "02_Rock2-142-D_comp",
+      "performer_id": "02",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "1b56fc6e736473cf2dd3e3b7a1cfb19a55091138e167bb2c1ceb8304ea8e339c",
+      "audio_sha256": "7dc2d6867e3fe588a3b595be64cf4787ae2d14610a45c1fdc493d5c78aef5f96",
+      "prepared_file": "02_Rock2-142-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Rock2-142-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Rock2-142-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Rock2-142-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "7dc2d6867e3fe588a3b595be64cf4787ae2d14610a45c1fdc493d5c78aef5f96",
+        "annotation": "1b56fc6e736473cf2dd3e3b7a1cfb19a55091138e167bb2c1ceb8304ea8e339c",
+        "prepared": "24dbdde699cf668ed74f40b20c7e54d9b25dcf8af83eb32010dc618c3501a953"
+      }
+    },
+    {
+      "track_id": "02_Rock2-142-D_solo",
+      "performer_id": "02",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "33d1b15ad89a6e969c3b49d0022f2382e8e97147540ed101698bdc079d9fd9f1",
+      "audio_sha256": "ed462f1a9f9566aa8568150aa712e5cf3d2aed5758080fdd01979d2617ff0f55",
+      "prepared_file": "02_Rock2-142-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Rock2-142-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Rock2-142-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Rock2-142-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "ed462f1a9f9566aa8568150aa712e5cf3d2aed5758080fdd01979d2617ff0f55",
+        "annotation": "33d1b15ad89a6e969c3b49d0022f2382e8e97147540ed101698bdc079d9fd9f1",
+        "prepared": "78a5604afe727b3ad80c5b0d94c2d1ab1adc290380ec60406d88611ec17f561d"
+      },
+      "retained_lv_sha256": "e0b0c27a742091f41ef11fbaa32fa9fa67e2c121d10350a17b2f7d6a341d1e74"
+    },
+    {
+      "track_id": "02_Rock2-85-F_comp",
+      "performer_id": "02",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "9239ece91778cf9a05abf9e326c2a7c069e6605c8dc165e2f0351b5bc960679b",
+      "audio_sha256": "bfefc125bb731a159d26bfbed90aa583a5f20602aa1021a042d43119cb9d85ea",
+      "prepared_file": "02_Rock2-85-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Rock2-85-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Rock2-85-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Rock2-85-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "bfefc125bb731a159d26bfbed90aa583a5f20602aa1021a042d43119cb9d85ea",
+        "annotation": "9239ece91778cf9a05abf9e326c2a7c069e6605c8dc165e2f0351b5bc960679b",
+        "prepared": "a4c66841d3ea838d2e57e338336a9fc0d3e2d6aa12f93b89cd16fa03e636d295"
+      }
+    },
+    {
+      "track_id": "02_Rock2-85-F_solo",
+      "performer_id": "02",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "b349dbef5d72cd3b2717528ba03d50afb799fbf46483f96ecaa34152846b4d5c",
+      "audio_sha256": "df9c2ec90012c08a067f5d03ed76fcf209337a4325fb94d06dd238476a38acc4",
+      "prepared_file": "02_Rock2-85-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_Rock2-85-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_Rock2-85-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_Rock2-85-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "df9c2ec90012c08a067f5d03ed76fcf209337a4325fb94d06dd238476a38acc4",
+        "annotation": "b349dbef5d72cd3b2717528ba03d50afb799fbf46483f96ecaa34152846b4d5c",
+        "prepared": "90dfd9d10679664e5c37a7e895fd55f46bb70e3accd274128e4703a9da457244"
+      }
+    },
+    {
+      "track_id": "02_SS2-107-Ab_comp",
+      "performer_id": "02",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "e37a595a96375241d2f3a70ae76e3fb95fcd12e30fa2b41b3438ff1b4f20f2f2",
+      "audio_sha256": "41c3ba125a614a46b9b5cb146ff9d5c267abaa993beaef40a5b04178489bcf9a",
+      "prepared_file": "02_SS2-107-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_SS2-107-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_SS2-107-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_SS2-107-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "41c3ba125a614a46b9b5cb146ff9d5c267abaa993beaef40a5b04178489bcf9a",
+        "annotation": "e37a595a96375241d2f3a70ae76e3fb95fcd12e30fa2b41b3438ff1b4f20f2f2",
+        "prepared": "a0cf73e0d381397fd098010964f61e6e1abc9f3942242623f2230c246a5bea87"
+      }
+    },
+    {
+      "track_id": "02_SS2-107-Ab_solo",
+      "performer_id": "02",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "38ba295df29b31a842aa37d28a9b6ed6b3e36f648566dfab60a9647bc89e428b",
+      "audio_sha256": "62dd76b1551d81484981161808a281eb5785027110b6ace56c701edd04320685",
+      "prepared_file": "02_SS2-107-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_SS2-107-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_SS2-107-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_SS2-107-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "62dd76b1551d81484981161808a281eb5785027110b6ace56c701edd04320685",
+        "annotation": "38ba295df29b31a842aa37d28a9b6ed6b3e36f648566dfab60a9647bc89e428b",
+        "prepared": "1a52ae1bd4d5ee281c5de48b5eaba827f4ee8bc0987a747d93e88a6847bd1be5"
+      }
+    },
+    {
+      "track_id": "02_SS2-88-F_comp",
+      "performer_id": "02",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "34dc22e89e1ce74e2c1c5f80d74a0bff129926ea3253e744db8f65cdfe6dbc48",
+      "audio_sha256": "f68b2f066e6d512c901ea58423b05dcb14faeb2dfbd239aea36589797a93a3d3",
+      "prepared_file": "02_SS2-88-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_SS2-88-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_SS2-88-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_SS2-88-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "f68b2f066e6d512c901ea58423b05dcb14faeb2dfbd239aea36589797a93a3d3",
+        "annotation": "34dc22e89e1ce74e2c1c5f80d74a0bff129926ea3253e744db8f65cdfe6dbc48",
+        "prepared": "a2f03fbd282896bc575b4455c393d04acc89d7fdfebea277e9be7f3b8c092e04"
+      }
+    },
+    {
+      "track_id": "02_SS2-88-F_solo",
+      "performer_id": "02",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "27d4b1b44b04b1bca90b6307f2312b1ddd833ee5f4e8ad958a7b2d427fd59295",
+      "audio_sha256": "ba204ea5373cd0aa9ccb2d27aac54f9d1d2f20b06fd964fbb6019bf12c44f600",
+      "prepared_file": "02_SS2-88-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\02_SS2-88-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\02_SS2-88-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\02_SS2-88-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "ba204ea5373cd0aa9ccb2d27aac54f9d1d2f20b06fd964fbb6019bf12c44f600",
+        "annotation": "27d4b1b44b04b1bca90b6307f2312b1ddd833ee5f4e8ad958a7b2d427fd59295",
+        "prepared": "e07824c2a233a9696fc04b8167f09874c3920887e6604297788f26c0894bfba0"
+      }
+    },
+    {
+      "track_id": "03_BN2-131-B_comp",
+      "performer_id": "03",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "8dfc8eeb83a59920289d0eb9050ec383c84b9c6fab0610073662708e14bf1b3a",
+      "audio_sha256": "4f42243d2e201711b3aa55c9fd265306d08260589f00e7c19043b6a99e49cd48",
+      "prepared_file": "03_BN2-131-B_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_BN2-131-B_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_BN2-131-B_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_BN2-131-B_comp.npz"
+      },
+      "hashes": {
+        "audio": "4f42243d2e201711b3aa55c9fd265306d08260589f00e7c19043b6a99e49cd48",
+        "annotation": "8dfc8eeb83a59920289d0eb9050ec383c84b9c6fab0610073662708e14bf1b3a",
+        "prepared": "a0d0d00a5a1ce934407fb213cf8d2c0fe69661f71af7f4aa67f2226f7d91217e"
+      }
+    },
+    {
+      "track_id": "03_BN2-131-B_solo",
+      "performer_id": "03",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "426f722f8c280ab640a2673ecee69ab37a05981dfbda88cc1a08313630bf7db9",
+      "audio_sha256": "8dd9e582228f0433cb22a571cc8f72add4b2901ce0f2ecbf536e955447c32c9c",
+      "prepared_file": "03_BN2-131-B_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_BN2-131-B_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_BN2-131-B_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_BN2-131-B_solo.npz"
+      },
+      "hashes": {
+        "audio": "8dd9e582228f0433cb22a571cc8f72add4b2901ce0f2ecbf536e955447c32c9c",
+        "annotation": "426f722f8c280ab640a2673ecee69ab37a05981dfbda88cc1a08313630bf7db9",
+        "prepared": "0bfac8d973122164e60471043ea5f413817d6b3d088bd07d6990159ec4e32b69"
+      }
+    },
+    {
+      "track_id": "03_BN2-166-Ab_comp",
+      "performer_id": "03",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "f3df6832e216171cb772c60425087a49a1d31a4a6392137ea9767fdde1d931d2",
+      "audio_sha256": "8187c43a481b77f345ed6eb8c657bb854d048886a8cceaad468f27f4bc098b3c",
+      "prepared_file": "03_BN2-166-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_BN2-166-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_BN2-166-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_BN2-166-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "8187c43a481b77f345ed6eb8c657bb854d048886a8cceaad468f27f4bc098b3c",
+        "annotation": "f3df6832e216171cb772c60425087a49a1d31a4a6392137ea9767fdde1d931d2",
+        "prepared": "9dd4947393af739d5afe796d22ca7c5461c3c2e2449f50ba7d982fed3e86454c"
+      }
+    },
+    {
+      "track_id": "03_BN2-166-Ab_solo",
+      "performer_id": "03",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "772a4d2231705c2e4f655152c20b7deceb267e4edb7c9ced0806eb66980f43af",
+      "audio_sha256": "f902e9e99de4fe987146351c0b0d1f568f081d2efe296dbbf25a12aee0936a9d",
+      "prepared_file": "03_BN2-166-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_BN2-166-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_BN2-166-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_BN2-166-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "f902e9e99de4fe987146351c0b0d1f568f081d2efe296dbbf25a12aee0936a9d",
+        "annotation": "772a4d2231705c2e4f655152c20b7deceb267e4edb7c9ced0806eb66980f43af",
+        "prepared": "1d3a5971680b99a0034d36469406dc6d0199eccbcb64fd9b8a5d2fd83db466d4"
+      }
+    },
+    {
+      "track_id": "03_Funk2-108-Eb_comp",
+      "performer_id": "03",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "9176cfdea517638abba5e058f6c9799df925abdfa453cb9279621cc1f7db743b",
+      "audio_sha256": "ec620fee25a9a0717488cb8d098e02a87a2ecc38bacd955e918e40658c801b8a",
+      "prepared_file": "03_Funk2-108-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Funk2-108-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Funk2-108-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Funk2-108-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "ec620fee25a9a0717488cb8d098e02a87a2ecc38bacd955e918e40658c801b8a",
+        "annotation": "9176cfdea517638abba5e058f6c9799df925abdfa453cb9279621cc1f7db743b",
+        "prepared": "14255115ac11427a710d604c016a8ddab9e91c626e6398a50eb28ed8ac1a84ea"
+      }
+    },
+    {
+      "track_id": "03_Funk2-108-Eb_solo",
+      "performer_id": "03",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "46d9518d9dc7525ce1dfde9cf12fd72a144d01e49e2e19128714a58fa4d25ed2",
+      "audio_sha256": "563e2299cffc695c0f5bd7ad29ba405414fb7b449c99e676398c28ac2ef640e5",
+      "prepared_file": "03_Funk2-108-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Funk2-108-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Funk2-108-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Funk2-108-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "563e2299cffc695c0f5bd7ad29ba405414fb7b449c99e676398c28ac2ef640e5",
+        "annotation": "46d9518d9dc7525ce1dfde9cf12fd72a144d01e49e2e19128714a58fa4d25ed2",
+        "prepared": "6d99b6aec5fa799c50c38ed2fbf976019e3d1701e980ef175eef8d26cb1c6763"
+      }
+    },
+    {
+      "track_id": "03_Funk2-119-G_comp",
+      "performer_id": "03",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "3caca43d91d06cd5a20e2364163ba23d61b5d3f8d8880b541be8732f7891cdf5",
+      "audio_sha256": "4983a9a6ab867425273b9348d301754b96a445f59907cb9c59d6a99dd74410f4",
+      "prepared_file": "03_Funk2-119-G_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Funk2-119-G_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Funk2-119-G_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Funk2-119-G_comp.npz"
+      },
+      "hashes": {
+        "audio": "4983a9a6ab867425273b9348d301754b96a445f59907cb9c59d6a99dd74410f4",
+        "annotation": "3caca43d91d06cd5a20e2364163ba23d61b5d3f8d8880b541be8732f7891cdf5",
+        "prepared": "63e9fe44ddef71653a9f2878488940af9780629a3182453deafe80e2a734c86a"
+      }
+    },
+    {
+      "track_id": "03_Funk2-119-G_solo",
+      "performer_id": "03",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "585f9d3b3872f09c9486384464d09807445c48282f31e133bd5441a071bdf355",
+      "audio_sha256": "08df5e87b8450b2cd49a9cc9111f2b0f572cee5b0871333db38912f2699f91c8",
+      "prepared_file": "03_Funk2-119-G_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Funk2-119-G_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Funk2-119-G_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Funk2-119-G_solo.npz"
+      },
+      "hashes": {
+        "audio": "08df5e87b8450b2cd49a9cc9111f2b0f572cee5b0871333db38912f2699f91c8",
+        "annotation": "585f9d3b3872f09c9486384464d09807445c48282f31e133bd5441a071bdf355",
+        "prepared": "46d21c5a8d95475dedf26d138c48b607d75d512945c4b4d1d8676b224ee08b6e"
+      }
+    },
+    {
+      "track_id": "03_Jazz2-110-Bb_comp",
+      "performer_id": "03",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "62357239080eb2a000e2ea7424bd89b0fa5f7bb8f6bd32287138640b4c930734",
+      "audio_sha256": "d1797bfc302378d05a38df6d8a43993b85587f7b793e55a77d72fa57cb3e2221",
+      "prepared_file": "03_Jazz2-110-Bb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Jazz2-110-Bb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Jazz2-110-Bb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Jazz2-110-Bb_comp.npz"
+      },
+      "hashes": {
+        "audio": "d1797bfc302378d05a38df6d8a43993b85587f7b793e55a77d72fa57cb3e2221",
+        "annotation": "62357239080eb2a000e2ea7424bd89b0fa5f7bb8f6bd32287138640b4c930734",
+        "prepared": "8e7b2ab66f446a1034c9a3c1776ecdf1cc5924d2d8c3c2d34227c69023e3c8f2"
+      }
+    },
+    {
+      "track_id": "03_Jazz2-110-Bb_solo",
+      "performer_id": "03",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "5861679aa0e9af22ff8b96d972afd8ca9189f597c320750e24a958ee619345c7",
+      "audio_sha256": "44b1d87dfda1833356b380b87520bd3b3548e2ab67d3498a63bb3fdc01de856c",
+      "prepared_file": "03_Jazz2-110-Bb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Jazz2-110-Bb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Jazz2-110-Bb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Jazz2-110-Bb_solo.npz"
+      },
+      "hashes": {
+        "audio": "44b1d87dfda1833356b380b87520bd3b3548e2ab67d3498a63bb3fdc01de856c",
+        "annotation": "5861679aa0e9af22ff8b96d972afd8ca9189f597c320750e24a958ee619345c7",
+        "prepared": "204d2504df21e40b7d3cdc2560df69da45fb264fa0894a0a7de3dc4a9d2ee5dd"
+      }
+    },
+    {
+      "track_id": "03_Jazz2-187-F#_comp",
+      "performer_id": "03",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "947781eeed8145ee9a861e3b98e28895fe8555b7fdb1b444dde8b66e9b1debcb",
+      "audio_sha256": "96592fcfddeddd03ef3aecee798032c44aada53f4c3e56008ff52000b89c5b06",
+      "prepared_file": "03_Jazz2-187-F#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Jazz2-187-F#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Jazz2-187-F#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Jazz2-187-F#_comp.npz"
+      },
+      "hashes": {
+        "audio": "96592fcfddeddd03ef3aecee798032c44aada53f4c3e56008ff52000b89c5b06",
+        "annotation": "947781eeed8145ee9a861e3b98e28895fe8555b7fdb1b444dde8b66e9b1debcb",
+        "prepared": "9ad9e3dc41018caccbc3496f5fd90443bf394ebc2d0a754b8533b7588b25f10f"
+      }
+    },
+    {
+      "track_id": "03_Jazz2-187-F#_solo",
+      "performer_id": "03",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "a6605108b60a220ad92969508a53603f06d636f635ec539a60881c3b7f70c3c0",
+      "audio_sha256": "7d39e6e441440806d9427506ecc26da23d9e0b72fbf703b006795a2a761f85d6",
+      "prepared_file": "03_Jazz2-187-F#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Jazz2-187-F#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Jazz2-187-F#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Jazz2-187-F#_solo.npz"
+      },
+      "hashes": {
+        "audio": "7d39e6e441440806d9427506ecc26da23d9e0b72fbf703b006795a2a761f85d6",
+        "annotation": "a6605108b60a220ad92969508a53603f06d636f635ec539a60881c3b7f70c3c0",
+        "prepared": "d2addf44e6ffd77591c999ba37799c7c98030c1aa67003faf1c3174ac026f45f"
+      }
+    },
+    {
+      "track_id": "03_Rock2-142-D_comp",
+      "performer_id": "03",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "54757ce5bf9236d4ad638fac4a3bd85abc8fb191d3d4a3293316bbf19ed20864",
+      "audio_sha256": "0e5f71ad66419d6ba9bc3caafd4e7c2aab0573e40d6136459344c286e9abe80e",
+      "prepared_file": "03_Rock2-142-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Rock2-142-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Rock2-142-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Rock2-142-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "0e5f71ad66419d6ba9bc3caafd4e7c2aab0573e40d6136459344c286e9abe80e",
+        "annotation": "54757ce5bf9236d4ad638fac4a3bd85abc8fb191d3d4a3293316bbf19ed20864",
+        "prepared": "4a5bbdc85a6fc10f8fd45f322a551592fb6b1a5879311f87c190199929107a77"
+      },
+      "retained_lv_sha256": "7b5f848f6631c923dc7dfa1891980bdd3f096f08818b076a8be1422d3c4fd22c"
+    },
+    {
+      "track_id": "03_Rock2-142-D_solo",
+      "performer_id": "03",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "ba56a15060a2d6b83199ef2ee07cdeec81f4e436615abb07010df9c5f78604e9",
+      "audio_sha256": "c3a26f324d5e5f1c466fd4644d38c44d567627a01a02f9fe15e8b1c17ce6405d",
+      "prepared_file": "03_Rock2-142-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Rock2-142-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Rock2-142-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Rock2-142-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "c3a26f324d5e5f1c466fd4644d38c44d567627a01a02f9fe15e8b1c17ce6405d",
+        "annotation": "ba56a15060a2d6b83199ef2ee07cdeec81f4e436615abb07010df9c5f78604e9",
+        "prepared": "ab365fc6005136eb94d8d9dd0543b3a6a31664f50f06d8b9d207155bb5e711a5"
+      }
+    },
+    {
+      "track_id": "03_Rock2-85-F_comp",
+      "performer_id": "03",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "750844ee46cb08fdec28fd1870f8274b3555cb03533ae5e986b8b36df38d790d",
+      "audio_sha256": "92c14ad5a2fbb49de78acf2aaaa3e961a3459292ca0daf2cf8c35370253b0515",
+      "prepared_file": "03_Rock2-85-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Rock2-85-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Rock2-85-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Rock2-85-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "92c14ad5a2fbb49de78acf2aaaa3e961a3459292ca0daf2cf8c35370253b0515",
+        "annotation": "750844ee46cb08fdec28fd1870f8274b3555cb03533ae5e986b8b36df38d790d",
+        "prepared": "f3c1ab72ae0647359ae6e6e944bd8eb3a4958d66b45aac6f4ae82a9c4f6e81e7"
+      }
+    },
+    {
+      "track_id": "03_Rock2-85-F_solo",
+      "performer_id": "03",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "0c4c2a1deddecd27bc5a31dc25caf84bb6b0e3ff0ce4c33d7481af1c78ac2d5a",
+      "audio_sha256": "6cef0f0edd3f3edfe0096280e68834024b5f35a754a6f075982daaf774f14b2a",
+      "prepared_file": "03_Rock2-85-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_Rock2-85-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_Rock2-85-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_Rock2-85-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "6cef0f0edd3f3edfe0096280e68834024b5f35a754a6f075982daaf774f14b2a",
+        "annotation": "0c4c2a1deddecd27bc5a31dc25caf84bb6b0e3ff0ce4c33d7481af1c78ac2d5a",
+        "prepared": "7ea920e71a1dfc78b07f89306255cf71c39f88823731433ec02bdcb4c4310b8d"
+      }
+    },
+    {
+      "track_id": "03_SS2-107-Ab_comp",
+      "performer_id": "03",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "6066118fc120ee595cea4186c2ba3817b8827f19d34fa42f2616a429a572c9c8",
+      "audio_sha256": "dffd9da81133d1f9556e1e21e32d4151688db00cd8abbfc178c182af0a2c9300",
+      "prepared_file": "03_SS2-107-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_SS2-107-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_SS2-107-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_SS2-107-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "dffd9da81133d1f9556e1e21e32d4151688db00cd8abbfc178c182af0a2c9300",
+        "annotation": "6066118fc120ee595cea4186c2ba3817b8827f19d34fa42f2616a429a572c9c8",
+        "prepared": "4c50f0172eca7c76676e69d1d17c2f9686f1bca9c9b6014a66ac423d94cbf83e"
+      }
+    },
+    {
+      "track_id": "03_SS2-107-Ab_solo",
+      "performer_id": "03",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "e79c313d662ca2d832a0ee9be7a11c204cc3adcc75772a9af03e5e117eddd4ee",
+      "audio_sha256": "120d5955fae86806d16875b70b8dbbd6118ae78494c5f88aa8c45e615731c22b",
+      "prepared_file": "03_SS2-107-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_SS2-107-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_SS2-107-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_SS2-107-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "120d5955fae86806d16875b70b8dbbd6118ae78494c5f88aa8c45e615731c22b",
+        "annotation": "e79c313d662ca2d832a0ee9be7a11c204cc3adcc75772a9af03e5e117eddd4ee",
+        "prepared": "e2d3abf25a49a6c52af1cdaa7425ff1ade8dac86148ed872336df1b2e79d7dd2"
+      },
+      "retained_lv_sha256": "0545dc2dd3512d18fc345a312cd5f3009634c71f9edb6c7589f3157479a1e285"
+    },
+    {
+      "track_id": "03_SS2-88-F_comp",
+      "performer_id": "03",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "74de3fca73e76a474bce7d64d08167c61c6f2c545b4c9c8a23020ce2a02f7128",
+      "audio_sha256": "6b4c895403809d2a53032c2eaecf1cdd94146a41c0fd1ff5acd419b0f920cf94",
+      "prepared_file": "03_SS2-88-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_SS2-88-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_SS2-88-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_SS2-88-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "6b4c895403809d2a53032c2eaecf1cdd94146a41c0fd1ff5acd419b0f920cf94",
+        "annotation": "74de3fca73e76a474bce7d64d08167c61c6f2c545b4c9c8a23020ce2a02f7128",
+        "prepared": "5efc23e2e4c5d1d7340a86463eab03771f339cc97d468a0342dd30793e14407f"
+      }
+    },
+    {
+      "track_id": "03_SS2-88-F_solo",
+      "performer_id": "03",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "90be6181430a9c872ad61d416dd9c6e7a187e62062adf6baa9fe07305b15c2f8",
+      "audio_sha256": "4b7e9683441a607f9dff46cca7abb8e39dc1d3377162fd6419aaea30102ab29a",
+      "prepared_file": "03_SS2-88-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\03_SS2-88-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\03_SS2-88-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\03_SS2-88-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "4b7e9683441a607f9dff46cca7abb8e39dc1d3377162fd6419aaea30102ab29a",
+        "annotation": "90be6181430a9c872ad61d416dd9c6e7a187e62062adf6baa9fe07305b15c2f8",
+        "prepared": "224efba57471146d3f43f3336f1fa5611ff19e64f2d3f4b05f09598357e875ba"
+      }
+    },
+    {
+      "track_id": "04_BN2-131-B_comp",
+      "performer_id": "04",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "d125f917a574a661fab34c860a71110d81db3d4a5f8c03ea48ac070fbdcc4f2c",
+      "audio_sha256": "43f6a70622e8ff66237307768c38578e0d8cd5fdd16d48ac97733673965f863e",
+      "prepared_file": "04_BN2-131-B_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_BN2-131-B_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_BN2-131-B_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_BN2-131-B_comp.npz"
+      },
+      "hashes": {
+        "audio": "43f6a70622e8ff66237307768c38578e0d8cd5fdd16d48ac97733673965f863e",
+        "annotation": "d125f917a574a661fab34c860a71110d81db3d4a5f8c03ea48ac070fbdcc4f2c",
+        "prepared": "699924889450091479903e2a673762e7f08a0750d51abf1b7a2d04df8442302d"
+      }
+    },
+    {
+      "track_id": "04_BN2-131-B_solo",
+      "performer_id": "04",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "d0ef4133cbd5e902fefd70034bfbf5738387b0440b5f935a5cb40f72ad95209e",
+      "audio_sha256": "745ef123db4c7bc1cd092cf98fdecc7bc51331cfbbc76487d3a496d68af59fe8",
+      "prepared_file": "04_BN2-131-B_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_BN2-131-B_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_BN2-131-B_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_BN2-131-B_solo.npz"
+      },
+      "hashes": {
+        "audio": "745ef123db4c7bc1cd092cf98fdecc7bc51331cfbbc76487d3a496d68af59fe8",
+        "annotation": "d0ef4133cbd5e902fefd70034bfbf5738387b0440b5f935a5cb40f72ad95209e",
+        "prepared": "a650982cc895efe0408007fad9741e2a919d88167b18cd697308dbdce6cc6b30"
+      },
+      "retained_lv_sha256": "8ab612e3c07a1a48bf8c316f04431909843c26adc3b8f3f3c9d46be525442ccb"
+    },
+    {
+      "track_id": "04_BN2-166-Ab_comp",
+      "performer_id": "04",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "21214af371ac2e113ce619b8e3d60123f829289af29ac230150d45729cb63c9d",
+      "audio_sha256": "dbb14cb99fff84d5daddf9354faa71cb823b67beef61b9cf7b640c74362723a8",
+      "prepared_file": "04_BN2-166-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_BN2-166-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_BN2-166-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_BN2-166-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "dbb14cb99fff84d5daddf9354faa71cb823b67beef61b9cf7b640c74362723a8",
+        "annotation": "21214af371ac2e113ce619b8e3d60123f829289af29ac230150d45729cb63c9d",
+        "prepared": "52ebec4fab7387837ce5f5913c46b431538ca3dae5801b9d05bff57619a01400"
+      }
+    },
+    {
+      "track_id": "04_BN2-166-Ab_solo",
+      "performer_id": "04",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "d0c97b6e3eda127132d66da4e778288ad2c5a5dba5b7048d2ec5d20f462cd4dc",
+      "audio_sha256": "973969ded4b4787856fb0863b83d8ad9fde18d0b79e624b5127e7440806473ff",
+      "prepared_file": "04_BN2-166-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_BN2-166-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_BN2-166-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_BN2-166-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "973969ded4b4787856fb0863b83d8ad9fde18d0b79e624b5127e7440806473ff",
+        "annotation": "d0c97b6e3eda127132d66da4e778288ad2c5a5dba5b7048d2ec5d20f462cd4dc",
+        "prepared": "643014112c70693a1d291c1d33c2533965a941386ae04af4cae54e6382d732e3"
+      }
+    },
+    {
+      "track_id": "04_Funk2-108-Eb_comp",
+      "performer_id": "04",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "b536a29615bccc6c7fd531e3eb323edb051b4cb5134cb878c2a8c6051be5bc6d",
+      "audio_sha256": "5d111f9bf109a875d4775e2db980e43e4385dbb775580432a375e9ebd5f8b266",
+      "prepared_file": "04_Funk2-108-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Funk2-108-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Funk2-108-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Funk2-108-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "5d111f9bf109a875d4775e2db980e43e4385dbb775580432a375e9ebd5f8b266",
+        "annotation": "b536a29615bccc6c7fd531e3eb323edb051b4cb5134cb878c2a8c6051be5bc6d",
+        "prepared": "285874a0e4c44997371941e300d11ed8ac8da0971b8a58fbbbddede89fc1ce0d"
+      }
+    },
+    {
+      "track_id": "04_Funk2-108-Eb_solo",
+      "performer_id": "04",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "4fbc2976aa0e1d6a033d915cf729fd02c2ca3cfa8f8c420301ec764a490feac5",
+      "audio_sha256": "f1d2b786faabbf6330ee3e78edb1f107e29320d233053b1daedcfe058830c499",
+      "prepared_file": "04_Funk2-108-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Funk2-108-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Funk2-108-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Funk2-108-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "f1d2b786faabbf6330ee3e78edb1f107e29320d233053b1daedcfe058830c499",
+        "annotation": "4fbc2976aa0e1d6a033d915cf729fd02c2ca3cfa8f8c420301ec764a490feac5",
+        "prepared": "1dce376b56996a5b1427943e27b3e75e5e35bc6661e7a6438493dd9a1c43173a"
+      }
+    },
+    {
+      "track_id": "04_Funk2-119-G_comp",
+      "performer_id": "04",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "7453b7207b821d89933e7d0e20c5189f284aec5d6736a0669d93ceed96fed578",
+      "audio_sha256": "a1241d1af68f1bad6b3eceb491d8bf9ccf91a14ab822ff5ee88d5ff170d53669",
+      "prepared_file": "04_Funk2-119-G_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Funk2-119-G_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Funk2-119-G_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Funk2-119-G_comp.npz"
+      },
+      "hashes": {
+        "audio": "a1241d1af68f1bad6b3eceb491d8bf9ccf91a14ab822ff5ee88d5ff170d53669",
+        "annotation": "7453b7207b821d89933e7d0e20c5189f284aec5d6736a0669d93ceed96fed578",
+        "prepared": "c816abd5c42952093403307769cc3dbe8eb48592bbe0eaa3a6c7d250c755475e"
+      }
+    },
+    {
+      "track_id": "04_Funk2-119-G_solo",
+      "performer_id": "04",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "dee6c73a914b8e435b0809838f8b1648fea08c28a698b6fa02bf092991edb481",
+      "audio_sha256": "444e5dfa0eba17e8a4c6ec3b45a2fc2a5973a098558c31024674bf199f3c42a6",
+      "prepared_file": "04_Funk2-119-G_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Funk2-119-G_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Funk2-119-G_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Funk2-119-G_solo.npz"
+      },
+      "hashes": {
+        "audio": "444e5dfa0eba17e8a4c6ec3b45a2fc2a5973a098558c31024674bf199f3c42a6",
+        "annotation": "dee6c73a914b8e435b0809838f8b1648fea08c28a698b6fa02bf092991edb481",
+        "prepared": "fd1bb7827fbf55b0b7dc87152f44f9852a2315365c11d723b7f7d1f0c2afb2b4"
+      }
+    },
+    {
+      "track_id": "04_Jazz2-110-Bb_comp",
+      "performer_id": "04",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "f93cdec6210d5c7cdba6b4c61f75d5c641a5c8a6b3ef0cb847cd043c5e3ab13a",
+      "audio_sha256": "5f028fbe1bde26d30494b2075a7c967812e866a33f5554a00078887336b14668",
+      "prepared_file": "04_Jazz2-110-Bb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Jazz2-110-Bb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Jazz2-110-Bb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Jazz2-110-Bb_comp.npz"
+      },
+      "hashes": {
+        "audio": "5f028fbe1bde26d30494b2075a7c967812e866a33f5554a00078887336b14668",
+        "annotation": "f93cdec6210d5c7cdba6b4c61f75d5c641a5c8a6b3ef0cb847cd043c5e3ab13a",
+        "prepared": "4021279167973c96bee8c616d819ea237348dc8446325b5940233d63278a2bf2"
+      }
+    },
+    {
+      "track_id": "04_Jazz2-110-Bb_solo",
+      "performer_id": "04",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "a4f99a1b804275b5c6fb9219f14281d5a32393adc427b8f3d3ec8d09bfb61499",
+      "audio_sha256": "302fa1c23166565ee9197d481a8bd05c763ceaf14c67cf1ac8b4f905364a124b",
+      "prepared_file": "04_Jazz2-110-Bb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Jazz2-110-Bb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Jazz2-110-Bb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Jazz2-110-Bb_solo.npz"
+      },
+      "hashes": {
+        "audio": "302fa1c23166565ee9197d481a8bd05c763ceaf14c67cf1ac8b4f905364a124b",
+        "annotation": "a4f99a1b804275b5c6fb9219f14281d5a32393adc427b8f3d3ec8d09bfb61499",
+        "prepared": "17c12a3142795513c510261ca64a536a4859dcc1e259042867c33a4f83d398e0"
+      }
+    },
+    {
+      "track_id": "04_Jazz2-187-F#_comp",
+      "performer_id": "04",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "9ab8c1971171b03245b38e7bd07ccf0c8fc3628b18d30f7ee968b324da9bf645",
+      "audio_sha256": "eaf2a0047227569c8b8c2359242ba6fdafdceca116f991cca17884d2808ad9c1",
+      "prepared_file": "04_Jazz2-187-F#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Jazz2-187-F#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Jazz2-187-F#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Jazz2-187-F#_comp.npz"
+      },
+      "hashes": {
+        "audio": "eaf2a0047227569c8b8c2359242ba6fdafdceca116f991cca17884d2808ad9c1",
+        "annotation": "9ab8c1971171b03245b38e7bd07ccf0c8fc3628b18d30f7ee968b324da9bf645",
+        "prepared": "1eec3cbc112cd7608ef846b65df53ba50b904f4a123059d7f770c12ac5ded05b"
+      }
+    },
+    {
+      "track_id": "04_Jazz2-187-F#_solo",
+      "performer_id": "04",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "2023e5ff1526f1175049d248ca957fd77b7b1f4204a457b7bed4c8b1a629257d",
+      "audio_sha256": "051334190a0f57bc6004e9ad8cad00e2e7e3694a88d09f76077436c11d6a53b3",
+      "prepared_file": "04_Jazz2-187-F#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Jazz2-187-F#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Jazz2-187-F#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Jazz2-187-F#_solo.npz"
+      },
+      "hashes": {
+        "audio": "051334190a0f57bc6004e9ad8cad00e2e7e3694a88d09f76077436c11d6a53b3",
+        "annotation": "2023e5ff1526f1175049d248ca957fd77b7b1f4204a457b7bed4c8b1a629257d",
+        "prepared": "afe5ad6a6cf4b30217272f28c8f9625d7032cc1e4a1c52e1473928e0739c3c06"
+      }
+    },
+    {
+      "track_id": "04_Rock2-142-D_comp",
+      "performer_id": "04",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "aaab63931089e7910af048ab49e10f99c2302b83cdfc78d077e74d5c228625ce",
+      "audio_sha256": "77589eeda2dfd7a8e8652b9b0c8a002529d911786e4be29c7bafda31fa32ba99",
+      "prepared_file": "04_Rock2-142-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Rock2-142-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Rock2-142-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Rock2-142-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "77589eeda2dfd7a8e8652b9b0c8a002529d911786e4be29c7bafda31fa32ba99",
+        "annotation": "aaab63931089e7910af048ab49e10f99c2302b83cdfc78d077e74d5c228625ce",
+        "prepared": "d1bd8f3cbaafbff6c75063d9ac0bcb78ed9328260b02ca435b8d3e0e956cceb9"
+      }
+    },
+    {
+      "track_id": "04_Rock2-142-D_solo",
+      "performer_id": "04",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "c290545ba40d4b16d86ea83575093b22363ff6bd959af5f6b1c3cdc173e7306f",
+      "audio_sha256": "0cb70571359b36a52e5b0aa77e40e68737b4c4e9726a529a03c639890a1afea9",
+      "prepared_file": "04_Rock2-142-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Rock2-142-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Rock2-142-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Rock2-142-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "0cb70571359b36a52e5b0aa77e40e68737b4c4e9726a529a03c639890a1afea9",
+        "annotation": "c290545ba40d4b16d86ea83575093b22363ff6bd959af5f6b1c3cdc173e7306f",
+        "prepared": "a939f1bcba0b335c59aeae3bbd6b5e960ccf537a8db39d715d0f16441516bfc1"
+      }
+    },
+    {
+      "track_id": "04_Rock2-85-F_comp",
+      "performer_id": "04",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "19909e5f07540e8c368f053c1995398e021afdf7e00446f61ddb96439f625c52",
+      "audio_sha256": "922c7bf773689e55e059c86fd7055fcdc5b3dc33bda75d2ecc4a97ac1f5f431b",
+      "prepared_file": "04_Rock2-85-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Rock2-85-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Rock2-85-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Rock2-85-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "922c7bf773689e55e059c86fd7055fcdc5b3dc33bda75d2ecc4a97ac1f5f431b",
+        "annotation": "19909e5f07540e8c368f053c1995398e021afdf7e00446f61ddb96439f625c52",
+        "prepared": "6fb6f60a50d7f1b51e93e7d4ea2a3d5475d01444c1e4685a93df763567adf9e9"
+      }
+    },
+    {
+      "track_id": "04_Rock2-85-F_solo",
+      "performer_id": "04",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "49beb99e2ca667bd73a2617dffdc6132211d1432ab2715410d638c95036a6465",
+      "audio_sha256": "0bc0cc32d83302843b391a8e50db4f997034dd4dfbbbe9efe519957b5c531cfb",
+      "prepared_file": "04_Rock2-85-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_Rock2-85-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_Rock2-85-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_Rock2-85-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "0bc0cc32d83302843b391a8e50db4f997034dd4dfbbbe9efe519957b5c531cfb",
+        "annotation": "49beb99e2ca667bd73a2617dffdc6132211d1432ab2715410d638c95036a6465",
+        "prepared": "aac281698bec4c820a542c403f2e62e4c971f58b38d97cc3ff4fc04b88a3ef68"
+      }
+    },
+    {
+      "track_id": "04_SS2-107-Ab_comp",
+      "performer_id": "04",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "af25369890af9f973ff2452806a919bbb4db344dbe329c1aad88f29c4d3179de",
+      "audio_sha256": "6222641015ef25c1423453949988509353c7bd6cae2b16032a3c64b9d990cd7b",
+      "prepared_file": "04_SS2-107-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_SS2-107-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_SS2-107-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_SS2-107-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "6222641015ef25c1423453949988509353c7bd6cae2b16032a3c64b9d990cd7b",
+        "annotation": "af25369890af9f973ff2452806a919bbb4db344dbe329c1aad88f29c4d3179de",
+        "prepared": "ccfb61d3833a01b3531364c4b00ed1e3156036d4d0a9d59b88ab673c90c01e80"
+      },
+      "retained_lv_sha256": "7496261eb79ba4a174e1151dca742c408cc0e6167472fc5ee5a1c1ad5532bb30"
+    },
+    {
+      "track_id": "04_SS2-107-Ab_solo",
+      "performer_id": "04",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "5d9266b3b7d7ea6dd05afccbdd8ac02c2a0a94adcd2bc8ff7652d1eaf6967c78",
+      "audio_sha256": "e4edcc321fc3540d5c5b532e1b149e816a2a3d6ac46eda2ccd6299c28032b6f7",
+      "prepared_file": "04_SS2-107-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_SS2-107-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_SS2-107-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_SS2-107-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "e4edcc321fc3540d5c5b532e1b149e816a2a3d6ac46eda2ccd6299c28032b6f7",
+        "annotation": "5d9266b3b7d7ea6dd05afccbdd8ac02c2a0a94adcd2bc8ff7652d1eaf6967c78",
+        "prepared": "394e645746b6055af5676a92a822d622055ccd94806edcb1c664e56d01f4aeca"
+      }
+    },
+    {
+      "track_id": "04_SS2-88-F_comp",
+      "performer_id": "04",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "5228c2f884bf4c55c58579d9a26c0bdcfb99b948038eae203f83e040b0457cd2",
+      "audio_sha256": "1c1c5351e498a64ec226e06a114c846ee2c6eaf575083339b534ad911aa56f12",
+      "prepared_file": "04_SS2-88-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_SS2-88-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_SS2-88-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_SS2-88-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "1c1c5351e498a64ec226e06a114c846ee2c6eaf575083339b534ad911aa56f12",
+        "annotation": "5228c2f884bf4c55c58579d9a26c0bdcfb99b948038eae203f83e040b0457cd2",
+        "prepared": "aa29768dcd012efdfd142696a8844bf4b7aca8d363466f83ee309456c1015ddf"
+      }
+    },
+    {
+      "track_id": "04_SS2-88-F_solo",
+      "performer_id": "04",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "660509244a144c5aa2e581dc3108779884c56f323f49262fe9b363761503f4f8",
+      "audio_sha256": "6fb6e7ebc19e516eb5e11609e29563784b5abb02cc40161ffb3f04c31be02503",
+      "prepared_file": "04_SS2-88-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\04_SS2-88-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\04_SS2-88-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\04_SS2-88-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "6fb6e7ebc19e516eb5e11609e29563784b5abb02cc40161ffb3f04c31be02503",
+        "annotation": "660509244a144c5aa2e581dc3108779884c56f323f49262fe9b363761503f4f8",
+        "prepared": "b053ee390f6d78e8320efd7b3245f5f9a43d4faf168a071077baf45794aeed36"
+      }
+    },
+    {
+      "track_id": "05_BN2-131-B_comp",
+      "performer_id": "05",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "bacdcb8de89900a80950f030860a45086b2dec027f26dd740842508c26f8a743",
+      "audio_sha256": "33171facce77240e81474bb0ea1e023a3892af2448bc03feebe4b193f1ad967e",
+      "prepared_file": "05_BN2-131-B_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_BN2-131-B_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_BN2-131-B_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_BN2-131-B_comp.npz"
+      },
+      "hashes": {
+        "audio": "33171facce77240e81474bb0ea1e023a3892af2448bc03feebe4b193f1ad967e",
+        "annotation": "bacdcb8de89900a80950f030860a45086b2dec027f26dd740842508c26f8a743",
+        "prepared": "551ae49b5e50b6527635b78572c28ba8b78731ce8153909542c6c7a8d14c530d"
+      },
+      "retained_lv_sha256": "00f4c7d15fdd667b2cfba66574b02fbce1c295f61d47bdb292df048a6a27922e"
+    },
+    {
+      "track_id": "05_BN2-131-B_solo",
+      "performer_id": "05",
+      "composition_id": "BN2-131-B",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 29.30639455782313,
+      "frames": 1259,
+      "segments": 14,
+      "annotation_sha256": "5abf98549f95013c0c8735dc93089bd1b53c63bfd0ebf7323f055494546f05f8",
+      "audio_sha256": "322c58673a25a8cfd9a3362502d0b274509b9e6013b94f2b3f06205881198220",
+      "prepared_file": "05_BN2-131-B_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_BN2-131-B_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_BN2-131-B_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_BN2-131-B_solo.npz"
+      },
+      "hashes": {
+        "audio": "322c58673a25a8cfd9a3362502d0b274509b9e6013b94f2b3f06205881198220",
+        "annotation": "5abf98549f95013c0c8735dc93089bd1b53c63bfd0ebf7323f055494546f05f8",
+        "prepared": "0ca478ce7a6f6636206e323d0f2c2fc93d2a3ee8ab66d5610631487a4dcb5f1e"
+      }
+    },
+    {
+      "track_id": "05_BN2-166-Ab_comp",
+      "performer_id": "05",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "410e7373f7753871225bdc99f0f96d4f9e911fb72602427e1b177458430a4fda",
+      "audio_sha256": "58e771edbaedf69eb0216b8e77c82f468e8f0dd6045bfdcda585a0f346f86213",
+      "prepared_file": "05_BN2-166-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_BN2-166-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_BN2-166-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_BN2-166-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "58e771edbaedf69eb0216b8e77c82f468e8f0dd6045bfdcda585a0f346f86213",
+        "annotation": "410e7373f7753871225bdc99f0f96d4f9e911fb72602427e1b177458430a4fda",
+        "prepared": "db8ab7fbdc0abf8c4bdaf9c178f187ff825efb03d76ae143eed4c18e05a37bbd"
+      }
+    },
+    {
+      "track_id": "05_BN2-166-Ab_solo",
+      "performer_id": "05",
+      "composition_id": "BN2-166-Ab",
+      "progression_family": 2,
+      "style": "BN",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 23.13,
+      "frames": 993,
+      "segments": 14,
+      "annotation_sha256": "26d57e376300e22f9be29270492fb0a530a236e3e3d26529342348c815259c45",
+      "audio_sha256": "8768a9309b9b7265c92b2b4bd816bebd3f09ee1ba4c7a5a9f1bcdab7a207e926",
+      "prepared_file": "05_BN2-166-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_BN2-166-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_BN2-166-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_BN2-166-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "8768a9309b9b7265c92b2b4bd816bebd3f09ee1ba4c7a5a9f1bcdab7a207e926",
+        "annotation": "26d57e376300e22f9be29270492fb0a530a236e3e3d26529342348c815259c45",
+        "prepared": "69526a34f47335e769e3252fc5aa4a0acc168b45a8081b3022a664f009086b72"
+      }
+    },
+    {
+      "track_id": "05_Funk2-108-Eb_comp",
+      "performer_id": "05",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "cdf773d3d9d8dda211fed2e728a4bc7e9d2461e1b2f1ce65bde2d3a02b2c46bc",
+      "audio_sha256": "39bd4f7812fa252c6ef89d1d14004436cb3d1ef43cbe422332ccf1712def513b",
+      "prepared_file": "05_Funk2-108-Eb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Funk2-108-Eb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Funk2-108-Eb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Funk2-108-Eb_comp.npz"
+      },
+      "hashes": {
+        "audio": "39bd4f7812fa252c6ef89d1d14004436cb3d1ef43cbe422332ccf1712def513b",
+        "annotation": "cdf773d3d9d8dda211fed2e728a4bc7e9d2461e1b2f1ce65bde2d3a02b2c46bc",
+        "prepared": "3d4c2da8d70c0a838e45ffc82e7cd5d769d2465e47ec1455a96428d312999ce9"
+      }
+    },
+    {
+      "track_id": "05_Funk2-108-Eb_solo",
+      "performer_id": "05",
+      "composition_id": "Funk2-108-Eb",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.54839002267574,
+      "frames": 1527,
+      "segments": 14,
+      "annotation_sha256": "4c61e831bb30651679642d3cdaff7307afbbd84950384534dcab09f4ea43fd7c",
+      "audio_sha256": "07ef5b704e9c23d438391b3e756e600c95b592061d7e090bc730b8c8bd58efd5",
+      "prepared_file": "05_Funk2-108-Eb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Funk2-108-Eb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Funk2-108-Eb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Funk2-108-Eb_solo.npz"
+      },
+      "hashes": {
+        "audio": "07ef5b704e9c23d438391b3e756e600c95b592061d7e090bc730b8c8bd58efd5",
+        "annotation": "4c61e831bb30651679642d3cdaff7307afbbd84950384534dcab09f4ea43fd7c",
+        "prepared": "43fac4af0635e4371148a8c6bdbbd36a07ec2690d70dc8b44b9469971c378fa9"
+      },
+      "retained_lv_sha256": "634ec0efa3d23e7be2fefd93b5ccd9ce1e0edc9f73497c489efe702ca63c2a3b"
+    },
+    {
+      "track_id": "05_Funk2-119-G_comp",
+      "performer_id": "05",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "c2b5c294beeb9575f118bdbf8ae8e71f98e35ef977134a977e28626efe3f829b",
+      "audio_sha256": "d8056eeace67f5451907b7a1d779e1ea576fee79f2df73e68909c7e944ac43a2",
+      "prepared_file": "05_Funk2-119-G_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Funk2-119-G_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Funk2-119-G_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Funk2-119-G_comp.npz"
+      },
+      "hashes": {
+        "audio": "d8056eeace67f5451907b7a1d779e1ea576fee79f2df73e68909c7e944ac43a2",
+        "annotation": "c2b5c294beeb9575f118bdbf8ae8e71f98e35ef977134a977e28626efe3f829b",
+        "prepared": "c4393193d49bd1801dd6c9bf9861790819450d251ab3e14291f4d5a5eca63f43"
+      }
+    },
+    {
+      "track_id": "05_Funk2-119-G_solo",
+      "performer_id": "05",
+      "composition_id": "Funk2-119-G",
+      "progression_family": 2,
+      "style": "Funk",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 32.26319727891156,
+      "frames": 1386,
+      "segments": 14,
+      "annotation_sha256": "896e4e2cd347cc3d54829d9aefa25018446b7868129078e37e3f752c78c23f89",
+      "audio_sha256": "45eb1e51b7ad43445996e5a7a882830cb572ed043a54199711107e61d97c8ffa",
+      "prepared_file": "05_Funk2-119-G_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Funk2-119-G_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Funk2-119-G_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Funk2-119-G_solo.npz"
+      },
+      "hashes": {
+        "audio": "45eb1e51b7ad43445996e5a7a882830cb572ed043a54199711107e61d97c8ffa",
+        "annotation": "896e4e2cd347cc3d54829d9aefa25018446b7868129078e37e3f752c78c23f89",
+        "prepared": "f748eea716c429d4be190642e7f4cda2746cae3c7d227571e927ba4a6b4abb68"
+      }
+    },
+    {
+      "track_id": "05_Jazz2-110-Bb_comp",
+      "performer_id": "05",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "c420a87840a1e19b4641bfac47a3198a7de1ba1aeb304af24731d627cfaf9cef",
+      "audio_sha256": "0ff82f67a72707cfa4f263aac890baeb9a11f50d0e1487c8f187a2e614b6bd9d",
+      "prepared_file": "05_Jazz2-110-Bb_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Jazz2-110-Bb_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Jazz2-110-Bb_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Jazz2-110-Bb_comp.npz"
+      },
+      "hashes": {
+        "audio": "0ff82f67a72707cfa4f263aac890baeb9a11f50d0e1487c8f187a2e614b6bd9d",
+        "annotation": "c420a87840a1e19b4641bfac47a3198a7de1ba1aeb304af24731d627cfaf9cef",
+        "prepared": "ff367d222b84efef69aa2ff9136bd3ddefbb03b0f629940ebe93c79a684c72b5"
+      }
+    },
+    {
+      "track_id": "05_Jazz2-110-Bb_solo",
+      "performer_id": "05",
+      "composition_id": "Jazz2-110-Bb",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 34.90319727891156,
+      "frames": 1500,
+      "segments": 14,
+      "annotation_sha256": "90f858c380bf035103a77dfb0ef71257b6594f310cdf191f9a415df055e99ace",
+      "audio_sha256": "03004020bbfea35d518742a621e30c00f753f5f033d199b2f75d43eaf459fa56",
+      "prepared_file": "05_Jazz2-110-Bb_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Jazz2-110-Bb_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Jazz2-110-Bb_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Jazz2-110-Bb_solo.npz"
+      },
+      "hashes": {
+        "audio": "03004020bbfea35d518742a621e30c00f753f5f033d199b2f75d43eaf459fa56",
+        "annotation": "90f858c380bf035103a77dfb0ef71257b6594f310cdf191f9a415df055e99ace",
+        "prepared": "2e59902036ed397bf315476d37cbcfc3a03b0837f11e3c8c6c866d508a7447d6"
+      }
+    },
+    {
+      "track_id": "05_Jazz2-187-F#_comp",
+      "performer_id": "05",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "825f47bfe2b6b7cb12b5289315bb356108b21d919f3c95337526b373ca681e90",
+      "audio_sha256": "06a01d0db47078e587b29399c5445e7cbd90665a1da278cb0614f28523e2fe01",
+      "prepared_file": "05_Jazz2-187-F#_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Jazz2-187-F#_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Jazz2-187-F#_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Jazz2-187-F#_comp.npz"
+      },
+      "hashes": {
+        "audio": "06a01d0db47078e587b29399c5445e7cbd90665a1da278cb0614f28523e2fe01",
+        "annotation": "825f47bfe2b6b7cb12b5289315bb356108b21d919f3c95337526b373ca681e90",
+        "prepared": "96fbc04c12581bd1c870be4617167adb7a386751fa2dbd0fa43850c64975a8ca"
+      }
+    },
+    {
+      "track_id": "05_Jazz2-187-F#_solo",
+      "performer_id": "05",
+      "composition_id": "Jazz2-187-F#",
+      "progression_family": 2,
+      "style": "Jazz",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 20.531995464852606,
+      "frames": 881,
+      "segments": 14,
+      "annotation_sha256": "f00dc302fb3dc06add5e99f57726d216b27416892714726949f7b7fe88d365da",
+      "audio_sha256": "6e41c6d76dc0cdcd516741ba7d668f8f3ced93585fb6fae50ba13311315f4e95",
+      "prepared_file": "05_Jazz2-187-F#_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Jazz2-187-F#_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Jazz2-187-F#_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Jazz2-187-F#_solo.npz"
+      },
+      "hashes": {
+        "audio": "6e41c6d76dc0cdcd516741ba7d668f8f3ced93585fb6fae50ba13311315f4e95",
+        "annotation": "f00dc302fb3dc06add5e99f57726d216b27416892714726949f7b7fe88d365da",
+        "prepared": "5a7441f96a4a86c62810e3dcfa13c53f0d00b81ded1fe0a76b7b05d684d6cac2"
+      }
+    },
+    {
+      "track_id": "05_Rock2-142-D_comp",
+      "performer_id": "05",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "989dcd1622894619d6a08775dc7d79a6d3a35a10a244f27af88a27d5983741a5",
+      "audio_sha256": "5f5b02aa23a36c31f59e56ccec16212d60549d15d60f7f0f61f516c02ee0fa7c",
+      "prepared_file": "05_Rock2-142-D_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Rock2-142-D_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Rock2-142-D_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Rock2-142-D_comp.npz"
+      },
+      "hashes": {
+        "audio": "5f5b02aa23a36c31f59e56ccec16212d60549d15d60f7f0f61f516c02ee0fa7c",
+        "annotation": "989dcd1622894619d6a08775dc7d79a6d3a35a10a244f27af88a27d5983741a5",
+        "prepared": "54ab565774bbbdd75f529552f598e0a2d0b7ce8cd0a7dd8671a1845cdf723518"
+      }
+    },
+    {
+      "track_id": "05_Rock2-142-D_solo",
+      "performer_id": "05",
+      "composition_id": "Rock2-142-D",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 27.041609977324264,
+      "frames": 1161,
+      "segments": 14,
+      "annotation_sha256": "e5f2a6928f583f4343389d325ae82f01f598405d9db0f890fab5402d9955e13c",
+      "audio_sha256": "2869d66963c0661aeceda104666680274e1c52ffdfa6c6990187b296d9effa99",
+      "prepared_file": "05_Rock2-142-D_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Rock2-142-D_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Rock2-142-D_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Rock2-142-D_solo.npz"
+      },
+      "hashes": {
+        "audio": "2869d66963c0661aeceda104666680274e1c52ffdfa6c6990187b296d9effa99",
+        "annotation": "e5f2a6928f583f4343389d325ae82f01f598405d9db0f890fab5402d9955e13c",
+        "prepared": "82798140e96528981ccd23bca7f146cd71f720cbd6bfb970ee020d6cb7109e91"
+      }
+    },
+    {
+      "track_id": "05_Rock2-85-F_comp",
+      "performer_id": "05",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "1ff66959f3a7cbe742cfa0ba876c69a1d5f00489f70093e5f01676ece6109d1a",
+      "audio_sha256": "4be5240ae9037dd577544dc456bf73d4ff64c60e24f2cf678888d44338e02d3e",
+      "prepared_file": "05_Rock2-85-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Rock2-85-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Rock2-85-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Rock2-85-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "4be5240ae9037dd577544dc456bf73d4ff64c60e24f2cf678888d44338e02d3e",
+        "annotation": "1ff66959f3a7cbe742cfa0ba876c69a1d5f00489f70093e5f01676ece6109d1a",
+        "prepared": "8ad17c1e745fc80655a5d20f84d3827ec530ffef294c7bc2dba729787491313c"
+      }
+    },
+    {
+      "track_id": "05_Rock2-85-F_solo",
+      "performer_id": "05",
+      "composition_id": "Rock2-85-F",
+      "progression_family": 2,
+      "style": "Rock",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 45.173197278911566,
+      "frames": 1942,
+      "segments": 14,
+      "annotation_sha256": "4bab0bb0eae8d2ef07ef27c3449cde4a08f391a9eda81fbbeb90cd6c53d38f10",
+      "audio_sha256": "44203ba40a1bc5675c1991666e7a780b8cd4f3af566b2c8addca7b699616aa03",
+      "prepared_file": "05_Rock2-85-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_Rock2-85-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_Rock2-85-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_Rock2-85-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "44203ba40a1bc5675c1991666e7a780b8cd4f3af566b2c8addca7b699616aa03",
+        "annotation": "4bab0bb0eae8d2ef07ef27c3449cde4a08f391a9eda81fbbeb90cd6c53d38f10",
+        "prepared": "6df74b51e43fdd23efb1b4f814d3ee2bae9ec809015e5de3edb6b7a8bdd37456"
+      }
+    },
+    {
+      "track_id": "05_SS2-107-Ab_comp",
+      "performer_id": "05",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "c1633add5661e3dd8020b70d934ff147a137789662d4fd8bb0f526d138a8328c",
+      "audio_sha256": "c892d100e7ba04f50c4a112da2e9e41633241384b5de14c346e55110d89d626f",
+      "prepared_file": "05_SS2-107-Ab_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_SS2-107-Ab_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_SS2-107-Ab_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_SS2-107-Ab_comp.npz"
+      },
+      "hashes": {
+        "audio": "c892d100e7ba04f50c4a112da2e9e41633241384b5de14c346e55110d89d626f",
+        "annotation": "c1633add5661e3dd8020b70d934ff147a137789662d4fd8bb0f526d138a8328c",
+        "prepared": "c17321c4ea15721ac14951964d9c0fcc5f54b8a6d68422b0bd9f3c2d674a771d"
+      }
+    },
+    {
+      "track_id": "05_SS2-107-Ab_solo",
+      "performer_id": "05",
+      "composition_id": "SS2-107-Ab",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 35.88639455782313,
+      "frames": 1542,
+      "segments": 14,
+      "annotation_sha256": "9794cedc7bdc3c0f517345c5270af2f619c8e367d7d9fa7f073500658846fa07",
+      "audio_sha256": "5194998c80ed74606757b45f4fa1dd334118a6e2dfa7b297599d94a7c765f648",
+      "prepared_file": "05_SS2-107-Ab_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_SS2-107-Ab_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_SS2-107-Ab_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_SS2-107-Ab_solo.npz"
+      },
+      "hashes": {
+        "audio": "5194998c80ed74606757b45f4fa1dd334118a6e2dfa7b297599d94a7c765f648",
+        "annotation": "9794cedc7bdc3c0f517345c5270af2f619c8e367d7d9fa7f073500658846fa07",
+        "prepared": "cdfaf2d88f8d68a2c40f30efc0f264f1d79ec30ddb0df7c2998fa013d32af854"
+      }
+    },
+    {
+      "track_id": "05_SS2-88-F_comp",
+      "performer_id": "05",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "comp",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "871e3da7016e5c472e0abf351bcd4aea8f041924ea1afbf9f18b1d460f86550e",
+      "audio_sha256": "c6e469ea28ec2b3def19d17c9498db09fd9a7b095ea44cea3313cf424e323220",
+      "prepared_file": "05_SS2-88-F_comp.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_SS2-88-F_comp_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_SS2-88-F_comp.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_SS2-88-F_comp.npz"
+      },
+      "hashes": {
+        "audio": "c6e469ea28ec2b3def19d17c9498db09fd9a7b095ea44cea3313cf424e323220",
+        "annotation": "871e3da7016e5c472e0abf351bcd4aea8f041924ea1afbf9f18b1d460f86550e",
+        "prepared": "ecec888ec20a074a9371bf7a7e190751a74090eb51722b0b4be87cc081e877fb"
+      }
+    },
+    {
+      "track_id": "05_SS2-88-F_solo",
+      "performer_id": "05",
+      "composition_id": "SS2-88-F",
+      "progression_family": 2,
+      "style": "SS",
+      "version": "solo",
+      "split": "validation",
+      "duration_seconds": 43.62920634920635,
+      "frames": 1875,
+      "segments": 14,
+      "annotation_sha256": "654a69a86cfaaf46c3a6c5a709de5a83bcb34de107d2e7a7aebbf79b68020184",
+      "audio_sha256": "5ec8758016f8f3eb02b83907db981533b773594e3aeb44f313150a8d51a17cc0",
+      "prepared_file": "05_SS2-88-F_solo.npz",
+      "paths": {
+        "audio": "ml\\data\\downloads\\extracted\\audio\\05_SS2-88-F_solo_mic.wav",
+        "annotation": "ml\\data\\downloads\\extracted\\annotations\\05_SS2-88-F_solo.jams",
+        "prepared": "ml\\data\\prepared\\guitarset-v1\\05_SS2-88-F_solo.npz"
+      },
+      "hashes": {
+        "audio": "5ec8758016f8f3eb02b83907db981533b773594e3aeb44f313150a8d51a17cc0",
+        "annotation": "654a69a86cfaaf46c3a6c5a709de5a83bcb34de107d2e7a7aebbf79b68020184",
+        "prepared": "9b4f5b7cce1c7814dd32380440a3c535e6a1fb53ac22b202ffdb86757df11ae0"
+      }
+    }
+  ],
+  "sources": {
+    "ml\\experiments\\broad_recognition.py": "4e775101daad6263cc3998cd1e5d3ea3ae24276df8035c2b49ea253f45b72ae2",
+    "ml\\experiments\\original_btc.py": "0eb6d6de21bbe0a51f11c8133f9bc4cd7e45e27af6a140de0df007d69c4bd20f",
+    "ml\\harmonia_ml\\inference\\whole_song.py": "6633491708c7930fc2a8e4969111dda0dd80629daa7f65ee48460dfdee98bb4c",
+    "ml\\experiments\\stabilization\\compare.py": "7cb004a63e4406a2cef5734457f9eb4f2f904e9eca62e7a025315857d1503c73",
+    "ml\\harmonia_ml\\data\\labels.py": "00f121b6b6b00b96ae308c8615c69a088917064370e4822110771427c76e641a",
+    "docs\\broad-recognition-protocol.md": "96091ee37fa159f509d3265272437d9b4f089b0452986ecd9799f540ed350d6f",
+    "ml\\data\\prepared\\guitarset-v1\\manifest.json": "3ca454338f85375d93744862d8d3666f5efd6584f90527401d642ff7c13b29e7"
+  }
+}

@@ -1,0 +1,1304 @@
+{
+  "id": "05_Funk2-108-Eb_comp",
+  "domain": "guitarset",
+  "tuning_semitones": 0.020000000000000018,
+  "applied": false,
+  "arms": {
+    "original": {
+      "frames": {
+        "root": {
+          "accuracy": 0.5350360183366077,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "1": {
+              "support": 192,
+              "predicted": 57,
+              "precision": 1.0,
+              "recall": 0.296875,
+              "f1": 0.4578313253012048
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 380,
+              "predicted": 377,
+              "precision": 0.8859416445623343,
+              "recall": 0.8789473684210526,
+              "f1": 0.8824306472919419
+            },
+            "4": {
+              "support": 0,
+              "predicted": 89,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "5": {
+              "support": 192,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "6": {
+              "support": 191,
+              "predicted": 154,
+              "precision": 0.7402597402597403,
+              "recall": 0.5968586387434555,
+              "f1": 0.6608695652173913
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "8": {
+              "support": 190,
+              "predicted": 162,
+              "precision": 0.8024691358024691,
+              "recall": 0.6842105263157895,
+              "f1": 0.7386363636363636
+            },
+            "9": {
+              "support": 0,
+              "predicted": 25,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "10": {
+              "support": 191,
+              "predicted": 147,
+              "precision": 0.8571428571428571,
+              "recall": 0.6596858638743456,
+              "f1": 0.7455621301775148
+            },
+            "11": {
+              "support": 191,
+              "predicted": 70,
+              "precision": 0.8,
+              "recall": 0.2931937172774869,
+              "f1": 0.42911877394636017
+            },
+            "12": {
+              "support": 0,
+              "predicted": 446,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            }
+          }
+        },
+        "triad": {
+          "accuracy": 0.5317616240995415,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 446,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "1": {
+              "support": 669,
+              "predicted": 637,
+              "precision": 0.6279434850863422,
+              "recall": 0.5979073243647235,
+              "f1": 0.6125574272588055
+            },
+            "2": {
+              "support": 762,
+              "predicted": 444,
+              "precision": 0.9279279279279279,
+              "recall": 0.5406824146981627,
+              "f1": 0.6832504145936982
+            },
+            "3": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "4": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "5": {
+              "support": 96,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "6": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            }
+          }
+        },
+        "seventh": {
+          "accuracy": 0.5533726260641781,
+          "classes": {
+            "0": {
+              "support": 476,
+              "predicted": 536,
+              "precision": 0.30783582089552236,
+              "recall": 0.34663865546218486,
+              "f1": 0.32608695652173914
+            },
+            "1": {
+              "support": 955,
+              "predicted": 991,
+              "precision": 0.686175580221998,
+              "recall": 0.7120418848167539,
+              "f1": 0.6988694758478932
+            },
+            "2": {
+              "support": 96,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "3": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            }
+          }
+        },
+        "bass": {
+          "accuracy": 0.45579567779960706,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "1": {
+              "support": 192,
+              "predicted": 57,
+              "precision": 1.0,
+              "recall": 0.296875,
+              "f1": 0.4578313253012048
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 380,
+              "predicted": 377,
+              "precision": 0.8859416445623343,
+              "recall": 0.8789473684210526,
+              "f1": 0.8824306472919419
+            },
+            "4": {
+              "support": 0,
+              "predicted": 114,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "5": {
+              "support": 192,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "6": {
+              "support": 191,
+              "predicted": 154,
+              "precision": 0.3181818181818182,
+              "recall": 0.25654450261780104,
+              "f1": 0.28405797101449276
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "8": {
+              "support": 190,
+              "predicted": 162,
+              "precision": 0.8024691358024691,
+              "recall": 0.6842105263157895,
+              "f1": 0.7386363636363636
+            },
+            "9": {
+              "support": 96,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "10": {
+              "support": 191,
+              "predicted": 147,
+              "precision": 0.8571428571428571,
+              "recall": 0.6596858638743456,
+              "f1": 0.7455621301775148
+            },
+            "11": {
+              "support": 95,
+              "predicted": 70,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "12": {
+              "support": 0,
+              "predicted": 446,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            }
+          }
+        },
+        "reduced_structural_exact": 0.26719056974459726,
+        "scored_frames": 1527,
+        "extensions": {
+          "6": {
+            "accuracy": 0.8133595284872298,
+            "classes": {
+              "0": {
+                "support": 1242,
+                "predicted": 1527,
+                "precision": 0.8133595284872298,
+                "recall": 1.0,
+                "f1": 0.8970747562296858
+              },
+              "1": {
+                "support": 285,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          },
+          "9": {
+            "accuracy": 0.93713163064833,
+            "classes": {
+              "0": {
+                "support": 1431,
+                "predicted": 1527,
+                "precision": 0.93713163064833,
+                "recall": 1.0,
+                "f1": 0.9675456389452333
+              },
+              "1": {
+                "support": 96,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          },
+          "11": {
+            "accuracy": 1.0,
+            "classes": {
+              "0": {
+                "support": 1527,
+                "predicted": 1527,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "1": {
+                "support": 0,
+                "predicted": 0,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              }
+            }
+          },
+          "13": {
+            "accuracy": 0.8742632612966601,
+            "classes": {
+              "0": {
+                "support": 1335,
+                "predicted": 1527,
+                "precision": 0.8742632612966601,
+                "recall": 1.0,
+                "f1": 0.9329140461215933
+              },
+              "1": {
+                "support": 192,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          }
+        },
+        "inversion_presence": {
+          "accuracy": 0.7950229207596594,
+          "classes": {
+            "False": {
+              "support": 1239,
+              "predicted": 1502,
+              "precision": 0.8082556591211718,
+              "recall": 0.9798224374495561,
+              "f1": 0.8858080992338563
+            },
+            "True": {
+              "support": 288,
+              "predicted": 25,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        },
+        "inversion_frames": 288,
+        "inversion_bass_exact": 0.0
+      },
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.21,
+          "label": "N",
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 0.21,
+          "end": 2.0,
+          "label": "Ab:min7",
+          "target": [
+            8,
+            2,
+            1,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 2.0,
+          "end": 4.71,
+          "label": "N",
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 4.71,
+          "end": 6.2,
+          "label": "F#:maj",
+          "target": [
+            6,
+            1,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 6.2,
+          "end": 12.45,
+          "label": "N",
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 12.45,
+          "end": 13.58,
+          "label": "Bb:7",
+          "target": [
+            10,
+            1,
+            1,
+            10,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 13.58,
+          "end": 16.56,
+          "label": "Eb:min7",
+          "target": [
+            3,
+            2,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 16.56,
+          "end": 18.78,
+          "label": "Eb:7",
+          "target": [
+            3,
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 18.78,
+          "end": 20.74,
+          "label": "Ab:min7",
+          "target": [
+            8,
+            2,
+            1,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 20.74,
+          "end": 22.06,
+          "label": "C#:7",
+          "target": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 22.06,
+          "end": 23.29,
+          "label": "N",
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 23.29,
+          "end": 25.36,
+          "label": "F#:7",
+          "target": [
+            6,
+            1,
+            1,
+            6,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 25.36,
+          "end": 27.0,
+          "label": "B:7",
+          "target": [
+            11,
+            1,
+            1,
+            11,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 27.0,
+          "end": 29.05,
+          "label": "E:7",
+          "target": [
+            4,
+            1,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 29.05,
+          "end": 31.35,
+          "label": "Bb:7",
+          "target": [
+            10,
+            1,
+            1,
+            10,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 31.35,
+          "end": 34.92,
+          "label": "Eb:min7",
+          "target": [
+            3,
+            2,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 34.92,
+          "end": 35.54839002267574,
+          "label": "A:maj/5",
+          "target": [
+            9,
+            1,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "candidate": {
+      "frames": {
+        "root": {
+          "accuracy": 0.5350360183366077,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "1": {
+              "support": 192,
+              "predicted": 57,
+              "precision": 1.0,
+              "recall": 0.296875,
+              "f1": 0.4578313253012048
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 380,
+              "predicted": 377,
+              "precision": 0.8859416445623343,
+              "recall": 0.8789473684210526,
+              "f1": 0.8824306472919419
+            },
+            "4": {
+              "support": 0,
+              "predicted": 89,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "5": {
+              "support": 192,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "6": {
+              "support": 191,
+              "predicted": 154,
+              "precision": 0.7402597402597403,
+              "recall": 0.5968586387434555,
+              "f1": 0.6608695652173913
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "8": {
+              "support": 190,
+              "predicted": 162,
+              "precision": 0.8024691358024691,
+              "recall": 0.6842105263157895,
+              "f1": 0.7386363636363636
+            },
+            "9": {
+              "support": 0,
+              "predicted": 25,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "10": {
+              "support": 191,
+              "predicted": 147,
+              "precision": 0.8571428571428571,
+              "recall": 0.6596858638743456,
+              "f1": 0.7455621301775148
+            },
+            "11": {
+              "support": 191,
+              "predicted": 70,
+              "precision": 0.8,
+              "recall": 0.2931937172774869,
+              "f1": 0.42911877394636017
+            },
+            "12": {
+              "support": 0,
+              "predicted": 446,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            }
+          }
+        },
+        "triad": {
+          "accuracy": 0.5317616240995415,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 446,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "1": {
+              "support": 669,
+              "predicted": 637,
+              "precision": 0.6279434850863422,
+              "recall": 0.5979073243647235,
+              "f1": 0.6125574272588055
+            },
+            "2": {
+              "support": 762,
+              "predicted": 444,
+              "precision": 0.9279279279279279,
+              "recall": 0.5406824146981627,
+              "f1": 0.6832504145936982
+            },
+            "3": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "4": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "5": {
+              "support": 96,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "6": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            }
+          }
+        },
+        "seventh": {
+          "accuracy": 0.5533726260641781,
+          "classes": {
+            "0": {
+              "support": 476,
+              "predicted": 536,
+              "precision": 0.30783582089552236,
+              "recall": 0.34663865546218486,
+              "f1": 0.32608695652173914
+            },
+            "1": {
+              "support": 955,
+              "predicted": 991,
+              "precision": 0.686175580221998,
+              "recall": 0.7120418848167539,
+              "f1": 0.6988694758478932
+            },
+            "2": {
+              "support": 96,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "3": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            }
+          }
+        },
+        "bass": {
+          "accuracy": 0.45579567779960706,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "1": {
+              "support": 192,
+              "predicted": 57,
+              "precision": 1.0,
+              "recall": 0.296875,
+              "f1": 0.4578313253012048
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 380,
+              "predicted": 377,
+              "precision": 0.8859416445623343,
+              "recall": 0.8789473684210526,
+              "f1": 0.8824306472919419
+            },
+            "4": {
+              "support": 0,
+              "predicted": 114,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "5": {
+              "support": 192,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "6": {
+              "support": 191,
+              "predicted": 154,
+              "precision": 0.3181818181818182,
+              "recall": 0.25654450261780104,
+              "f1": 0.28405797101449276
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "8": {
+              "support": 190,
+              "predicted": 162,
+              "precision": 0.8024691358024691,
+              "recall": 0.6842105263157895,
+              "f1": 0.7386363636363636
+            },
+            "9": {
+              "support": 96,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "10": {
+              "support": 191,
+              "predicted": 147,
+              "precision": 0.8571428571428571,
+              "recall": 0.6596858638743456,
+              "f1": 0.7455621301775148
+            },
+            "11": {
+              "support": 95,
+              "predicted": 70,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "12": {
+              "support": 0,
+              "predicted": 446,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            }
+          }
+        },
+        "reduced_structural_exact": 0.26719056974459726,
+        "scored_frames": 1527,
+        "extensions": {
+          "6": {
+            "accuracy": 0.8133595284872298,
+            "classes": {
+              "0": {
+                "support": 1242,
+                "predicted": 1527,
+                "precision": 0.8133595284872298,
+                "recall": 1.0,
+                "f1": 0.8970747562296858
+              },
+              "1": {
+                "support": 285,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          },
+          "9": {
+            "accuracy": 0.93713163064833,
+            "classes": {
+              "0": {
+                "support": 1431,
+                "predicted": 1527,
+                "precision": 0.93713163064833,
+                "recall": 1.0,
+                "f1": 0.9675456389452333
+              },
+              "1": {
+                "support": 96,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          },
+          "11": {
+            "accuracy": 1.0,
+            "classes": {
+              "0": {
+                "support": 1527,
+                "predicted": 1527,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "1": {
+                "support": 0,
+                "predicted": 0,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              }
+            }
+          },
+          "13": {
+            "accuracy": 0.8742632612966601,
+            "classes": {
+              "0": {
+                "support": 1335,
+                "predicted": 1527,
+                "precision": 0.8742632612966601,
+                "recall": 1.0,
+                "f1": 0.9329140461215933
+              },
+              "1": {
+                "support": 192,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          }
+        },
+        "inversion_presence": {
+          "accuracy": 0.7950229207596594,
+          "classes": {
+            "False": {
+              "support": 1239,
+              "predicted": 1502,
+              "precision": 0.8082556591211718,
+              "recall": 0.9798224374495561,
+              "f1": 0.8858080992338563
+            },
+            "True": {
+              "support": 288,
+              "predicted": 25,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        },
+        "inversion_frames": 288,
+        "inversion_bass_exact": 0.0
+      },
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.21,
+          "label": "N",
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 0.21,
+          "end": 2.0,
+          "label": "Ab:min7",
+          "target": [
+            8,
+            2,
+            1,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 2.0,
+          "end": 4.71,
+          "label": "N",
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 4.71,
+          "end": 6.2,
+          "label": "F#:maj",
+          "target": [
+            6,
+            1,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 6.2,
+          "end": 12.45,
+          "label": "N",
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 12.45,
+          "end": 13.58,
+          "label": "Bb:7",
+          "target": [
+            10,
+            1,
+            1,
+            10,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 13.58,
+          "end": 16.56,
+          "label": "Eb:min7",
+          "target": [
+            3,
+            2,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 16.56,
+          "end": 18.78,
+          "label": "Eb:7",
+          "target": [
+            3,
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 18.78,
+          "end": 20.74,
+          "label": "Ab:min7",
+          "target": [
+            8,
+            2,
+            1,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 20.74,
+          "end": 22.06,
+          "label": "C#:7",
+          "target": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 22.06,
+          "end": 23.29,
+          "label": "N",
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 23.29,
+          "end": 25.36,
+          "label": "F#:7",
+          "target": [
+            6,
+            1,
+            1,
+            6,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 25.36,
+          "end": 27.0,
+          "label": "B:7",
+          "target": [
+            11,
+            1,
+            1,
+            11,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 27.0,
+          "end": 29.05,
+          "label": "E:7",
+          "target": [
+            4,
+            1,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 29.05,
+          "end": 31.35,
+          "label": "Bb:7",
+          "target": [
+            10,
+            1,
+            1,
+            10,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 31.35,
+          "end": 34.92,
+          "label": "Eb:min7",
+          "target": [
+            3,
+            2,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 34.92,
+          "end": 35.54839002267574,
+          "label": "A:maj/5",
+          "target": [
+            9,
+            1,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

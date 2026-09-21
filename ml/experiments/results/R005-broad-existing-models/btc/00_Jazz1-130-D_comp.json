@@ -1,0 +1,93 @@
+{
+  "track_id": "00_Jazz1-130-D_comp",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "b686a47b0a0a58dbdd818d2ebc9c31da87e4bed1af889dd62b1ffd1d1496f827",
+    "annotation": "e91e087cc46802634052365b9ca98463e09bf75adac69db23d0b13154c37bf1d",
+    "prepared": "4383bdcaae85f0aa9333eedab1475d1186ccc9a07e306b3da6c3de23c4cc73b5"
+  },
+  "pcm": {
+    "source_sha256": "b686a47b0a0a58dbdd818d2ebc9c31da87e4bed1af889dd62b1ffd1d1496f827",
+    "file_sha256": "e9659f814b25c8c73edaa87fe65e0b2cce306700835e3aa0ae48d2d2f89631fc",
+    "pcm_sha256": "6ee5b3bae32edbda2827a53ea42bcac33c46ce9b4f86cf65008673824cd62461",
+    "duration": 22.14721088435374,
+    "decode_seconds": 0.01861329999519512
+  },
+  "timings": {
+    "feature_seconds": 0.03807849995791912,
+    "model_seconds": 0.0571889000129886
+  },
+  "wall_seconds": 0.1047334999893792,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 7.058866213151927,
+      "label": "D:7"
+    },
+    {
+      "start": 7.058866213151927,
+      "end": 10.0,
+      "label": "G:maj"
+    },
+    {
+      "start": 10.0,
+      "end": 11.021678004535147,
+      "label": "G:7"
+    },
+    {
+      "start": 11.021678004535147,
+      "end": 11.114557823129251,
+      "label": "G:maj"
+    },
+    {
+      "start": 11.114557823129251,
+      "end": 11.950476190476191,
+      "label": "A:min"
+    },
+    {
+      "start": 11.950476190476191,
+      "end": 14.365351473922903,
+      "label": "D:7"
+    },
+    {
+      "start": 14.365351473922903,
+      "end": 15.015510204081632,
+      "label": "A:min"
+    },
+    {
+      "start": 15.015510204081632,
+      "end": 16.780226757369615,
+      "label": "A:maj"
+    },
+    {
+      "start": 16.780226757369615,
+      "end": 16.873106575963718,
+      "label": "A:7"
+    },
+    {
+      "start": 16.873106575963718,
+      "end": 18.544943310657594,
+      "label": "G:7"
+    },
+    {
+      "start": 18.544943310657594,
+      "end": 18.82358276643991,
+      "label": "D:7"
+    },
+    {
+      "start": 18.82358276643991,
+      "end": 19.380861678004536,
+      "label": "D:maj"
+    },
+    {
+      "start": 19.380861678004536,
+      "end": 20.0,
+      "label": "D:7"
+    },
+    {
+      "start": 20.0,
+      "end": 22.14721088435374,
+      "label": "D:maj"
+    }
+  ]
+}

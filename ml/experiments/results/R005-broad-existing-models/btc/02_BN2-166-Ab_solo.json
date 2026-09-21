@@ -1,0 +1,68 @@
+{
+  "track_id": "02_BN2-166-Ab_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "355011d9d666875b5472601dc589f402b671c853a44a3ca4d3fab9132c6de596",
+    "annotation": "a7e6ed8d931dc3c41334e8401b94d942d4e681b8c3e9ac13cd191ff3549a8bb3",
+    "prepared": "c1bd58014ac046c5eae54bf5c78f213ac8f30c175dc9951f8b98963df345bbc5"
+  },
+  "pcm": {
+    "source_sha256": "355011d9d666875b5472601dc589f402b671c853a44a3ca4d3fab9132c6de596",
+    "file_sha256": "9afa1d877c4f57c62db731138ded91ef14c6a0af48830339d51db61f605ed035",
+    "pcm_sha256": "9a3672038ad70bf99c09bed3bb49b2ad8d98956d8dc381d3aed2fe7a87f440e9",
+    "duration": 23.13002267573696,
+    "decode_seconds": 0.016369499964639544
+  },
+  "timings": {
+    "feature_seconds": 0.046070999989751726,
+    "model_seconds": 0.06443059997400269
+  },
+  "wall_seconds": 0.12156790000153705,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.1145578231292517,
+      "label": "G#:min"
+    },
+    {
+      "start": 1.1145578231292517,
+      "end": 1.9504761904761905,
+      "label": "N"
+    },
+    {
+      "start": 1.9504761904761905,
+      "end": 3.9938321995464854,
+      "label": "B:maj"
+    },
+    {
+      "start": 3.9938321995464854,
+      "end": 5.572789115646258,
+      "label": "D#:min"
+    },
+    {
+      "start": 5.572789115646258,
+      "end": 7.337505668934241,
+      "label": "N"
+    },
+    {
+      "start": 7.337505668934241,
+      "end": 7.801904761904762,
+      "label": "D#:min"
+    },
+    {
+      "start": 7.801904761904762,
+      "end": 12.693514739229025,
+      "label": "N"
+    },
+    {
+      "start": 12.693514739229025,
+      "end": 14.08671201814059,
+      "label": "G#:min"
+    },
+    {
+      "start": 14.08671201814059,
+      "end": 23.13002267573696,
+      "label": "N"
+    }
+  ]
+}

@@ -3,6 +3,12 @@
 Researched 2026-09-21. Practice voicings project the canonical chord; they never
 modify recognition, timing, corrections or exports.
 
+Latest user direction: [Classic shapes](classic-practice.md) supersedes contextual
+Song voicings as the default. Normal references are static per chord: familiar
+open/common barre guitar forms and root-position piano chords unless a slash bass
+specifies an inversion. One-hand reach and explicit reductions remain. The earlier
+contextual design and its measurements below are historical evidence.
+
 ## Educational references
 
 - [Berklee Online: Piano Voicing Techniques](https://online.berklee.edu/takenote/basic-piano-voicing-techniques/)

@@ -1,0 +1,34 @@
+{
+  "track_id": "05_SS2-107-Ab_solo",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "5194998c80ed74606757b45f4fa1dd334118a6e2dfa7b297599d94a7c765f648",
+    "annotation": "9794cedc7bdc3c0f517345c5270af2f619c8e367d7d9fa7f073500658846fa07",
+    "prepared": "cdfaf2d88f8d68a2c40f30efc0f264f1d79ec30ddb0df7c2998fa013d32af854"
+  },
+  "pcm": {
+    "source_sha256": "5194998c80ed74606757b45f4fa1dd334118a6e2dfa7b297599d94a7c765f648",
+    "file_sha256": "043cb60262390a682f5dce9dd05f7196cf3df698542ae6ca75714c1b194aac12",
+    "pcm_sha256": "f0451765bae8c5d2c6d0ea19f6e88266f16858f7a4dfbdc604d2eab81bc2e003",
+    "duration": 35.88639455782313,
+    "decode_seconds": 0.023468800005503
+  },
+  "timings": {
+    "setupSeconds": 0.022355599969159812,
+    "cqtSeconds": 0.14681310002924874,
+    "inferenceSeconds": 1.2068279999657534,
+    "hmmSeconds": 0.03352229995653033,
+    "beatSeconds": 0.05649679998168722,
+    "refinementSeconds": 2.7900037821382284e-05,
+    "decodeSeconds": 5.779997445642948e-05,
+    "totalSeconds": 1.466820599976927
+  },
+  "wall_seconds": 1.4690165999927558,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 35.88639455782313,
+      "label": "N"
+    }
+  ]
+}

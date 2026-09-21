@@ -1,0 +1,27 @@
+{
+  "track_id": "03_SS2-107-Ab_solo",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "120d5955fae86806d16875b70b8dbbd6118ae78494c5f88aa8c45e615731c22b",
+    "annotation": "e79c313d662ca2d832a0ee9be7a11c204cc3adcc75772a9af03e5e117eddd4ee",
+    "prepared": "e2d3abf25a49a6c52af1cdaa7425ff1ade8dac86148ed872336df1b2e79d7dd2"
+  },
+  "pcm": {
+    "source_sha256": "120d5955fae86806d16875b70b8dbbd6118ae78494c5f88aa8c45e615731c22b",
+    "file_sha256": "eadcf3634fb5bcdc4b4add568af188034b908f31931283bff4fcc1f07c724c07",
+    "pcm_sha256": "f4680586d93b3ae08a273edbdadae41487c8eb01a656e2ca3ee4ddff33668e5c",
+    "duration": 35.88639455782313,
+    "decode_seconds": 0.02394879999337718
+  },
+  "timings": {
+    "retained_E006": true
+  },
+  "wall_seconds": 0.0003208999987691641,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 35.88639455782313,
+      "label": "N"
+    }
+  ]
+}

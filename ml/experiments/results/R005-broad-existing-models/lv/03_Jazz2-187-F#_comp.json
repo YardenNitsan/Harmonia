@@ -1,0 +1,104 @@
+{
+  "track_id": "03_Jazz2-187-F#_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "96592fcfddeddd03ef3aecee798032c44aada53f4c3e56008ff52000b89c5b06",
+    "annotation": "947781eeed8145ee9a861e3b98e28895fe8555b7fdb1b444dde8b66e9b1debcb",
+    "prepared": "9ad9e3dc41018caccbc3496f5fd90443bf394ebc2d0a754b8533b7588b25f10f"
+  },
+  "pcm": {
+    "source_sha256": "96592fcfddeddd03ef3aecee798032c44aada53f4c3e56008ff52000b89c5b06",
+    "file_sha256": "1b1755d382b1ac12fc62eb2463ede41a0e880e17f9bf8a42176cbf3f1784d6d6",
+    "pcm_sha256": "b1bffc93541c2b8b98bf048f60985ac499265e5b85de886bc67e33fc6d494f79",
+    "duration": 20.532018140589567,
+    "decode_seconds": 0.01706799998646602
+  },
+  "timings": {
+    "setupSeconds": 0.019074600015301257,
+    "cqtSeconds": 0.08276099996874109,
+    "inferenceSeconds": 0.6727631000103429,
+    "hmmSeconds": 0.017165199969895184,
+    "beatSeconds": 0.02736360003473237,
+    "refinementSeconds": 0.0001197000383399427,
+    "decodeSeconds": 0.00029769999673590064,
+    "totalSeconds": 0.8200944000273012
+  },
+  "wall_seconds": 0.821262100012973,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.25,
+      "label": "B:min7"
+    },
+    {
+      "start": 1.25,
+      "end": 2.53,
+      "label": "E:7"
+    },
+    {
+      "start": 2.53,
+      "end": 4.2,
+      "label": "A:maj7"
+    },
+    {
+      "start": 4.2,
+      "end": 5.15,
+      "label": "D:maj7"
+    },
+    {
+      "start": 5.15,
+      "end": 6.57,
+      "label": "Ab:hdim7"
+    },
+    {
+      "start": 6.57,
+      "end": 7.62,
+      "label": "C#:7"
+    },
+    {
+      "start": 7.62,
+      "end": 10.54,
+      "label": "F#:min7"
+    },
+    {
+      "start": 10.54,
+      "end": 11.54,
+      "label": "B:min7"
+    },
+    {
+      "start": 11.54,
+      "end": 13.1,
+      "label": "E:7"
+    },
+    {
+      "start": 13.1,
+      "end": 14.56,
+      "label": "A:maj7"
+    },
+    {
+      "start": 14.56,
+      "end": 15.33,
+      "label": "D:maj7"
+    },
+    {
+      "start": 15.33,
+      "end": 17.18,
+      "label": "Ab:min7"
+    },
+    {
+      "start": 17.18,
+      "end": 17.95,
+      "label": "C#:7"
+    },
+    {
+      "start": 17.95,
+      "end": 20.532018140589567,
+      "label": "F#:min"
+    }
+  ]
+}

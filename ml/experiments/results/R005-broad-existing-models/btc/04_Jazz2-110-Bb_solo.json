@@ -1,0 +1,63 @@
+{
+  "track_id": "04_Jazz2-110-Bb_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "302fa1c23166565ee9197d481a8bd05c763ceaf14c67cf1ac8b4f905364a124b",
+    "annotation": "a4f99a1b804275b5c6fb9219f14281d5a32393adc427b8f3d3ec8d09bfb61499",
+    "prepared": "17c12a3142795513c510261ca64a536a4859dcc1e259042867c33a4f83d398e0"
+  },
+  "pcm": {
+    "source_sha256": "302fa1c23166565ee9197d481a8bd05c763ceaf14c67cf1ac8b4f905364a124b",
+    "file_sha256": "502377b107b725a1b1b950c3c1023b9cc9689489161bd6a165657f150a35ed8c",
+    "pcm_sha256": "b3e7602c8ce61d90c237f16c402578a80a7711958c6f13b7f7fd58fa783b5b94",
+    "duration": 34.90321995464853,
+    "decode_seconds": 0.023316800012253225
+  },
+  "timings": {
+    "feature_seconds": 0.07491219998337328,
+    "model_seconds": 0.08034429996041581
+  },
+  "wall_seconds": 0.17297339998185635,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 20.0,
+      "label": "N"
+    },
+    {
+      "start": 20.0,
+      "end": 20.092879818594103,
+      "label": "G#:maj"
+    },
+    {
+      "start": 20.092879818594103,
+      "end": 22.32199546485261,
+      "label": "G#:min"
+    },
+    {
+      "start": 22.32199546485261,
+      "end": 26.03718820861678,
+      "label": "G#:maj"
+    },
+    {
+      "start": 26.03718820861678,
+      "end": 26.873106575963718,
+      "label": "C#:maj"
+    },
+    {
+      "start": 26.873106575963718,
+      "end": 29.009342403628118,
+      "label": "G#:maj"
+    },
+    {
+      "start": 29.009342403628118,
+      "end": 30.0,
+      "label": "G#:min"
+    },
+    {
+      "start": 30.0,
+      "end": 34.90321995464853,
+      "label": "N"
+    }
+  ]
+}

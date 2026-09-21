@@ -1,5 +1,21 @@
 # Harmonia operating guide
 
+## Latest continuation: classic shapes and broad recognition evidence
+
+The user now wants classic per-chord practice references, not contextual/exact
+performer fingerings. Default mode is `classic | easy`; preserve frozen analyzed
+labels, explicit slash bass and disclosed practice reductions. Follow
+`docs/classic-practice.md` and `docs/broad-recognition-results.md`.
+
+R005 original BTC170 completed on 150 GuitarSet recordings plus five HU33 validation
+recordings; it is not promoted. R006 semitone-grid tuning improves controlled
+detuned training examples but fails its fixed real-data gain gate. Keep production
+LV v3 unchanged and do not repeat completed studies or weaken their gates. Test
+sets remain locked. R005's exact executed scripts are archived before an import
+environment-policy fix; the frozen hashes intentionally refer to those copies.
+No new large chord/beat accuracy gain is claimed. Native classic-shapes build and
+hidden Killer Queen playback/cache acceptance pass; keep the visible GUI closed.
+
 Latest user direction: do not use Knockin' on Heaven's Door for further accuracy
 checks. Preserve its historical evidence. Current diagnosis uses the exact cached
 Killer Queen recording with a separately recorded protocol; no song-specific

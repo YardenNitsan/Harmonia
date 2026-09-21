@@ -1,0 +1,99 @@
+{
+  "track_id": "00_Jazz2-187-F#_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "80a465e983eb70dcce01f94e055a41cf0ac7d91a1241afce24cc7cc764cfba81",
+    "annotation": "b49477bac54a2e2120ba2637ac78f857b1741ea3c481e24e45c9ab1890ae0c6d",
+    "prepared": "744da4488f40c9080154f4114a8154d7523b1442508876c03791bb3be1820fb2"
+  },
+  "pcm": {
+    "source_sha256": "80a465e983eb70dcce01f94e055a41cf0ac7d91a1241afce24cc7cc764cfba81",
+    "file_sha256": "858c2b2ca501a5bf2be8d09d1b761455db2247311a4b6cd4c3abcb19c7d35909",
+    "pcm_sha256": "a7855c1e8996253fc069d75bbf174931594167520638dfaae9bef3f3dedd9eeb",
+    "duration": 20.532018140589567,
+    "decode_seconds": 0.015687600011005998
+  },
+  "timings": {
+    "setupSeconds": 0.02046840003458783,
+    "cqtSeconds": 0.08205669996095821,
+    "inferenceSeconds": 0.6834691999829374,
+    "hmmSeconds": 0.017734100052621216,
+    "beatSeconds": 0.029514399997424334,
+    "refinementSeconds": 0.0001485000248067081,
+    "decodeSeconds": 0.0004653999931178987,
+    "totalSeconds": 0.8344363000360318
+  },
+  "wall_seconds": 0.8355831999797374,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.16,
+      "label": "B:min/b3"
+    },
+    {
+      "start": 1.16,
+      "end": 2.48,
+      "label": "E:7"
+    },
+    {
+      "start": 2.48,
+      "end": 3.95,
+      "label": "A:maj"
+    },
+    {
+      "start": 3.95,
+      "end": 5.11,
+      "label": "D:maj"
+    },
+    {
+      "start": 5.11,
+      "end": 6.55,
+      "label": "B:min7"
+    },
+    {
+      "start": 6.55,
+      "end": 7.96,
+      "label": "C#:7"
+    },
+    {
+      "start": 7.96,
+      "end": 10.26,
+      "label": "F#:min"
+    },
+    {
+      "start": 10.26,
+      "end": 11.45,
+      "label": "D:maj"
+    },
+    {
+      "start": 11.45,
+      "end": 12.65,
+      "label": "E:7"
+    },
+    {
+      "start": 12.65,
+      "end": 16.0,
+      "label": "A:maj"
+    },
+    {
+      "start": 16.0,
+      "end": 17.07,
+      "label": "Ab:hdim7"
+    },
+    {
+      "start": 17.07,
+      "end": 17.97,
+      "label": "C#:7"
+    },
+    {
+      "start": 17.97,
+      "end": 20.532018140589567,
+      "label": "F#:min"
+    }
+  ]
+}

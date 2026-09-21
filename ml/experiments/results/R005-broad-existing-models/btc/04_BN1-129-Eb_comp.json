@@ -1,0 +1,53 @@
+{
+  "track_id": "04_BN1-129-Eb_comp",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "ca4b487760400edabb87ed478a523ad0587c020b8463f97429af4009789f4ebd",
+    "annotation": "81c4818b93f86a45a582d1b958837b5579c599a2b0a214e9025c63981c87538a",
+    "prepared": "f49e0f989f32ccc3bcbe204d715b8bb3c50684a39229d6a1490025ef3f0138d1"
+  },
+  "pcm": {
+    "source_sha256": "ca4b487760400edabb87ed478a523ad0587c020b8463f97429af4009789f4ebd",
+    "file_sha256": "9b40839085d869da887ca8d3d8d1a00b401b99a70c0dff75f9d313be4618895d",
+    "pcm_sha256": "c85004b9110c58bbcb4665c87b29b3f0801e95985769a607a4f2b87c11449da8",
+    "duration": 22.32439909297052,
+    "decode_seconds": 0.015343300008680671
+  },
+  "timings": {
+    "feature_seconds": 0.0523788999998942,
+    "model_seconds": 0.06122239999240264
+  },
+  "wall_seconds": 0.12633130000904202,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 7.337505668934241,
+      "label": "D#:maj"
+    },
+    {
+      "start": 7.337505668934241,
+      "end": 11.114557823129251,
+      "label": "G#:maj"
+    },
+    {
+      "start": 11.114557823129251,
+      "end": 14.829750566893424,
+      "label": "D#:maj"
+    },
+    {
+      "start": 14.829750566893424,
+      "end": 16.408707482993197,
+      "label": "A#:maj"
+    },
+    {
+      "start": 16.408707482993197,
+      "end": 18.544943310657594,
+      "label": "G#:maj"
+    },
+    {
+      "start": 18.544943310657594,
+      "end": 22.32439909297052,
+      "label": "D#:maj"
+    }
+  ]
+}

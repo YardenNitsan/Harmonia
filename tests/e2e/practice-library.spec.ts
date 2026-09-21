@@ -42,17 +42,18 @@ test('song practice is visible and library groups frozen chords across playback,
   }
   const library = page.getByRole('region', { name: 'Chord Library' });
   await expect(library).toBeVisible();
-  await expect(library.getByRole('button', { name: 'Song voicings', exact: true })).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  );
+  await expect(
+    library.getByRole('button', { name: 'Classic shapes', exact: true }),
+  ).toHaveAttribute('aria-pressed', 'true');
   await library.getByRole('button', { name: 'Easy practice', exact: true }).click();
   await library.getByLabel('Guitar capo').selectOption('2');
   await expect(library.getByText('Capo on fret 2', { exact: true })).toBeVisible();
   await expect(library.getByText(/Frets shown relative to the capo/)).toBeVisible();
   expect((await exportedRecord(page)).analysis).toEqual(before.analysis);
-  await library.getByRole('button', { name: 'Song voicings', exact: true }).click();
+  await library.getByRole('button', { name: 'Classic shapes', exact: true }).click();
   await expect(library.getByLabel('Guitar capo')).toHaveCount(0);
+  await expect(library.getByText(/Classic chord shapes: familiar guitar positions/)).toBeVisible();
+  await expect(library.getByText(/less movement between chords/)).toHaveCount(0);
   const cards = library.getByTestId('practice-chord-card');
   await expect(cards).toHaveCount(grouped.size);
   const counts = await cards.evaluateAll((nodes) =>
@@ -65,6 +66,21 @@ test('song practice is visible and library groups frozen chords across playback,
     'aria-label',
     /finger [1-4]/,
   );
+  const cCard = cards.filter({ has: page.getByRole('heading', { name: 'C', exact: true }) });
+  await expect(cCard.getByRole('img', { name: /Guitar voicing/ })).toHaveAttribute(
+    'aria-label',
+    /muted; fret 3, finger [1-4]; fret 2, finger [1-4]; open; fret 1, finger [1-4]; open/,
+  );
+  const classicPiano = await cCard
+    .getByRole('img', { name: /Piano voicing/ })
+    .getAttribute('aria-label');
+  for (const button of await cCard.getByRole('button', { name: /Jump to C at/ }).all()) {
+    await button.click();
+    await expect(inspector.getByRole('img', { name: /Piano voicing/ })).toHaveAttribute(
+      'aria-label',
+      classicPiano!,
+    );
+  }
   // The keyboard stays close to the hand even when an inversion crosses C.
   for (const keyboard of await library.locator('.piano-voicing svg').all()) {
     const viewBox = (await keyboard.getAttribute('viewBox'))!.split(' ').map(Number);

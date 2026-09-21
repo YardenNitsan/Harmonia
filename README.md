@@ -26,12 +26,13 @@ Additional features include local-file whole-song analysis, a persistent library
 **Practice tools are visible directly on the song page.** The Chord Library groups
 the completed timeline's unique chords in first-appearance order, with appearance
 counts, total duration and clickable occurrence times. Switch between guitar chord
-boxes, piano voicings or both. **Song voicings** considers neighboring chords to
-reduce hand movement, using 2,935 validated guitar grips and one compact piano
-voicing played with one hand. Triads use three close notes; dense chords disclose
-any reduction to five notes. **Easy practice** offers explicit simpler shapes
-and recommends a guitar capo when it makes the song easier. Sounding chord labels
-remain visible; the piano stays in the song key. You can override the capo.
+boxes, piano voicings or both. **Classic shapes** is the default: familiar open
+or common barre guitar grips and conventional compact piano chords. Each chord
+uses the same shape throughout the song. Piano uses one hand and one keyboard;
+sevenths, minor quality and slash bass remain part of the displayed chord.
+**Easy practice** is optional and offers explicitly simpler shapes and a suggested
+guitar capo. Sounding chord labels remain visible; piano stays in the song key.
+You can override the capo. See [classic practice](docs/classic-practice.md).
 
 These are suggested arrangements, not verified original fingerings: a chord label
 alone cannot establish which strings, register or instrument produced the recording.

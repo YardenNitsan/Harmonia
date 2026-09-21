@@ -1,0 +1,28 @@
+{
+  "track_id": "05_BN2-131-B_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "322c58673a25a8cfd9a3362502d0b274509b9e6013b94f2b3f06205881198220",
+    "annotation": "5abf98549f95013c0c8735dc93089bd1b53c63bfd0ebf7323f055494546f05f8",
+    "prepared": "0ca478ce7a6f6636206e323d0f2c2fc93d2a3ee8ab66d5610631487a4dcb5f1e"
+  },
+  "pcm": {
+    "source_sha256": "322c58673a25a8cfd9a3362502d0b274509b9e6013b94f2b3f06205881198220",
+    "file_sha256": "79670bf4b258bd97c83f0a3eaa1e55bea0fe24593ce491547d51b041b8efb51b",
+    "pcm_sha256": "c920d132fa08ff6569c07d0518ab5932eb39b79457acc80a37f1735b54444d9a",
+    "duration": 29.30639455782313,
+    "decode_seconds": 0.019409900007303804
+  },
+  "timings": {
+    "feature_seconds": 0.05578809999860823,
+    "model_seconds": 0.060175999999046326
+  },
+  "wall_seconds": 0.1314901000005193,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 29.30639455782313,
+      "label": "N"
+    }
+  ]
+}

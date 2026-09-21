@@ -1,0 +1,38 @@
+{
+  "track_id": "05_Jazz2-187-F#_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "6e41c6d76dc0cdcd516741ba7d668f8f3ced93585fb6fae50ba13311315f4e95",
+    "annotation": "f00dc302fb3dc06add5e99f57726d216b27416892714726949f7b7fe88d365da",
+    "prepared": "5a7441f96a4a86c62810e3dcfa13c53f0d00b81ded1fe0a76b7b05d684d6cac2"
+  },
+  "pcm": {
+    "source_sha256": "6e41c6d76dc0cdcd516741ba7d668f8f3ced93585fb6fae50ba13311315f4e95",
+    "file_sha256": "425e3a78ab204087222f92d2cd9937ff1516d983721c195ab316251865bef9bf",
+    "pcm_sha256": "1a6d646dbaa539e6fff2b9a3f7ae3cb2fb2d9b0b0aa245ffbd332f8299291400",
+    "duration": 20.532018140589567,
+    "decode_seconds": 0.01578200003132224
+  },
+  "timings": {
+    "feature_seconds": 0.05176770000252873,
+    "model_seconds": 0.05818890000227839
+  },
+  "wall_seconds": 0.12041289999615401,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.8575963718820863,
+      "label": "N"
+    },
+    {
+      "start": 1.8575963718820863,
+      "end": 2.043356009070295,
+      "label": "A:7"
+    },
+    {
+      "start": 2.043356009070295,
+      "end": 20.532018140589567,
+      "label": "N"
+    }
+  ]
+}

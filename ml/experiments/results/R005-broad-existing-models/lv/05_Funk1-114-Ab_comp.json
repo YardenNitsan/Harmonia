@@ -1,0 +1,89 @@
+{
+  "track_id": "05_Funk1-114-Ab_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "63300b35df98320564fda1505df27b55bc519707728c1185e5b34da0e478b097",
+    "annotation": "10b1126a6ab6d8638b366baff9a9a70c2ef4a4334488c1b2bd8dc63c4d9cbf77",
+    "prepared": "e6b3e70eefd1af47a7cd3de028619b3be89b2d315728c1958eaa277fe0bad51b"
+  },
+  "pcm": {
+    "source_sha256": "63300b35df98320564fda1505df27b55bc519707728c1185e5b34da0e478b097",
+    "file_sha256": "183087cf4b5dcc8ad05eecffb3afc052e150b971382e2bb22629cfa5309e8907",
+    "pcm_sha256": "dbd5f523fd4e018a65927818bf0fa9536a4ffd01b9c2b75c506639cc69f2c498",
+    "duration": 25.258412698412698,
+    "decode_seconds": 0.018442200031131506
+  },
+  "timings": {
+    "setupSeconds": 0.020387900003697723,
+    "cqtSeconds": 0.10854729998391122,
+    "inferenceSeconds": 0.8026358999777585,
+    "hmmSeconds": 0.01901789999101311,
+    "beatSeconds": 0.04163579997839406,
+    "refinementSeconds": 9.709998266771436e-05,
+    "decodeSeconds": 0.00022740004351362586,
+    "totalSeconds": 0.9931158000254072
+  },
+  "wall_seconds": 0.9947411000030115,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 4.53,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 4.53,
+      "end": 5.57,
+      "label": "N"
+    },
+    {
+      "start": 5.57,
+      "end": 8.89,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 8.89,
+      "end": 9.87,
+      "label": "E:maj/3"
+    },
+    {
+      "start": 9.87,
+      "end": 11.26,
+      "label": "C#:maj"
+    },
+    {
+      "start": 11.26,
+      "end": 13.03,
+      "label": "N"
+    },
+    {
+      "start": 13.03,
+      "end": 16.81,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 16.81,
+      "end": 19.11,
+      "label": "Eb:7"
+    },
+    {
+      "start": 19.11,
+      "end": 19.92,
+      "label": "C#:maj/5"
+    },
+    {
+      "start": 19.92,
+      "end": 21.5,
+      "label": "E:maj"
+    },
+    {
+      "start": 21.5,
+      "end": 25.258412698412698,
+      "label": "Ab:maj"
+    }
+  ]
+}

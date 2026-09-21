@@ -47,7 +47,7 @@ export function ConsumerPlayer({
   const [notation, setNotation] = useState<ChordDisplayMode>('advanced');
   const [speed, setSpeed] = useState(1);
   const [volume, setVolume] = useState(controller.player.volume);
-  const [practiceMode, setPracticeMode] = useState<'song' | 'easy'>('song');
+  const [practiceMode, setPracticeMode] = useState<'classic' | 'easy'>('classic');
   const [capo, setCapo] = useState<number | 'recommended'>('recommended');
   const analysis = useMemo(
     () => (transpose ? transposeAnalysis(record.analysis, transpose) : record.analysis),
@@ -59,7 +59,7 @@ export function ConsumerPlayer({
     () =>
       buildPracticeArrangement(analysis.segments, {
         mode: practiceMode,
-        capo: practiceMode === 'song' ? 0 : capo,
+        capo: practiceMode === 'classic' ? 0 : capo,
       }),
     [analysis.segments, practiceMode, capo],
   );

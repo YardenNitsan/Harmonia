@@ -1,0 +1,99 @@
+{
+  "track_id": "04_Jazz2-187-F#_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "eaf2a0047227569c8b8c2359242ba6fdafdceca116f991cca17884d2808ad9c1",
+    "annotation": "9ab8c1971171b03245b38e7bd07ccf0c8fc3628b18d30f7ee968b324da9bf645",
+    "prepared": "1eec3cbc112cd7608ef846b65df53ba50b904f4a123059d7f770c12ac5ded05b"
+  },
+  "pcm": {
+    "source_sha256": "eaf2a0047227569c8b8c2359242ba6fdafdceca116f991cca17884d2808ad9c1",
+    "file_sha256": "dfc73e3f3aa2c982619e92aa68a8331b01b38900582d0737d485eef4e2c29a82",
+    "pcm_sha256": "f33d48ae3855676459a894265ddbb99d99f671ba37e66f75e74228486fcbec76",
+    "duration": 20.532018140589567,
+    "decode_seconds": 0.017061799997463822
+  },
+  "timings": {
+    "setupSeconds": 0.021670499991159886,
+    "cqtSeconds": 0.09475660003954545,
+    "inferenceSeconds": 0.7624496000353247,
+    "hmmSeconds": 0.017643500003032386,
+    "beatSeconds": 0.0262675000121817,
+    "refinementSeconds": 0.0001351999817416072,
+    "decodeSeconds": 0.0004208000027574599,
+    "totalSeconds": 0.9240719000226818
+  },
+  "wall_seconds": 0.9253469000104815,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.28,
+      "label": "B:min7"
+    },
+    {
+      "start": 1.28,
+      "end": 2.44,
+      "label": "E:min7"
+    },
+    {
+      "start": 2.44,
+      "end": 3.69,
+      "label": "A:7"
+    },
+    {
+      "start": 3.69,
+      "end": 4.95,
+      "label": "D:maj"
+    },
+    {
+      "start": 4.95,
+      "end": 6.43,
+      "label": "Ab:hdim7"
+    },
+    {
+      "start": 6.43,
+      "end": 7.59,
+      "label": "C#:7"
+    },
+    {
+      "start": 7.59,
+      "end": 10.29,
+      "label": "F#:min7"
+    },
+    {
+      "start": 10.29,
+      "end": 11.42,
+      "label": "B:min7"
+    },
+    {
+      "start": 11.42,
+      "end": 12.61,
+      "label": "E:7"
+    },
+    {
+      "start": 12.61,
+      "end": 14.7,
+      "label": "A:7"
+    },
+    {
+      "start": 14.7,
+      "end": 15.39,
+      "label": "D:7"
+    },
+    {
+      "start": 15.39,
+      "end": 17.83,
+      "label": "Ab:hdim7"
+    },
+    {
+      "start": 17.83,
+      "end": 20.532018140589567,
+      "label": "F#:min7"
+    }
+  ]
+}

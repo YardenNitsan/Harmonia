@@ -1,0 +1,104 @@
+{
+  "track_id": "01_Funk2-119-G_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "4112ba7fb59f847ee302d49db9bc7c0cc1f246bf98cccbcb7d443c9df61499a6",
+    "annotation": "0c2902555407acbc00347385759ce04733ccfe13f75473b40329c4fc9e3a1fb4",
+    "prepared": "3f34d7b5947d2874910203ace15b1cd65c1d6b11e7378ce2842b38e95b49028d"
+  },
+  "pcm": {
+    "source_sha256": "4112ba7fb59f847ee302d49db9bc7c0cc1f246bf98cccbcb7d443c9df61499a6",
+    "file_sha256": "af675725c167870f68e491b55d07cc93dc07745ab89c2cb80e9546bdc5944bcf",
+    "pcm_sha256": "d2ab61c7ee407c7c5527e9f203888303f6334f35c39cea491fa46b6362a132fd",
+    "duration": 32.26321995464853,
+    "decode_seconds": 0.021531699982006103
+  },
+  "timings": {
+    "setupSeconds": 0.01981469994643703,
+    "cqtSeconds": 0.11820800002897158,
+    "inferenceSeconds": 0.9775944000575691,
+    "hmmSeconds": 0.02624969999305904,
+    "beatSeconds": 0.04438709997339174,
+    "refinementSeconds": 0.0001018000184558332,
+    "decodeSeconds": 0.0002829000004567206,
+    "totalSeconds": 1.1872020000009798
+  },
+  "wall_seconds": 1.189082299999427,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 2.23,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 2.23,
+      "end": 4.53,
+      "label": "F:maj"
+    },
+    {
+      "start": 4.53,
+      "end": 6.25,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 6.25,
+      "end": 8.06,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 8.06,
+      "end": 10.31,
+      "label": "A:maj"
+    },
+    {
+      "start": 10.31,
+      "end": 12.0,
+      "label": "D:maj"
+    },
+    {
+      "start": 12.0,
+      "end": 16.37,
+      "label": "G:min"
+    },
+    {
+      "start": 16.37,
+      "end": 18.62,
+      "label": "C:min"
+    },
+    {
+      "start": 18.62,
+      "end": 20.2,
+      "label": "F:maj/3"
+    },
+    {
+      "start": 20.2,
+      "end": 22.15,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 22.15,
+      "end": 23.89,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 23.89,
+      "end": 26.4,
+      "label": "A:maj"
+    },
+    {
+      "start": 26.4,
+      "end": 28.21,
+      "label": "D:maj"
+    },
+    {
+      "start": 28.21,
+      "end": 32.26321995464853,
+      "label": "G:maj"
+    }
+  ]
+}

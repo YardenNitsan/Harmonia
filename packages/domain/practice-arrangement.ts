@@ -9,7 +9,7 @@ import {
 } from './practice-voicings';
 import type { ChordSegment, PitchedChord } from './types';
 
-export type PracticeArrangementMode = 'song' | 'easy';
+export type PracticeArrangementMode = 'classic' | 'easy';
 export interface PracticeArrangementEntry extends PracticeChordEntry {
   shapeLabel: string;
   guitar: VoicingResult<GuitarVoicing>;
@@ -121,69 +121,6 @@ function disclose<T extends GuitarVoicing | PianoVoicing>(
   };
 }
 
-interface Layer<T> {
-  candidates: T[];
-  start: number;
-  end: number;
-}
-function path<T extends { id: string }>(
-  layers: Layer<T>[],
-  localCost: (value: T) => number,
-  transition: (a: T, b: T) => number,
-): (T | undefined)[] {
-  const costs: number[][] = [];
-  const parents: number[][] = [];
-  const transitions = new Map<string, number>();
-  for (let index = 0; index < layers.length; index++) {
-    const layer = layers[index];
-    costs.push([]);
-    parents.push([]);
-    for (const value of layer.candidates) {
-      let best = Infinity;
-      let parent = -1;
-      const previous = layers[index - 1];
-      if (!previous?.candidates.length) best = 0;
-      else
-        for (let choice = 0; choice < previous.candidates.length; choice++) {
-          const previousValue = previous.candidates[choice];
-          const key = `${previousValue.id}>${value.id}`;
-          let movement = 0;
-          if (layer.start - previous.end <= 2) {
-            const cached = transitions.get(key);
-            movement = cached ?? transition(previousValue, value);
-            if (cached === undefined) transitions.set(key, movement);
-          }
-          const candidate = costs[index - 1][choice] + movement;
-          if (candidate < best) {
-            best = candidate;
-            parent = choice;
-          }
-        }
-      costs[index].push(best + localCost(value));
-      parents[index].push(parent);
-    }
-  }
-  const chosen: (T | undefined)[] = new Array(layers.length);
-  let cursor = -1;
-  for (let index = layers.length - 1; index >= 0; index--) {
-    if (!layers[index].candidates.length) {
-      cursor = -1;
-      continue;
-    }
-    if (cursor < 0) cursor = costs[index].indexOf(Math.min(...costs[index]));
-    chosen[index] = layers[index].candidates[cursor];
-    cursor = parents[index][cursor];
-  }
-  return chosen;
-}
-
-function handMovement(a: number[], b: number[]): number {
-  if (!a.length || !b.length) return Math.abs(a.length - b.length) * 4;
-  const directed = (from: number[], to: number[]) =>
-    from.reduce((sum, note) => sum + Math.min(...to.map((other) => Math.abs(note - other))), 0);
-  return (directed(a, b) + directed(b, a)) / 2;
-}
-
 function selected<T extends { id: string }>(
   result: VoicingResult<T>,
   choice: T | undefined,
@@ -199,28 +136,23 @@ function selected<T extends { id: string }>(
     : result;
 }
 
-/** Suggested fingerings from frozen harmony and neighboring chords, not audio transcription. */
+/** Static conventional chord references; practice choices never alter frozen harmony. */
 export function buildPracticeArrangement(
   segments: readonly ChordSegment[],
   options: { mode?: PracticeArrangementMode; capo?: number | 'recommended' } = {},
 ): PracticeArrangement {
-  const mode = options.mode ?? 'song';
+  const mode = options.mode ?? 'classic';
   const library = buildPracticeLibrary(segments);
   const recommendation = recommendCapo(library);
   const requestedCapo = options.capo === 'recommended' ? recommendation.fret : (options.capo ?? 0);
   if (!Number.isInteger(requestedCapo) || requestedCapo < 0 || requestedCapo > 7)
     throw new Error('Capo must be a fret from 0 to 7');
-  const capo = mode === 'song' ? 0 : requestedCapo;
+  const capo = mode === 'classic' ? 0 : requestedCapo;
   const entries: PracticeArrangementEntry[] = library.map((entry) => {
     const practiceChord = mode === 'easy' ? easyChord(entry.chord) : entry.chord;
     const shape = transposeChord(practiceChord, -capo);
     const guitar = disclose(entry.chord, getGuitarVoicings(shape, { limit: 16 }), capo, 'Guitar');
-    const piano = disclose(
-      entry.chord,
-      getPianoVoicings(practiceChord, { alternatives: true }),
-      0,
-      'Piano',
-    );
+    const piano = disclose(entry.chord, getPianoVoicings(practiceChord), 0, 'Piano');
     return { ...entry, shapeLabel: formatChord(shape), guitar, piano };
   });
   const bySegment = new Map(
@@ -232,77 +164,22 @@ export function buildPracticeArrangement(
     const entry = bySegment.get(segment.id);
     return entry ? [{ segment, entry }] : [];
   });
-  const guitarLayers = pitched.map(({ segment, entry }) => ({
-    candidates: entry.guitar.voicings,
-    start: segment.start,
-    end: segment.end,
-  }));
-  const pianoLayers = pitched.map(({ segment, entry }) => ({
-    candidates: entry.piano.voicings,
-    start: segment.start,
-    end: segment.end,
-  }));
-  const guitar =
-    mode === 'easy'
-      ? guitarLayers.map(
-          (layer) => [...layer.candidates].sort((a, b) => guitarEase(a) - guitarEase(b))[0],
-        )
-      : path(
-          guitarLayers,
-          (value) => guitarEase(value) * 0.12,
-          (a, b) =>
-            a.frets.reduce<number>((sum, fret, string) => {
-              const next = b.frets[string];
-              return (
-                sum +
-                (fret === null || next === null ? (fret === next ? 0 : 0.7) : Math.abs(fret - next))
-              );
-            }, 0),
-        );
-  const piano = path(
-    pianoLayers,
-    (value) =>
-      (Math.max(...value.midiNotes) - Math.min(...value.midiNotes)) * 0.03 +
-      Math.abs((value.midiNotes[0] + value.midiNotes.at(-1)!) / 2 - 64) * 0.01,
-    (a, b) => handMovement(a.midiNotes, b.midiNotes),
-  );
-  const occurrences = pitched.map(({ segment, entry }, index) => ({
+  // Every occurrence uses the same reference as its library card. The normal
+  // mode never changes a familiar shape in response to neighboring chords.
+  for (const entry of entries) {
+    const guitar =
+      mode === 'easy'
+        ? [...entry.guitar.voicings].sort((a, b) => guitarEase(a) - guitarEase(b))[0]
+        : entry.guitar.voicings[0];
+    entry.guitar = selected(entry.guitar, guitar);
+  }
+  const occurrences = pitched.map(({ segment, entry }) => ({
     segmentId: segment.id,
     entryId: entry.id,
     shapeLabel: entry.shapeLabel,
-    guitar: selected(entry.guitar, guitar[index]),
-    piano: selected(entry.piano, piano[index]),
+    guitar: entry.guitar,
+    piano: entry.piano,
   }));
-  // The library shows an occurrence actually chosen by the contextual path.
-  // Duration-weighted frequency makes recurring/held shapes representative.
-  const timings = new Map(
-    segments.map((segment) => [segment.id, Math.max(0.01, segment.end - segment.start)]),
-  );
-  const byEntry = new Map<string, PracticeArrangementOccurrence[]>();
-  for (const occurrence of occurrences) {
-    const group = byEntry.get(occurrence.entryId) ?? [];
-    group.push(occurrence);
-    byEntry.set(occurrence.entryId, group);
-  }
-  for (const entry of entries) {
-    const matches = byEntry.get(entry.id) ?? [];
-    for (const instrument of ['guitar', 'piano'] as const) {
-      const totals = new Map<string, number>();
-      for (const occurrence of matches) {
-        const id = occurrence[instrument].voicings[0]?.id ?? '';
-        totals.set(id, (totals.get(id) ?? 0) + (timings.get(occurrence.segmentId) ?? 0.01));
-      }
-      const representative = [...matches].sort(
-        (a, b) =>
-          (totals.get(b[instrument].voicings[0]?.id ?? '') ?? 0) -
-          (totals.get(a[instrument].voicings[0]?.id ?? '') ?? 0),
-      )[0];
-      if (representative) {
-        if (instrument === 'guitar') entry.guitar = representative.guitar;
-        else entry.piano = representative.piano;
-      }
-    }
-  }
   return {
     mode,
     capo,

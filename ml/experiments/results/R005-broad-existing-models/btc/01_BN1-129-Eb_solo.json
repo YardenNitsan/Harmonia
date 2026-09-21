@@ -1,0 +1,28 @@
+{
+  "track_id": "01_BN1-129-Eb_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "76330537c6a88df56c7e338da9dd81d84cbf7f3a5ae7cd1b32a663bded6b76b4",
+    "annotation": "ecdd877eaf6208cfefa47b74c1a6a5211146e12dfa0f5132345a4c456cd67fc8",
+    "prepared": "2ca11ba9df7a83467cdfc1f07ad97e5cb2b5e724b7e46acc910e8ac867cff65b"
+  },
+  "pcm": {
+    "source_sha256": "76330537c6a88df56c7e338da9dd81d84cbf7f3a5ae7cd1b32a663bded6b76b4",
+    "file_sha256": "62c438c911192d98ab0eabd73381b04826ab1824797b5b577aac228b8fbb4b78",
+    "pcm_sha256": "f55d6e80ed37f8c4fda847a6c96c53fd1aa781a4a7077efbfa43fffc9bd168b8",
+    "duration": 22.32439909297052,
+    "decode_seconds": 0.015982599987182766
+  },
+  "timings": {
+    "feature_seconds": 0.045446100004483014,
+    "model_seconds": 0.054409499978646636
+  },
+  "wall_seconds": 0.11147529998561367,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 22.32439909297052,
+      "label": "N"
+    }
+  ]
+}

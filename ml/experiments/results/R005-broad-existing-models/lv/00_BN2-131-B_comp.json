@@ -1,0 +1,97 @@
+{
+  "track_id": "00_BN2-131-B_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "eff298aea64674e2976d1d80ab73612375fc7b59819867435fa295357de51146",
+    "annotation": "ff206228f1a98eaf579d6964bf96590e52e886208d0d7b90cf662d662df11025",
+    "prepared": "2350dd131ee810cef6e5445f3914abe412d96a1df6b74017c20c02a7b9fd0279"
+  },
+  "pcm": {
+    "source_sha256": "eff298aea64674e2976d1d80ab73612375fc7b59819867435fa295357de51146",
+    "file_sha256": "de88fc92c4ac1ccc7dc51122f3703fe0ed5edc295f702f0971db52ab41467c89",
+    "pcm_sha256": "5cbcf47ed8630752db099c267d68ea51fb170e6b8fb93cbb4cebcce90377203f",
+    "duration": 29.30639455782313,
+    "decode_seconds": 0.020430600037798285
+  },
+  "timings": {
+    "retained_E006": true
+  },
+  "wall_seconds": 0.0002516999957151711,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.63,
+      "label": "E:min7"
+    },
+    {
+      "start": 1.63,
+      "end": 3.74,
+      "label": "A:7"
+    },
+    {
+      "start": 3.74,
+      "end": 5.32,
+      "label": "D:maj7"
+    },
+    {
+      "start": 5.32,
+      "end": 7.38,
+      "label": "G:maj7"
+    },
+    {
+      "start": 7.38,
+      "end": 8.89,
+      "label": "C#:min7"
+    },
+    {
+      "start": 8.89,
+      "end": 11.19,
+      "label": "F#:7"
+    },
+    {
+      "start": 11.19,
+      "end": 14.58,
+      "label": "B:min7"
+    },
+    {
+      "start": 14.58,
+      "end": 16.72,
+      "label": "E:min7"
+    },
+    {
+      "start": 16.72,
+      "end": 18.65,
+      "label": "A:7"
+    },
+    {
+      "start": 18.65,
+      "end": 20.41,
+      "label": "D:7"
+    },
+    {
+      "start": 20.41,
+      "end": 22.01,
+      "label": "G:maj7"
+    },
+    {
+      "start": 22.01,
+      "end": 23.64,
+      "label": "C#:min7"
+    },
+    {
+      "start": 23.64,
+      "end": 25.98,
+      "label": "F#:7"
+    },
+    {
+      "start": 25.98,
+      "end": 29.30639455782313,
+      "label": "B:min"
+    }
+  ]
+}

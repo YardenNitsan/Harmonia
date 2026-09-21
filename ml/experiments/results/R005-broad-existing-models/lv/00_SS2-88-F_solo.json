@@ -1,0 +1,89 @@
+{
+  "track_id": "00_SS2-88-F_solo",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "229eeb552e688aa30fdc248073d659cfec1e9110c188108636c677c1957e0e0b",
+    "annotation": "bc0bfb8117ba0c0e87d2c4b4d6ee29280c505761e97ec76fac5b732ea5f5b7fc",
+    "prepared": "30b84a141089deff9c49f6dfa8fce5228f85f8127d0d20c7646b2503041912f2"
+  },
+  "pcm": {
+    "source_sha256": "229eeb552e688aa30fdc248073d659cfec1e9110c188108636c677c1957e0e0b",
+    "file_sha256": "417fefdd1a30547e1d86f29f347162c702e18033ec39791644e252b15e4d5fbd",
+    "pcm_sha256": "4c646e882e28529e0975ba64b013ed7bdbd6374c797e2b88a5c51c7a6b16da73",
+    "duration": 43.62920634920635,
+    "decode_seconds": 0.027134899981319904
+  },
+  "timings": {
+    "setupSeconds": 0.021169700019527227,
+    "cqtSeconds": 0.15297210001153871,
+    "inferenceSeconds": 1.322640800033696,
+    "hmmSeconds": 0.03358400001889095,
+    "beatSeconds": 0.05941059999167919,
+    "refinementSeconds": 9.019998833537102e-05,
+    "decodeSeconds": 0.00021919998107478023,
+    "totalSeconds": 1.590845900005661
+  },
+  "wall_seconds": 1.593392699956894,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.35,
+      "label": "C:min"
+    },
+    {
+      "start": 1.35,
+      "end": 2.74,
+      "label": "C#:maj"
+    },
+    {
+      "start": 2.74,
+      "end": 4.09,
+      "label": "Bb:7"
+    },
+    {
+      "start": 4.09,
+      "end": 5.15,
+      "label": "C#:7"
+    },
+    {
+      "start": 5.15,
+      "end": 6.62,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 6.62,
+      "end": 7.5,
+      "label": "C:min"
+    },
+    {
+      "start": 7.5,
+      "end": 8.96,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 8.96,
+      "end": 9.64,
+      "label": "G:min7"
+    },
+    {
+      "start": 9.64,
+      "end": 11.66,
+      "label": "F:min"
+    },
+    {
+      "start": 11.66,
+      "end": 13.1,
+      "label": "Bb:maj/5"
+    },
+    {
+      "start": 13.1,
+      "end": 43.62920634920635,
+      "label": "N"
+    }
+  ]
+}

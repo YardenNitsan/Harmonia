@@ -128,6 +128,14 @@ function guitarVoicing(shape: GuitarShape, offset = 0): GuitarVoicing {
   };
 }
 
+// Familiar full open/barre forms take precedence over partial library grips.
+const CLASSIC_GUITAR_IDS = new Set([
+  ...OPEN_SHAPES.map((shape) => guitarVoicing(shape).id),
+  ...Array.from({ length: 12 }, (_, offset) =>
+    MOVABLE_SHAPES.map((shape) => guitarVoicing(shape, offset + 1).id),
+  ).flat(),
+]);
+
 const GUITAR_VOICINGS: GuitarVoicing[] = [
   ...OPEN_SHAPES.map((shape) => guitarVoicing(shape)),
   ...Array.from({ length: 12 }, (_, i) =>
@@ -139,27 +147,31 @@ const GUITAR_VOICINGS: GuitarVoicing[] = [
 // Omitting lower strings of an established grip preserves its physical fingering.
 // Recalculate the barre endpoints: no synthetic nearest-note fret assignments.
 const GUITAR_CANDIDATES = [
-  ...new Map(
-    GUITAR_VOICINGS.flatMap((voicing) => {
-      const variants = [voicing];
-      for (let muted = 1; muted <= 3; muted++) {
-        if (voicing.frets[muted - 1] === null) continue;
-        const frets = voicing.frets.map((fret, string) => (string < muted ? null : fret));
-        if (frets.filter((fret) => fret !== null).length < 3) continue;
-        const fingers = voicing.fingers.map((finger, string) => (string < muted ? null : finger));
-        const barres = voicing.barres.flatMap((barre) => {
-          const strings = fingers.flatMap((finger, string) =>
-            finger === barre.finger ? [string] : [],
-          );
-          return strings.length > 1
-            ? [{ ...barre, fromString: strings[0], toString: strings.at(-1)! }]
-            : [];
-        });
-        variants.push(guitarVoicing({ name: 'Library inversion', frets, fingers, barres }));
-      }
-      return variants;
-    }).map((voicing) => [voicing.id, voicing]),
-  ).values(),
+  ...GUITAR_VOICINGS.flatMap((voicing) => {
+    const variants = [voicing];
+    for (let muted = 1; muted <= 3; muted++) {
+      if (voicing.frets[muted - 1] === null) continue;
+      const frets = voicing.frets.map((fret, string) => (string < muted ? null : fret));
+      if (frets.filter((fret) => fret !== null).length < 3) continue;
+      const fingers = voicing.fingers.map((finger, string) => (string < muted ? null : finger));
+      const barres = voicing.barres.flatMap((barre) => {
+        const strings = fingers.flatMap((finger, string) =>
+          finger === barre.finger ? [string] : [],
+        );
+        return strings.length > 1
+          ? [{ ...barre, fromString: strings[0], toString: strings.at(-1)! }]
+          : [];
+      });
+      variants.push(guitarVoicing({ name: 'Library inversion', frets, fingers, barres }));
+    }
+    return variants;
+  })
+    .reduce((unique, voicing) => {
+      // Keep the conventional fingering when the licensed library has the same frets.
+      if (!unique.has(voicing.id)) unique.set(voicing.id, voicing);
+      return unique;
+    }, new Map<string, GuitarVoicing>())
+    .values(),
 ];
 
 const pitchMask = (pitches: number[]) =>
@@ -179,7 +191,12 @@ for (const voicing of GUITAR_CANDIDATES) {
   GUITAR_INDEX.set(bass, byPitch);
 }
 for (const byPitch of GUITAR_INDEX.values()) {
-  for (const group of byPitch.values()) group.sort((a, b) => difficulty(a) - difficulty(b));
+  for (const group of byPitch.values())
+    group.sort(
+      (a, b) =>
+        Number(CLASSIC_GUITAR_IDS.has(b.id)) - Number(CLASSIC_GUITAR_IDS.has(a.id)) ||
+        difficulty(a) - difficulty(b),
+    );
 }
 
 function reducedPitchClasses(chord: Extract<Chord, { kind: 'chord' }>): number[] {
@@ -325,10 +342,11 @@ export function getPianoVoicings(
   const omittedPitchClasses = full.filter((pitch) => !played.includes(pitch));
   const candidates: { midiNotes: number[]; score: number }[] = [];
   // One close-position pitch per class: no detached bass or second hand.
-  // Explicit slash bass is honored; otherwise all inversions can follow the song.
+  // Classic lookup uses root position; explicit slash bass selects that inversion.
+  // Optional alternatives remain available for callers that explicitly request them.
   for (let first = 48; first <= 72; first++) {
-    if (!played.includes(first % 12) || (chord.bass !== null && first % 12 !== chord.bass))
-      continue;
+    const bass = chord.bass ?? (options.alternatives ? null : chord.root);
+    if (!played.includes(first % 12) || (bass !== null && first % 12 !== bass)) continue;
     const midiNotes = played
       .map((pitch) => first + ((pitch - (first % 12) + 12) % 12))
       .sort((a, b) => a - b);

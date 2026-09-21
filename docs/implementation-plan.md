@@ -16,7 +16,35 @@ Tauri SQLite backend, React listening workspace, Python supervised research pipe
 
 ## Global constraints
 
-### Active continuation: recognition/timing and compact practice correction
+### Active continuation: classic chord references and broad evaluation
+
+Latest user direction supersedes contextual practice shapes: show classic familiar
+guitar forms and compact one-hand piano references. Implemented in
+`classic-practice.md`, preserving analyzed chord identity, slash bass, counts,
+occurrence seeking and Easy/capo options.
+
+`broad-recognition-results.md` records the completed 150-recording GuitarSet
+comparison and five-recording HU33 supplement. Original BTC170 loses important
+quality/bass/stability measures and is not promoted. The fixed semitone-grid tuning
+candidate improves controlled detuning robustness but fails the required real-data
+gain; do not re-run or weaken its frozen gates. Production LV v3 stays unchanged.
+No locked tests, new custom-model fitting or Bob accuracy checks occurred.
+
+The next quality gap is representative, legally usable full-mix chord/timing ground
+truth, including detuned recordings. Existing GuitarSet beats are nominal grids;
+Beat This training overlap prevents claiming independent beat accuracy on its
+comping subset. Preserve current model, old caches/corrections and research.
+
+Classic-shapes production build, 45 production browser flows and hidden native
+Killer Queen preparation/playback/seek/cache checks pass. Native preparation13.544s,
+cached selection118ms, late seek26.9ms,83unchanged labels. Broader high accuracy
+remains open; the diagram work and rejected comparisons do not close that goal.
+
+Final verification:947application tests,158Python tests,45production E2Es, lint,
+types, Ruff, formatting, optimized Windows build and hidden native acceptance pass.
+Exact reports and post-study source archives are linked from the broad results.
+
+### Previous checkpoint: recognition/timing and compact practice correction
 
 Follow `recognition-timing-followup.md`. The user identifies Switch (41BZrKQY1IM)
 and Killer Queen (2ZBtPf7FOoM), requests actual accuracy/timing improvements,

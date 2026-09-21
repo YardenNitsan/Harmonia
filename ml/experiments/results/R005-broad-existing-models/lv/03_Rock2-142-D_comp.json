@@ -1,0 +1,97 @@
+{
+  "track_id": "03_Rock2-142-D_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "0e5f71ad66419d6ba9bc3caafd4e7c2aab0573e40d6136459344c286e9abe80e",
+    "annotation": "54757ce5bf9236d4ad638fac4a3bd85abc8fb191d3d4a3293316bbf19ed20864",
+    "prepared": "4a5bbdc85a6fc10f8fd45f322a551592fb6b1a5879311f87c190199929107a77"
+  },
+  "pcm": {
+    "source_sha256": "0e5f71ad66419d6ba9bc3caafd4e7c2aab0573e40d6136459344c286e9abe80e",
+    "file_sha256": "b7bce4f7ea86801ac19c899e77d7a9f40fa1d566a26f08aabe1f2fbbbccf6e16",
+    "pcm_sha256": "9d763cd3cec2f2c7b49f0e1bb5e2d33c86decaae62ab9cd9132f909873a3f7c4",
+    "duration": 27.041632653061225,
+    "decode_seconds": 0.019866199989337474
+  },
+  "timings": {
+    "retained_E006": true
+  },
+  "wall_seconds": 0.0002559999702498317,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.74,
+      "label": "G:min"
+    },
+    {
+      "start": 1.74,
+      "end": 3.37,
+      "label": "C:maj"
+    },
+    {
+      "start": 3.37,
+      "end": 4.97,
+      "label": "F:maj"
+    },
+    {
+      "start": 4.97,
+      "end": 7.08,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 7.08,
+      "end": 8.43,
+      "label": "E:dim"
+    },
+    {
+      "start": 8.43,
+      "end": 10.12,
+      "label": "A:7"
+    },
+    {
+      "start": 10.12,
+      "end": 13.51,
+      "label": "D:min"
+    },
+    {
+      "start": 13.51,
+      "end": 14.98,
+      "label": "G:min"
+    },
+    {
+      "start": 14.98,
+      "end": 17.07,
+      "label": "C:7"
+    },
+    {
+      "start": 17.07,
+      "end": 18.37,
+      "label": "F:maj"
+    },
+    {
+      "start": 18.37,
+      "end": 20.32,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 20.32,
+      "end": 21.73,
+      "label": "E:dim"
+    },
+    {
+      "start": 21.73,
+      "end": 23.64,
+      "label": "A:7"
+    },
+    {
+      "start": 23.64,
+      "end": 27.041632653061225,
+      "label": "D:min"
+    }
+  ]
+}

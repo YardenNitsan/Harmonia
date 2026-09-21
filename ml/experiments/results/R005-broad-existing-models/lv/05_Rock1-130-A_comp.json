@@ -1,0 +1,79 @@
+{
+  "track_id": "05_Rock1-130-A_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "711b2cc0a44a3890bf028c282e8edbc3f8ebfc2ec35a3806524abe7537c3db19",
+    "annotation": "49a8b51c72e3adc1affbcb41dd36978bd088d4f18c98a761f005d403d8bcc174",
+    "prepared": "b35b62d7eaeaf616c706d7825ccb275e4f80a9650062f1127f7229b8ecf853fb"
+  },
+  "pcm": {
+    "source_sha256": "711b2cc0a44a3890bf028c282e8edbc3f8ebfc2ec35a3806524abe7537c3db19",
+    "file_sha256": "c48a3ded3b3fa00d4ddd16b9d488b3c5cff794042cd20775dbd5c851eeb5ba3d",
+    "pcm_sha256": "8470e0c6b23bbc3d12a63b45068f1a136960eac6aba1b3e59bca5f1c26516e7a",
+    "duration": 22.14721088435374,
+    "decode_seconds": 0.01681940001435578
+  },
+  "timings": {
+    "setupSeconds": 0.023691899958066642,
+    "cqtSeconds": 0.10804349998943508,
+    "inferenceSeconds": 0.8386341999867,
+    "hmmSeconds": 0.020107799966353923,
+    "beatSeconds": 0.036537000036332756,
+    "refinementSeconds": 7.539999205619097e-05,
+    "decodeSeconds": 0.00019249995239078999,
+    "totalSeconds": 1.0278881999547593
+  },
+  "wall_seconds": 1.029329399985727,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 3.41,
+      "label": "A:maj"
+    },
+    {
+      "start": 3.41,
+      "end": 3.74,
+      "label": "G:maj"
+    },
+    {
+      "start": 3.74,
+      "end": 7.34,
+      "label": "A:maj"
+    },
+    {
+      "start": 7.34,
+      "end": 11.08,
+      "label": "D:maj"
+    },
+    {
+      "start": 11.08,
+      "end": 14.77,
+      "label": "A:maj"
+    },
+    {
+      "start": 14.77,
+      "end": 16.74,
+      "label": "E:maj"
+    },
+    {
+      "start": 16.74,
+      "end": 18.58,
+      "label": "D:maj"
+    },
+    {
+      "start": 18.58,
+      "end": 20.48,
+      "label": "A:maj"
+    },
+    {
+      "start": 20.48,
+      "end": 22.14721088435374,
+      "label": "E:7"
+    }
+  ]
+}

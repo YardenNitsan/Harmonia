@@ -1,0 +1,98 @@
+{
+  "track_id": "05_Jazz1-130-D_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "957fd5a4a98c8b9f804b44a664e521dd6268c4e892cce1a0eeb5364dec52afa9",
+    "annotation": "a29056c9fb0e6b4bee228cc6f17480e93750a54f375cbcc87edd4bef7b8e5c30",
+    "prepared": "6d76a155c4d135ed35c8f9a9bf3cb72f3758b9f573abd355b3813f9528cf863b"
+  },
+  "pcm": {
+    "source_sha256": "957fd5a4a98c8b9f804b44a664e521dd6268c4e892cce1a0eeb5364dec52afa9",
+    "file_sha256": "dbaf69a167c3767727d59fb7051ba9a6567447becdad8fb34a4b1299c1ef48ca",
+    "pcm_sha256": "795ea048580c30331196d6d143ef75791cd8165f46eab70de5b42525f9a1b13c",
+    "duration": 22.14721088435374,
+    "decode_seconds": 0.015367400017566979
+  },
+  "timings": {
+    "feature_seconds": 0.05867470003431663,
+    "model_seconds": 0.058046999969519675
+  },
+  "wall_seconds": 0.1297723000170663,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.1145578231292517,
+      "label": "N"
+    },
+    {
+      "start": 1.1145578231292517,
+      "end": 2.972154195011338,
+      "label": "A:min"
+    },
+    {
+      "start": 2.972154195011338,
+      "end": 4.179591836734694,
+      "label": "D:maj"
+    },
+    {
+      "start": 4.179591836734694,
+      "end": 6.315827664399093,
+      "label": "A:min"
+    },
+    {
+      "start": 6.315827664399093,
+      "end": 8.359183673469389,
+      "label": "D:maj"
+    },
+    {
+      "start": 8.359183673469389,
+      "end": 8.730702947845804,
+      "label": "A:min"
+    },
+    {
+      "start": 8.730702947845804,
+      "end": 9.009342403628118,
+      "label": "D:maj"
+    },
+    {
+      "start": 9.009342403628118,
+      "end": 10.0,
+      "label": "G:maj"
+    },
+    {
+      "start": 10.0,
+      "end": 14.458231292517006,
+      "label": "N"
+    },
+    {
+      "start": 14.458231292517006,
+      "end": 15.294149659863946,
+      "label": "G:maj"
+    },
+    {
+      "start": 15.294149659863946,
+      "end": 16.130068027210886,
+      "label": "N"
+    },
+    {
+      "start": 16.130068027210886,
+      "end": 18.17342403628118,
+      "label": "G:maj"
+    },
+    {
+      "start": 18.17342403628118,
+      "end": 20.0,
+      "label": "D:maj"
+    },
+    {
+      "start": 20.0,
+      "end": 20.46439909297052,
+      "label": "G:maj"
+    },
+    {
+      "start": 20.46439909297052,
+      "end": 22.14721088435374,
+      "label": "A:maj"
+    }
+  ]
+}

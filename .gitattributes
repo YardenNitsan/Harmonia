@@ -44,3 +44,17 @@
 /ml/experiments/d003_watchdog.py -text
 /ml/tests/test_residual_quality_probe.py -text
 /ml/experiments/results/D003-hu33-residual-quality/** -text
+
+# Keep this pass's frozen evidence and source hashes stable on Windows checkout.
+/docs/broad-recognition-protocol.md -text
+/docs/btc-cross-domain-protocol.md -text
+/docs/semitone-tuning-protocol.md -text
+/docs/semitone-tuning-validation.md -text
+# CRLF is an intentional part of these hashed Windows artifacts.
+/ml/experiments/results/R005-broad-existing-models/** -text whitespace=cr-at-eol
+/ml/experiments/results/R005-btc-cross-domain/** -text whitespace=cr-at-eol
+/ml/experiments/results/R006-semitone-tuning/** -text whitespace=cr-at-eol
+/ml/experiments/results/R006-semitone-validation/** -text whitespace=cr-at-eol
+/docs/review-evidence/classic-r005-historical-*.txt -text whitespace=cr-at-eol
+/docs/review-evidence/browser-performance-accurate.json text eol=lf
+/docs/review-evidence/browser-performance-fast.json text eol=lf

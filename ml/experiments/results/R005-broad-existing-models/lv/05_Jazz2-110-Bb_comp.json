@@ -1,0 +1,134 @@
+{
+  "track_id": "05_Jazz2-110-Bb_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "0ff82f67a72707cfa4f263aac890baeb9a11f50d0e1487c8f187a2e614b6bd9d",
+    "annotation": "c420a87840a1e19b4641bfac47a3198a7de1ba1aeb304af24731d627cfaf9cef",
+    "prepared": "ff367d222b84efef69aa2ff9136bd3ddefbb03b0f629940ebe93c79a684c72b5"
+  },
+  "pcm": {
+    "source_sha256": "0ff82f67a72707cfa4f263aac890baeb9a11f50d0e1487c8f187a2e614b6bd9d",
+    "file_sha256": "e3f37ea5bbd93087bd909f0e3f16af5807f1d4af630216d0d4d2063afb96e5c6",
+    "pcm_sha256": "f7c2d1677293268ccfea47a7a73e2902dd11993a4cd61038c1e501e4acbb80df",
+    "duration": 34.90321995464853,
+    "decode_seconds": 0.023417500022333115
+  },
+  "timings": {
+    "setupSeconds": 0.01971590000903234,
+    "cqtSeconds": 0.12541509995935485,
+    "inferenceSeconds": 1.169803700002376,
+    "hmmSeconds": 0.027313100057654083,
+    "beatSeconds": 0.039173000026494265,
+    "refinementSeconds": 0.000172999978531152,
+    "decodeSeconds": 0.0006123000057414174,
+    "totalSeconds": 1.3828954999917187
+  },
+  "wall_seconds": 1.3845829999772832,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.97,
+      "label": "Eb:min7"
+    },
+    {
+      "start": 1.97,
+      "end": 4.81,
+      "label": "Ab:7"
+    },
+    {
+      "start": 4.81,
+      "end": 6.52,
+      "label": "C#:maj7"
+    },
+    {
+      "start": 6.52,
+      "end": 9.24,
+      "label": "F#:7"
+    },
+    {
+      "start": 9.24,
+      "end": 11.24,
+      "label": "C:hdim7"
+    },
+    {
+      "start": 11.24,
+      "end": 13.03,
+      "label": "F:7"
+    },
+    {
+      "start": 13.03,
+      "end": 14.58,
+      "label": "Bb:min7"
+    },
+    {
+      "start": 14.58,
+      "end": 17.39,
+      "label": "Bb:7"
+    },
+    {
+      "start": 17.39,
+      "end": 19.34,
+      "label": "Eb:min7"
+    },
+    {
+      "start": 19.34,
+      "end": 21.85,
+      "label": "Ab:7"
+    },
+    {
+      "start": 21.85,
+      "end": 23.99,
+      "label": "C#:maj7"
+    },
+    {
+      "start": 23.99,
+      "end": 25.96,
+      "label": "F#:maj7"
+    },
+    {
+      "start": 25.96,
+      "end": 27.0,
+      "label": "Ab:7"
+    },
+    {
+      "start": 27.0,
+      "end": 28.31,
+      "label": "C:hdim7"
+    },
+    {
+      "start": 28.31,
+      "end": 29.88,
+      "label": "F:7"
+    },
+    {
+      "start": 29.88,
+      "end": 30.49,
+      "label": "E:7"
+    },
+    {
+      "start": 30.49,
+      "end": 31.09,
+      "label": "Bb:hdim7"
+    },
+    {
+      "start": 31.09,
+      "end": 32.42,
+      "label": "A:hdim7"
+    },
+    {
+      "start": 32.42,
+      "end": 33.46,
+      "label": "Ab:7"
+    },
+    {
+      "start": 33.46,
+      "end": 34.90321995464853,
+      "label": "C#:maj/5"
+    }
+  ]
+}

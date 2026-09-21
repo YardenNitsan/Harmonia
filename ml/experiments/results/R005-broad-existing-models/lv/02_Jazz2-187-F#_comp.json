@@ -1,0 +1,109 @@
+{
+  "track_id": "02_Jazz2-187-F#_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "8c8f612a0a9f52bab9b8c10d490d10edfffa40fff86f09e4ff5e1b9faf766aae",
+    "annotation": "dc4ef2a01f21c45aab0cf2466f8df6d2039c66d7709fe0be2b4798b01806ddc1",
+    "prepared": "94800556b5106af6cbb6c2096bd9878559d7871132f9bca2929c243ea83cf32f"
+  },
+  "pcm": {
+    "source_sha256": "8c8f612a0a9f52bab9b8c10d490d10edfffa40fff86f09e4ff5e1b9faf766aae",
+    "file_sha256": "d23296e21647cd85270bf41c8039891b7f2cfd15850d0476cae67435cc3cfc51",
+    "pcm_sha256": "7445be4dff99fee7bce6eff9cc82f38aa4f6a3016922aade5799c076c97c983f",
+    "duration": 20.532018140589567,
+    "decode_seconds": 0.015029900008812547
+  },
+  "timings": {
+    "setupSeconds": 0.020444300025701523,
+    "cqtSeconds": 0.07945009996183217,
+    "inferenceSeconds": 0.6411021000239998,
+    "hmmSeconds": 0.012728300003800541,
+    "beatSeconds": 0.027484200021717697,
+    "refinementSeconds": 0.0001490999711677432,
+    "decodeSeconds": 0.0003093000268563628,
+    "totalSeconds": 0.7825933000422083
+  },
+  "wall_seconds": 0.7838154999772087,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.39,
+      "label": "B:min"
+    },
+    {
+      "start": 1.39,
+      "end": 2.81,
+      "label": "E:maj"
+    },
+    {
+      "start": 2.81,
+      "end": 3.88,
+      "label": "A:maj"
+    },
+    {
+      "start": 3.88,
+      "end": 5.36,
+      "label": "D:maj"
+    },
+    {
+      "start": 5.36,
+      "end": 6.46,
+      "label": "Ab:min"
+    },
+    {
+      "start": 6.46,
+      "end": 7.71,
+      "label": "C#:maj"
+    },
+    {
+      "start": 7.71,
+      "end": 10.26,
+      "label": "F#:maj"
+    },
+    {
+      "start": 10.26,
+      "end": 11.56,
+      "label": "B:min"
+    },
+    {
+      "start": 11.56,
+      "end": 13.17,
+      "label": "E:maj"
+    },
+    {
+      "start": 13.17,
+      "end": 14.12,
+      "label": "A:maj"
+    },
+    {
+      "start": 14.12,
+      "end": 14.77,
+      "label": "D:maj"
+    },
+    {
+      "start": 14.77,
+      "end": 15.42,
+      "label": "A:maj/3"
+    },
+    {
+      "start": 15.42,
+      "end": 16.7,
+      "label": "Ab:min"
+    },
+    {
+      "start": 16.7,
+      "end": 17.95,
+      "label": "C#:maj"
+    },
+    {
+      "start": 17.95,
+      "end": 20.532018140589567,
+      "label": "F#:maj"
+    }
+  ]
+}

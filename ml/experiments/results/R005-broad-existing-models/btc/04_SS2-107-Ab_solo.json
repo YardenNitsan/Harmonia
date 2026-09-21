@@ -1,0 +1,88 @@
+{
+  "track_id": "04_SS2-107-Ab_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "e4edcc321fc3540d5c5b532e1b149e816a2a3d6ac46eda2ccd6299c28032b6f7",
+    "annotation": "5d9266b3b7d7ea6dd05afccbdd8ac02c2a0a94adcd2bc8ff7652d1eaf6967c78",
+    "prepared": "394e645746b6055af5676a92a822d622055ccd94806edcb1c664e56d01f4aeca"
+  },
+  "pcm": {
+    "source_sha256": "e4edcc321fc3540d5c5b532e1b149e816a2a3d6ac46eda2ccd6299c28032b6f7",
+    "file_sha256": "9858d1e65aa298b2251802638217355e0c48aa7cb18805ec67282b33e94900bc",
+    "pcm_sha256": "af8337118f5142478120427e6e79560cd121c0f32a165f5ae9a1edd5730052de",
+    "duration": 35.88639455782313,
+    "decode_seconds": 0.023860500019509345
+  },
+  "timings": {
+    "feature_seconds": 0.08033010002691299,
+    "model_seconds": 0.07895900000585243
+  },
+  "wall_seconds": 0.17763280001236126,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.6501587301587302,
+      "label": "N"
+    },
+    {
+      "start": 0.6501587301587302,
+      "end": 2.507755102040816,
+      "label": "G#:min"
+    },
+    {
+      "start": 2.507755102040816,
+      "end": 4.73687074829932,
+      "label": "F#:maj"
+    },
+    {
+      "start": 4.73687074829932,
+      "end": 4.922630385487528,
+      "label": "N"
+    },
+    {
+      "start": 4.922630385487528,
+      "end": 5.851428571428571,
+      "label": "G#:min"
+    },
+    {
+      "start": 5.851428571428571,
+      "end": 6.873106575963718,
+      "label": "D#:min"
+    },
+    {
+      "start": 6.873106575963718,
+      "end": 9.380861678004536,
+      "label": "B:maj"
+    },
+    {
+      "start": 9.380861678004536,
+      "end": 11.114557823129251,
+      "label": "G#:min"
+    },
+    {
+      "start": 11.114557823129251,
+      "end": 12.78639455782313,
+      "label": "G:maj"
+    },
+    {
+      "start": 12.78639455782313,
+      "end": 20.0,
+      "label": "G#:min"
+    },
+    {
+      "start": 20.0,
+      "end": 29.28798185941043,
+      "label": "N"
+    },
+    {
+      "start": 29.28798185941043,
+      "end": 29.845260770975056,
+      "label": "G:min"
+    },
+    {
+      "start": 29.845260770975056,
+      "end": 35.88639455782313,
+      "label": "N"
+    }
+  ]
+}

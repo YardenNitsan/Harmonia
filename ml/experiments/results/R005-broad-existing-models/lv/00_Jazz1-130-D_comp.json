@@ -1,0 +1,74 @@
+{
+  "track_id": "00_Jazz1-130-D_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "b686a47b0a0a58dbdd818d2ebc9c31da87e4bed1af889dd62b1ffd1d1496f827",
+    "annotation": "e91e087cc46802634052365b9ca98463e09bf75adac69db23d0b13154c37bf1d",
+    "prepared": "4383bdcaae85f0aa9333eedab1475d1186ccc9a07e306b3da6c3de23c4cc73b5"
+  },
+  "pcm": {
+    "source_sha256": "b686a47b0a0a58dbdd818d2ebc9c31da87e4bed1af889dd62b1ffd1d1496f827",
+    "file_sha256": "e9659f814b25c8c73edaa87fe65e0b2cce306700835e3aa0ae48d2d2f89631fc",
+    "pcm_sha256": "6ee5b3bae32edbda2827a53ea42bcac33c46ce9b4f86cf65008673824cd62461",
+    "duration": 22.14721088435374,
+    "decode_seconds": 0.01861329999519512
+  },
+  "timings": {
+    "setupSeconds": 0.020237600023392588,
+    "cqtSeconds": 0.09137849998660386,
+    "inferenceSeconds": 0.8162011000094935,
+    "hmmSeconds": 0.018328099977225065,
+    "beatSeconds": 0.027004300034604967,
+    "refinementSeconds": 9.729998419061303e-05,
+    "decodeSeconds": 0.00027899997076019645,
+    "totalSeconds": 0.9742296999902464
+  },
+  "wall_seconds": 0.975425600016024,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 0.44,
+      "label": "A:min"
+    },
+    {
+      "start": 0.44,
+      "end": 7.34,
+      "label": "D:7"
+    },
+    {
+      "start": 7.34,
+      "end": 11.15,
+      "label": "G:maj"
+    },
+    {
+      "start": 11.15,
+      "end": 13.1,
+      "label": "A:min"
+    },
+    {
+      "start": 13.1,
+      "end": 15.05,
+      "label": "D:maj"
+    },
+    {
+      "start": 15.05,
+      "end": 16.9,
+      "label": "A:maj"
+    },
+    {
+      "start": 16.9,
+      "end": 18.27,
+      "label": "D:min"
+    },
+    {
+      "start": 18.27,
+      "end": 22.14721088435374,
+      "label": "D:maj"
+    }
+  ]
+}

@@ -1,5 +1,14 @@
 # Evaluation evidence
 
+Latest broad check: `broad-recognition-results.md` records 150 GuitarSet recordings
+and five HU33 validation recordings. In the 60 GuitarSet accompaniment validation
+takes, original LV root/reduced exact84.98%/38.73% beats original BTC17080.03%/36.77%.
+Aggregating solos obscures that comparison; neither dataset score proves commercial
+full-mix accuracy. BTC also loses HU33 root/exact and creates more short regions.
+No replacement is promoted. R006 musical-grid tuning passes synthetic detuning
+robustness but fails the fixed minimum real-data gain, so production LV v3 remains
+unchanged. Detailed per-class, boundary, source, split and timing evidence is retained.
+
 Current native v3 timing follow-up: the separately frozen onset-alignment
 candidate improves fixed HU33 boundary precision/recall/F1@50ms from
 23.50/16.35/19.28% to 29.89/20.91/24.61%. Root accuracy 62.662→62.667% and reduced

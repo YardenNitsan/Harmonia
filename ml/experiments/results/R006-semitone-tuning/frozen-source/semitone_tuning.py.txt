@@ -1,0 +1,169 @@
+"""Fixed training-only LV tuning screen; no new fitting or production changes."""
+
+from __future__ import annotations
+
+import json
+import os
+from pathlib import Path
+
+for name in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMBA_NUM_THREADS"):
+    os.environ[name] = "2"
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+
+import librosa  # noqa: E402
+import numpy as np  # noqa: E402
+
+from experiments.stabilization.compare import (  # noqa: E402
+    digest,
+    frame_score,
+    matrix,
+    reduced,
+    resources,
+    sample,
+    write,
+)
+from harmonia_ml.inference.whole_song import infer  # noqa: E402
+
+ROOT = Path(__file__).resolve().parents[1]
+REPO = ROOT.parent
+BROAD = ROOT / "experiments/results/R005-broad-existing-models"
+OUT = ROOT / "experiments/results/R006-semitone-tuning"
+
+
+def read(path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def tuned_infer(pcm, tuning):
+    from lv_chordia.extractors.cqt import CQTV2
+
+    original = CQTV2.extract
+
+    def extract(self, entry, **kwargs):
+        if kwargs or entry.prop.hop_length != 512:
+            raise ValueError("Unexpected extractor arguments")
+        value = librosa.hybrid_cqt(
+            entry.music,
+            sr=22050,
+            bins_per_octave=36,
+            fmin=librosa.note_to_hz("F#0"),
+            n_bins=288,
+            tuning=3 * tuning,
+            hop_length=512,
+        )
+        return np.abs(value).T.astype(np.float32)
+
+    CQTV2.extract = extract
+    try:
+        return infer(pcm)
+    finally:
+        CQTV2.extract = original
+
+
+def main():
+    OUT.mkdir(parents=True, exist_ok=True)
+    rows = [
+        r
+        for r in read(BROAD / "freeze.json")["tracks"]
+        if r["split"] == "train" and r["version"] == "comp"
+    ]
+    if len(rows) != 15:
+        raise ValueError("Fixed training selection changed")
+    files = [
+        Path(__file__),
+        REPO / "docs/semitone-tuning-protocol.md",
+        ROOT / "harmonia_ml/inference/whole_song.py",
+        BROAD / "freeze.json",
+    ]
+    for row in rows:
+        files += [
+            REPO / row["paths"]["prepared"],
+            BROAD / "lv" / (row["track_id"] + ".json"),
+            REPO / ".superpowers/diagnostics/broad-r005/pcm" / (row["track_id"] + ".npy"),
+        ]
+    write(
+        OUT / "freeze.json",
+        {
+            "sources": {str(p.relative_to(REPO)): digest(p) for p in files},
+            "tracks": [r["track_id"] for r in rows],
+            "offsets": [0, -0.33, 0.33],
+        },
+    )
+    pooled = {
+        (condition, arm): [[], []]
+        for condition in ("canonical", "shifted")
+        for arm in ("original", "candidate")
+    }
+    outputs = []
+    for row in rows:
+        pcm = np.load(
+            REPO / ".superpowers/diagnostics/broad-r005/pcm" / (row["track_id"] + ".npy"),
+            allow_pickle=False,
+        )
+        with np.load(REPO / row["paths"]["prepared"], allow_pickle=False) as data:
+            truth, times = matrix(data), data["times"]
+        for offset in (0, -0.33, 0.33):
+            resources()
+            ratio = 2 ** (offset / 12)
+            audio = (
+                pcm
+                if offset == 0
+                else librosa.resample(
+                    pcm, orig_sr=22050 * ratio, target_sr=22050, res_type="soxr_hq"
+                )
+            )
+            tuning = float(librosa.estimate_tuning(y=audio, sr=22050, bins_per_octave=12))
+            old = read(BROAD / "lv" / (row["track_id"] + ".json")) if offset == 0 else infer(audio)
+            candidate = tuned_infer(audio, tuning) if abs(tuning) > 1 / 6 else old
+            record = {
+                "track_id": row["track_id"],
+                "offset": offset,
+                "tuning_semitones": tuning,
+                "applied": candidate is not old,
+                "arms": {},
+            }
+            for arm, result in (("original", old), ("candidate", candidate)):
+                segments = [{**s, "target": reduced(s["label"])} for s in result["segments"]]
+                prediction = sample(segments, times / ratio)
+                record["arms"][arm] = {
+                    "frames": frame_score(truth, prediction),
+                    "segment_count": len(segments),
+                    "segments": segments,
+                }
+                group = pooled[("canonical" if offset == 0 else "shifted", arm)]
+                group[0].append(truth)
+                group[1].append(prediction)
+            write(OUT / f"{row['track_id']}_{offset:+.2f}.json", record)
+            outputs.append({k: v for k, v in record.items() if k != "arms"})
+            print(row["track_id"], offset, tuning, record["applied"], flush=True)
+    scores = {}
+    for (condition, arm), (truth, prediction) in pooled.items():
+        scores.setdefault(condition, {})[arm] = frame_score(
+            np.concatenate(truth), np.concatenate(prediction)
+        )
+    def metrics(s):
+        return [s[h]["accuracy"] for h in ("root", "triad", "seventh", "bass")] + [
+            s["reduced_structural_exact"]
+        ]
+    canonical = np.array(metrics(scores["canonical"]["candidate"])) - metrics(
+        scores["canonical"]["original"]
+    )
+    shifted = np.array(metrics(scores["shifted"]["candidate"])) - metrics(
+        scores["shifted"]["original"]
+    )
+    accepted = bool(np.all(canonical >= -0.005) and np.all(shifted[[0, 1, 4]] >= 0.03))
+    write(
+        OUT / "report.json",
+        {
+            "scores": scores,
+            "canonical_deltas": canonical.tolist(),
+            "shifted_deltas": shifted.tolist(),
+            "accepted": accepted,
+            "conditions": outputs,
+            "production_promotion": False,
+        },
+    )
+
+
+if __name__ == "__main__":
+    main()

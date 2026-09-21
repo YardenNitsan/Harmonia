@@ -15,7 +15,7 @@ export const ChordLibrary = memo(function ChordLibrary({
   arrangement: ReturnType<typeof buildPracticeArrangement>;
   transpose: number;
   onSeek(time: number): void;
-  onModeChange(mode: 'song' | 'easy'): void;
+  onModeChange(mode: 'classic' | 'easy'): void;
   capoChoice: number | 'recommended';
   onCapoChange(capo: number | 'recommended'): void;
 }) {
@@ -47,14 +47,14 @@ export const ChordLibrary = memo(function ChordLibrary({
       </div>
       <div className="arrangement-controls">
         <div className="instrument-tabs" role="group" aria-label="Practice arrangement">
-          {(['song', 'easy'] as const).map((mode) => (
+          {(['classic', 'easy'] as const).map((mode) => (
             <button
               key={mode}
               aria-pressed={arrangement.mode === mode}
               className={arrangement.mode === mode ? 'selected' : ''}
               onClick={() => onModeChange(mode)}
             >
-              {mode === 'song' ? 'Song voicings' : 'Easy practice'}
+              {mode === 'classic' ? 'Classic shapes' : 'Easy practice'}
             </button>
           ))}
         </div>
@@ -85,8 +85,8 @@ export const ChordLibrary = memo(function ChordLibrary({
         )}
       </div>
       <p className="library-guide">
-        {arrangement.mode === 'song'
-          ? 'Suggested voicings follow the song’s harmony with less movement between chords. Original fingerings are not identified.'
+        {arrangement.mode === 'classic'
+          ? 'Classic chord shapes: familiar guitar positions and one compact piano chord. The same chord uses the same shape throughout the song.'
           : 'An easier arrangement. Chord titles retain the analyzed harmony; any omitted notes are shown.'}
       </p>
       {arrangement.mode === 'easy' && (

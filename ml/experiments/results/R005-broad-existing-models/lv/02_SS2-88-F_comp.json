@@ -1,0 +1,119 @@
+{
+  "track_id": "02_SS2-88-F_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "f68b2f066e6d512c901ea58423b05dcb14faeb2dfbd239aea36589797a93a3d3",
+    "annotation": "34dc22e89e1ce74e2c1c5f80d74a0bff129926ea3253e744db8f65cdfe6dbc48",
+    "prepared": "a2f03fbd282896bc575b4455c393d04acc89d7fdfebea277e9be7f3b8c092e04"
+  },
+  "pcm": {
+    "source_sha256": "f68b2f066e6d512c901ea58423b05dcb14faeb2dfbd239aea36589797a93a3d3",
+    "file_sha256": "c1d210c1861d9e8a1b96ae58d567ebbb0b129267976a3e9021de2237df507c7e",
+    "pcm_sha256": "3a0253eb8d74529ac41198b366c766fc039245d375137487d0e527c959b84c1b",
+    "duration": 43.62920634920635,
+    "decode_seconds": 0.02612500003306195
+  },
+  "timings": {
+    "setupSeconds": 0.01969029998872429,
+    "cqtSeconds": 0.16494399996008724,
+    "inferenceSeconds": 1.3465786000015214,
+    "hmmSeconds": 0.029364999965764582,
+    "beatSeconds": 0.05983029998606071,
+    "refinementSeconds": 0.00010870001278817654,
+    "decodeSeconds": 0.00033160002203658223,
+    "totalSeconds": 1.6213236000039615
+  },
+  "wall_seconds": 1.624061200011056,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 2.72,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 2.72,
+      "end": 5.46,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 5.46,
+      "end": 8.2,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 8.2,
+      "end": 10.89,
+      "label": "C#:maj"
+    },
+    {
+      "start": 10.89,
+      "end": 11.84,
+      "label": "G:min"
+    },
+    {
+      "start": 11.84,
+      "end": 13.61,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 13.61,
+      "end": 16.37,
+      "label": "C:maj"
+    },
+    {
+      "start": 16.37,
+      "end": 21.87,
+      "label": "F:maj"
+    },
+    {
+      "start": 21.87,
+      "end": 22.94,
+      "label": "E:min"
+    },
+    {
+      "start": 22.94,
+      "end": 24.64,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 24.64,
+      "end": 27.28,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 27.28,
+      "end": 30.05,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 30.05,
+      "end": 32.69,
+      "label": "C#:maj"
+    },
+    {
+      "start": 32.69,
+      "end": 33.37,
+      "label": "G:maj"
+    },
+    {
+      "start": 33.37,
+      "end": 35.36,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 35.36,
+      "end": 38.2,
+      "label": "C:maj"
+    },
+    {
+      "start": 38.2,
+      "end": 43.62920634920635,
+      "label": "F:maj"
+    }
+  ]
+}

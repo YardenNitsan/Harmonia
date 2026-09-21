@@ -1,0 +1,398 @@
+{
+  "train/all": {
+    "lv": {
+      "tracks": 30,
+      "audio_seconds": 724.0634013605444,
+      "segment_count": 164,
+      "median_segment_seconds": 2.6099999999999994,
+      "mean_segment_seconds": 4.4150207400033175,
+      "fraction_regions_under_300ms": 0.09146341463414634,
+      "no_chord_duration_fraction": 0.39623611342337434,
+      "latency_measured_tracks": 30,
+      "latency_median_seconds": 0.9924867500085384,
+      "latency_total_seconds": 34.10651240008883,
+      "track_mean_root": 0.5145226154494965,
+      "track_mean_reduced_exact": 0.2523448754473436,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 35,
+          "fp": 99,
+          "fn": 115,
+          "precision": 0.26119402985074625,
+          "recall": 0.23333333333333334,
+          "f1": 0.24647887323943662
+        },
+        "0.1": {
+          "tp": 47,
+          "fp": 87,
+          "fn": 103,
+          "precision": 0.35074626865671643,
+          "recall": 0.31333333333333335,
+          "f1": 0.33098591549295775
+        }
+      }
+    },
+    "btc": {
+      "tracks": 30,
+      "audio_seconds": 724.0634013605445,
+      "segment_count": 335,
+      "median_segment_seconds": 1.1145578231292517,
+      "mean_segment_seconds": 2.1613832876434156,
+      "fraction_regions_under_300ms": 0.1373134328358209,
+      "no_chord_duration_fraction": 0.27011333994504916,
+      "latency_measured_tracks": 30,
+      "latency_median_seconds": 0.11773484997684136,
+      "latency_total_seconds": 4.06863709987374,
+      "track_mean_root": 0.5678719390128746,
+      "track_mean_reduced_exact": 0.25287254279845933,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 22,
+          "fp": 283,
+          "fn": 128,
+          "precision": 0.07213114754098361,
+          "recall": 0.14666666666666667,
+          "f1": 0.0967032967032967
+        },
+        "0.1": {
+          "tp": 39,
+          "fp": 266,
+          "fn": 111,
+          "precision": 0.12786885245901639,
+          "recall": 0.26,
+          "f1": 0.17142857142857143
+        }
+      }
+    }
+  },
+  "train/comp": {
+    "lv": {
+      "tracks": 15,
+      "audio_seconds": 362.03170068027185,
+      "segment_count": 120,
+      "median_segment_seconds": 2.465,
+      "mean_segment_seconds": 3.016930839002268,
+      "fraction_regions_under_300ms": 0.1,
+      "no_chord_duration_fraction": 0.012126009937116046,
+      "latency_measured_tracks": 15,
+      "latency_median_seconds": 0.9947411000030115,
+      "latency_total_seconds": 19.102782500034664,
+      "track_mean_root": 0.9071962123313704,
+      "track_mean_reduced_exact": 0.4446422044795557,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 32,
+          "fp": 73,
+          "fn": 43,
+          "precision": 0.3047619047619048,
+          "recall": 0.4266666666666667,
+          "f1": 0.35555555555555557
+        },
+        "0.1": {
+          "tp": 43,
+          "fp": 62,
+          "fn": 32,
+          "precision": 0.4095238095238095,
+          "recall": 0.5733333333333334,
+          "f1": 0.4777777777777778
+        }
+      }
+    },
+    "btc": {
+      "tracks": 15,
+      "audio_seconds": 362.031700680272,
+      "segment_count": 159,
+      "median_segment_seconds": 1.7647165532879818,
+      "mean_segment_seconds": 2.2769289350960507,
+      "fraction_regions_under_300ms": 0.15723270440251572,
+      "no_chord_duration_fraction": 0.02666783918773356,
+      "latency_measured_tracks": 15,
+      "latency_median_seconds": 0.12294289999408647,
+      "latency_total_seconds": 2.2767880999599583,
+      "track_mean_root": 0.8705555759584541,
+      "track_mean_reduced_exact": 0.4323411157069889,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 16,
+          "fp": 128,
+          "fn": 59,
+          "precision": 0.1111111111111111,
+          "recall": 0.21333333333333335,
+          "f1": 0.1461187214611872
+        },
+        "0.1": {
+          "tp": 30,
+          "fp": 114,
+          "fn": 45,
+          "precision": 0.20833333333333334,
+          "recall": 0.4,
+          "f1": 0.273972602739726
+        }
+      }
+    }
+  },
+  "train/solo": {
+    "lv": {
+      "tracks": 15,
+      "audio_seconds": 362.0317006802721,
+      "segment_count": 44,
+      "median_segment_seconds": 3.104999999999999,
+      "mean_segment_seconds": 8.227993197278911,
+      "fraction_regions_under_300ms": 0.06818181818181818,
+      "no_chord_duration_fraction": 0.7803462169096329,
+      "latency_measured_tracks": 15,
+      "latency_median_seconds": 0.9722953999880701,
+      "latency_total_seconds": 15.003729900054168,
+      "track_mean_root": 0.12184901856762259,
+      "track_mean_reduced_exact": 0.060047546415131436,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 3,
+          "fp": 26,
+          "fn": 72,
+          "precision": 0.10344827586206896,
+          "recall": 0.04,
+          "f1": 0.057692307692307696
+        },
+        "0.1": {
+          "tp": 4,
+          "fp": 25,
+          "fn": 71,
+          "precision": 0.13793103448275862,
+          "recall": 0.05333333333333334,
+          "f1": 0.07692307692307693
+        }
+      }
+    },
+    "btc": {
+      "tracks": 15,
+      "audio_seconds": 362.0317006802718,
+      "segment_count": 176,
+      "median_segment_seconds": 0.8359183673469399,
+      "mean_segment_seconds": 2.0569982993197278,
+      "fraction_regions_under_300ms": 0.11931818181818182,
+      "no_chord_duration_fraction": 0.5135588407023656,
+      "latency_measured_tracks": 15,
+      "latency_median_seconds": 0.11147529998561367,
+      "latency_total_seconds": 1.7918489999137819,
+      "track_mean_root": 0.26518830206729505,
+      "track_mean_reduced_exact": 0.07340396988992973,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 6,
+          "fp": 155,
+          "fn": 69,
+          "precision": 0.037267080745341616,
+          "recall": 0.08,
+          "f1": 0.05084745762711865
+        },
+        "0.1": {
+          "tp": 9,
+          "fp": 152,
+          "fn": 66,
+          "precision": 0.055900621118012424,
+          "recall": 0.12,
+          "f1": 0.07627118644067797
+        }
+      }
+    }
+  },
+  "validation/all": {
+    "lv": {
+      "tracks": 120,
+      "audio_seconds": 3928.9643537414995,
+      "segment_count": 1108,
+      "median_segment_seconds": 2.0700000000000003,
+      "mean_segment_seconds": 3.5459967091529756,
+      "fraction_regions_under_300ms": 0.06227436823104693,
+      "no_chord_duration_fraction": 0.43097914570483775,
+      "latency_measured_tracks": 108,
+      "latency_median_seconds": 1.217064800002845,
+      "latency_total_seconds": 135.42902129975846,
+      "track_mean_root": 0.44037932191949913,
+      "track_mean_reduced_exact": 0.19395686363484801,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 363,
+          "fp": 625,
+          "fn": 1197,
+          "precision": 0.3674089068825911,
+          "recall": 0.2326923076923077,
+          "f1": 0.28492935635792777
+        },
+        "0.1": {
+          "tp": 487,
+          "fp": 501,
+          "fn": 1073,
+          "precision": 0.49291497975708504,
+          "recall": 0.3121794871794872,
+          "f1": 0.38226059654631084
+        }
+      }
+    },
+    "btc": {
+      "tracks": 120,
+      "audio_seconds": 3928.9643537415204,
+      "segment_count": 2336,
+      "median_segment_seconds": 1.1145578231292514,
+      "mean_segment_seconds": 1.6819196719783804,
+      "fraction_regions_under_300ms": 0.19434931506849315,
+      "no_chord_duration_fraction": 0.28853713263241243,
+      "latency_measured_tracks": 120,
+      "latency_median_seconds": 0.16716514999279752,
+      "latency_total_seconds": 19.74339980026707,
+      "track_mean_root": 0.45337217079330117,
+      "track_mean_reduced_exact": 0.19263732174311202,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 253,
+          "fp": 1963,
+          "fn": 1307,
+          "precision": 0.1141696750902527,
+          "recall": 0.1621794871794872,
+          "f1": 0.1340042372881356
+        },
+        "0.1": {
+          "tp": 461,
+          "fp": 1755,
+          "fn": 1099,
+          "precision": 0.20803249097472923,
+          "recall": 0.2955128205128205,
+          "f1": 0.2441737288135593
+        }
+      }
+    }
+  },
+  "validation/comp": {
+    "lv": {
+      "tracks": 60,
+      "audio_seconds": 1964.4821768707488,
+      "segment_count": 916,
+      "median_segment_seconds": 2.0399999999999996,
+      "mean_segment_seconds": 2.144631197457149,
+      "fraction_regions_under_300ms": 0.06222707423580786,
+      "no_chord_duration_fraction": 0.023564280970501263,
+      "latency_measured_tracks": 54,
+      "latency_median_seconds": 1.212828099989565,
+      "latency_total_seconds": 67.63770330004627,
+      "track_mean_root": 0.846499388703212,
+      "track_mean_reduced_exact": 0.3747716972092249,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 351,
+          "fp": 505,
+          "fn": 429,
+          "precision": 0.4100467289719626,
+          "recall": 0.45,
+          "f1": 0.4290953545232274
+        },
+        "0.1": {
+          "tp": 465,
+          "fp": 391,
+          "fn": 315,
+          "precision": 0.5432242990654206,
+          "recall": 0.5961538461538461,
+          "f1": 0.5684596577017115
+        }
+      }
+    },
+    "btc": {
+      "tracks": 60,
+      "audio_seconds": 1964.4821768707527,
+      "segment_count": 1301,
+      "median_segment_seconds": 1.3931972789115648,
+      "mean_segment_seconds": 1.5099786140436189,
+      "fraction_regions_under_300ms": 0.1813989239046887,
+      "no_chord_duration_fraction": 0.02090600716137316,
+      "latency_measured_tracks": 60,
+      "latency_median_seconds": 0.16713760001584888,
+      "latency_total_seconds": 9.889250000356697,
+      "track_mean_root": 0.7911955945993794,
+      "track_mean_reduced_exact": 0.34936364959360156,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 201,
+          "fp": 1040,
+          "fn": 579,
+          "precision": 0.16196615632554393,
+          "recall": 0.25769230769230766,
+          "f1": 0.19891142998515587
+        },
+        "0.1": {
+          "tp": 363,
+          "fp": 878,
+          "fn": 417,
+          "precision": 0.29250604351329573,
+          "recall": 0.4653846153846154,
+          "f1": 0.35922810489856505
+        }
+      }
+    }
+  },
+  "validation/solo": {
+    "lv": {
+      "tracks": 60,
+      "audio_seconds": 1964.4821768707477,
+      "segment_count": 192,
+      "median_segment_seconds": 2.8600000000000003,
+      "mean_segment_seconds": 10.231678004535148,
+      "fraction_regions_under_300ms": 0.0625,
+      "no_chord_duration_fraction": 0.8383940104391754,
+      "latency_measured_tracks": 54,
+      "latency_median_seconds": 1.2274559500219766,
+      "latency_total_seconds": 67.79131799971219,
+      "track_mean_root": 0.0342592551357862,
+      "track_mean_reduced_exact": 0.013142030060471181,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 12,
+          "fp": 120,
+          "fn": 768,
+          "precision": 0.09090909090909091,
+          "recall": 0.015384615384615385,
+          "f1": 0.02631578947368421
+        },
+        "0.1": {
+          "tp": 22,
+          "fp": 110,
+          "fn": 758,
+          "precision": 0.16666666666666666,
+          "recall": 0.028205128205128206,
+          "f1": 0.04824561403508772
+        }
+      }
+    },
+    "btc": {
+      "tracks": 60,
+      "audio_seconds": 1964.4821768707532,
+      "segment_count": 1035,
+      "median_segment_seconds": 0.8359183673469381,
+      "mean_segment_seconds": 1.8980504124355058,
+      "fraction_regions_under_300ms": 0.2106280193236715,
+      "no_chord_duration_fraction": 0.5561682581034537,
+      "latency_measured_tracks": 60,
+      "latency_median_seconds": 0.16790030000265688,
+      "latency_total_seconds": 9.854149799910374,
+      "track_mean_root": 0.1155487469872228,
+      "track_mean_reduced_exact": 0.035910993892622416,
+      "source_grid_boundaries": {
+        "0.05": {
+          "tp": 52,
+          "fp": 923,
+          "fn": 728,
+          "precision": 0.05333333333333334,
+          "recall": 0.06666666666666667,
+          "f1": 0.05925925925925926
+        },
+        "0.1": {
+          "tp": 98,
+          "fp": 877,
+          "fn": 682,
+          "precision": 0.10051282051282051,
+          "recall": 0.12564102564102564,
+          "f1": 0.11168091168091168
+        }
+      }
+    }
+  }
+}

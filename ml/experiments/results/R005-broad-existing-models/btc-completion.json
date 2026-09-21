@@ -1,0 +1,13 @@
+{
+  "tracks": 150,
+  "probability_frames": 50304,
+  "all_coverage_and_probability_checks": true,
+  "frozen_sources_unchanged": true,
+  "total_track_wall_seconds": 23.81203690014081,
+  "total_feature_seconds": 10.269300299638417,
+  "total_model_seconds": 11.151397599838674,
+  "median_track_wall_seconds": 0.14574805001029745,
+  "maximum_track_wall_seconds": 0.581984399992507,
+  "excludes_shared_decode_and_model_setup": true,
+  "freeze_sha256": "7302e6a1c2ef7a5933458a8fcb1352c6ec6602aa22fa0da556c8273fa68d6055"
+}

@@ -15,38 +15,45 @@ function song(labels: string[]): ChordSegment[] {
   }));
 }
 const pcs = (notes: number[]) => [...new Set(notes.map((note) => note % 12))].sort((a, b) => a - b);
-const movement = (notes: number[][]) =>
-  notes
-    .slice(1)
-    .reduce(
-      (sum, hand, index) =>
-        sum +
-        hand.reduce(
-          (distance, note) =>
-            distance + Math.min(...notes[index].map((previous) => Math.abs(note - previous))),
-          0,
-        ),
-      0,
-    );
-
-describe('contextual practice arrangement', () => {
-  it('keeps nearby piano positions through ascending chromatic harmony', () => {
-    const segments = song(['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B', 'C']);
+describe('classic practice arrangement', () => {
+  it('defaults to familiar static open grips while preserving the timeline', () => {
+    const segments = song(['G', 'C', 'D', 'Am', 'G']);
+    const before = JSON.stringify(segments);
     const result = buildPracticeArrangement(segments);
-    const arranged = result.occurrences.map((occurrence) => occurrence.piano.voicings[0].midiNotes);
-    const isolated = segments.map(
-      (segment) => getPianoVoicings(segment.chord).voicings[0].midiNotes,
-    );
-    expect(movement(arranged)).toBeLessThan(movement(isolated));
-    expect(result.mode).toBe('song');
+    expect(result.mode).toBe('classic');
     expect(result.capo).toBe(0);
-    for (let index = 0; index < segments.length; index++) {
-      const voicing = result.occurrences[index].piano.voicings[0];
-      expect(pcs(voicing.midiNotes)).toEqual(chordPitchClasses(segments[index].chord));
-      expect(voicing.midiNotes.length).toBeLessThanOrEqual(5);
-      expect(Math.max(...voicing.midiNotes) - Math.min(...voicing.midiNotes)).toBeLessThanOrEqual(
-        9,
-      );
+    expect(result.entries.map((entry) => entry.guitar.voicings[0].frets)).toEqual([
+      [3, 2, 0, 0, 0, 3],
+      [null, 3, 2, 0, 1, 0],
+      [null, null, 0, 2, 3, 2],
+      [null, 0, 2, 2, 1, 0],
+    ]);
+    expect(result.entries[1].guitar.voicings[0].fingers).toEqual([null, 3, 2, 0, 1, 0]);
+    expect(result.entries[0].count).toBe(2);
+    expect(result.entries[0].occurrences.map((value) => value.start)).toEqual([0, 8]);
+    expect(JSON.stringify(segments)).toBe(before);
+  });
+
+  it('uses the same conventional one-hand piano chord in every song and occurrence', () => {
+    const first = buildPracticeArrangement(song(['C', 'Am', 'F', 'G', 'C']));
+    const second = buildPracticeArrangement(song(['B', 'F#', 'C', 'Eb', 'C']));
+    const c = getPianoVoicings(parseChord('C')).voicings[0];
+    expect(c.midiNotes).toEqual([60, 64, 67]);
+    for (const result of [first, second]) {
+      for (const occurrence of result.occurrences.filter(
+        (value) => value.piano.requestedLabel === 'C',
+      )) {
+        expect(occurrence.piano.voicings[0]).toEqual(c);
+        expect(occurrence.guitar.voicings[0].frets).toEqual([null, 3, 2, 0, 1, 0]);
+      }
+    }
+    for (const label of ['C', 'G', 'D', 'Am', 'Cmaj7', 'G7', 'D/F#']) {
+      const chord = parseChord(label);
+      const voicing = getPianoVoicings(chord).voicings[0];
+      if (chord.kind !== 'chord') throw new Error('Pitched fixture');
+      expect(voicing.midiNotes[0] % 12).toBe(chord.bass ?? chord.root);
+      expect(pcs(voicing.midiNotes)).toEqual(chordPitchClasses(chord));
+      expect(voicing.midiNotes.at(-1)! - voicing.midiNotes[0]).toBeLessThanOrEqual(11);
     }
   });
 
@@ -93,7 +100,7 @@ describe('contextual practice arrangement', () => {
     expect(buildPracticeArrangement(song(['N', 'X'])).entries).toEqual([]);
   });
 
-  it('uses future context and chooses a representative from actual occurrences', () => {
+  it('uses the same reference in the library and every occurrence', () => {
     const result = buildPracticeArrangement(song(['C', 'Am', 'F', 'G', 'C', 'Am', 'F', 'G']));
     for (const entry of result.entries) {
       const occurrences = result.occurrences.filter(
@@ -101,7 +108,7 @@ describe('contextual practice arrangement', () => {
       );
       expect(occurrences).toHaveLength(entry.count);
       expect(
-        occurrences.some(
+        occurrences.every(
           (occurrence) => occurrence.piano.voicings[0].id === entry.piano.voicings[0].id,
         ),
       ).toBe(true);

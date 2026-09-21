@@ -1,0 +1,73 @@
+{
+  "track_id": "03_SS2-107-Ab_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "120d5955fae86806d16875b70b8dbbd6118ae78494c5f88aa8c45e615731c22b",
+    "annotation": "e79c313d662ca2d832a0ee9be7a11c204cc3adcc75772a9af03e5e117eddd4ee",
+    "prepared": "e2d3abf25a49a6c52af1cdaa7425ff1ade8dac86148ed872336df1b2e79d7dd2"
+  },
+  "pcm": {
+    "source_sha256": "120d5955fae86806d16875b70b8dbbd6118ae78494c5f88aa8c45e615731c22b",
+    "file_sha256": "eadcf3634fb5bcdc4b4add568af188034b908f31931283bff4fcc1f07c724c07",
+    "pcm_sha256": "f4680586d93b3ae08a273edbdadae41487c8eb01a656e2ca3ee4ddff33668e5c",
+    "duration": 35.88639455782313,
+    "decode_seconds": 0.02394879999337718
+  },
+  "timings": {
+    "feature_seconds": 0.05429800000274554,
+    "model_seconds": 0.07383980002487078
+  },
+  "wall_seconds": 0.14735469996230677,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 10.0,
+      "label": "N"
+    },
+    {
+      "start": 10.0,
+      "end": 11.021678004535147,
+      "label": "G#:min"
+    },
+    {
+      "start": 11.021678004535147,
+      "end": 11.207437641723356,
+      "label": "D#:maj"
+    },
+    {
+      "start": 11.207437641723356,
+      "end": 12.229115646258503,
+      "label": "D#:7"
+    },
+    {
+      "start": 12.229115646258503,
+      "end": 12.507755102040816,
+      "label": "D#:maj"
+    },
+    {
+      "start": 12.507755102040816,
+      "end": 20.0,
+      "label": "G#:min"
+    },
+    {
+      "start": 20.0,
+      "end": 24.92263038548753,
+      "label": "N"
+    },
+    {
+      "start": 24.92263038548753,
+      "end": 25.479909297052153,
+      "label": "E:maj"
+    },
+    {
+      "start": 25.479909297052153,
+      "end": 29.380861678004536,
+      "label": "N"
+    },
+    {
+      "start": 29.380861678004536,
+      "end": 35.88639455782313,
+      "label": "G#:min"
+    }
+  ]
+}

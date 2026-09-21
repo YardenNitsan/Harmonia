@@ -1,0 +1,104 @@
+{
+  "track_id": "00_Rock2-142-D_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "1f15351a6df0e47aa7b7aa82816317ca0921fcecc75189ec8f5d0ffb1606b159",
+    "annotation": "d47ebfd4cf65a0a0ccd031eace564c0dd1c9b688dfa07fe013d3823d4b01cd04",
+    "prepared": "cc909b65096ce94bdafc2f6c044452dc980ff43a2d7b9ac1f775e4588d41bbbb"
+  },
+  "pcm": {
+    "source_sha256": "1f15351a6df0e47aa7b7aa82816317ca0921fcecc75189ec8f5d0ffb1606b159",
+    "file_sha256": "2d4c13113dcb8d19b25825d46ad3960bffc2c99143060ac1c409b19e8c3fea7d",
+    "pcm_sha256": "a38bf3179b79162296484ff4e8ecb2320d2be3677b7f44d33dfe713647502790",
+    "duration": 27.041632653061225,
+    "decode_seconds": 0.017872900003567338
+  },
+  "timings": {
+    "setupSeconds": 0.0187764999573119,
+    "cqtSeconds": 0.10518680000677705,
+    "inferenceSeconds": 0.77935880003497,
+    "hmmSeconds": 0.02034690004074946,
+    "beatSeconds": 0.038759600021876395,
+    "refinementSeconds": 9.779998799785972e-05,
+    "decodeSeconds": 0.0002764000091701746,
+    "totalSeconds": 0.9632657999754883
+  },
+  "wall_seconds": 0.9647985000046901,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.76,
+      "label": "G:min"
+    },
+    {
+      "start": 1.76,
+      "end": 3.34,
+      "label": "C:7"
+    },
+    {
+      "start": 3.34,
+      "end": 5.27,
+      "label": "F:maj"
+    },
+    {
+      "start": 5.27,
+      "end": 7.13,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 7.13,
+      "end": 8.34,
+      "label": "E:dim"
+    },
+    {
+      "start": 8.34,
+      "end": 10.12,
+      "label": "A:7"
+    },
+    {
+      "start": 10.12,
+      "end": 13.1,
+      "label": "D:min"
+    },
+    {
+      "start": 13.1,
+      "end": 15.33,
+      "label": "G:min7"
+    },
+    {
+      "start": 15.33,
+      "end": 16.81,
+      "label": "C:7"
+    },
+    {
+      "start": 16.81,
+      "end": 18.72,
+      "label": "F:maj"
+    },
+    {
+      "start": 18.72,
+      "end": 20.22,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 20.22,
+      "end": 21.94,
+      "label": "E:dim"
+    },
+    {
+      "start": 21.94,
+      "end": 23.68,
+      "label": "A:7"
+    },
+    {
+      "start": 23.68,
+      "end": 27.041632653061225,
+      "label": "D:min"
+    }
+  ]
+}

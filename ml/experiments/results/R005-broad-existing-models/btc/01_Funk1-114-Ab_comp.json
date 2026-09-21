@@ -1,0 +1,68 @@
+{
+  "track_id": "01_Funk1-114-Ab_comp",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "9ee4888317faba89ba1a9929d6e3b044a3363eb925e6c432b2b30e4f3c83ab22",
+    "annotation": "429e06078c84f38ae3d551bdf594d0cac75a58c43783b23e1d436363a9fbe97a",
+    "prepared": "1187a5c5eec606a7b79c1cdfc4a4f2b454bd85c8064c52f1d41eabc321ae3586"
+  },
+  "pcm": {
+    "source_sha256": "9ee4888317faba89ba1a9929d6e3b044a3363eb925e6c432b2b30e4f3c83ab22",
+    "file_sha256": "357dcdf4b30935b4c92191fb711e2f15540ea079271635bd47f4da9920bbf40b",
+    "pcm_sha256": "e5f266bb9ee49625bf54fbcecf24a4da5123ccb2ed08471fc14e96ab554cf1fd",
+    "duration": 25.258412698412698,
+    "decode_seconds": 0.019037499965634197
+  },
+  "timings": {
+    "feature_seconds": 0.03872290003346279,
+    "model_seconds": 0.05748759995913133
+  },
+  "wall_seconds": 0.10761339997407049,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 8.17342403628118,
+      "label": "G#:min"
+    },
+    {
+      "start": 8.17342403628118,
+      "end": 10.0,
+      "label": "C#:min"
+    },
+    {
+      "start": 10.0,
+      "end": 11.578956916099774,
+      "label": "C#:maj"
+    },
+    {
+      "start": 11.578956916099774,
+      "end": 13.343673469387756,
+      "label": "N"
+    },
+    {
+      "start": 13.343673469387756,
+      "end": 16.873106575963718,
+      "label": "G#:min"
+    },
+    {
+      "start": 16.873106575963718,
+      "end": 19.28798185941043,
+      "label": "D#:maj"
+    },
+    {
+      "start": 19.28798185941043,
+      "end": 20.0,
+      "label": "N"
+    },
+    {
+      "start": 20.0,
+      "end": 21.021678004535147,
+      "label": "C#:maj"
+    },
+    {
+      "start": 21.021678004535147,
+      "end": 25.258412698412698,
+      "label": "G#:maj"
+    }
+  ]
+}

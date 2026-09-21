@@ -1,0 +1,58 @@
+{
+  "track_id": "02_Jazz1-130-D_comp",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "7b769c278bb3d44440420a79cba1e486119f823a33f78465aa9acdcdef277df5",
+    "annotation": "e06bd1f4e088b0a0892366193a2d951420288cd9709bfaaacdafd320bf55489e",
+    "prepared": "6fbc1f719b0df0fb9750b5e997706f1c290c72a7833b0514ce2a7f49557fd85c"
+  },
+  "pcm": {
+    "source_sha256": "7b769c278bb3d44440420a79cba1e486119f823a33f78465aa9acdcdef277df5",
+    "file_sha256": "1d580946d467c5241b090c25eed3f117e162e087ea5b9ed700e09c64fba626d6",
+    "pcm_sha256": "e580eb1df96298ac189e5d114e66fe18a9c1a0a805b01f258ab3d053c71fa3f8",
+    "duration": 22.14721088435374,
+    "decode_seconds": 0.015167000005021691
+  },
+  "timings": {
+    "feature_seconds": 0.03837700001895428,
+    "model_seconds": 0.05307740002172068
+  },
+  "wall_seconds": 0.10156549996463582,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.46439909297052157,
+      "label": "N"
+    },
+    {
+      "start": 0.46439909297052157,
+      "end": 7.151746031746032,
+      "label": "D:maj"
+    },
+    {
+      "start": 7.151746031746032,
+      "end": 11.48607709750567,
+      "label": "G:maj"
+    },
+    {
+      "start": 11.48607709750567,
+      "end": 14.73687074829932,
+      "label": "D:maj"
+    },
+    {
+      "start": 14.73687074829932,
+      "end": 16.315827664399094,
+      "label": "A:maj"
+    },
+    {
+      "start": 16.315827664399094,
+      "end": 18.82358276643991,
+      "label": "G:maj"
+    },
+    {
+      "start": 18.82358276643991,
+      "end": 22.14721088435374,
+      "label": "D:maj"
+    }
+  ]
+}

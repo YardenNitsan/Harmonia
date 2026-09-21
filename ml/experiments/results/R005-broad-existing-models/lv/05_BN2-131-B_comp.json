@@ -1,0 +1,97 @@
+{
+  "track_id": "05_BN2-131-B_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "33171facce77240e81474bb0ea1e023a3892af2448bc03feebe4b193f1ad967e",
+    "annotation": "bacdcb8de89900a80950f030860a45086b2dec027f26dd740842508c26f8a743",
+    "prepared": "551ae49b5e50b6527635b78572c28ba8b78731ce8153909542c6c7a8d14c530d"
+  },
+  "pcm": {
+    "source_sha256": "33171facce77240e81474bb0ea1e023a3892af2448bc03feebe4b193f1ad967e",
+    "file_sha256": "c6ceb21413af75de948a6d782e7c05c244df5737b67a41be0a23fba37142c5b5",
+    "pcm_sha256": "fa9a2a8e92b695e96dad0bddcf6c1330c5f59f68e7ca7cac271a31c2cda1f294",
+    "duration": 29.30639455782313,
+    "decode_seconds": 0.020623399992473423
+  },
+  "timings": {
+    "retained_E006": true
+  },
+  "wall_seconds": 0.0005515000084415078,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.79,
+      "label": "E:min7"
+    },
+    {
+      "start": 1.79,
+      "end": 3.65,
+      "label": "A:7"
+    },
+    {
+      "start": 3.65,
+      "end": 5.57,
+      "label": "D:maj"
+    },
+    {
+      "start": 5.57,
+      "end": 7.29,
+      "label": "G:maj7"
+    },
+    {
+      "start": 7.29,
+      "end": 9.2,
+      "label": "C#:hdim7"
+    },
+    {
+      "start": 9.2,
+      "end": 10.94,
+      "label": "F#:7"
+    },
+    {
+      "start": 10.94,
+      "end": 14.74,
+      "label": "B:min7"
+    },
+    {
+      "start": 14.74,
+      "end": 16.44,
+      "label": "E:min7"
+    },
+    {
+      "start": 16.44,
+      "end": 18.2,
+      "label": "A:7"
+    },
+    {
+      "start": 18.2,
+      "end": 20.11,
+      "label": "D:maj"
+    },
+    {
+      "start": 20.11,
+      "end": 21.94,
+      "label": "G:maj"
+    },
+    {
+      "start": 21.94,
+      "end": 23.82,
+      "label": "C#:hdim7"
+    },
+    {
+      "start": 23.82,
+      "end": 25.77,
+      "label": "F#:7"
+    },
+    {
+      "start": 25.77,
+      "end": 29.30639455782313,
+      "label": "B:min"
+    }
+  ]
+}

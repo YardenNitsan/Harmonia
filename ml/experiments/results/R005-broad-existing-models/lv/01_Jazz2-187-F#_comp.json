@@ -1,0 +1,94 @@
+{
+  "track_id": "01_Jazz2-187-F#_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "f91bc905f7554d25497d1585a054683799bc5e5c91d97b16f871785460b3a146",
+    "annotation": "317c9a5d9cc8ddf4f1ce8c5c82bdf21cd0365aeca4fd6012129b0b40ac5c3884",
+    "prepared": "c0c315b1f140d83987d5a1f9c16f86ed8a5650ea6aa6ad2de5113cddc1a0c059"
+  },
+  "pcm": {
+    "source_sha256": "f91bc905f7554d25497d1585a054683799bc5e5c91d97b16f871785460b3a146",
+    "file_sha256": "f06d228f542d34b73dcf8efde75d51f5e48100cee0bd4211b1abc1fc9984c0ad",
+    "pcm_sha256": "ea71dc43cbb17d60e5a81086e7fb6e846ef1fcd83c679af5ee14c21eaa671358",
+    "duration": 20.532018140589567,
+    "decode_seconds": 0.015549800009466708
+  },
+  "timings": {
+    "setupSeconds": 0.01987120002740994,
+    "cqtSeconds": 0.08273339999141172,
+    "inferenceSeconds": 0.6475227000191808,
+    "hmmSeconds": 0.01512120000552386,
+    "beatSeconds": 0.026152100006584078,
+    "refinementSeconds": 0.0001233000075444579,
+    "decodeSeconds": 0.0004026000387966633,
+    "totalSeconds": 0.7923397000413388
+  },
+  "wall_seconds": 0.7935367000172846,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.25,
+      "label": "B:min7"
+    },
+    {
+      "start": 1.25,
+      "end": 2.37,
+      "label": "E:7"
+    },
+    {
+      "start": 2.37,
+      "end": 4.46,
+      "label": "A:7"
+    },
+    {
+      "start": 4.46,
+      "end": 6.41,
+      "label": "Ab:7"
+    },
+    {
+      "start": 6.41,
+      "end": 7.96,
+      "label": "C#:7"
+    },
+    {
+      "start": 7.96,
+      "end": 10.17,
+      "label": "F#:min7"
+    },
+    {
+      "start": 10.17,
+      "end": 11.54,
+      "label": "B:min7"
+    },
+    {
+      "start": 11.54,
+      "end": 12.63,
+      "label": "E:7"
+    },
+    {
+      "start": 12.63,
+      "end": 14.42,
+      "label": "A:7"
+    },
+    {
+      "start": 14.42,
+      "end": 16.76,
+      "label": "Ab:7"
+    },
+    {
+      "start": 16.76,
+      "end": 17.93,
+      "label": "C#:7"
+    },
+    {
+      "start": 17.93,
+      "end": 20.532018140589567,
+      "label": "F#:min7"
+    }
+  ]
+}

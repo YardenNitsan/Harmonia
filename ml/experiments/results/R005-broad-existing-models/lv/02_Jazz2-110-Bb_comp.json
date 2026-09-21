@@ -1,0 +1,102 @@
+{
+  "track_id": "02_Jazz2-110-Bb_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "4740b6cb39c681728776d9b8350797ad00eb2a0d1974c0be2c259c62e70f9f48",
+    "annotation": "2abafd983a953f0b8e5fa1922e77f3805cfcd143bda165cd98976d72866fbc92",
+    "prepared": "fdc652b23f01719e22c41ea3b1d344412577912077364c00f23c326124c5b2ab"
+  },
+  "pcm": {
+    "source_sha256": "4740b6cb39c681728776d9b8350797ad00eb2a0d1974c0be2c259c62e70f9f48",
+    "file_sha256": "99f435bea6461a0aa62eefa5e3cef9c57b64be0faec896bfcd10676c593f6620",
+    "pcm_sha256": "3e4fe7e5ca9e7c61781e6a2c2aa6603ce913e701d45d9aacc8d26de22cc82c49",
+    "duration": 34.90321995464853,
+    "decode_seconds": 0.021422699966933578
+  },
+  "timings": {
+    "retained_E006": true
+  },
+  "wall_seconds": 0.00030499999411404133,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 2.11,
+      "label": "Eb:min"
+    },
+    {
+      "start": 2.11,
+      "end": 4.39,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 4.39,
+      "end": 6.59,
+      "label": "C#:maj"
+    },
+    {
+      "start": 6.59,
+      "end": 8.68,
+      "label": "F#:maj"
+    },
+    {
+      "start": 8.68,
+      "end": 10.91,
+      "label": "C:min"
+    },
+    {
+      "start": 10.91,
+      "end": 13.1,
+      "label": "F:maj"
+    },
+    {
+      "start": 13.1,
+      "end": 17.44,
+      "label": "Bb:min"
+    },
+    {
+      "start": 17.44,
+      "end": 19.62,
+      "label": "Eb:min"
+    },
+    {
+      "start": 19.62,
+      "end": 21.8,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 21.8,
+      "end": 23.96,
+      "label": "C#:maj"
+    },
+    {
+      "start": 23.96,
+      "end": 26.17,
+      "label": "F#:maj"
+    },
+    {
+      "start": 26.17,
+      "end": 28.37,
+      "label": "C:min"
+    },
+    {
+      "start": 28.37,
+      "end": 30.56,
+      "label": "F:maj"
+    },
+    {
+      "start": 30.56,
+      "end": 31.83,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 31.83,
+      "end": 34.90321995464853,
+      "label": "Bb:min"
+    }
+  ]
+}

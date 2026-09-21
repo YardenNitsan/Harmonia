@@ -1,0 +1,104 @@
+{
+  "track_id": "00_SS2-107-Ab_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "a38692e129bb3291c73ce82eece5655cfeed81e6c139726e82e0e30b1176f88e",
+    "annotation": "59ef2d54f86424500e45643f6d83914d166e31ffff192dbd9875f327d5e52a20",
+    "prepared": "11695d2b4f0f6927e8b64af23fb94351b6834c5a713da78e5a3963c1d43b05f2"
+  },
+  "pcm": {
+    "source_sha256": "a38692e129bb3291c73ce82eece5655cfeed81e6c139726e82e0e30b1176f88e",
+    "file_sha256": "ef666b5ac817a4101c9352982cc491ab91336c322863ef45a92920b00c78071b",
+    "pcm_sha256": "999dee65a41272433d063d32f5c0a7833b1fab2c523b18d9dbaee084d0e209bf",
+    "duration": 35.88639455782313,
+    "decode_seconds": 0.02205540001159534
+  },
+  "timings": {
+    "setupSeconds": 0.0198443999979645,
+    "cqtSeconds": 0.132259999983944,
+    "inferenceSeconds": 1.1330544999800622,
+    "hmmSeconds": 0.023802699986845255,
+    "beatSeconds": 0.049918900011107326,
+    "refinementSeconds": 9.759998647496104e-05,
+    "decodeSeconds": 0.00027679995400831103,
+    "totalSeconds": 1.3596782999811694
+  },
+  "wall_seconds": 1.362339899991639,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 2.28,
+      "label": "C#:min"
+    },
+    {
+      "start": 2.28,
+      "end": 4.46,
+      "label": "F#:7"
+    },
+    {
+      "start": 4.46,
+      "end": 6.71,
+      "label": "B:maj"
+    },
+    {
+      "start": 6.71,
+      "end": 9.52,
+      "label": "E:maj"
+    },
+    {
+      "start": 9.52,
+      "end": 11.31,
+      "label": "Bb:dim"
+    },
+    {
+      "start": 11.31,
+      "end": 13.4,
+      "label": "Eb:7"
+    },
+    {
+      "start": 13.4,
+      "end": 17.93,
+      "label": "Ab:min"
+    },
+    {
+      "start": 17.93,
+      "end": 20.2,
+      "label": "C#:min"
+    },
+    {
+      "start": 20.2,
+      "end": 23.5,
+      "label": "F#:maj"
+    },
+    {
+      "start": 23.5,
+      "end": 24.66,
+      "label": "B:maj"
+    },
+    {
+      "start": 24.66,
+      "end": 27.4,
+      "label": "E:maj"
+    },
+    {
+      "start": 27.4,
+      "end": 29.14,
+      "label": "Bb:dim"
+    },
+    {
+      "start": 29.14,
+      "end": 31.42,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 31.42,
+      "end": 35.88639455782313,
+      "label": "Ab:min"
+    }
+  ]
+}

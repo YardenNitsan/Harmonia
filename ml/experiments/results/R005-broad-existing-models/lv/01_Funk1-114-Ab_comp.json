@@ -1,0 +1,64 @@
+{
+  "track_id": "01_Funk1-114-Ab_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "9ee4888317faba89ba1a9929d6e3b044a3363eb925e6c432b2b30e4f3c83ab22",
+    "annotation": "429e06078c84f38ae3d551bdf594d0cac75a58c43783b23e1d436363a9fbe97a",
+    "prepared": "1187a5c5eec606a7b79c1cdfc4a4f2b454bd85c8064c52f1d41eabc321ae3586"
+  },
+  "pcm": {
+    "source_sha256": "9ee4888317faba89ba1a9929d6e3b044a3363eb925e6c432b2b30e4f3c83ab22",
+    "file_sha256": "357dcdf4b30935b4c92191fb711e2f15540ea079271635bd47f4da9920bbf40b",
+    "pcm_sha256": "e5f266bb9ee49625bf54fbcecf24a4da5123ccb2ed08471fc14e96ab554cf1fd",
+    "duration": 25.258412698412698,
+    "decode_seconds": 0.019037499965634197
+  },
+  "timings": {
+    "setupSeconds": 0.02052780002122745,
+    "cqtSeconds": 0.1014580000191927,
+    "inferenceSeconds": 0.8369049000320956,
+    "hmmSeconds": 0.015509699995163828,
+    "beatSeconds": 0.033787399996072054,
+    "refinementSeconds": 6.890000076964498e-05,
+    "decodeSeconds": 0.00014789996203035116,
+    "totalSeconds": 1.0090940999798477
+  },
+  "wall_seconds": 1.0106393999885768,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 9.85,
+      "label": "Ab:min"
+    },
+    {
+      "start": 9.85,
+      "end": 11.54,
+      "label": "C#:maj/5"
+    },
+    {
+      "start": 11.54,
+      "end": 16.86,
+      "label": "Ab:min"
+    },
+    {
+      "start": 16.86,
+      "end": 19.48,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 19.48,
+      "end": 20.97,
+      "label": "C#:maj/5"
+    },
+    {
+      "start": 20.97,
+      "end": 25.258412698412698,
+      "label": "Ab:maj"
+    }
+  ]
+}

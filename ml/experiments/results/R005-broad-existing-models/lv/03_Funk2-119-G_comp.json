@@ -1,0 +1,99 @@
+{
+  "track_id": "03_Funk2-119-G_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "4983a9a6ab867425273b9348d301754b96a445f59907cb9c59d6a99dd74410f4",
+    "annotation": "3caca43d91d06cd5a20e2364163ba23d61b5d3f8d8880b541be8732f7891cdf5",
+    "prepared": "63e9fe44ddef71653a9f2878488940af9780629a3182453deafe80e2a734c86a"
+  },
+  "pcm": {
+    "source_sha256": "4983a9a6ab867425273b9348d301754b96a445f59907cb9c59d6a99dd74410f4",
+    "file_sha256": "48ae2948ae40892a11a11e54fde79852e53348e06067c82881d302a94c89cddf",
+    "pcm_sha256": "9a13e893199fdfc81839f26c052a7097ca5dfe9677f1de1ff3132e3f9c98aaab",
+    "duration": 32.26321995464853,
+    "decode_seconds": 0.020162300032097846
+  },
+  "timings": {
+    "setupSeconds": 0.020247200038284063,
+    "cqtSeconds": 0.11538189998827875,
+    "inferenceSeconds": 0.9083268000395037,
+    "hmmSeconds": 0.027071100019384176,
+    "beatSeconds": 0.04560349998064339,
+    "refinementSeconds": 9.82999918051064e-05,
+    "decodeSeconds": 0.0002609000075608492,
+    "totalSeconds": 1.1174356000265107
+  },
+  "wall_seconds": 1.1192246999708004,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.49,
+      "label": "N"
+    },
+    {
+      "start": 0.49,
+      "end": 2.44,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 2.44,
+      "end": 3.99,
+      "label": "A:hdim7"
+    },
+    {
+      "start": 3.99,
+      "end": 6.06,
+      "label": "Bb:7"
+    },
+    {
+      "start": 6.06,
+      "end": 7.8,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 7.8,
+      "end": 12.05,
+      "label": "A:hdim7"
+    },
+    {
+      "start": 12.05,
+      "end": 16.18,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 16.18,
+      "end": 18.74,
+      "label": "Ab:7"
+    },
+    {
+      "start": 18.74,
+      "end": 20.09,
+      "label": "A:hdim7"
+    },
+    {
+      "start": 20.09,
+      "end": 22.34,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 22.34,
+      "end": 23.1,
+      "label": "Eb:maj/5"
+    },
+    {
+      "start": 23.1,
+      "end": 26.24,
+      "label": "Ab:7"
+    },
+    {
+      "start": 26.24,
+      "end": 28.19,
+      "label": "F#:hdim7"
+    },
+    {
+      "start": 28.19,
+      "end": 32.26321995464853,
+      "label": "Bb:maj"
+    }
+  ]
+}

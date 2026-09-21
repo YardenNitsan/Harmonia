@@ -7,6 +7,7 @@ import json
 import os
 import subprocess
 import time
+from contextlib import suppress
 from pathlib import Path
 
 import numpy as np
@@ -284,10 +285,8 @@ def browser(config_path: Path) -> dict:
                 owned.extend(p for p in current if p not in owned)
                 rss = 0
                 for p in current:
-                    try:
+                    with suppress(psutil.NoSuchProcess):
                         rss += p.memory_info().rss
-                    except psutil.NoSuchProcess:
-                        pass
                 report["sampled_peak_browser_tree_rss_bytes"] = max(
                     report["sampled_peak_browser_tree_rss_bytes"], rss
                 )

@@ -1,0 +1,53 @@
+{
+  "track_id": "00_SS1-100-C#_comp",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "4180689b2d372b7588253f3bf6782e904af04feef4d80726160965387d443662",
+    "annotation": "3906180e46ec49867cde81cc6fd798827206cd65afc00754b959770c27c4ac8b",
+    "prepared": "951b869a053540a63c1fb1ec33cf2a7b161b8ed38b60e4602260e57fd0684f88"
+  },
+  "pcm": {
+    "source_sha256": "4180689b2d372b7588253f3bf6782e904af04feef4d80726160965387d443662",
+    "file_sha256": "ac6c9164770da56e13e20678f1278f2146eabd94ecb7ad0c2a96a53867556340",
+    "pcm_sha256": "e3366b2e961d9e0fcd2a75f11206c0492efcc8b34f5baa95f03fbe48a80b3ce6",
+    "duration": 28.8,
+    "decode_seconds": 0.019173200009390712
+  },
+  "timings": {
+    "feature_seconds": 0.041298699972685426,
+    "model_seconds": 0.05884150002384558
+  },
+  "wall_seconds": 0.11252679995959625,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 9.566621315192744,
+      "label": "C#:maj"
+    },
+    {
+      "start": 9.566621315192744,
+      "end": 14.272471655328797,
+      "label": "F#:maj"
+    },
+    {
+      "start": 14.272471655328797,
+      "end": 19.102222222222224,
+      "label": "C#:maj"
+    },
+    {
+      "start": 19.102222222222224,
+      "end": 21.486077097505667,
+      "label": "G#:maj"
+    },
+    {
+      "start": 21.486077097505667,
+      "end": 23.993832199546485,
+      "label": "F#:maj"
+    },
+    {
+      "start": 23.993832199546485,
+      "end": 28.8,
+      "label": "C#:maj"
+    }
+  ]
+}

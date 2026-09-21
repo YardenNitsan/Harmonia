@@ -1,0 +1,109 @@
+{
+  "track_id": "04_BN2-131-B_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "43f6a70622e8ff66237307768c38578e0d8cd5fdd16d48ac97733673965f863e",
+    "annotation": "d125f917a574a661fab34c860a71110d81db3d4a5f8c03ea48ac070fbdcc4f2c",
+    "prepared": "699924889450091479903e2a673762e7f08a0750d51abf1b7a2d04df8442302d"
+  },
+  "pcm": {
+    "source_sha256": "43f6a70622e8ff66237307768c38578e0d8cd5fdd16d48ac97733673965f863e",
+    "file_sha256": "4ecf899e6c5f4125047faf71d0a9fa24f92042f8430fb7f7fa748d2510dd7549",
+    "pcm_sha256": "a7a4e9ce6653de49008eaa78778313aafef57d5a9f9521c588842af50515c02e",
+    "duration": 29.30639455782313,
+    "decode_seconds": 0.019654100004117936
+  },
+  "timings": {
+    "setupSeconds": 0.021103599981870502,
+    "cqtSeconds": 0.11707310000201687,
+    "inferenceSeconds": 0.9756054999888875,
+    "hmmSeconds": 0.021726800012402236,
+    "beatSeconds": 0.040592100005596876,
+    "refinementSeconds": 0.00014700001338496804,
+    "decodeSeconds": 0.00047209998592734337,
+    "totalSeconds": 1.1772739999578334
+  },
+  "wall_seconds": 1.1788877000217326,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 1.28,
+      "label": "E:min7"
+    },
+    {
+      "start": 1.28,
+      "end": 3.62,
+      "label": "A:7"
+    },
+    {
+      "start": 3.62,
+      "end": 5.25,
+      "label": "D:maj7"
+    },
+    {
+      "start": 5.25,
+      "end": 7.73,
+      "label": "G:maj7"
+    },
+    {
+      "start": 7.73,
+      "end": 8.92,
+      "label": "C#:hdim7"
+    },
+    {
+      "start": 8.92,
+      "end": 10.96,
+      "label": "F#:7"
+    },
+    {
+      "start": 10.96,
+      "end": 14.65,
+      "label": "B:min7"
+    },
+    {
+      "start": 14.65,
+      "end": 16.21,
+      "label": "E:min7"
+    },
+    {
+      "start": 16.21,
+      "end": 18.32,
+      "label": "A:7"
+    },
+    {
+      "start": 18.32,
+      "end": 20.41,
+      "label": "D:maj7"
+    },
+    {
+      "start": 20.41,
+      "end": 21.99,
+      "label": "G:maj7"
+    },
+    {
+      "start": 21.99,
+      "end": 23.99,
+      "label": "C#:hdim7"
+    },
+    {
+      "start": 23.99,
+      "end": 25.57,
+      "label": "F#:7"
+    },
+    {
+      "start": 25.57,
+      "end": 27.72,
+      "label": "B:min7"
+    },
+    {
+      "start": 27.72,
+      "end": 29.30639455782313,
+      "label": "B:7"
+    }
+  ]
+}

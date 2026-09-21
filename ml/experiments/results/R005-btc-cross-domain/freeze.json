@@ -1,0 +1,26 @@
+{
+  "sources": {
+    "ml\\experiments\\btc_cross_domain.py": "d9a7f4582f054f7a81fa4d4e2fe3a06debbc3f3093ebccfbdd14636849d2a9f9",
+    "ml\\experiments\\original_btc.py": "0c400a3e290327c651a37c640813d1871e1fbb8542734727b6a2f04cd0127900",
+    "docs\\btc-cross-domain-protocol.md": "a866e076debc124900bd17873ae61931d0c8eada788fb5d745fd04a1af1c7c13"
+  },
+  "inputs": {
+    "ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-14_HU33.wav": "04292b1874a7c16ab14847e7c9c41cd09d9ed84acbbb11b096508f7478bfe120",
+    "ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-14_HU33.npz": "4de99752eedc31cadd65c7f98c3a43f87a7b7dcbc7495c56e68af08aacdc2c0b",
+    "ml\\experiments\\stabilization\\results\\refinement-14.json": "7929700aba9ce9e97f9e3f718e6df1ef47b7171b00f0fddca4e1ee409a2a73f7",
+    "ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-15_HU33.wav": "f12eb15c77ee658eb2a93c1ef79f1165c96a3dde6d4d6f37b9cfec075b5744a3",
+    "ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-15_HU33.npz": "c6bbb399968aa7b7e73d90dffce1196cf82ed248ba35f799cad7cb565dc92592",
+    "ml\\experiments\\stabilization\\results\\refinement-15.json": "ebd2c9ece04012bf9d298bfc7b8ea687529289027b78a9c1b2f33a604afbbb37",
+    "ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-16_HU33.wav": "a3e314904d5c694826d85ddf4723b1988d4ef4571df47760c698a22cc094d253",
+    "ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-16_HU33.npz": "9ac3284bc78a602d6e3bfa05a178723ec0562a6fe7dd4d985f128ae70db68c9c",
+    "ml\\experiments\\stabilization\\results\\refinement-16.json": "a33f5e7a39445099e4b8c1368656a683f0ef7e9187f72ec796b01a51bd485a55",
+    "ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-17_HU33.wav": "9b99ac5af401f0081999bb689eb192acec857c01f49b3cfa7a6a6bee3d257017",
+    "ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-17_HU33.npz": "13695428ed98bab0255dc1081b2df83bc25bdf12b7a7e58be5c339121b7429dd",
+    "ml\\experiments\\stabilization\\results\\refinement-17.json": "32ff8e8d8f074fb005b5ef734fb81914c567c8a6e43c20aa1662c3bfbb0fafe8",
+    "ml\\data\\downloads\\winterreise-hu33-v2.1\\01_RawData\\audio_wav\\Schubert_D911-18_HU33.wav": "9efd3c100535bb423b8e036e617dfb047915adb38b3a1b7fe9ec44dd8ee49c0e",
+    "ml\\data\\prepared\\winterreise-hu33-v1\\Schubert_D911-18_HU33.npz": "8f02fe8970227000ff813ec688d48dc66c0fb95ace0f0ce4c570ccbb679be012",
+    "ml\\experiments\\stabilization\\results\\refinement-18.json": "a6462984ec2ea2dab696c7a65a943ec86113f391d73e0a449e1b5f65ee0b4b50",
+    ".superpowers\\diagnostics\\killer-queen\\source.f32": "d0cbe9a21d2ce2d9ac704f28f42053ebbbb83636320f418a3766c613221879b2",
+    ".superpowers\\diagnostics\\killer-queen\\decode.json": "a44ad65c50f63b049df17c6c2e2736eb6774b6bd194cd26d33b13baf2dde5c12"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "track_id": "03_Rock2-142-D_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "c3a26f324d5e5f1c466fd4644d38c44d567627a01a02f9fe15e8b1c17ce6405d",
+    "annotation": "ba56a15060a2d6b83199ef2ee07cdeec81f4e436615abb07010df9c5f78604e9",
+    "prepared": "ab365fc6005136eb94d8d9dd0543b3a6a31664f50f06d8b9d207155bb5e711a5"
+  },
+  "pcm": {
+    "source_sha256": "c3a26f324d5e5f1c466fd4644d38c44d567627a01a02f9fe15e8b1c17ce6405d",
+    "file_sha256": "c22170982068a8f163e409f4e59fc8d8c2db02e12e72be2268d76793bbcffe87",
+    "pcm_sha256": "a1c045c2b04dc2ee80884df5d95697d9239dc6885c2b99afca8315f867f5e544",
+    "duration": 27.041632653061225,
+    "decode_seconds": 0.020207999972626567
+  },
+  "timings": {
+    "feature_seconds": 0.06013370002619922,
+    "model_seconds": 0.061783600016497076
+  },
+  "wall_seconds": 0.13730079995002598,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 27.041632653061225,
+      "label": "N"
+    }
+  ]
+}

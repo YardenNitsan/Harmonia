@@ -1,0 +1,97 @@
+{
+  "track_id": "04_SS2-107-Ab_comp",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "6222641015ef25c1423453949988509353c7bd6cae2b16032a3c64b9d990cd7b",
+    "annotation": "af25369890af9f973ff2452806a919bbb4db344dbe329c1aad88f29c4d3179de",
+    "prepared": "ccfb61d3833a01b3531364c4b00ed1e3156036d4d0a9d59b88ab673c90c01e80"
+  },
+  "pcm": {
+    "source_sha256": "6222641015ef25c1423453949988509353c7bd6cae2b16032a3c64b9d990cd7b",
+    "file_sha256": "3442913a3eb55ea92f49561bdc8d45ce2b6d1f4b91c833864143c37a95f90d46",
+    "pcm_sha256": "49af591e570c98d9de6c6960b83abb7c3502c08c3e4439dda106b58128e3c8c6",
+    "duration": 35.88639455782313,
+    "decode_seconds": 0.022667500015813857
+  },
+  "timings": {
+    "retained_E006": true
+  },
+  "wall_seconds": 0.00034330005291849375,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 2.23,
+      "label": "C#:min"
+    },
+    {
+      "start": 2.23,
+      "end": 4.53,
+      "label": "F#:7"
+    },
+    {
+      "start": 4.53,
+      "end": 6.73,
+      "label": "B:maj7"
+    },
+    {
+      "start": 6.73,
+      "end": 9.38,
+      "label": "E:maj"
+    },
+    {
+      "start": 9.38,
+      "end": 11.22,
+      "label": "Bb:hdim7"
+    },
+    {
+      "start": 11.22,
+      "end": 13.44,
+      "label": "Eb:7"
+    },
+    {
+      "start": 13.44,
+      "end": 17.95,
+      "label": "Ab:min"
+    },
+    {
+      "start": 17.95,
+      "end": 20.15,
+      "label": "C#:min"
+    },
+    {
+      "start": 20.15,
+      "end": 22.48,
+      "label": "F#:7"
+    },
+    {
+      "start": 22.48,
+      "end": 24.64,
+      "label": "B:maj"
+    },
+    {
+      "start": 24.64,
+      "end": 27.31,
+      "label": "E:maj"
+    },
+    {
+      "start": 27.31,
+      "end": 29.14,
+      "label": "Bb:hdim7"
+    },
+    {
+      "start": 29.14,
+      "end": 31.37,
+      "label": "Eb:maj"
+    },
+    {
+      "start": 31.37,
+      "end": 35.88639455782313,
+      "label": "Ab:min"
+    }
+  ]
+}

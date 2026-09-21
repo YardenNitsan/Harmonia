@@ -1,0 +1,33 @@
+{
+  "track_id": "04_Jazz2-187-F#_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "051334190a0f57bc6004e9ad8cad00e2e7e3694a88d09f76077436c11d6a53b3",
+    "annotation": "2023e5ff1526f1175049d248ca957fd77b7b1f4204a457b7bed4c8b1a629257d",
+    "prepared": "afe5ad6a6cf4b30217272f28c8f9625d7032cc1e4a1c52e1473928e0739c3c06"
+  },
+  "pcm": {
+    "source_sha256": "051334190a0f57bc6004e9ad8cad00e2e7e3694a88d09f76077436c11d6a53b3",
+    "file_sha256": "d6c0d9bf0931e8ed14b1464afe3bfb1eee79cb22696edb4a6b7c615688420070",
+    "pcm_sha256": "61d2dedafd07e827d9d3fb69e5346f43265782d2fa4c431dfde376d3765fc0c5",
+    "duration": 20.532018140589567,
+    "decode_seconds": 0.015897299977950752
+  },
+  "timings": {
+    "feature_seconds": 0.05304140003863722,
+    "model_seconds": 0.060933100001420826
+  },
+  "wall_seconds": 0.12608389998786151,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.46439909297052157,
+      "label": "E:maj"
+    },
+    {
+      "start": 0.46439909297052157,
+      "end": 20.532018140589567,
+      "label": "N"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "track_id": "02_Funk1-114-Ab_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "7c10e95b9d378a4bae8b3d5a6ce11841a3fdfa4e65059df0e6fe3526eb31b7a2",
+    "annotation": "e7252a03938166bae5d7b394798f16f681fe40a3316f10c2c2d48fb7ad0168c5",
+    "prepared": "7558dd8aac4ce2acf3c7ca64198e40f70bbe9e2134123788bc858b144bd8c32f"
+  },
+  "pcm": {
+    "source_sha256": "7c10e95b9d378a4bae8b3d5a6ce11841a3fdfa4e65059df0e6fe3526eb31b7a2",
+    "file_sha256": "97d1a15e2f496de9eb008e75499cb16b6485fd5cf45637e91961e1f4db86f129",
+    "pcm_sha256": "90a4856d282baf167be9d67293bb0510f29c8b55fa6f0dbd6746bc65813ca71d",
+    "duration": 25.258412698412698,
+    "decode_seconds": 0.017734500055667013
+  },
+  "timings": {
+    "feature_seconds": 0.03808720002416521,
+    "model_seconds": 0.053776999993715435
+  },
+  "wall_seconds": 0.10278789995936677,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 25.258412698412698,
+      "label": "N"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "track_id": "05_Funk2-108-Eb_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "07ef5b704e9c23d438391b3e756e600c95b592061d7e090bc730b8c8bd58efd5",
+    "annotation": "4c61e831bb30651679642d3cdaff7307afbbd84950384534dcab09f4ea43fd7c",
+    "prepared": "43fac4af0635e4371148a8c6bdbbd36a07ec2690d70dc8b44b9469971c378fa9"
+  },
+  "pcm": {
+    "source_sha256": "07ef5b704e9c23d438391b3e756e600c95b592061d7e090bc730b8c8bd58efd5",
+    "file_sha256": "e35c2dfdb28240ec2f994e072e09c3fb639e8e31702a474a42bdccc455bfcd40",
+    "pcm_sha256": "ec70ad49a57afc9330da56ba3c5a7219933fe7f2cf8c6bdc830f557da697b704",
+    "duration": 35.54839002267574,
+    "decode_seconds": 0.02269670000532642
+  },
+  "timings": {
+    "feature_seconds": 0.07851150003261864,
+    "model_seconds": 0.08316429995466024
+  },
+  "wall_seconds": 0.17938190000131726,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 16.408707482993197,
+      "label": "N"
+    },
+    {
+      "start": 16.408707482993197,
+      "end": 17.616145124716553,
+      "label": "D#:7"
+    },
+    {
+      "start": 17.616145124716553,
+      "end": 35.54839002267574,
+      "label": "N"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "track_id": "02_Rock2-142-D_solo",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "ed462f1a9f9566aa8568150aa712e5cf3d2aed5758080fdd01979d2617ff0f55",
+    "annotation": "33d1b15ad89a6e969c3b49d0022f2382e8e97147540ed101698bdc079d9fd9f1",
+    "prepared": "78a5604afe727b3ad80c5b0d94c2d1ab1adc290380ec60406d88611ec17f561d"
+  },
+  "pcm": {
+    "source_sha256": "ed462f1a9f9566aa8568150aa712e5cf3d2aed5758080fdd01979d2617ff0f55",
+    "file_sha256": "29a5740c3394c7231a6093c63237151a58d266664258d4976792129583a6cb83",
+    "pcm_sha256": "2176e5fc40408d2fd1b70b3929ae4d1c981e17f867471de5d378d59166006ae9",
+    "duration": 27.041632653061225,
+    "decode_seconds": 0.019562500005122274
+  },
+  "timings": {
+    "retained_E006": true
+  },
+  "wall_seconds": 0.0002666999935172498,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 10.12,
+      "label": "N"
+    },
+    {
+      "start": 10.12,
+      "end": 12.82,
+      "label": "A:min"
+    },
+    {
+      "start": 12.82,
+      "end": 21.06,
+      "label": "N"
+    },
+    {
+      "start": 21.06,
+      "end": 24.59,
+      "label": "A:min"
+    },
+    {
+      "start": 24.59,
+      "end": 27.041632653061225,
+      "label": "N"
+    }
+  ]
+}

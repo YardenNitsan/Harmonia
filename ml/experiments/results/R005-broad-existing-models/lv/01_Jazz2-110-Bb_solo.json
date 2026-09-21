@@ -1,0 +1,27 @@
+{
+  "track_id": "01_Jazz2-110-Bb_solo",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "8d3bdfd4befab11e2dab11fe4c778feeb5799946dbc2d313c0c5648bfc0ac362",
+    "annotation": "062da26f139aeb681db85a7c6f6413363078c2655c9d39c3eec041654e744181",
+    "prepared": "26d28085506291c06a4f48ebd0552850606583356d1f1a2c996b25d327106da1"
+  },
+  "pcm": {
+    "source_sha256": "8d3bdfd4befab11e2dab11fe4c778feeb5799946dbc2d313c0c5648bfc0ac362",
+    "file_sha256": "edfa1592a55a818bdc437d6326460767ab74f083e31f592951c85b7e06ec8a78",
+    "pcm_sha256": "688881940df9a7883d4d8464d15758fca458f35a76d54efd110afee80b0e57df",
+    "duration": 34.90321995464853,
+    "decode_seconds": 0.02253379998728633
+  },
+  "timings": {
+    "retained_E006": true
+  },
+  "wall_seconds": 0.00023780000628903508,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 34.90321995464853,
+      "label": "N"
+    }
+  ]
+}

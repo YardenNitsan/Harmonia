@@ -1,0 +1,1046 @@
+{
+  "track_id": "03_Funk1-114-Ab_comp",
+  "offset": -0.33,
+  "tuning_semitones": -0.24,
+  "applied": true,
+  "arms": {
+    "original": {
+      "frames": {
+        "root": {
+          "accuracy": 0.7730627306273062,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "1": {
+              "support": 272,
+              "predicted": 135,
+              "precision": 1.0,
+              "recall": 0.4963235294117647,
+              "f1": 0.6633906633906634
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 90,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "4": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "5": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "6": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "8": {
+              "support": 722,
+              "predicted": 930,
+              "precision": 0.7559139784946236,
+              "recall": 0.9736842105263158,
+              "f1": 0.851089588377724
+            },
+            "9": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "10": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "11": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "12": {
+              "support": 0,
+              "predicted": 19,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            }
+          }
+        },
+        "triad": {
+          "accuracy": 0.9824723247232472,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 19,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "1": {
+              "support": 1084,
+              "predicted": 1065,
+              "precision": 1.0,
+              "recall": 0.9824723247232472,
+              "f1": 0.9911586784550954
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "4": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "5": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "6": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            }
+          }
+        },
+        "seventh": {
+          "accuracy": 0.3339483394833948,
+          "classes": {
+            "0": {
+              "support": 362,
+              "predicted": 1084,
+              "precision": 0.3339483394833948,
+              "recall": 1.0,
+              "f1": 0.5006915629322268
+            },
+            "1": {
+              "support": 722,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            }
+          }
+        },
+        "bass": {
+          "accuracy": 0.6051660516605166,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "1": {
+              "support": 272,
+              "predicted": 135,
+              "precision": 1.0,
+              "recall": 0.4963235294117647,
+              "f1": 0.6633906633906634
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 272,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "4": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "5": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "6": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "8": {
+              "support": 540,
+              "predicted": 930,
+              "precision": 0.5602150537634408,
+              "recall": 0.9648148148148148,
+              "f1": 0.708843537414966
+            },
+            "9": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "10": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "11": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "12": {
+              "support": 0,
+              "predicted": 19,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            }
+          }
+        },
+        "reduced_structural_exact": 0.0,
+        "scored_frames": 1084,
+        "extensions": {
+          "6": {
+            "accuracy": 1.0,
+            "classes": {
+              "0": {
+                "support": 1084,
+                "predicted": 1084,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "1": {
+                "support": 0,
+                "predicted": 0,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              }
+            }
+          },
+          "9": {
+            "accuracy": 0.6660516605166051,
+            "classes": {
+              "0": {
+                "support": 722,
+                "predicted": 1084,
+                "precision": 0.6660516605166051,
+                "recall": 1.0,
+                "f1": 0.7995570321151716
+              },
+              "1": {
+                "support": 362,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          },
+          "11": {
+            "accuracy": 0.3339483394833948,
+            "classes": {
+              "0": {
+                "support": 362,
+                "predicted": 1084,
+                "precision": 0.3339483394833948,
+                "recall": 1.0,
+                "f1": 0.5006915629322268
+              },
+              "1": {
+                "support": 722,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          },
+          "13": {
+            "accuracy": 1.0,
+            "classes": {
+              "0": {
+                "support": 1084,
+                "predicted": 1084,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "1": {
+                "support": 0,
+                "predicted": 0,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              }
+            }
+          }
+        },
+        "inversion_presence": {
+          "accuracy": 0.8321033210332104,
+          "classes": {
+            "False": {
+              "support": 902,
+              "predicted": 1084,
+              "precision": 0.8321033210332104,
+              "recall": 1.0,
+              "f1": 0.9083585095669687
+            },
+            "True": {
+              "support": 182,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        },
+        "inversion_frames": 182,
+        "inversion_bass_exact": 0.0
+      },
+      "segment_count": 4,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.4876190476190476,
+          "label": "N",
+          "score": 0.5545248985290527,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.5545248985290527,
+            "bass": 0.5968387126922607,
+            "seventh": null,
+            "ninth": null,
+            "eleventh": null,
+            "thirteenth": null
+          },
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 0.4876190476190476,
+          "end": 9.05578231292517,
+          "label": "Ab:maj",
+          "score": 0.479064404964447,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.479064404964447,
+            "bass": 0.7862482666969299,
+            "seventh": 0.6209211945533752,
+            "ninth": 0.8045984506607056,
+            "eleventh": 0.8955396413803101,
+            "thirteenth": 0.7459328174591064
+          },
+          "target": [
+            8,
+            1,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 9.05578231292517,
+          "end": 12.236916099773243,
+          "label": "C#:maj",
+          "score": 0.31879162788391113,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.31879162788391113,
+            "bass": 0.40709006786346436,
+            "seventh": 0.5357240438461304,
+            "ninth": 0.8757680058479309,
+            "eleventh": 0.9524351358413696,
+            "thirteenth": 0.8624985218048096
+          },
+          "target": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 12.236916099773243,
+          "end": 25.74453514739229,
+          "label": "Ab:maj",
+          "score": 0.4442480504512787,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.4442480504512787,
+            "bass": 0.657137930393219,
+            "seventh": 0.5807549357414246,
+            "ninth": 0.824048638343811,
+            "eleventh": 0.9194508194923401,
+            "thirteenth": 0.7927464246749878
+          },
+          "target": [
+            8,
+            1,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "candidate": {
+      "frames": {
+        "root": {
+          "accuracy": 0.8487084870848709,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "1": {
+              "support": 272,
+              "predicted": 303,
+              "precision": 0.834983498349835,
+              "recall": 0.9301470588235294,
+              "f1": 0.88
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 90,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "4": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "5": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "6": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "8": {
+              "support": 722,
+              "predicted": 763,
+              "precision": 0.8741808650065531,
+              "recall": 0.9238227146814404,
+              "f1": 0.8983164983164983
+            },
+            "9": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "10": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "11": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "12": {
+              "support": 0,
+              "predicted": 18,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            }
+          }
+        },
+        "triad": {
+          "accuracy": 0.9833948339483395,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 18,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            },
+            "1": {
+              "support": 1084,
+              "predicted": 1066,
+              "precision": 1.0,
+              "recall": 0.9833948339483395,
+              "f1": 0.9916279069767442
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "4": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "5": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "6": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            }
+          }
+        },
+        "seventh": {
+          "accuracy": 0.6494464944649446,
+          "classes": {
+            "0": {
+              "support": 362,
+              "predicted": 18,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "1": {
+              "support": 722,
+              "predicted": 1066,
+              "precision": 0.6604127579737336,
+              "recall": 0.9750692520775623,
+              "f1": 0.7874720357941835
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            }
+          }
+        },
+        "bass": {
+          "accuracy": 0.6918819188191881,
+          "classes": {
+            "0": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "1": {
+              "support": 272,
+              "predicted": 303,
+              "precision": 0.834983498349835,
+              "recall": 0.9301470588235294,
+              "f1": 0.88
+            },
+            "2": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "3": {
+              "support": 272,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "4": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "5": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "6": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "7": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "8": {
+              "support": 540,
+              "predicted": 763,
+              "precision": 0.6513761467889908,
+              "recall": 0.9203703703703704,
+              "f1": 0.762854950115119
+            },
+            "9": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "10": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "11": {
+              "support": 0,
+              "predicted": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "12": {
+              "support": 0,
+              "predicted": 18,
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0
+            }
+          }
+        },
+        "reduced_structural_exact": 0.0,
+        "scored_frames": 1084,
+        "extensions": {
+          "6": {
+            "accuracy": 1.0,
+            "classes": {
+              "0": {
+                "support": 1084,
+                "predicted": 1084,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "1": {
+                "support": 0,
+                "predicted": 0,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              }
+            }
+          },
+          "9": {
+            "accuracy": 0.6660516605166051,
+            "classes": {
+              "0": {
+                "support": 722,
+                "predicted": 1084,
+                "precision": 0.6660516605166051,
+                "recall": 1.0,
+                "f1": 0.7995570321151716
+              },
+              "1": {
+                "support": 362,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          },
+          "11": {
+            "accuracy": 0.3339483394833948,
+            "classes": {
+              "0": {
+                "support": 362,
+                "predicted": 1084,
+                "precision": 0.3339483394833948,
+                "recall": 1.0,
+                "f1": 0.5006915629322268
+              },
+              "1": {
+                "support": 722,
+                "predicted": 0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            }
+          },
+          "13": {
+            "accuracy": 1.0,
+            "classes": {
+              "0": {
+                "support": 1084,
+                "predicted": 1084,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "1": {
+                "support": 0,
+                "predicted": 0,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              }
+            }
+          }
+        },
+        "inversion_presence": {
+          "accuracy": 0.8321033210332104,
+          "classes": {
+            "False": {
+              "support": 902,
+              "predicted": 1084,
+              "precision": 0.8321033210332104,
+              "recall": 1.0,
+              "f1": 0.9083585095669687
+            },
+            "True": {
+              "support": 182,
+              "predicted": 0,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        },
+        "inversion_frames": 182,
+        "inversion_bass_exact": 0.0
+      },
+      "segment_count": 6,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.46439909297052157,
+          "label": "N",
+          "score": 0.4494812488555908,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.4494812488555908,
+            "bass": 0.440355122089386,
+            "seventh": null,
+            "ninth": null,
+            "eleventh": null,
+            "thirteenth": null
+          },
+          "target": [
+            12,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 0.46439909297052157,
+          "end": 9.032562358276644,
+          "label": "Ab:7",
+          "score": 0.4515802562236786,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.4515802562236786,
+            "bass": 0.9131460785865784,
+            "seventh": 0.792739748954773,
+            "ninth": 0.7342405319213867,
+            "eleventh": 0.8665686845779419,
+            "thirteenth": 0.7667974233627319
+          },
+          "target": [
+            8,
+            1,
+            1,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 9.032562358276644,
+          "end": 13.14249433106576,
+          "label": "C#:7",
+          "score": 0.565976083278656,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.565976083278656,
+            "bass": 0.797398030757904,
+            "seventh": 0.9196970462799072,
+            "ninth": 0.6561720967292786,
+            "eleventh": 0.8408689498901367,
+            "thirteenth": 0.8032673001289368
+          },
+          "target": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 13.14249433106576,
+          "end": 18.993922902494333,
+          "label": "Ab:7",
+          "score": 0.4055420160293579,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.4055420160293579,
+            "bass": 0.748894214630127,
+            "seventh": 0.9179322123527527,
+            "ninth": 0.6502788066864014,
+            "eleventh": 0.8252063393592834,
+            "thirteenth": 0.740132749080658
+          },
+          "target": [
+            8,
+            1,
+            1,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 18.993922902494333,
+          "end": 22.03573696145125,
+          "label": "C#:7",
+          "score": 0.3422490060329437,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.3422490060329437,
+            "bass": 0.4929955303668976,
+            "seventh": 0.8491507768630981,
+            "ninth": 0.5864781737327576,
+            "eleventh": 0.825424075126648,
+            "thirteenth": 0.8555862903594971
+          },
+          "target": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "start": 22.03573696145125,
+          "end": 25.74453514739229,
+          "label": "Ab:7",
+          "score": 0.27294278144836426,
+          "scoreKind": "uncalibrated-triad-support",
+          "support": {
+            "triad": 0.27294278144836426,
+            "bass": 0.7723367214202881,
+            "seventh": 0.8161553144454956,
+            "ninth": 0.6666609644889832,
+            "eleventh": 0.8089563250541687,
+            "thirteenth": 0.837448000907898
+          },
+          "target": [
+            8,
+            1,
+            1,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

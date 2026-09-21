@@ -1,0 +1,58 @@
+{
+  "track_id": "05_Rock2-85-F_solo",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "44203ba40a1bc5675c1991666e7a780b8cd4f3af566b2c8addca7b699616aa03",
+    "annotation": "4bab0bb0eae8d2ef07ef27c3449cde4a08f391a9eda81fbbeb90cd6c53d38f10",
+    "prepared": "6df74b51e43fdd23efb1b4f814d3ee2bae9ec809015e5de3edb6b7a8bdd37456"
+  },
+  "pcm": {
+    "source_sha256": "44203ba40a1bc5675c1991666e7a780b8cd4f3af566b2c8addca7b699616aa03",
+    "file_sha256": "2afdeae742a5714e4672f0a4a37e30851e623708a977811c390f14152a058eb2",
+    "pcm_sha256": "7c429d12a544a5dfb7b06d5b67cc7fd3e81e7b08ecd1c02c2c6452ae384acd7b",
+    "duration": 45.173197278911566,
+    "decode_seconds": 0.02769989997614175
+  },
+  "timings": {
+    "feature_seconds": 0.07818359998054802,
+    "model_seconds": 0.1063834999804385
+  },
+  "wall_seconds": 0.20601810002699494,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 30.0,
+      "label": "N"
+    },
+    {
+      "start": 30.0,
+      "end": 30.46439909297052,
+      "label": "G#:maj"
+    },
+    {
+      "start": 30.46439909297052,
+      "end": 30.65015873015873,
+      "label": "N"
+    },
+    {
+      "start": 30.65015873015873,
+      "end": 31.30031746031746,
+      "label": "C:min"
+    },
+    {
+      "start": 31.30031746031746,
+      "end": 40.0,
+      "label": "N"
+    },
+    {
+      "start": 40.0,
+      "end": 40.464399092970524,
+      "label": "G#:maj"
+    },
+    {
+      "start": 40.464399092970524,
+      "end": 45.173197278911566,
+      "label": "N"
+    }
+  ]
+}

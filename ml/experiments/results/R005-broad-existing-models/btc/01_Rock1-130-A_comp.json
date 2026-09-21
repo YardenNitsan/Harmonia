@@ -1,0 +1,53 @@
+{
+  "track_id": "01_Rock1-130-A_comp",
+  "arm": "btc",
+  "input_hashes": {
+    "audio": "1ead2a124768727b6ee3ddcfec2df7ad5f7087fa74ac0a49822d0028685f8731",
+    "annotation": "546bce99efd52256b4c6a03f0281292d5ba30761d7f799e3ada703d1617873d1",
+    "prepared": "2707ccf120343e493928dc9d3553c57888f69c566260bf18af6d39e0f7767888"
+  },
+  "pcm": {
+    "source_sha256": "1ead2a124768727b6ee3ddcfec2df7ad5f7087fa74ac0a49822d0028685f8731",
+    "file_sha256": "d4f036e8e072f863cecc1705a1a0e501616a8206e98c2d6534c38eb5f9136ae1",
+    "pcm_sha256": "d33dee80e203aefa84ad459a7070b4d0fba45496c5efc4d011c7ddcfed088ea6",
+    "duration": 22.14721088435374,
+    "decode_seconds": 0.01658690004842356
+  },
+  "timings": {
+    "feature_seconds": 0.040521099988836795,
+    "model_seconds": 0.057604000030551106
+  },
+  "wall_seconds": 0.1087297000340186,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 7.244625850340136,
+      "label": "A:maj"
+    },
+    {
+      "start": 7.244625850340136,
+      "end": 11.021678004535147,
+      "label": "D:maj"
+    },
+    {
+      "start": 11.021678004535147,
+      "end": 14.551111111111112,
+      "label": "A:maj"
+    },
+    {
+      "start": 14.551111111111112,
+      "end": 16.315827664399094,
+      "label": "E:maj"
+    },
+    {
+      "start": 16.315827664399094,
+      "end": 18.35918367346939,
+      "label": "D:maj"
+    },
+    {
+      "start": 18.35918367346939,
+      "end": 22.14721088435374,
+      "label": "A:maj"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "track_id": "00_SS2-107-Ab_solo",
+  "arm": "lv",
+  "input_hashes": {
+    "audio": "71fc3ccc8b5eba4ad5cc7dd0896c0fc50f284d297d2673869a58d0062e52d70e",
+    "annotation": "ea3ea3f15051fbac2cfacba47fbb31550a9c5b51efdcd37d4110642d250046ed",
+    "prepared": "31d35589a4d49b43c596f1e1dfd08270622f0787f0845e24321a54cdb0377639"
+  },
+  "pcm": {
+    "source_sha256": "71fc3ccc8b5eba4ad5cc7dd0896c0fc50f284d297d2673869a58d0062e52d70e",
+    "file_sha256": "84fc77012f65d751a5df00494b5ca9dc062429d7b35ac83a727ca2df102ca8bd",
+    "pcm_sha256": "00dc0881899588623d55cd27ebbc34d4fcf348bb98cb9ba0f49a1cdc495549fc",
+    "duration": 35.88639455782313,
+    "decode_seconds": 0.024110600003041327
+  },
+  "timings": {
+    "setupSeconds": 0.019978899974375963,
+    "cqtSeconds": 0.12846520001767203,
+    "inferenceSeconds": 1.0354252999532036,
+    "hmmSeconds": 0.027863900002557784,
+    "beatSeconds": 0.044468300009611994,
+    "refinementSeconds": 0.0001306000049225986,
+    "decodeSeconds": 0.0003829000052064657,
+    "totalSeconds": 1.2571931999991648
+  },
+  "wall_seconds": 1.2591360999504104,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "label": "N"
+    },
+    {
+      "start": 0.02,
+      "end": 2.76,
+      "label": "Ab:min"
+    },
+    {
+      "start": 2.76,
+      "end": 5.67,
+      "label": "C#:min"
+    },
+    {
+      "start": 5.67,
+      "end": 6.73,
+      "label": "Eb:min7"
+    },
+    {
+      "start": 6.73,
+      "end": 7.59,
+      "label": "B:maj"
+    },
+    {
+      "start": 7.59,
+      "end": 11.7,
+      "label": "Ab:maj"
+    },
+    {
+      "start": 11.7,
+      "end": 14.26,
+      "label": "Bb:maj"
+    },
+    {
+      "start": 14.26,
+      "end": 18.76,
+      "label": "Ab:min"
+    },
+    {
+      "start": 18.76,
+      "end": 23.22,
+      "label": "E:maj/3"
+    },
+    {
+      "start": 23.22,
+      "end": 25.82,
+      "label": "A:maj"
+    },
+    {
+      "start": 25.82,
+      "end": 32.07,
+      "label": "B:maj"
+    },
+    {
+      "start": 32.07,
+      "end": 33.32,
+      "label": "N"
+    },
+    {
+      "start": 33.32,
+      "end": 35.88639455782313,
+      "label": "Ab:min"
+    }
+  ]
+}
