@@ -1,7 +1,22 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { ConsumerCatalog } from './consumer-catalog';
 import type { CatalogRecording } from '../application/catalog-contracts';
+import { NativeSearchError } from './native-search';
 afterEach(() => vi.useRealTimers());
+
+it('preserves safe quota explanations rather than blaming the computer', async () => {
+  const service = new ConsumerCatalog(
+    {
+      search: async () => {
+        throw new NativeSearchError('quota');
+      },
+    },
+    { search: async () => [], acquire: vi.fn() },
+  );
+  const page = await service.search('song', 'youtube', new AbortController().signal);
+  expect(page.notice).toContain('search limit');
+  expect(page.notice).not.toContain('on this computer');
+});
 
 it('does not discard playable catalog results after only two seconds', async () => {
   vi.useFakeTimers();

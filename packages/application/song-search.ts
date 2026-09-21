@@ -1,5 +1,6 @@
 import type { CatalogRecording } from './catalog-contracts';
 import type { AudioAcquisitionProvider } from './whole-song-audio';
+import { isMeaningfulSearch, normalizeSearchQuery } from './search-query';
 
 type CatalogProvider = CatalogRecording['provider'];
 interface Catalog {
@@ -88,15 +89,20 @@ export class SongSearchController {
     this.listeners.clear();
   }
   query(value: string) {
+    value = value.slice(0, 160);
+    if (normalizeSearchQuery(value) === normalizeSearchQuery(this.state.query)) {
+      this.set({ query: value });
+      return;
+    }
     this.cancel(false);
     this.set({ query: value.slice(0, 160), results: [], notice: null });
     const query = this.state.query;
-    if (query.trim().length < 2) return;
+    if (!isMeaningfulSearch(query)) return;
     this.set({ status: 'searching' });
     this.timer = setTimeout(() => {
       this.timer = null;
-      void this.search(query);
-    }, 300);
+      void this.search(this.state.query);
+    }, 550);
   }
   async search(query: string, provider: CatalogProvider = 'youtube') {
     this.cancel(false);

@@ -7,7 +7,8 @@ const MESSAGES: Record<string, string> = {
   missing_configuration: 'YouTube search has not been configured on this device.',
   invalid_query: 'Enter a song or artist name of up to 200 characters.',
   configuration: 'YouTube search configuration needs attention.',
-  quota: 'YouTube search is temporarily unavailable. Please try again later.',
+  quota:
+    'YouTube’s search limit has been reached. Please try again later. Saved songs are still available in your Library.',
   network: 'Search is temporarily unavailable. Please try again.',
   busy: 'Search is busy. Please try again.',
 };

@@ -9,6 +9,10 @@ import { WholeSongAnalysisService } from '../../../packages/audio/whole-song-ana
 import { SongSearchController } from '../../../packages/application/song-search';
 import { RecordingCatalog } from '../../../packages/providers/catalog';
 import { NativeYouTubeSearch } from '../../../packages/providers/native-search';
+import {
+  QuotaAwareYouTubeSearch,
+  localSearchStorage,
+} from '../../../packages/providers/quota-search';
 import { ConsumerCatalog } from '../../../packages/providers/consumer-catalog';
 import { NativeWholeSongAudioProvider } from '../../../packages/providers/native-audio';
 import { NativeWholeSongRecognizer } from '../../../packages/providers/native-recognizer';
@@ -38,7 +42,10 @@ export const liveController = new LiveSessionController({
   },
 });
 const consumerCatalog = new ConsumerCatalog(
-  new NativeYouTubeSearch(),
+  new QuotaAwareYouTubeSearch(new NativeYouTubeSearch(), {
+    storage: localSearchStorage(),
+    log: (counts) => console.info('[YouTube search] request counts', counts),
+  }),
   new RecordingCatalog(),
   new NativeWholeSongAudioProvider(),
 );

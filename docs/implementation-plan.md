@@ -16,6 +16,14 @@ Tauri SQLite backend, React listening workspace, Python supervised research pipe
 
 ## Global constraints
 
+### Active continuation: quota-efficient autocomplete
+
+Implemented the requested 550 ms debounce, three-character minimum, normalized
+query cache, conservative prefix reuse, cancellation, coalescing and dispatch pacing.
+Selection and keyboard navigation reuse metadata. Quota failures now have a specific
+product message and bounded retry suppression. See `quota-efficient-search.md` for
+cache limits, measured mocked call counts and verification. Recognition is unchanged.
+
 ### Active continuation: classic chord references and broad evaluation
 
 Latest user direction supersedes contextual practice shapes: show classic familiar

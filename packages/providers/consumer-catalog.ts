@@ -5,6 +5,7 @@ import type {
   WholeSongAudioProvider,
 } from '../application/whole-song-audio';
 import type { SourceProvenance } from '../domain/types';
+import { NativeSearchError } from './native-search';
 
 /** One consumer search; discovery does not imply rights to analyze a video. */
 export class ConsumerCatalog {
@@ -50,12 +51,16 @@ export class ConsumerCatalog {
         ...(recordings.status === 'fulfilled' ? recordings.value : []),
       ];
       if (videos.status === 'rejected' && recordings.status === 'rejected')
-        throw new Error('Search is unavailable right now. Check your connection and try again.');
+        throw videos.reason instanceof NativeSearchError
+          ? videos.reason
+          : new Error('Search is unavailable right now. Check your connection and try again.');
       return {
         results,
         notice:
           videos.status === 'rejected'
-            ? 'YouTube search is unavailable on this computer. You can still choose an available recording below.'
+            ? videos.reason instanceof NativeSearchError
+              ? videos.reason.message
+              : 'YouTube search is temporarily unavailable. You can still choose an available recording below.'
             : recordings.status === 'rejected'
               ? 'Could not load recordings with chord analysis. Try searching again. YouTube results are watch-only.'
               : !results.some((recording) => this.canAcquire(recording)) && results.length

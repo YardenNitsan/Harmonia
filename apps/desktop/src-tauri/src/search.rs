@@ -5,7 +5,10 @@ use std::{
     collections::{HashMap, VecDeque},
     io::Read,
     path::{Path, PathBuf},
-    sync::Mutex,
+    sync::{
+        atomic::{AtomicU64, Ordering},
+        Mutex,
+    },
     time::Duration,
 };
 use tokio::sync::watch;
@@ -38,6 +41,24 @@ fn error(code: &'static str) -> SearchError {
 #[derive(Serialize)]
 pub struct SearchStatus {
     pub configured: bool,
+    pub search_list_calls: u64,
+    pub videos_list_calls: u64,
+}
+
+#[derive(Default)]
+struct ApiCalls {
+    search: AtomicU64,
+    videos: AtomicU64,
+}
+impl ApiCalls {
+    fn record(&self, endpoint: &str) -> Option<(&'static str, u64)> {
+        let (method, counter) = match endpoint {
+            "https://www.googleapis.com/youtube/v3/search" => ("search.list", &self.search),
+            "https://www.googleapis.com/youtube/v3/videos" => ("videos.list", &self.videos),
+            _ => return None,
+        };
+        Some((method, counter.fetch_add(1, Ordering::Relaxed) + 1))
+    }
 }
 
 #[derive(Debug, Serialize)]
@@ -63,6 +84,7 @@ struct Requests {
 pub struct SearchService {
     client: reqwest::Client,
     requests: Mutex<Requests>,
+    calls: ApiCalls,
 }
 
 impl SearchService {
@@ -77,12 +99,15 @@ impl SearchService {
         Ok(Self {
             client,
             requests: Mutex::new(Requests::default()),
+            calls: ApiCalls::default(),
         })
     }
 
     pub fn status(&self) -> SearchStatus {
         SearchStatus {
             configured: load_key().is_ok(),
+            search_list_calls: self.calls.search.load(Ordering::Relaxed),
+            videos_list_calls: self.calls.videos.load(Ordering::Relaxed),
         }
     }
 
@@ -208,6 +233,10 @@ impl SearchService {
         endpoint: &'static str,
         parameters: &[(&str, &str)],
     ) -> Result<Value, SearchError> {
+        if let Some((method, count)) = self.calls.record(endpoint) {
+            // Dispatch attempts, not a claim about charged project quota. No query/key logging.
+            eprintln!("[youtube-api] method={method} session_calls={count}");
+        }
         let mut response = self
             .client
             .get(endpoint)
@@ -552,6 +581,26 @@ fn unprotect_key(_: &[u8]) -> Result<String, SearchError> {
 mod tests {
     use super::*;
     const KEY: &str = "fake-configuration-key-for-unit-tests";
+
+    #[test]
+    fn api_call_counts_distinguish_search_from_duration_metadata_without_network() {
+        let calls = ApiCalls::default();
+        assert_eq!(
+            calls.record("https://www.googleapis.com/youtube/v3/search"),
+            Some(("search.list", 1))
+        );
+        assert_eq!(
+            calls.record("https://www.googleapis.com/youtube/v3/videos"),
+            Some(("videos.list", 1))
+        );
+        assert_eq!(
+            calls.record("https://www.googleapis.com/youtube/v3/search"),
+            Some(("search.list", 2))
+        );
+        assert_eq!(calls.record("invalid"), None);
+        assert_eq!(calls.search.load(Ordering::Relaxed), 2);
+        assert_eq!(calls.videos.load(Ordering::Relaxed), 1);
+    }
 
     #[tokio::test]
     #[ignore = "requires configured real YouTube API; consumes search quota"]

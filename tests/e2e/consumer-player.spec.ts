@@ -67,34 +67,41 @@ test('prepared consumer player autoplays a complete timeline and supports future
 
 // This mocks the configured native API boundary, not a live YouTube response.
 // Native HTTP/configuration behavior has separate adapter and native tests.
-async function configuredSearchMock(page: import('@playwright/test').Page) {
+async function configuredSearchMock(page: import('@playwright/test').Page, prefixFixture = false) {
   await page.route('https://commons.wikimedia.org/w/api.php?*', (route) =>
     route.fulfill({ json: { query: { pages: {} } } }),
   );
-  await page.addInitScript(() => {
+  await page.addInitScript((prefixFixture) => {
     const calls: string[] = [];
     const completed: string[] = [];
+    const selected: string[] = [];
     Object.assign(window, {
       isTauri: true,
       mockedSearchCalls: calls,
       mockedSearchCompleted: completed,
+      mockedSelectedVideos: selected,
       __TAURI_INTERNALS__: {
-        invoke: async (command: string, args: { query?: string } = {}) => {
+        invoke: async (command: string, args: { query?: string; videoId?: string } = {}) => {
           if (command === 'list_saved_tracks') return { records: [], issues: [] };
           if (command === 'capture_sources') return [];
           if (command === 'search_status') return { configured: true };
           if (command === 'search_cancel') return;
-          if (command === 'audio_acquire') throw { code: 'unavailable', message: 'Unavailable' };
+          if (command === 'audio_acquire') {
+            selected.push(args.videoId ?? '');
+            throw { code: 'unavailable', message: 'Unavailable' };
+          }
           if (command === 'audio_cancel') return;
           if (command === 'youtube_search') {
             const query = args.query ?? '';
             calls.push(query);
             if (query === 'old') await new Promise((resolve) => setTimeout(resolve, 1100));
             completed.push(query);
-            return [0, 1].map((index) => ({
-              id: `${query}-${index}`,
+            return (prefixFixture ? [0, 1, 2] : [0, 1]).map((index) => ({
+              id: `mockVideo0${index}`,
               provider: 'youtube',
-              title: `${query} song ${index + 1}`,
+              title: prefixFixture
+                ? `Boulevard of Broken Dreams ${index + 1}`
+                : `${query} song ${index + 1}`,
               artist: 'Mock artist',
               duration: 183,
               thumbnail: null,
@@ -106,8 +113,49 @@ async function configuredSearchMock(page: import('@playwright/test').Page) {
         },
       },
     });
-  });
+  }, prefixFixture);
 }
+
+test('quota-efficient typeahead reuses prefixes, repeats, navigation and persisted metadata', async ({
+  page,
+}, testInfo) => {
+  await configuredSearchMock(page, true);
+  await page.goto('/');
+  const input = page.getByRole('combobox', { name: 'Song or artist' });
+  await input.fill('bo');
+  await page.waitForTimeout(700);
+  expect(await page.evaluate(() => Reflect.get(window, 'mockedSearchCalls'))).toEqual([]);
+  await input.pressSequentially('u', { delay: 80 });
+  await expect(page.getByRole('option')).toHaveCount(3);
+  await input.pressSequentially('levard of broken dreams', { delay: 40 });
+  await expect(page.getByRole('option')).toHaveCount(3);
+  await input.fill(' BOULEVARD   OF BROKEN DREAMS ');
+  await input.press('ArrowDown');
+  await input.press('ArrowDown');
+  await input.press('ArrowUp');
+  await input.press('Escape');
+  await input.press('ArrowDown');
+  await input.press('Enter');
+  await expect(page.getByRole('alert')).toContainText('could not be prepared');
+  const calls = await page.evaluate(() => Reflect.get(window, 'mockedSearchCalls'));
+  expect(calls).toEqual(['bou']);
+  expect(await page.evaluate(() => Reflect.get(window, 'mockedSelectedVideos'))).toEqual([
+    'mockVideo00',
+  ]);
+  await page.reload();
+  await input.fill('bou');
+  await expect(page.getByRole('option')).toHaveCount(3);
+  expect(await page.evaluate(() => Reflect.get(window, 'mockedSearchCalls'))).toEqual([]);
+  await testInfo.attach('youtube-api-call-counts.json', {
+    contentType: 'application/json',
+    body: JSON.stringify({
+      transport: 'mocked native API; zero real quota used',
+      completeSearchCalls: calls.length,
+      navigationAndSelectionExtraCalls: 0,
+      reloadCalls: 0,
+    }),
+  });
+});
 
 test('typing retains spaces and caret position through delayed search updates', async ({
   page,

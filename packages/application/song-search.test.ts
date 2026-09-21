@@ -29,12 +29,32 @@ it('preserves raw typed whitespace when debounced search starts and completes', 
     beforePrepare: async () => {},
   });
   controller.query('  Killer ');
-  await vi.advanceTimersByTimeAsync(300);
+  await vi.advanceTimersByTimeAsync(550);
   expect(search.mock.calls[0]?.[0]).toBe('Killer');
   expect(controller.snapshot().query).toBe('  Killer ');
   controller.query('  Killer Queen  ');
-  await vi.advanceTimersByTimeAsync(300);
+  await vi.advanceTimersByTimeAsync(550);
   expect(controller.snapshot().query).toBe('  Killer Queen  ');
+  controller.dispose();
+});
+it('ignores case/spacing-only edits without cancelling or duplicating a pending search', async () => {
+  vi.useFakeTimers();
+  const search = vi.fn(async () => [recording]);
+  const controller = new SongSearchController({
+    catalog: { search, acquire: vi.fn() },
+    prepare: vi.fn(),
+    cancelPreparation: vi.fn(),
+    beforePrepare: async () => {},
+  });
+  controller.query(' KILLER');
+  await vi.advanceTimersByTimeAsync(400);
+  controller.query(' killer  ');
+  await vi.advanceTimersByTimeAsync(150);
+  expect(search).toHaveBeenCalledOnce();
+  expect(controller.snapshot().query).toBe(' killer  ');
+  controller.query(' KILLER ');
+  await vi.advanceTimersByTimeAsync(2000);
+  expect(search).toHaveBeenCalledOnce();
   controller.dispose();
 });
 it('late rejected-audio cleanup cannot restart acquisition over a replacement song', async () => {
@@ -137,7 +157,7 @@ it('failed source shutdown prevents network acquisition and analysis', async () 
   expect(controller.snapshot().error).toContain('still stopping');
 });
 
-it('queries current search results after 300ms without Enter and ignores stale responses', async () => {
+it('queries current search results after 550ms without Enter and ignores stale responses', async () => {
   vi.useFakeTimers();
   const queries: {
     query: string;
@@ -168,7 +188,7 @@ it('queries current search results after 300ms without Enter and ignores stale r
   controller.query('bo');
   await vi.advanceTimersByTimeAsync(200);
   controller.query('bou');
-  await vi.advanceTimersByTimeAsync(299);
+  await vi.advanceTimersByTimeAsync(549);
   expect(search).not.toHaveBeenCalled();
   await vi.advanceTimersByTimeAsync(1);
   expect(queries[0].query).toBe('bou');
@@ -176,7 +196,7 @@ it('queries current search results after 300ms without Enter and ignores stale r
   expect(controller.snapshot().results[0].title).toBe('Immediate YouTube result');
   controller.query('boulevard');
   expect(queries[0].signal.aborted).toBe(true);
-  await vi.advanceTimersByTimeAsync(300);
+  await vi.advanceTimersByTimeAsync(550);
   queries[1].resolve([{ ...recording, title: 'Newest result' }]);
   await vi.advanceTimersByTimeAsync(0);
   queries[0].update?.([{ ...recording, title: 'Obsolete partial result' }]);

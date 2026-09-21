@@ -1,5 +1,14 @@
 # Harmonia operating guide
 
+## Latest continuation: quota-efficient search
+
+Search now waits 550 ms and requires three meaningful characters. The app-wide
+YouTube adapter caches normalized queries for 24 hours (100 entries), reuses strong
+prefix matches, coalesces requests, cancels stale work and spaces uncached dispatches
+by two seconds. See `docs/quota-efficient-search.md`. Preserve the frozen whole-song
+recognition/player architecture. Automated search tests use mocks; do not consume
+real YouTube quota merely to repeat them. Native counters log endpoint/count only.
+
 ## Latest continuation: classic shapes and broad recognition evidence
 
 The user now wants classic per-chord practice references, not contextual/exact
