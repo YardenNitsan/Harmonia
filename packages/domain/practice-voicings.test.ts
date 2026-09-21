@@ -1,11 +1,45 @@
 import { describe, expect, it } from 'vitest';
-import { parseChord } from './chord';
+import { chordPitchClasses, parseChord } from './chord';
 import { getGuitarVoicings, getPianoVoicings } from './practice-voicings';
+import guitarShapes from './data/guitar-shapes.json';
 
 const tuning = [40, 45, 50, 55, 59, 64];
 const pcs = (notes: number[]) => [...new Set(notes.map((note) => note % 12))].sort((a, b) => a - b);
 
 describe('practical guitar voicings', () => {
+  it('ships only bounded grips with coherent fingers and barres', () => {
+    expect(guitarShapes.shapes.length).toBeGreaterThan(2500);
+    for (const shape of guitarShapes.shapes) {
+      expect(shape.frets).toHaveLength(6);
+      expect(shape.fingers).toHaveLength(6);
+      const pressed = shape.frets.filter((fret): fret is number => fret !== null && fret > 0);
+      expect(Math.max(...pressed) - Math.min(...pressed)).toBeLessThanOrEqual(3);
+      shape.frets.forEach((fret, string) => {
+        const finger = shape.fingers[string];
+        if (fret === null) expect(finger).toBeNull();
+        else if (fret === 0) expect(finger).toBe(0);
+        else {
+          expect(fret).toBeLessThanOrEqual(15);
+          expect([1, 2, 3, 4]).toContain(finger);
+        }
+      });
+      for (const finger of [1, 2, 3, 4]) {
+        const strings = shape.fingers.flatMap((value, string) =>
+          value === finger ? [string] : [],
+        );
+        if (strings.length < 2) continue;
+        const barre = shape.barres.find((value) => value.finger === finger);
+        expect(barre).toBeDefined();
+        expect(barre!.fromString).toBe(strings[0]);
+        expect(barre!.toString).toBe(strings.at(-1));
+        for (let string = barre!.fromString; string <= barre!.toString; string++) {
+          const fret = shape.frets[string];
+          if (fret !== null) expect(fret).toBeGreaterThanOrEqual(barre!.fret);
+        }
+        expect(strings.every((string) => shape.frets[string] === barre!.fret)).toBe(true);
+      }
+    }
+  });
   it.each([
     ['C', [0, 4, 7], 0],
     ['D', [2, 6, 9], 2],
@@ -83,13 +117,69 @@ describe('practical guitar voicings', () => {
     },
   );
 
-  it('does not mislabel an advanced or unavailable inversion as an exact basic chord', () => {
-    for (const label of ['C13#11', 'C7b9', 'C/F#']) {
+  it('does not mislabel unsupported dense harmony as an exact basic chord', () => {
+    for (const label of ['C13(b9,#9,#11,b13)/F#']) {
       const result = getGuitarVoicings(parseChord(label));
       expect(result.status).toBe('unavailable');
       expect(result.voicings).toEqual([]);
       expect(result.requestedLabel).toContain('C');
       expect(result.explanation).toBeTruthy();
+    }
+  });
+
+  it('covers common extended and inverted grips with truthful omissions', () => {
+    for (const root of ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']) {
+      for (const suffix of ['dim7', 'm7b5', 'sus2', 'sus4', '6', 'm6', '9', 'maj9', 'm9', '7b9']) {
+        const chord = parseChord(root + suffix);
+        const result = getGuitarVoicings(chord);
+        expect(result.status, root + suffix).not.toBe('unavailable');
+        for (const grip of result.voicings) {
+          const wanted = chordPitchClasses(chord);
+          expect(pcs(grip.midiNotes).every((pitch) => wanted.includes(pitch))).toBe(true);
+          expect(Math.min(...grip.midiNotes) % 12).toBe(chord.kind === 'chord' ? chord.root : -1);
+          if (result.status === 'exact') expect(pcs(grip.midiNotes)).toEqual(wanted);
+          else expect(result.explanation).toMatch(/omits/i);
+        }
+      }
+    }
+    for (const label of ['C/G', 'D/A', 'A/C#', 'Am/G', 'G/F#', 'F/C']) {
+      const chord = parseChord(label);
+      const result = getGuitarVoicings(chord);
+      expect(result.status, label).toBe('exact');
+      expect(Math.min(...result.voicings[0].midiNotes) % 12).toBe(
+        chord.kind === 'chord' ? chord.bass : -1,
+      );
+    }
+  });
+
+  it('preserves quality and altered tones across chromatic transposition even when reduced', () => {
+    for (const root of ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']) {
+      for (const [suffix, essentialIntervals] of [
+        ['13', [0, 4, 9, 10]],
+        ['m11', [0, 3, 5, 10]],
+        ['7b9', [0, 1, 4, 10]],
+        ['7#9', [0, 3, 4, 10]],
+        ['7b5', [0, 4, 6, 10]],
+        ['7#5', [0, 4, 8, 10]],
+        ['m7b5', [0, 3, 6, 10]],
+        ['dim7', [0, 3, 6, 9]],
+      ] as const) {
+        const chord = parseChord(root + suffix);
+        if (chord.kind !== 'chord') throw new Error('Fixture is pitched');
+        const result = getGuitarVoicings(chord);
+        expect(result.status, root + suffix).not.toBe('unavailable');
+        for (const grip of result.voicings) {
+          const played = pcs(grip.midiNotes);
+          for (const interval of essentialIntervals)
+            expect(played).toContain((chord.root + interval) % 12);
+          expect(
+            grip.frets.every(
+              (fret) =>
+                fret === null || fret === 0 || (fret >= grip.baseFret && fret < grip.baseFret + 5),
+            ),
+          ).toBe(true);
+        }
+      }
     }
   });
 });
@@ -110,7 +200,7 @@ describe('practical piano voicings', () => {
       const voicing = result.voicings[0];
       expect(pcs(voicing.midiNotes)).toEqual(tones);
       expect(voicing.midiNotes[0] % 12).toBe(bass);
-      expect(voicing.leftHand).toEqual([voicing.midiNotes[0]]);
+      expect(voicing.leftHand[0]).toBe(voicing.midiNotes[0]);
       expect(voicing.rightHand.length).toBeLessThanOrEqual(5);
       expect(Math.max(...voicing.rightHand) - Math.min(...voicing.rightHand)).toBeLessThanOrEqual(
         12,
@@ -119,15 +209,66 @@ describe('practical piano voicings', () => {
     },
   );
 
-  it('explicitly names reduced dense harmony while retaining bass, third, seventh and alterations', () => {
+  it('distributes dense harmony between reachable hands without throwing away chord tones', () => {
     const result = getPianoVoicings(parseChord('C13#11/E'));
-    expect(result.status).toBe('simplified');
+    expect(result.status).toBe('exact');
     expect(result.requestedLabel).toBe('C13(#11)/E');
-    expect(result.explanation).toBeTruthy();
     const voicing = result.voicings[0];
     expect(voicing.midiNotes[0] % 12).toBe(4);
-    expect(pcs(voicing.midiNotes)).toEqual([0, 2, 4, 6, 9, 10]);
-    expect(voicing.omittedPitchClasses).toEqual([7]);
+    expect(pcs(voicing.midiNotes)).toEqual([0, 2, 4, 6, 7, 9, 10]);
+    expect(voicing.omittedPitchClasses).toEqual([]);
+  });
+
+  it('keeps every hand within a ninth-semitone reach across roots, dense colors and slash basses', () => {
+    for (const root of ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']) {
+      for (const suffix of [
+        'maj7',
+        'm7',
+        '7b9',
+        '13#11',
+        '13(b9,#9,#11)',
+        'augmaj7',
+        'dim7',
+        'sus4',
+      ]) {
+        for (const bass of [
+          '',
+          '/C',
+          '/Db',
+          '/D',
+          '/Eb',
+          '/E',
+          '/F',
+          '/F#',
+          '/G',
+          '/Ab',
+          '/A',
+          '/Bb',
+          '/B',
+        ]) {
+          const chord = parseChord(root + suffix + bass);
+          const result = getPianoVoicings(chord);
+          expect(result.status, root + suffix + bass).not.toBe('unavailable');
+          const voicing = result.voicings[0];
+          for (const hand of [voicing.leftHand, voicing.rightHand]) {
+            expect(hand.length).toBeLessThanOrEqual(4);
+            expect(Math.max(...hand) - Math.min(...hand)).toBeLessThanOrEqual(9);
+          }
+          expect(Math.max(...voicing.leftHand)).toBeLessThan(Math.min(...voicing.rightHand));
+          expect(Math.min(...voicing.midiNotes) % 12).toBe(
+            chord.kind === 'chord' ? (chord.bass ?? chord.root) : -1,
+          );
+          const omitted = chordPitchClasses(chord).filter(
+            (pitch) => !pcs(voicing.midiNotes).includes(pitch),
+          );
+          expect(voicing.omittedPitchClasses).toEqual(omitted);
+          expect(result.status === 'exact').toBe(omitted.length === 0);
+          expect(
+            pcs(voicing.midiNotes).every((pitch) => chordPitchClasses(chord).includes(pitch)),
+          ).toBe(true);
+        }
+      }
+    }
   });
 
   it('does not invent voicings for unknown or no chord', () => {

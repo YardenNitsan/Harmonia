@@ -15,6 +15,58 @@ import {
 } from './chord';
 
 describe('canonical chord boundaries', () => {
+  it('accepts and losslessly exports all 301 native submission dictionary states', () => {
+    // Pinned LV-Chordia 1.1.0 submission dictionary: 25 qualities × 12 roots + N.
+    const roots = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
+    const qualities = [
+      'min/b7',
+      'min/2',
+      'maj/b7',
+      'maj/2',
+      'sus4(b7)',
+      'sus2',
+      'sus4',
+      '13',
+      '11',
+      'min9',
+      '9',
+      'maj9',
+      'dim7',
+      'hdim7',
+      'min7',
+      '7',
+      'maj7',
+      'min/5',
+      'min/b3',
+      'maj/5',
+      'maj/3',
+      'dim',
+      'aug',
+      'min',
+      'maj',
+    ];
+    const labels = [
+      'N',
+      ...roots.flatMap((root) => qualities.map((quality) => `${root}:${quality}`)),
+    ];
+    expect(labels).toHaveLength(301);
+    for (const label of labels) {
+      const chord = fromHarte(label);
+      expect(validateChord(chord), label).toEqual(chord);
+      expect(equalChords(fromHarte(toHarte(chord)), chord), label).toBe(true);
+    }
+  });
+
+  it.each([
+    ['C:11', [9, 11], [0, 2, 4, 5, 7, 10]],
+    ['C:13', [9, 11, 13], [0, 2, 4, 5, 7, 9, 10]],
+  ] as const)('preserves every native extension and pitch in %s', (label, extensions, pitches) => {
+    const chord = fromHarte(label);
+    expect(chord).toMatchObject({ root: 0, triad: 'major', seventh: 'minor', extensions });
+    expect(chordPitchClasses(chord)).toEqual(pitches);
+    expect(equalChords(fromHarte(toHarte(chord)), chord)).toBe(true);
+  });
+
   const triadPitches: Record<Triad, number[]> = {
     major: [0, 4, 7],
     minor: [0, 3, 7],

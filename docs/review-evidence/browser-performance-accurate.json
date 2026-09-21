@@ -6,51 +6,51 @@
   "profile": "accurate",
   "phases": {
     "analysis": {
-      "elapsed_ms": 916.8000000119209,
-      "frame_count": 109,
+      "elapsed_ms": 918,
+      "frame_count": 108,
       "frame_median_ms": 7,
-      "frame_p95_ms": 7.100000000000136,
-      "frame_max_ms": 125.09999999999991,
-      "long_tasks_ms": [85]
+      "frame_p95_ms": 7.100000000000023,
+      "frame_max_ms": 132,
+      "long_tasks_ms": [92]
     },
     "playback": {
-      "elapsed_ms": 2007.0999999642372,
-      "frame_count": 288,
+      "elapsed_ms": 2003.5,
+      "frame_count": 287,
       "frame_median_ms": 6.900000000000091,
       "frame_p95_ms": 7.099999999999909,
-      "frame_max_ms": 7.2000000000000455,
+      "frame_max_ms": 7.100000000000364,
       "long_tasks_ms": []
     },
     "seeking": {
-      "elapsed_ms": 323.69999998807907,
-      "frame_count": 37,
+      "elapsed_ms": 308.2999999523163,
+      "frame_count": 33,
       "frame_median_ms": 7,
-      "frame_p95_ms": 14,
-      "frame_max_ms": 14,
+      "frame_p95_ms": 20.90000000000009,
+      "frame_max_ms": 21,
       "long_tasks_ms": []
     },
     "resizing": {
-      "elapsed_ms": 251,
-      "frame_count": 24,
+      "elapsed_ms": 236.30000001192093,
+      "frame_count": 25,
       "frame_median_ms": 7,
-      "frame_p95_ms": 20.90000000000009,
+      "frame_p95_ms": 20.800000000000182,
       "frame_max_ms": 27.799999999999727,
       "long_tasks_ms": []
     },
     "saved_reopen": {
-      "elapsed_ms": 97.10000002384186,
+      "elapsed_ms": 97.69999998807907,
       "frame_count": 7,
-      "frame_median_ms": 7,
-      "frame_p95_ms": 48.599999999999966,
-      "frame_max_ms": 48.599999999999966,
+      "frame_median_ms": 6.900000000000034,
+      "frame_p95_ms": 48.60000000000002,
+      "frame_max_ms": 48.60000000000002,
       "long_tasks_ms": []
     },
     "cached_reimport": {
-      "elapsed_ms": 176.20000004768372,
+      "elapsed_ms": 173.60000002384186,
       "frame_count": 9,
-      "frame_median_ms": 7,
-      "frame_p95_ms": 76.50000000000006,
-      "frame_max_ms": 76.50000000000006,
+      "frame_median_ms": 6.900000000000091,
+      "frame_p95_ms": 76.5,
+      "frame_max_ms": 76.5,
       "long_tasks_ms": []
     }
   }

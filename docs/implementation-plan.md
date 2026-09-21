@@ -16,7 +16,27 @@ Tauri SQLite backend, React listening workspace, Python supervised research pipe
 
 ## Global constraints
 
-### Active continuation: visible practice and song chord library
+### Active continuation: contextual voicings, search typing and recognition diagnosis
+
+Completed `voicing-search-recognition-fixes.md`: raw search text/caret survives
+debounce, 2,935 validated guitar grips, reachable separate piano hands, contextual
+Song voicings and explicit Easy practice/capo choices shared by inspector/library.
+Frozen timelines and analyzed labels remain intact. These are suggested arrangements,
+not identification of the original instrument fingering. No product redesign.
+
+Verified 939 application tests, 44 production E2Es, static checks, scoped diagnostic
+Python checks, optimized Windows build and hidden exact-Killer-Queen native flow.
+12.466 s preparation using cached audio, 124 ms cached selection and 20.9 ms late
+seek. The unchanged 83 regions group 79 pitched appearances into 19 library entries.
+GUI stayed hidden; no new training or locked-test evaluation.
+
+`killer-queen-diagnostic-report.md` records model component/vocabulary/decoder
+limits. Lower smoothing did not restore absent harmonic detail; no promotion or
+accuracy improvement is claimed. General Harte 11/13 parsing now accepts all 301
+native states. Do not resume Bob Dylan accuracy testing. Further accuracy work
+requires aligned evidence and a bounded protocol; preserve retained heads/audio.
+
+### Completed checkpoint: visible practice and song chord library
 
 Follow `practice-library-plan.md`: expose existing practice controls directly,
 derive unique counted chord entries from the frozen timeline and add practical

@@ -91,18 +91,18 @@ export function GuitarDiagram({ voicing, label }: { voicing: GuitarVoicing; labe
   );
 }
 
-export function PianoDiagram({
-  voicing,
-  label,
+function PianoHand({
+  notes,
+  handName,
   root,
   spelling,
 }: {
-  voicing: PianoVoicing;
-  label: string;
+  notes: number[];
+  handName: string;
   root: number;
   spelling: 'sharp' | 'flat';
 }) {
-  const notes = voicing.midiNotes;
+  if (!notes.length) return null;
   const start = Math.floor(Math.min(...notes) / 12) * 12;
   const end = Math.ceil((Math.max(...notes) + 1) / 12) * 12 - 1;
   const white = Array.from({ length: end - start + 1 }, (_, i) => start + i).filter((n) =>
@@ -113,14 +113,15 @@ export function PianoDiagram({
   );
   const noteLabel = (n: number) => `${pitchName(n % 12, spelling)}${Math.floor(n / 12) - 1}`;
   return (
-    <div className="piano-voicing">
+    <div className="piano-hand">
+      <span className="eyebrow">{handName}</span>
       <svg
         viewBox={`0 0 ${white.length * 24} 108`}
         role="img"
-        aria-label={`Piano voicing for ${label}: ${notes.map(noteLabel).join(', ')}`}
+        aria-label={`${handName}: ${notes.map(noteLabel).join(', ')}`}
       >
         <title>
-          {label} · {notes.map(noteLabel).join(', ')}
+          {handName} · {notes.map(noteLabel).join(', ')}
         </title>
         {white.map((n, i) => (
           <g key={n}>
@@ -164,11 +165,30 @@ export function PianoDiagram({
         })}
       </svg>
       <p className="voicing-notes">{notes.map(noteLabel).join(' · ')}</p>
-      <p className="voicing-hands">
-        Left: {voicing.leftHand.map(noteLabel).join(', ') || '—'}
-        <br />
-        Right: {voicing.rightHand.map(noteLabel).join(', ') || '—'}
-      </p>
+    </div>
+  );
+}
+
+export function PianoDiagram({
+  voicing,
+  label,
+  root,
+  spelling,
+}: {
+  voicing: PianoVoicing;
+  label: string;
+  root: number;
+  spelling: 'sharp' | 'flat';
+}) {
+  const noteLabel = (n: number) => `${pitchName(n % 12, spelling)}${Math.floor(n / 12) - 1}`;
+  return (
+    <div
+      className="piano-voicing"
+      role="img"
+      aria-label={`Piano voicing for ${label}. Left hand: ${voicing.leftHand.map(noteLabel).join(', ')}. Right hand: ${voicing.rightHand.map(noteLabel).join(', ')}`}
+    >
+      <PianoHand notes={voicing.leftHand} handName="Left hand" root={root} spelling={spelling} />
+      <PianoHand notes={voicing.rightHand} handName="Right hand" root={root} spelling={spelling} />
     </div>
   );
 }

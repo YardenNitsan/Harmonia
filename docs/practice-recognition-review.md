@@ -1,5 +1,11 @@
 # Practice pass: recognition review, 2026-09-21
 
+Later user-recording follow-up: the [Killer Queen diagnostic](killer-queen-diagnostic-report.md)
+reproduces the exact saved result and separates weak component evidence, vocabulary
+limits and smoothing. It fixes rejected native 11/13 Harte aliases, with all 301
+dictionary states checked, but establishes no Killer Queen accuracy improvement.
+The historical recognition findings below remain unchanged.
+
 Recognition remains on the accepted native LV v2 pipeline. This pass changes no
 recognizer, model weights, dictionary, decoding thresholds or cache identities.
 The practice library's canonical chord vocabulary is broader than the production

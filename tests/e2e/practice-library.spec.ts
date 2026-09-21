@@ -10,6 +10,16 @@ test('song practice is visible and library groups frozen chords across playback,
     timeout: 30000,
   });
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await page.getByLabel('Playback position').fill('0.5');
+  const inspector = page.getByRole('complementary', { name: 'Harmony inspector' });
+  await expect(inspector.getByRole('img', { name: /Piano voicing/ })).toBeVisible();
+  await expect(inspector.getByText('Left hand', { exact: true })).toBeVisible();
+  await expect(inspector.getByText('Right hand', { exact: true })).toBeVisible();
+  await inspector.getByRole('button', { name: 'Tone maps', exact: true }).click();
+  await expect(
+    inspector.getByText('Reference maps — not a fingering to play all at once.'),
+  ).toBeVisible();
+  await inspector.getByRole('button', { name: 'Piano', exact: true }).click();
   const practice = page.getByRole('region', { name: 'Practice tools' });
   await expect(practice).toBeVisible();
   await expect(page.getByLabel('Chord notation')).toBeVisible();
@@ -31,6 +41,17 @@ test('song practice is visible and library groups frozen chords across playback,
   }
   const library = page.getByRole('region', { name: 'Chord Library' });
   await expect(library).toBeVisible();
+  await expect(library.getByRole('button', { name: 'Song voicings', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  await library.getByRole('button', { name: 'Easy practice', exact: true }).click();
+  await library.getByLabel('Guitar capo').selectOption('2');
+  await expect(library.getByText('Capo on fret 2', { exact: true })).toBeVisible();
+  await expect(library.getByText(/Frets shown relative to the capo/)).toBeVisible();
+  expect((await exportedRecord(page)).analysis).toEqual(before.analysis);
+  await library.getByRole('button', { name: 'Song voicings', exact: true }).click();
+  await expect(library.getByLabel('Guitar capo')).toHaveCount(0);
   const cards = library.getByTestId('practice-chord-card');
   await expect(cards).toHaveCount(grouped.size);
   const counts = await cards.evaluateAll((nodes) =>

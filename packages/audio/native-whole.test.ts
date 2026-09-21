@@ -23,6 +23,22 @@ const result = () => ({
   },
   warnings: [],
 });
+it('assembles native eleventh and thirteenth labels without losing their constituent extensions', () => {
+  const native = result();
+  native.segments[0].label = 'C:11';
+  native.segments[1].label = 'C:13';
+  const analysis = assembleNativeWholeSong(native, {
+    fingerprint: 'a'.repeat(64),
+    profile: 'balanced',
+    samples: native.sampleCount,
+    waveform: [],
+  });
+  expect(analysis.segments.map((s) => s.chord)).toMatchObject([
+    { root: 0, seventh: 'minor', extensions: [9, 11] },
+    { root: 0, seventh: 'minor', extensions: [9, 11, 13] },
+  ]);
+  expect(native.segments.map((s) => s.label)).toEqual(['C:11', 'C:13']);
+});
 it('assembles the complete native region timeline without frame-level bass splitting', () => {
   const analysis = assembleNativeWholeSong(result(), {
     fingerprint: 'a'.repeat(64),

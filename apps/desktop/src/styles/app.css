@@ -2254,6 +2254,47 @@ select {
   border-top: 1px solid var(--line);
   padding-bottom: 32px;
 }
+.arrangement-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+.arrangement-controls .instrument-tabs {
+  margin: 0;
+}
+.arrangement-controls label {
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.arrangement-controls select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px;
+  max-width: 100%;
+}
+.capo-guidance {
+  border-left: 3px solid var(--accent);
+  padding: 10px 16px;
+  margin: 16px 0;
+  background: var(--surface);
+}
+.capo-guidance strong {
+  color: var(--accent);
+  font-size: 14px;
+}
+.capo-guidance p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 6px 0;
+}
 .practice-chord-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
@@ -2335,6 +2376,14 @@ select {
 .piano-voicing svg {
   width: 100%;
   max-width: 420px;
+}
+.piano-hand + .piano-hand {
+  margin-top: 16px;
+}
+.piano-hand > .eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 9px;
 }
 .voicing-notes,
 .voicing-hands,

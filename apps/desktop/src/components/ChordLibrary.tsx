@@ -1,30 +1,26 @@
-import { memo, useMemo, useState } from 'react';
-import type { ChordSegment } from '../../../../packages/domain/types';
-import { buildPracticeLibrary } from '../../../../packages/domain/practice-library';
-import { getGuitarVoicings, getPianoVoicings } from '../../../../packages/domain/practice-voicings';
+import { memo, useState } from 'react';
+import type { buildPracticeArrangement } from '../../../../packages/domain/practice-arrangement';
 import { GuitarDiagram, PianoDiagram } from './PracticeDiagrams';
 import { timeLabel } from './Timeline';
 
 // No playback time prop: aggregation and voicing selection only depend on the snapshot.
 export const ChordLibrary = memo(function ChordLibrary({
-  segments,
+  arrangement,
   transpose,
   onSeek,
+  onModeChange,
+  capoChoice,
+  onCapoChange,
 }: {
-  segments: readonly ChordSegment[];
+  arrangement: ReturnType<typeof buildPracticeArrangement>;
   transpose: number;
   onSeek(time: number): void;
+  onModeChange(mode: 'song' | 'easy'): void;
+  capoChoice: number | 'recommended';
+  onCapoChange(capo: number | 'recommended'): void;
 }) {
   const [instrument, setInstrument] = useState<'guitar' | 'piano' | 'both'>('both');
-  const entries = useMemo(
-    () =>
-      buildPracticeLibrary(segments).map((entry) => ({
-        ...entry,
-        guitar: getGuitarVoicings(entry.chord),
-        piano: getPianoVoicings(entry.chord),
-      })),
-    [segments],
-  );
+  const { entries } = arrangement;
   return (
     <section className="chord-library" aria-label="Chord Library">
       <div className="practice-heading">
@@ -49,6 +45,61 @@ export const ChordLibrary = memo(function ChordLibrary({
           ))}
         </div>
       </div>
+      <div className="arrangement-controls">
+        <div className="instrument-tabs" role="group" aria-label="Practice arrangement">
+          {(['song', 'easy'] as const).map((mode) => (
+            <button
+              key={mode}
+              aria-pressed={arrangement.mode === mode}
+              className={arrangement.mode === mode ? 'selected' : ''}
+              onClick={() => onModeChange(mode)}
+            >
+              {mode === 'song' ? 'Song voicings' : 'Easy practice'}
+            </button>
+          ))}
+        </div>
+        {arrangement.mode === 'easy' && (
+          <label>
+            Guitar capo{' '}
+            <select
+              aria-label="Guitar capo"
+              value={capoChoice}
+              onChange={(event) =>
+                onCapoChange(
+                  event.target.value === 'recommended' ? 'recommended' : Number(event.target.value),
+                )
+              }
+            >
+              <option value="recommended">
+                Recommended:{' '}
+                {arrangement.recommendedCapo ? `fret ${arrangement.recommendedCapo}` : 'no capo'}
+              </option>
+              <option value="0">No capo</option>
+              {[1, 2, 3, 4, 5, 6, 7].map((fret) => (
+                <option value={fret} key={fret}>
+                  Fret {fret}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+      </div>
+      <p className="library-guide">
+        {arrangement.mode === 'song'
+          ? 'Suggested voicings follow the song’s harmony with less movement between chords. Original fingerings are not identified.'
+          : 'An easier arrangement. Chord titles retain the analyzed harmony; any omitted notes are shown.'}
+      </p>
+      {arrangement.mode === 'easy' && (
+        <div className="capo-guidance">
+          <strong>{arrangement.capo ? `Capo on fret ${arrangement.capo}` : 'No capo'}</strong>
+          <p>
+            {arrangement.capo
+              ? 'Frets shown relative to the capo. Play the named shapes; piano remains in the sounding key.'
+              : 'Shapes are shown in standard tuning.'}
+          </p>
+          <p>{arrangement.capoExplanation}</p>
+        </div>
+      )}
       {transpose !== 0 && (
         <p className="practice-transposition">
           Practice view {transpose > 0 ? '+' : ''}
@@ -90,8 +141,14 @@ export const ChordLibrary = memo(function ChordLibrary({
               {instrument !== 'piano' && (
                 <div className="practice-instrument">
                   <span className="eyebrow">GUITAR</span>
+                  {(arrangement.capo > 0 || entry.shapeLabel !== entry.label) && (
+                    <p className="voicing-notes">
+                      Play {entry.shapeLabel} shape
+                      {arrangement.capo ? ` · capo ${arrangement.capo}` : ''}
+                    </p>
+                  )}
                   {entry.guitar.voicings[0] ? (
-                    <GuitarDiagram voicing={entry.guitar.voicings[0]} label={entry.label} />
+                    <GuitarDiagram voicing={entry.guitar.voicings[0]} label={entry.shapeLabel} />
                   ) : (
                     <p className="diagram-unavailable">Guitar diagram unavailable</p>
                   )}

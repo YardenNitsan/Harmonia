@@ -19,6 +19,24 @@ const recording: CatalogRecording = {
   },
 };
 afterEach(() => vi.useRealTimers());
+it('preserves raw typed whitespace when debounced search starts and completes', async () => {
+  vi.useFakeTimers();
+  const search = vi.fn(async (_query: string) => [recording]);
+  const controller = new SongSearchController({
+    catalog: { search, acquire: vi.fn() },
+    prepare: vi.fn(),
+    cancelPreparation: vi.fn(),
+    beforePrepare: async () => {},
+  });
+  controller.query('  Killer ');
+  await vi.advanceTimersByTimeAsync(300);
+  expect(search.mock.calls[0]?.[0]).toBe('Killer');
+  expect(controller.snapshot().query).toBe('  Killer ');
+  controller.query('  Killer Queen  ');
+  await vi.advanceTimersByTimeAsync(300);
+  expect(controller.snapshot().query).toBe('  Killer Queen  ');
+  controller.dispose();
+});
 it('late rejected-audio cleanup cannot restart acquisition over a replacement song', async () => {
   let release!: (provider: 'yt-dlp') => void;
   const reject = vi.fn(

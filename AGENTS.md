@@ -1,6 +1,18 @@
 # Harmonia operating guide
 
+Latest user direction: do not use Knockin' on Heaven's Door for further accuracy
+checks. Preserve its historical evidence. Current diagnosis uses the exact cached
+Killer Queen recording with a separately recorded protocol; no song-specific
+progression or threshold tuning. See `docs/voicing-search-recognition-fixes.md`.
+
 ## Current practice checkpoint
+
+Current follow-up: `docs/voicing-search-recognition-fixes.md` records contextual Song
+voicings, Easy practice/capo, validated guitar data, reachable separate piano hands,
+and the search caret fix. 939 application tests, 44 production E2Es and hidden native
+Killer Queen checks pass. Voicings are suggested arrangements, not extracted original
+fingerings. Preserve explicit reductions, sounding/shape labels and frozen timelines.
+The general 11/13 parser fix does not improve Killer Queen's model predictions.
 
 The consumer song page now exposes practice controls and a frozen-timeline Chord
 Library with counted occurrences and original guitar/piano diagrams. See
@@ -20,10 +32,12 @@ No new training or locked-test access. Browser preview/earlier profiles retain D
 Native execution requires this checkout's `ml/.venv`, verified pinned weights and
 8 GiB available RAM; packaging that runtime is a separate open deployment gate.
 
-Current exact regression command:
-`node scripts/stabilization-native-probe.mjs <unused-report-path>`.
-It uses real YouTube typeahead, exact original cached Bob bytes, original model,
+Current exact regression command (requires the retained private diagnostic manifest):
+`node scripts/stabilization-native-probe.mjs <unused-report-path> .superpowers/diagnostics/killer-queen/cache-manifest-original.json`.
+It uses real YouTube typeahead, exact original cached Killer Queen bytes, original model,
 hidden isolated WebView, progression/seek/playback/cache checks and bounded cleanup.
+The no-manifest form defaults to the historical Bob fixture; do not run it for
+current accuracy checks. See `docs/killer-queen-diagnostic-report.md` for limits.
 Do not repeatedly reacquire different bytes or overwrite frozen before evidence.
 No recognition runs during playback. Native v2 model/pipeline identities invalidate
 older analysis before playback while preserving prior records and corrections.

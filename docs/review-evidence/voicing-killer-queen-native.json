@@ -1,0 +1,289 @@
+{
+  "status": "passed",
+  "checks": {
+    "exactOriginalAudioReused": true,
+    "realYoutubeTypeaheadWithoutEnter": true,
+    "youtubeRequestsRemainNative": true,
+    "visiblePracticeLibraryAndOccurrenceSeek": true,
+    "completeTimelineBeforeAutomaticPlayback": true,
+    "lateSeekCentersProgression": true,
+    "playbackCentersProgression": true,
+    "authoritativePlaybackPauseSeekAndClickableTimeline": true,
+    "noAnalysisReplacementDuringPlayback": true,
+    "reloadSqliteCacheWithoutRecognition": true,
+    "cachedAudioNotReacquired": true
+  },
+  "errors": [],
+  "audioRetainedAfterCleanup": false,
+  "probeSha256": "d27d4c6c9e85d070aa79affca76bea389c8e8b7c76b2a24d8e91b24d99384094",
+  "native": {
+    "protocol": "HARMONIA_HEADLESS_VALIDATION_V1",
+    "executable": "C:\\Users\\yarde\\Documents\\codexp\\Harmonia\\apps\\desktop\\src-tauri\\target\\continuation-clean\\release\\harmonia.exe",
+    "executableSha256": "cd49bffc90119c0003b8494a23915b2697e4f41c394af7bacc55ce1d1b066f0f",
+    "isolatedData": true,
+    "visibleWindowRequested": false,
+    "debugEndpointPrivate": true,
+    "hiddenReadinessVerified": true,
+    "webviewVersion": "153.0.4234.48",
+    "exitCode": 1,
+    "exitSignal": null
+  },
+  "typeaheadSeconds": 1.3671982000000003,
+  "preparationSeconds": 12.4663133,
+  "practice": {
+    "uniqueChords": 19,
+    "appearances": 79,
+    "occurrenceSeek": 168.9948299319728
+  },
+  "source": {
+    "artist": "Queen Official",
+    "audio": {
+      "container": "webm",
+      "fingerprint": "4c4d6ef74eae0222b08ab75856fdf4d88eacd7483bfda730a65f948103a15c5c",
+      "kind": "acquired",
+      "mime": "audio/webm",
+      "provider": "yt-dlp",
+      "size": 3013541,
+      "url": "sha256:4c4d6ef74eae0222b08ab75856fdf4d88eacd7483bfda730a65f948103a15c5c"
+    },
+    "id": "2ZBtPf7FOoM",
+    "pageUrl": "https://www.youtube.com/watch?v=2ZBtPf7FOoM",
+    "provider": "youtube",
+    "thumbnail": "https://i.ytimg.com/vi/2ZBtPf7FOoM/mqdefault.jpg",
+    "title": "Queen - Killer Queen (Top Of The Pops, 1974)"
+  },
+  "timings": {
+    "normalizeMs": 23.5,
+    "featuresMs": 1783.1847000052219,
+    "inferenceMs": 6082.77179999277,
+    "temporalDecodingMs": 123.50190000142902,
+    "rhythmKeyMs": 918.5326000442728,
+    "timelineMs": 4.284100009594113,
+    "boundaryMs": 2.2017000010237098,
+    "pipelineMs": 10384.612699970605,
+    "workerMs": 11690,
+    "decodeMs": 509.0999999642372,
+    "analysisMs": 12206.899999976158
+  },
+  "providers": [
+    {
+      "provider": "yt-dlp",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "cobalt",
+      "configured": true,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    },
+    {
+      "provider": "saveapi",
+      "configured": false,
+      "available": true,
+      "successRate": 0,
+      "failureRate": 0,
+      "averageAcquisitionMs": 0,
+      "successes": 0,
+      "failures": 0,
+      "latencyMs": 0,
+      "recentFailures": 0,
+      "unavailableUntil": 0,
+      "disabled": false,
+      "rateLimited": false,
+      "lastFailure": null,
+      "supportedFormat": null
+    }
+  ],
+  "sanity": {
+    "segmentCount": 83,
+    "medianSeconds": 1.2770975056689338,
+    "meanSeconds": 2.3129033139360162,
+    "changesPerMinute": 25.628874357423644,
+    "sub200msPercent": 0,
+    "extensionsPercent": 0,
+    "alterationsPercent": 0,
+    "slashPercent": 1.2048192771084338
+  },
+  "excerpts": [
+    {
+      "start": 0,
+      "end": 17.647165532879818,
+      "label": "N"
+    },
+    {
+      "start": 17.647165532879818,
+      "end": 20.851519274376415,
+      "label": "D"
+    },
+    {
+      "start": 20.851519274376415,
+      "end": 23.010975056689343,
+      "label": "Ab"
+    },
+    {
+      "start": 23.010975056689343,
+      "end": 27.260226757369615,
+      "label": "Bb"
+    },
+    {
+      "start": 27.260226757369615,
+      "end": 28.53732426303855,
+      "label": "G"
+    },
+    {
+      "start": 28.53732426303855,
+      "end": 29.41968253968254,
+      "label": "Bm"
+    },
+    {
+      "start": 29.41968253968254,
+      "end": 30.511020408163265,
+      "label": "A"
+    },
+    {
+      "start": 30.511020408163265,
+      "end": 33.57605442176871,
+      "label": "D"
+    },
+    {
+      "start": 33.57605442176871,
+      "end": 34.71383219954649,
+      "label": "Bb"
+    },
+    {
+      "start": 34.71383219954649,
+      "end": 35.735510204081635,
+      "label": "D"
+    },
+    {
+      "start": 35.735510204081635,
+      "end": 36.80362811791383,
+      "label": "Gm"
+    },
+    {
+      "start": 36.80362811791383,
+      "end": 37.871746031746035,
+      "label": "D"
+    },
+    {
+      "start": 37.871746031746035,
+      "end": 39.84544217687075,
+      "label": "F#m"
+    },
+    {
+      "start": 39.84544217687075,
+      "end": 41.424399092970525,
+      "label": "G"
+    },
+    {
+      "start": 41.424399092970525,
+      "end": 42.32997732426304,
+      "label": "B"
+    },
+    {
+      "start": 42.32997732426304,
+      "end": 45.16281179138322,
+      "label": "A"
+    },
+    {
+      "start": 45.16281179138322,
+      "end": 46.13804988662132,
+      "label": "D"
+    },
+    {
+      "start": 46.13804988662132,
+      "end": 47.275827664399095,
+      "label": "G"
+    },
+    {
+      "start": 47.275827664399095,
+      "end": 48.55292517006803,
+      "label": "B"
+    },
+    {
+      "start": 48.55292517006803,
+      "end": 50.31764172335601,
+      "label": "A"
+    },
+    {
+      "start": 50.31764172335601,
+      "end": 54.47401360544218,
+      "label": "F"
+    },
+    {
+      "start": 54.47401360544218,
+      "end": 55.89043083900227,
+      "label": "E"
+    },
+    {
+      "start": 55.89043083900227,
+      "end": 56.540589569161,
+      "label": "C"
+    },
+    {
+      "start": 56.540589569161,
+      "end": 58.28208616780046,
+      "label": "F"
+    },
+    {
+      "start": 58.28208616780046,
+      "end": 66.780589569161,
+      "label": "Cm"
+    }
+  ],
+  "analysis": {
+    "duration": 191.97097505668935,
+    "segments": 83,
+    "pipeline": "harmonia-whole-song-lv-v2",
+    "model": "lv-chordia-1.1.0-submission-native-v2",
+    "fingerprint": "4c4d6ef74eae0222b08ab75856fdf4d88eacd7483bfda730a65f948103a15c5c"
+  },
+  "workerSeconds": 11.697299999952316,
+  "futureSeek": {
+    "seconds": 120,
+    "chord": "G",
+    "assertionLatencyMs": 20.854999999999563
+  },
+  "workers": [
+    {
+      "url": "http://tauri.localhost/assets/whole-song-worker-Dd-ZWsjO.js",
+      "started": 3140.900000035763,
+      "stages": [],
+      "completed": 14838.199999988079,
+      "duration": 191.97097505668935,
+      "segments": 83
+    }
+  ],
+  "cacheReopenSeconds": 0.9778313000000016,
+  "cachedSelectionToPlayerSeconds": 0.12385180000000037,
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "debugPortClosed": true,
+    "isolatedDataRemoved": true,
+    "processLog": ""
+  }
+}

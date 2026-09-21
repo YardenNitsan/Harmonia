@@ -26,11 +26,18 @@ Additional features include local-file whole-song analysis, a persistent library
 **Practice tools are visible directly on the song page.** The Chord Library groups
 the completed timeline's unique chords in first-appearance order, with appearance
 counts, total duration and clickable occurrence times. Switch between guitar chord
-boxes, piano voicings or both. Common guitar grips include open/muted strings,
-fingers and barres; unavailable shapes are identified. Piano views show compact
-two-hand voicings and name omitted notes when dense harmony needs reduction.
-These are reference voicings, not detected fingerings. Display transposition affects
-practice views without changing the audio or saved analysis.
+boxes, piano voicings or both. **Song voicings** considers neighboring chords to
+reduce hand movement, using 2,935 validated guitar grips and reachable piano layouts
+with separate left/right hands. **Easy practice** offers explicit simpler shapes
+and recommends a guitar capo when it makes the song easier. Sounding chord labels
+remain visible; the piano stays in the song key. You can override the capo.
+
+These are suggested arrangements, not verified original fingerings: a chord label
+alone cannot establish which strings, register or instrument produced the recording.
+Omitted notes and unavailable shapes are identified. Display transposition affects
+practice views without changing the audio or saved analysis. See the
+[voicing sources and limitations](docs/practical-voicing-sources.md) and
+[Killer Queen recognition diagnosis](docs/killer-queen-diagnostic-report.md).
 
 The current input bounds are **100 MiB per encoded recording and 20 minutes of audio**, with additional decoded-memory and runtime limits. Common local formats include WAV, FLAC, MP3 and Ogg; acquired M4A/WebM support depends on the Windows decoder. A file passing size checks is not a guarantee that every codec or maximum-length recording will succeed.
 

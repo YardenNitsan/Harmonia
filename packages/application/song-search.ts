@@ -90,8 +90,8 @@ export class SongSearchController {
   query(value: string) {
     this.cancel(false);
     this.set({ query: value.slice(0, 160), results: [], notice: null });
-    const query = this.state.query.trim();
-    if (query.length < 2) return;
+    const query = this.state.query;
+    if (query.trim().length < 2) return;
     this.set({ status: 'searching' });
     this.timer = setTimeout(() => {
       this.timer = null;
@@ -112,7 +112,8 @@ export class SongSearchController {
     });
     try {
       const page = await this.dependencies.catalog.search(
-        query,
+        // Provider normalization must never rewrite the controlled input or its caret.
+        query.trim(),
         provider,
         abort.signal,
         (results) => {

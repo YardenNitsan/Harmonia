@@ -19,6 +19,10 @@ await copyFile(
   resolve(root, 'third-party/ONNX-Runtime-LICENSE.txt'),
   resolve(runtime, 'LICENSE.txt'),
 );
+await copyFile(
+  resolve(root, 'packages/domain/data/chords-db.LICENSE'),
+  resolve(runtime, 'chords-db-LICENSE.txt'),
+);
 console.log(
   `Prepared local CPU runtime and ${manifest.model_id} (${model.length} bytes, experimental)`,
 );

@@ -612,6 +612,8 @@ function applyHarteQuality(chord: PitchedChord, quality: string): void {
     maj6: { triad: 'major', extensions: [6] },
     min6: { triad: 'minor', extensions: [6] },
     '9': { triad: 'major', seventh: 'minor', extensions: [9] },
+    '11': { triad: 'major', seventh: 'minor', extensions: [9, 11] },
+    '13': { triad: 'major', seventh: 'minor', extensions: [9, 11, 13] },
     maj9: { triad: 'major', seventh: 'major', extensions: [9] },
     min9: { triad: 'minor', seventh: 'minor', extensions: [9] },
   };

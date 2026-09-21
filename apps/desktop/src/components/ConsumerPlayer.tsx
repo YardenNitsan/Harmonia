@@ -10,6 +10,7 @@ import {
 } from '../../../../packages/domain/timeline';
 import { displayChord, type ChordDisplayMode } from '../../../../packages/domain/notation';
 import { pitchName } from '../../../../packages/domain/chord';
+import { buildPracticeArrangement } from '../../../../packages/domain/practice-arrangement';
 import {
   createAnalysisExport,
   createTimelineExport,
@@ -46,12 +47,39 @@ export function ConsumerPlayer({
   const [notation, setNotation] = useState<ChordDisplayMode>('advanced');
   const [speed, setSpeed] = useState(1);
   const [volume, setVolume] = useState(controller.player.volume);
+  const [practiceMode, setPracticeMode] = useState<'song' | 'easy'>('song');
+  const [capo, setCapo] = useState<number | 'recommended'>('recommended');
   const analysis = useMemo(
     () => (transpose ? transposeAnalysis(record.analysis, transpose) : record.analysis),
     [record.analysis, transpose],
   );
   const index = findSegmentIndex(analysis.segments, time);
   const segment = analysis.segments[index];
+  const arrangement = useMemo(
+    () =>
+      buildPracticeArrangement(analysis.segments, {
+        mode: practiceMode,
+        capo: practiceMode === 'song' ? 0 : capo,
+      }),
+    [analysis.segments, practiceMode, capo],
+  );
+  const arrangedOccurrences = useMemo(
+    () => new Map(arrangement.occurrences.map((item) => [item.segmentId, item])),
+    [arrangement],
+  );
+  const currentArrangement = segment ? arrangedOccurrences.get(segment.id) : undefined;
+  const suggestedVoicing = useMemo(
+    () =>
+      currentArrangement
+        ? {
+            ...currentArrangement,
+            capo: arrangement.capo,
+            shapeLabel: arrangement.entries.find((entry) => entry.id === currentArrangement.entryId)
+              ?.shapeLabel,
+          }
+        : undefined,
+    [currentArrangement, arrangement],
+  );
   const { previous, next } =
     index >= 0
       ? { previous: analysis.segments[index - 1], next: analysis.segments[index + 1] }
@@ -273,6 +301,7 @@ export function ConsumerPlayer({
             </div>
           </div>
           <ChordInspector
+            practiceVoicings={suggestedVoicing}
             segment={segment}
             index={index}
             transpose={transpose}
@@ -296,7 +325,14 @@ export function ConsumerPlayer({
           <p className="analysis-note">{analysis.warnings.join(' ')}</p>
         </div>
       </section>
-      <ChordLibrary segments={analysis.segments} transpose={transpose} onSeek={seek} />
+      <ChordLibrary
+        arrangement={arrangement}
+        transpose={transpose}
+        onSeek={seek}
+        onModeChange={setPracticeMode}
+        capoChoice={capo}
+        onCapoChange={setCapo}
+      />
       {editing && (
         <ChordEditor
           key={editing.id}

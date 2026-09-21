@@ -109,6 +109,38 @@ async function configuredSearchMock(page: import('@playwright/test').Page) {
   });
 }
 
+test('typing retains spaces and caret position through delayed search updates', async ({
+  page,
+}) => {
+  await configuredSearchMock(page);
+  await page.goto('/');
+  const input = page.getByRole('combobox', { name: 'Song or artist' });
+  await input.pressSequentially('old ');
+  await expect
+    .poll(() => page.evaluate(() => Reflect.get(window, 'mockedSearchCalls')))
+    .toEqual(['old']);
+  await expect(input).toHaveValue('old ');
+  await expect
+    .poll(() => input.evaluate((node) => (node as HTMLInputElement).selectionStart))
+    .toBe(4);
+  await input.pressSequentially('song');
+  // Edit in the middle, then let both the stale and current response finish.
+  await input.press('Home');
+  await input.press('ArrowRight');
+  await input.pressSequentially(' ');
+  await expect
+    .poll(() => page.evaluate(() => Reflect.get(window, 'mockedSearchCompleted')))
+    .toContain('old');
+  await expect(page.getByRole('option').first()).toContainText('o ld song');
+  await expect(input).toHaveValue('o ld song');
+  await expect
+    .poll(() => input.evaluate((node) => (node as HTMLInputElement).selectionStart))
+    .toBe(2);
+  await input.fill('שיר הנושא ');
+  await expect(page.getByRole('option').first()).toContainText('שיר הנושא');
+  await expect(input).toHaveValue('שיר הנושא ');
+});
+
 test('configured API mock: debounce, stale response protection, arrows, Escape and Enter', async ({
   page,
 }) => {

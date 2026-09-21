@@ -6,11 +6,24 @@
 entries with occurrence/count/duration metadata. `practice-voicings.ts` resolves
 standard-tuning guitar fingerings and compact piano MIDI voicings separately from
 recognition. These pure domain functions never edit an analysis or infer from audio.
-`ChordLibrary` memoizes its projection by timeline identity; playback clock updates
+`practice-arrangement.ts` selects suggested voicings over the complete occurrence
+sequence with bounded dynamic programming and cached transition costs. Song mode
+preserves harmonic detail; Easy mode explicitly reduces colors and can recommend
+a songwide guitar capo. Guitar shape pitches plus capo equal the sounding pitches;
+piano remains in the displayed song key. Neither mode identifies the performer's
+actual instrumental fingering. Original labels, bass and analysis stay intact.
+`ConsumerPlayer` memoizes the arrangement by timeline and practice options, sharing
+occurrence choices with the current inspector and grouped library. Playback updates
 do not rebuild it. Occurrence buttons use the player's existing authoritative seek
 path. `PracticeDiagrams` renders original accessible SVGs. Existing instrument maps
 and corrections remain in the now-visible consumer practice section. No cache/model
 version changes are needed for a derived presentation feature.
+
+Guitar candidates come from pinned, licensed, pitch/finger-validated data with
+explicit reductions or unavailable results. Piano candidates separate reachable
+left/right hands rather than highlighting every octave of each pitch class. The
+old pitch-class maps remain explicitly identified reference views. See
+`practical-voicing-sources.md` for provenance, limits and arrangement measurements.
 
 ## Current native whole-song recognition (ADR010)
 
@@ -48,7 +61,9 @@ Earlier metadata-only/watch-only restrictions below describe the superseded prot
 ## Consumer search and playback snapshot
 
 `SongSearchController` debounces text changes, aborts superseded requests and
-rejects stale results. `ConsumerCatalog` composes native official YouTube metadata
+rejects stale results. Raw controlled-input text is retained through asynchronous
+updates; trimming occurs only at the provider request boundary, preserving spaces
+and the caret during typing. `ConsumerCatalog` composes native official YouTube metadata
 search and the existing permitted-recording catalog while preserving every result's
 actual provider and identity. Native code owns credentials and Google HTTPS; the
 privileged frontend receives bounded metadata only. There is no credential form
